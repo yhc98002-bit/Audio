@@ -1,0 +1,15 @@
+{
+  "conditions": {
+    "vocal_both": 149,
+    "vocal_guidance": 176,
+    "vocal_hints": 175
+  },
+  "errors": 0,
+  "missing_flac": 0,
+  "near_silent": 0,
+  "near_silent_rate": 0.0,
+  "ok": 500,
+  "prompts": 3,
+  "rows_audited": 500,
+  "type_correct_rate": 0.618
+}

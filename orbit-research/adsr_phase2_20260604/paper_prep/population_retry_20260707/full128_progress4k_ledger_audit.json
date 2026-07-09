@@ -1,0 +1,83 @@
+{
+  "columns": [
+    "baseline_clean_count_8",
+    "baseline_present_count_8",
+    "baseline_violation_count_8",
+    "cfg_scale",
+    "condition",
+    "extras",
+    "flac",
+    "near_silent",
+    "ok",
+    "present",
+    "prompt_id",
+    "prompt_index",
+    "requested_vocal",
+    "sample_rate",
+    "seed",
+    "seed_idx",
+    "selection_bin",
+    "selection_rank",
+    "source",
+    "type_correct",
+    "vocal_energy_ratio",
+    "vocal_stratum",
+    "wall_elapsed_s",
+    "worker_index"
+  ],
+  "duplicate_keys": [],
+  "file_rows": {
+    "orbit-research/adsr_phase2_20260604/paper_prep/population_retry_20260707/ledgers/full128_w0.jsonl": 512,
+    "orbit-research/adsr_phase2_20260604/paper_prep/population_retry_20260707/ledgers/full128_w1.jsonl": 535,
+    "orbit-research/adsr_phase2_20260604/paper_prep/population_retry_20260707/ledgers/full128_w2.jsonl": 535,
+    "orbit-research/adsr_phase2_20260604/paper_prep/population_retry_20260707/ledgers/full128_w3.jsonl": 524,
+    "orbit-research/adsr_phase2_20260604/paper_prep/population_retry_20260707/ledgers/full128_w4.jsonl": 519,
+    "orbit-research/adsr_phase2_20260604/paper_prep/population_retry_20260707/ledgers/full128_w5.jsonl": 528,
+    "orbit-research/adsr_phase2_20260604/paper_prep/population_retry_20260707/ledgers/full128_w6.jsonl": 521,
+    "orbit-research/adsr_phase2_20260604/paper_prep/population_retry_20260707/ledgers/full128_w7.jsonl": 516
+  },
+  "file_sha256": {
+    "orbit-research/adsr_phase2_20260604/paper_prep/population_retry_20260707/ledgers/full128_w0.jsonl": "2f34cf16e45fa8e665b9dfd60773ac0a655cc3c30ebc6bacb2e710a29687400f",
+    "orbit-research/adsr_phase2_20260604/paper_prep/population_retry_20260707/ledgers/full128_w1.jsonl": "f18a8d1eb1ab4c3b5cba2779c6e94bc253f674effd76dce03a2b7b2a648ec9c7",
+    "orbit-research/adsr_phase2_20260604/paper_prep/population_retry_20260707/ledgers/full128_w2.jsonl": "c1bb087801a9055431f37d241be7aed736f1f3c72fb0dc5dde7378df10531e82",
+    "orbit-research/adsr_phase2_20260604/paper_prep/population_retry_20260707/ledgers/full128_w3.jsonl": "d60ee5921f743a1c858d7fa1887f3a7d663a8ccc397949f7577c83c127f909e9",
+    "orbit-research/adsr_phase2_20260604/paper_prep/population_retry_20260707/ledgers/full128_w4.jsonl": "a2851efe8b7ba2b4e6674161c19c65c51201586baf8d15a3685070caf75974f4",
+    "orbit-research/adsr_phase2_20260604/paper_prep/population_retry_20260707/ledgers/full128_w5.jsonl": "754f60a899b0212edebcf1108add83427b7fd0eaa392026e805199452ab4e860",
+    "orbit-research/adsr_phase2_20260604/paper_prep/population_retry_20260707/ledgers/full128_w6.jsonl": "73113fa293ff8d1163f07c2fdbbe0f6caeba28ab15c4434ac995e80c3ae083c3",
+    "orbit-research/adsr_phase2_20260604/paper_prep/population_retry_20260707/ledgers/full128_w7.jsonl": "79e3ca2e65ae18aa6540afbec4b2492bf6b4adefb407c69d1baa422a2d6f89ee"
+  },
+  "files": [
+    "orbit-research/adsr_phase2_20260604/paper_prep/population_retry_20260707/ledgers/full128_w0.jsonl",
+    "orbit-research/adsr_phase2_20260604/paper_prep/population_retry_20260707/ledgers/full128_w1.jsonl",
+    "orbit-research/adsr_phase2_20260604/paper_prep/population_retry_20260707/ledgers/full128_w2.jsonl",
+    "orbit-research/adsr_phase2_20260604/paper_prep/population_retry_20260707/ledgers/full128_w3.jsonl",
+    "orbit-research/adsr_phase2_20260604/paper_prep/population_retry_20260707/ledgers/full128_w4.jsonl",
+    "orbit-research/adsr_phase2_20260604/paper_prep/population_retry_20260707/ledgers/full128_w5.jsonl",
+    "orbit-research/adsr_phase2_20260604/paper_prep/population_retry_20260707/ledgers/full128_w6.jsonl",
+    "orbit-research/adsr_phase2_20260604/paper_prep/population_retry_20260707/ledgers/full128_w7.jsonl"
+  ],
+  "key_columns": [
+    "prompt_id",
+    "seed_idx"
+  ],
+  "missing_required": [],
+  "n_duplicate_keys": 0,
+  "n_files": 8,
+  "n_missing_required": 0,
+  "n_parse_errors": 0,
+  "n_rows": 4190,
+  "parse_errors": [],
+  "patterns": [
+    "orbit-research/adsr_phase2_20260604/paper_prep/population_retry_20260707/ledgers/full128_w*.jsonl"
+  ],
+  "required_columns": [
+    "prompt_id",
+    "seed_idx",
+    "seed",
+    "type_correct",
+    "requested_vocal",
+    "flac",
+    "ok"
+  ],
+  "verdict": "PASS"
+}

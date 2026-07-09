@@ -1,0 +1,21 @@
+{
+  "delta_used": 0.3125,
+  "expected_effects": {
+    "E1a": 0.0127,
+    "E1b": -0.1065,
+    "E2a": 0.1828,
+    "E2b": 0.1288
+  },
+  "power": {
+    "E1a": 0.0,
+    "E1b": 0.0,
+    "E2a": 0.825,
+    "E2b": 0.142
+  },
+  "criteria": {
+    "E1a": ">=15% rel reduction steps-to-first-clean, CI>0",
+    "E1b": ">=+15% rel clean-yield at 90-step checkpoint, CI>0",
+    "E2a": ">=+15pp per-draw clean rate on n=32 subgroup, CI>0",
+    "E2b": ">=+20pp any-clean at 90-step checkpoint on subgroup, CI>0"
+  }
+}

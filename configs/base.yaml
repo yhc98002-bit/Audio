@@ -1,0 +1,23 @@
+project: audio_diffusion_mprm
+run_ledger_path: orbit-research/RUN_LEDGER.jsonl
+wandb_project: null
+
+reward:
+  use_clap: true
+  clap_variant: laion-clap-music-630k
+  use_audiobox: true
+  audiobox_variant: facebookresearch/audiobox-aesthetics
+  use_whisper: true
+  whisper_variant: large-v3
+  use_mert: true
+  mert_variant: m-a-p/MERT-v1-95M
+  use_fad: true
+  use_demucs: true
+  demucs_variant: htdemucs
+  beta_robust: 0.5
+  lambda_probe:
+    silence_fraction: 0.0
+    autocorr_repetition: 0.0
+    off_prompt_distance: 0.0
+    hf_artifact_score: 0.0
+    broken_section_indicator: 0.0

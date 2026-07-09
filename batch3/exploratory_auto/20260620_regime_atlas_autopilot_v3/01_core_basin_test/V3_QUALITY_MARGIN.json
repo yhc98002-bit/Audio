@@ -1,0 +1,12 @@
+{
+  "bon_clean": {
+    "common_robust_lcb": 2.23,
+    "semantic_fit": 0.302,
+    "aesthetic_pq": 6.971
+  },
+  "v3_clean": {
+    "common_robust_lcb": 2.068,
+    "semantic_fit": 0.31,
+    "aesthetic_pq": 7.338
+  }
+}

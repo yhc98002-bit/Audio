@@ -1,0 +1,279 @@
+{
+  "boundary": {
+    "current_stage_forbidden_launch_status": {
+      "full_1000_step_rl_rescue_launched": false,
+      "human_eval_launched_by_current_stage": false,
+      "phase_d_launched_by_current_stage": false,
+      "pruning_rl_launched": false,
+      "track_c_gpu_smoke_launched": false
+    },
+    "gate_v1_exists": true,
+    "gate_v1_path": "configs/eval/gate_v1.yaml",
+    "gate_v1_sha256": "43a306753583f03563c792ac9399bb1e30b0525c98c902a1e18756d54e25b3c6",
+    "gate_v2_draft_exists": true,
+    "gate_v2_draft_path": "configs/eval/gate_v2.yaml.draft",
+    "historical_artifact_caveat": "Historical held-out artifacts exist in this checkout; they are not evidence of a new held-out launch during the current trajectory-aware stage.",
+    "historical_held_out_dirs_observed": [
+      "runs/m1a_phase/held_out",
+      "runs/phase_b3_credit_unit/h3_held_out",
+      "runs/phase_b3_credit_unit/h3_held_out_attempt1_oversubscribed",
+      "runs/phase_b3_credit_unit/h3_held_out_v2_global_seed",
+      "runs/r0_base/held_out",
+      "runs/r1_cfg_sweep/held_out",
+      "runs/r2_bon/held_out",
+      "runs/r4_bon_cfg/held_out",
+      "runs/r9_s7_sampler_control/held_out"
+    ],
+    "historical_pi_review_held_out_examples": [
+      "_pi_review_pkg/audio/held_out_0018_r0_seed0.mp3",
+      "_pi_review_pkg/audio/held_out_0018_r0_seed1.mp3",
+      "_pi_review_pkg/audio/held_out_0018_r0_seed2.mp3",
+      "_pi_review_pkg/audio/held_out_0018_r2_seed0.mp3",
+      "_pi_review_pkg/audio/held_out_0018_r2_seed1.mp3",
+      "_pi_review_pkg/audio/held_out_0018_r2_seed2.mp3",
+      "_pi_review_pkg/audio/held_out_0020_r0_seed0.mp3",
+      "_pi_review_pkg/audio/held_out_0020_r0_seed1.mp3"
+    ]
+  },
+  "completion_audit_json": "orbit-research/TRAJECTORY_AWARE_COMPLETION_AUDIT_CURRENT.json",
+  "generated_at_utc": "2026-06-04T04:29:43Z",
+  "goal_complete": true,
+  "overall_status": "FINAL_READY",
+  "recommendation": "Recommended framing: pivot toward trajectory-aware inference-time selection plus global-quality emergence analysis; keep RL rescue as bounded exploratory evidence.",
+  "refresh": {
+    "status": "MISSING"
+  },
+  "requirements": [
+    {
+      "details": "run_completed=True; records=4096/4096; launcher_exit=0; outputs_exist=True",
+      "evidence": "orbit-research/EARLY_TWEEDIE_PRUNING_VALIDATION.md, orbit-research/EARLY_TWEEDIE_PRUNING_VALIDATION.json, orbit-research/EARLY_TWEEDIE_PRUNING_VALIDATION_PLOT.csv, orbit-research/EARLY_TWEEDIE_PRUNING_VALIDATION_RETENTION.csv",
+      "requirement": "Track A robust Early-Tweedie validation completed",
+      "status": "COMPLETE"
+    },
+    {
+      "details": "verifier_status=PASS_WITH_WARNINGS; error_count=0",
+      "evidence": "orbit-research/EARLY_TWEEDIE_VALIDATION_VERIFICATION_REPORT.json",
+      "requirement": "Track A independent verification passed",
+      "status": "COMPLETE"
+    },
+    {
+      "details": "decision_fields_present=True",
+      "evidence": "orbit-research/EARLY_TWEEDIE_VALIDATION_PI_DECISION.md",
+      "requirement": "Track A PI decision memo produced",
+      "status": "COMPLETE"
+    },
+    {
+      "details": "json_status=COMPLETE_CPU_ONLY",
+      "evidence": "orbit-research/GLOBAL_QUALITY_STRUCTURE_ANALYSIS.md, orbit-research/GLOBAL_QUALITY_STRUCTURE_ANALYSIS.json",
+      "requirement": "Track B global-quality structure analysis completed",
+      "status": "COMPLETE"
+    },
+    {
+      "details": "explicit_stop_marker_present=True",
+      "evidence": "orbit-research/C1_LITE_RL_RESCUE_STOP_DECISION.md",
+      "requirement": "Track C bounded rescue opportunity resolved",
+      "status": "COMPLETE"
+    },
+    {
+      "details": "flags_ok=True; gate_v1_sha256=43a306753583f03563c792ac9399bb1e30b0525c98c902a1e18756d54e25b3c6; gate_v2_draft_exists=True",
+      "evidence": "orbit-research/TRAJECTORY_AWARE_GOAL_STATUS_CURRENT.json",
+      "requirement": "Hard scientific boundaries preserved",
+      "status": "COMPLETE"
+    }
+  ],
+  "schema_version": "trajectory_aware_pi_report_v1",
+  "status_json": "orbit-research/TRAJECTORY_AWARE_GOAL_STATUS_CURRENT.json",
+  "track_a": {
+    "aggregate_estimated_finish_local": "2026-06-04 12:29:39",
+    "completed": true,
+    "decision_status": "STRONG_CANDIDATE_MAIN_APPLICATION",
+    "estimated_active_gpu_hours_elapsed": 1625.434,
+    "estimated_final_active_gpu_hours_by_shard_rates": 1625.434,
+    "expected_records": 4096,
+    "live_record_check_complete_prompts": null,
+    "live_record_check_errors": null,
+    "live_record_check_fresh": null,
+    "live_record_check_record_lag": null,
+    "live_record_check_records": null,
+    "live_record_check_status": null,
+    "primary_retention": [
+      {
+        "bottom25_false_negative": 0.134765625,
+        "metric": "common_robust_lcb",
+        "n_prompts": 512,
+        "sigma": "0.9",
+        "stratum": "all",
+        "winner_retention_top1": 0.228515625,
+        "winner_retention_top2": 0.412109375,
+        "winner_retention_top4": 0.666015625
+      },
+      {
+        "bottom25_false_negative": 0.056640625,
+        "metric": "common_robust_lcb",
+        "n_prompts": 512,
+        "sigma": "0.8",
+        "stratum": "all",
+        "winner_retention_top1": 0.390625,
+        "winner_retention_top2": 0.609375,
+        "winner_retention_top4": 0.82421875
+      },
+      {
+        "bottom25_false_negative": 0.01953125,
+        "metric": "common_robust_lcb",
+        "n_prompts": 512,
+        "sigma": "0.7",
+        "stratum": "all",
+        "winner_retention_top1": 0.470703125,
+        "winner_retention_top2": 0.6796875,
+        "winner_retention_top4": 0.91015625
+      }
+    ],
+    "primary_schedules": [
+      {
+        "compute_fraction": 1.0,
+        "false_negative": 0.0,
+        "mean_full_bon8_reward": 2.3576329063758386,
+        "mean_regret": 0.0,
+        "mean_selected_reward": 2.3576329063758386,
+        "median_regret": 0.0,
+        "metric": "common_robust_lcb",
+        "n_prompts": 512,
+        "reward_fraction": 1.0,
+        "schedule": "full_bon8",
+        "stratum": "all",
+        "winner_match": 1.0
+      },
+      {
+        "compute_fraction": 0.5,
+        "false_negative": 0.4296875,
+        "mean_full_bon8_reward": 2.3576329063758386,
+        "mean_regret": 0.0321259053311633,
+        "mean_selected_reward": 2.3255070010446754,
+        "median_regret": 0.0,
+        "metric": "common_robust_lcb",
+        "n_prompts": 512,
+        "reward_fraction": 0.9863736609527787,
+        "schedule": "schedule_a_sigma0.9_top4_sigma0.7_top2_final_top1",
+        "stratum": "all",
+        "winner_match": 0.5703125
+      },
+      {
+        "compute_fraction": 0.5833333333333334,
+        "false_negative": 0.33203125,
+        "mean_full_bon8_reward": 2.3576329063758386,
+        "mean_regret": 0.020532178753144732,
+        "mean_selected_reward": 2.337100727622694,
+        "median_regret": 0.0,
+        "metric": "common_robust_lcb",
+        "n_prompts": 512,
+        "reward_fraction": 0.9912911892697042,
+        "schedule": "schedule_b_sigma0.8_top4_sigma0.7_top2_final_top1",
+        "stratum": "all",
+        "winner_match": 0.66796875
+      },
+      {
+        "compute_fraction": 0.85,
+        "false_negative": 0.056640625,
+        "mean_full_bon8_reward": 2.3576329063758386,
+        "mean_regret": 0.0030501429983388678,
+        "mean_selected_reward": 2.3545827633775,
+        "median_regret": 0.0,
+        "metric": "common_robust_lcb",
+        "n_prompts": 512,
+        "reward_fraction": 0.9987062689063722,
+        "schedule": "schedule_c_sigma0.8_keep_top6_final_top1",
+        "stratum": "all",
+        "winner_match": 0.943359375
+      },
+      {
+        "compute_fraction": 0.85,
+        "false_negative": 0.056640625,
+        "mean_full_bon8_reward": 2.3576329063758386,
+        "mean_regret": 0.0030501429983388678,
+        "mean_selected_reward": 2.3545827633775,
+        "median_regret": 0.0,
+        "metric": "common_robust_lcb",
+        "n_prompts": 512,
+        "reward_fraction": 0.9987062689063722,
+        "schedule": "bottom_prune_sigma0.8_remove_bottom25_final_top1",
+        "stratum": "all",
+        "winner_match": 0.943359375
+      },
+      {
+        "compute_fraction": 0.8833333333333333,
+        "false_negative": 0.01953125,
+        "mean_full_bon8_reward": 2.3576329063758386,
+        "mean_regret": 0.0005874582274935465,
+        "mean_selected_reward": 2.3570454481483454,
+        "median_regret": 0.0,
+        "metric": "common_robust_lcb",
+        "n_prompts": 512,
+        "reward_fraction": 0.9997508271003919,
+        "schedule": "bottom_prune_sigma0.7_remove_bottom25_final_top1",
+        "stratum": "all",
+        "winner_match": 0.98046875
+      },
+      {
+        "compute_fraction": 0.5,
+        "false_negative": 0.74912109375,
+        "mean_full_bon8_reward": 2.3576329063758386,
+        "mean_regret": 0.10109960967950166,
+        "mean_selected_reward": 2.256533296696337,
+        "median_regret": 0.07060095144472434,
+        "metric": "common_robust_lcb",
+        "n_prompts": 10240,
+        "reward_fraction": 0.9571181716177722,
+        "schedule": "random_prune_keep4_keep2_final_top1",
+        "stratum": "all",
+        "winner_match": 0.25087890625
+      }
+    ],
+    "records": 4096,
+    "run_root": "runs/early_tweedie_validation_512_bon8_20260527_full01",
+    "slowest_shard_estimated_finish_local": "2026-06-04 12:29:39",
+    "stall_suspected": false,
+    "threshold": {
+      "bottom_prune_false_negative_max": 0.05,
+      "compute_fraction_max": 0.5,
+      "reward_fraction_min": 0.98
+    },
+    "verification_status": "PASS_WITH_WARNINGS"
+  },
+  "track_b": {
+    "cautious_claim": "For ACE-Step short-form outputs, local-window rewards appear to track persistent global quality more than isolated local failures.",
+    "classification": "supports_global_persistent_quality",
+    "fixedwin_read": "stable_local_proxy_for_global_quality_more_than_true_local_credit",
+    "gpu_hours_consumed": 0.0,
+    "hard_boundary_flags": {
+      "canonical_proposal_rewritten": false,
+      "demucs_source_separation_launched": false,
+      "gate_v1_modified": false,
+      "human_eval_launched": false,
+      "phase_d_launched": false,
+      "pruning_rl_launched": false,
+      "reward_definitions_changed": false,
+      "rl_training_launched": false,
+      "sigma_policy_changed": false
+    },
+    "output_tables": {
+      "c1_common_eval_summary": "orbit-research/global_quality_structure_analysis_20260527/c1_common_eval_summary.csv",
+      "c1_fixedwin_section_training_alignment": "orbit-research/global_quality_structure_analysis_20260527/c1_fixedwin_section_training_alignment.csv",
+      "globalness_by_unit_axis_source": "orbit-research/global_quality_structure_analysis_20260527/globalness_by_unit_axis_source.csv",
+      "top_bottom_reward_time_curves": "orbit-research/global_quality_structure_analysis_20260527/top_bottom_reward_time_curves.csv"
+    },
+    "primary_median_between_share": 0.5838668774670442,
+    "primary_median_between_within_ratio": 1.4037920698862223,
+    "primary_median_crossing_frequency": 0.0,
+    "primary_median_globalness_index": 0.8612889591556814,
+    "status": "COMPLETE_CPU_ONLY"
+  },
+  "track_c": {
+    "gpu_hours_consumed": 0.0,
+    "resolution": "EXPLICIT_STOP_DECISION",
+    "smoke_launch_plan_gpu_jobs": null,
+    "smoke_launch_plan_status": null,
+    "smoke_preflight_blockers": [],
+    "smoke_preflight_status": null,
+    "status": "STOPPED_BY_DECISION"
+  }
+}

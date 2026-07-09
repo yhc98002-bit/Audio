@@ -1,0 +1,1749 @@
+{
+  "generated_at_utc": "2026-05-28T20:31:54Z",
+  "gpu_hours_sum": 91.10644313567215,
+  "n_candidates": 2048,
+  "n_prompts": 128,
+  "result_rows": [
+    {
+      "compute_fraction": 1.0,
+      "false_negative_top1_prompt_rate": 0.0,
+      "mean_full_bon16_reward": 2.3673678919707584,
+      "mean_regret": 0.0,
+      "mean_selected_reward": 2.3673678919707584,
+      "median_regret": 0.0,
+      "n_prompt_evals": 128,
+      "reward_fraction": 1.0,
+      "schedule": "full_bon16",
+      "top2_any_retention": 1.0,
+      "winner_match": 1.0
+    },
+    {
+      "compute_fraction": 0.5,
+      "false_negative_top1_prompt_rate": 0.5234375,
+      "mean_full_bon16_reward": 2.3673678919707584,
+      "mean_regret": 0.027202102215944025,
+      "mean_selected_reward": 2.3401657897548143,
+      "median_regret": 0.00424202533326179,
+      "n_prompt_evals": 128,
+      "reward_fraction": 0.9885095585235385,
+      "schedule": "bon8_first8",
+      "top2_any_retention": 0.7421875,
+      "winner_match": 0.4765625
+    },
+    {
+      "compute_fraction": 0.5,
+      "false_negative_top1_prompt_rate": 0.497421875,
+      "mean_full_bon16_reward": 2.3673678919707584,
+      "mean_regret": 0.031170736153448633,
+      "mean_selected_reward": 2.3361971558173096,
+      "median_regret": 0.0,
+      "n_prompt_evals": 12800,
+      "reward_fraction": 0.9868331676461574,
+      "schedule": "bon8_random_subset",
+      "top2_any_retention": 0.774765625,
+      "winner_match": 0.502578125
+    },
+    {
+      "compute_fraction": 0.5,
+      "false_negative_top1_prompt_rate": 0.390625,
+      "mean_full_bon16_reward": 2.3673678919707584,
+      "mean_regret": 0.020321822444250445,
+      "mean_selected_reward": 2.347046069526508,
+      "median_regret": 0.0,
+      "n_prompt_evals": 128,
+      "reward_fraction": 0.9914158578760932,
+      "schedule": "raw_etp16_sigma0.9_top8_sigma0.7_top4",
+      "top2_any_retention": 0.828125,
+      "winner_match": 0.609375
+    },
+    {
+      "compute_fraction": 0.85,
+      "false_negative_top1_prompt_rate": 0.0625,
+      "mean_full_bon16_reward": 2.3673678919707584,
+      "mean_regret": 0.0022723409285593903,
+      "mean_selected_reward": 2.3650955510421987,
+      "median_regret": 0.0,
+      "n_prompt_evals": 128,
+      "reward_fraction": 0.9990401403447826,
+      "schedule": "raw_etp16_sigma0.8_top12",
+      "top2_any_retention": 0.9921875,
+      "winner_match": 0.9375
+    },
+    {
+      "compute_fraction": 0.5,
+      "false_negative_top1_prompt_rate": 0.751640625,
+      "mean_full_bon16_reward": 2.3673678919707584,
+      "mean_regret": 0.07274514229723048,
+      "mean_selected_reward": 2.2946227496735276,
+      "median_regret": 0.05202657424853019,
+      "n_prompt_evals": 12800,
+      "reward_fraction": 0.96927172048588,
+      "schedule": "random_prune16_keep8_keep4",
+      "top2_any_retention": 0.4478125,
+      "winner_match": 0.248359375
+    },
+    {
+      "compute_fraction": 0.5,
+      "false_negative_top1_prompt_rate": 0.328125,
+      "mean_full_bon16_reward": 2.3673678919707584,
+      "mean_regret": 0.014223380961835171,
+      "mean_selected_reward": 2.353144511008923,
+      "median_regret": 0.0,
+      "n_prompt_evals": 128,
+      "reward_fraction": 0.9939919008743526,
+      "schedule": "etv16_sigma0.9_top8_sigma0.7_top4",
+      "top2_any_retention": 0.90625,
+      "winner_match": 0.671875
+    },
+    {
+      "compute_fraction": 0.85,
+      "false_negative_top1_prompt_rate": 0.0234375,
+      "mean_full_bon16_reward": 2.3673678919707584,
+      "mean_regret": 0.00045048061182345264,
+      "mean_selected_reward": 2.366917411358935,
+      "median_regret": 0.0,
+      "n_prompt_evals": 128,
+      "reward_fraction": 0.9998097124602596,
+      "schedule": "etv16_sigma0.8_top12",
+      "top2_any_retention": 1.0,
+      "winner_match": 0.9765625
+    }
+  ],
+  "run_root": "runs/early_tweedie_bon16_subset_128_20260528_full01",
+  "safety": {
+    "gate_v1_modified": false,
+    "human_crowdsourcing_launched": false,
+    "phase_d_launched": false,
+    "prompt_splits_changed": false,
+    "pruning_rl_launched": false,
+    "reward_definitions_changed": false,
+    "rl_training_launched": false
+  },
+  "schema_version": "bon16_pruning_subset_results_v1",
+  "shard_summaries": [
+    {
+      "bon_n": 16,
+      "command": "scripts/collect_early_tweedie_validation.py --output-dir runs/early_tweedie_bon16_subset_128_20260528_full01/shard00 --manifest orbit-research/EARLY_TWEEDIE_BON16_128_PROMPTS.json --prompt-offset 0 --n-prompts 16 --bon-n 16 --target-sigmas 0.9 0.8 0.7 --progress-every 16",
+      "cuda_visible_devices": "0",
+      "elapsed_seconds": 45894.09361290932,
+      "gate_policy": "configs/eval/gate_v2.yaml.draft",
+      "gate_policy_hash": "f6eaf0b13704b9fdb39b074931dc6b169c31b9abae86785a8f7a54191bdbdf6d",
+      "generated_at_utc": "2026-05-28T06:46:20Z",
+      "gpu_hours_consumed": 12.748359336919254,
+      "manifest": "orbit-research/EARLY_TWEEDIE_BON16_128_PROMPTS.json",
+      "manifest_sha256": "8be48f7844227cf83bba9797d7a95e8f9b4570cb75833f295a6fcaea1af7d830",
+      "n_candidate_records": 256,
+      "n_prompts": 16,
+      "nvidia_smi_after": [
+        {
+          "index": 0,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 19161,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 18,
+          "uuid": "GPU-ba4e359e-d885-844d-122f-46f09159ede9"
+        },
+        {
+          "index": 1,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 18507,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 53,
+          "uuid": "GPU-e9b030e5-49c1-3055-9703-1db3de538184"
+        },
+        {
+          "index": 2,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-ae1cb12e-86d0-9693-7de2-ddd03f1ff643"
+        },
+        {
+          "index": 3,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-872680b0-1f0d-2229-871a-1fa334751a49"
+        },
+        {
+          "index": 4,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 19079,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 50,
+          "uuid": "GPU-cc0f8386-4dc3-6707-194d-b701c36f7a16"
+        },
+        {
+          "index": 5,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 18473,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 92,
+          "uuid": "GPU-21c87527-600e-2469-8134-e4160e91fb23"
+        },
+        {
+          "index": 6,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-cfa6584b-bd6d-85e7-d4a9-bec5c58779f6"
+        },
+        {
+          "index": 7,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-f76f23aa-b266-8708-68c7-ed24a5f1c14c"
+        }
+      ],
+      "nvidia_smi_before": [
+        {
+          "index": 0,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-ba4e359e-d885-844d-122f-46f09159ede9"
+        },
+        {
+          "index": 1,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-e9b030e5-49c1-3055-9703-1db3de538184"
+        },
+        {
+          "index": 2,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-ae1cb12e-86d0-9693-7de2-ddd03f1ff643"
+        },
+        {
+          "index": 3,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-872680b0-1f0d-2229-871a-1fa334751a49"
+        },
+        {
+          "index": 4,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-cc0f8386-4dc3-6707-194d-b701c36f7a16"
+        },
+        {
+          "index": 5,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-21c87527-600e-2469-8134-e4160e91fb23"
+        },
+        {
+          "index": 6,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-cfa6584b-bd6d-85e7-d4a9-bec5c58779f6"
+        },
+        {
+          "index": 7,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-f76f23aa-b266-8708-68c7-ed24a5f1c14c"
+        }
+      ],
+      "output_dir": "runs/early_tweedie_bon16_subset_128_20260528_full01/shard00",
+      "prompt_ids": [
+        "dev_0013",
+        "dev_0146",
+        "dev_0205",
+        "dev_0239",
+        "dev_0002",
+        "dev_0049",
+        "dev_0117",
+        "dev_0169",
+        "dev_0225",
+        "dev_0230",
+        "dev_0084",
+        "dev_0100",
+        "dev_0179",
+        "dev_0200",
+        "dev_0209",
+        "dev_0023"
+      ],
+      "prompt_offset": 0,
+      "records_path": "runs/early_tweedie_bon16_subset_128_20260528_full01/shard00/candidate_records.jsonl",
+      "reward_axes": [
+        "semantic_fit",
+        "aesthetic_pq",
+        "aesthetic_pc",
+        "aesthetic_ce",
+        "aesthetic_cu",
+        "lyric_intelligibility",
+        "section_coherence"
+      ],
+      "reward_config": "configs/baselines/r2_bon.yaml",
+      "safety": {
+        "gate_v1_modified": false,
+        "gate_v2_activated": false,
+        "held_out_workflow_launched": false,
+        "human_eval_launched": false,
+        "phase_d_launched": false,
+        "pruning_rl_launched": false,
+        "reward_sigma_prompt_credit_definitions_changed": false,
+        "training_launched": false
+      },
+      "sampler": {
+        "cfg_scale": 5.0,
+        "cfg_type": "cfg",
+        "guidance_interval": 0.5,
+        "infer_steps": 30,
+        "use_erg_diffusion": false,
+        "use_erg_lyric": false,
+        "use_erg_tag": false
+      },
+      "schema_version": "early_tweedie_validation_collection_v1",
+      "status": "PASS",
+      "target_sigmas": [
+        0.9,
+        0.8,
+        0.7
+      ]
+    },
+    {
+      "bon_n": 16,
+      "command": "scripts/collect_early_tweedie_validation.py --output-dir runs/early_tweedie_bon16_subset_128_20260528_full01/shard01 --manifest orbit-research/EARLY_TWEEDIE_BON16_128_PROMPTS.json --prompt-offset 16 --n-prompts 16 --bon-n 16 --target-sigmas 0.9 0.8 0.7 --progress-every 16",
+      "cuda_visible_devices": "1",
+      "elapsed_seconds": 46729.46587872505,
+      "gate_policy": "configs/eval/gate_v2.yaml.draft",
+      "gate_policy_hash": "f6eaf0b13704b9fdb39b074931dc6b169c31b9abae86785a8f7a54191bdbdf6d",
+      "generated_at_utc": "2026-05-28T06:46:20Z",
+      "gpu_hours_consumed": 12.980407188534736,
+      "manifest": "orbit-research/EARLY_TWEEDIE_BON16_128_PROMPTS.json",
+      "manifest_sha256": "8be48f7844227cf83bba9797d7a95e8f9b4570cb75833f295a6fcaea1af7d830",
+      "n_candidate_records": 256,
+      "n_prompts": 16,
+      "nvidia_smi_after": [
+        {
+          "index": 0,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-ba4e359e-d885-844d-122f-46f09159ede9"
+        },
+        {
+          "index": 1,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 19169,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 48,
+          "uuid": "GPU-e9b030e5-49c1-3055-9703-1db3de538184"
+        },
+        {
+          "index": 2,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-ae1cb12e-86d0-9693-7de2-ddd03f1ff643"
+        },
+        {
+          "index": 3,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-872680b0-1f0d-2229-871a-1fa334751a49"
+        },
+        {
+          "index": 4,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 19049,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 50,
+          "uuid": "GPU-cc0f8386-4dc3-6707-194d-b701c36f7a16"
+        },
+        {
+          "index": 5,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 18473,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 58,
+          "uuid": "GPU-21c87527-600e-2469-8134-e4160e91fb23"
+        },
+        {
+          "index": 6,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-cfa6584b-bd6d-85e7-d4a9-bec5c58779f6"
+        },
+        {
+          "index": 7,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-f76f23aa-b266-8708-68c7-ed24a5f1c14c"
+        }
+      ],
+      "nvidia_smi_before": [
+        {
+          "index": 0,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-ba4e359e-d885-844d-122f-46f09159ede9"
+        },
+        {
+          "index": 1,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-e9b030e5-49c1-3055-9703-1db3de538184"
+        },
+        {
+          "index": 2,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-ae1cb12e-86d0-9693-7de2-ddd03f1ff643"
+        },
+        {
+          "index": 3,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-872680b0-1f0d-2229-871a-1fa334751a49"
+        },
+        {
+          "index": 4,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-cc0f8386-4dc3-6707-194d-b701c36f7a16"
+        },
+        {
+          "index": 5,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-21c87527-600e-2469-8134-e4160e91fb23"
+        },
+        {
+          "index": 6,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-cfa6584b-bd6d-85e7-d4a9-bec5c58779f6"
+        },
+        {
+          "index": 7,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-f76f23aa-b266-8708-68c7-ed24a5f1c14c"
+        }
+      ],
+      "output_dir": "runs/early_tweedie_bon16_subset_128_20260528_full01/shard01",
+      "prompt_ids": [
+        "dev_0065",
+        "dev_0164",
+        "dev_0186",
+        "dev_0192",
+        "dev_0066",
+        "dev_0097",
+        "dev_0108",
+        "dev_0138",
+        "dev_0237",
+        "dev_0052",
+        "dev_0149",
+        "dev_0157",
+        "dev_0236",
+        "dev_0248",
+        "dev_0012",
+        "dev_0089"
+      ],
+      "prompt_offset": 16,
+      "records_path": "runs/early_tweedie_bon16_subset_128_20260528_full01/shard01/candidate_records.jsonl",
+      "reward_axes": [
+        "semantic_fit",
+        "aesthetic_pq",
+        "aesthetic_pc",
+        "aesthetic_ce",
+        "aesthetic_cu",
+        "lyric_intelligibility",
+        "section_coherence"
+      ],
+      "reward_config": "configs/baselines/r2_bon.yaml",
+      "safety": {
+        "gate_v1_modified": false,
+        "gate_v2_activated": false,
+        "held_out_workflow_launched": false,
+        "human_eval_launched": false,
+        "phase_d_launched": false,
+        "pruning_rl_launched": false,
+        "reward_sigma_prompt_credit_definitions_changed": false,
+        "training_launched": false
+      },
+      "sampler": {
+        "cfg_scale": 5.0,
+        "cfg_type": "cfg",
+        "guidance_interval": 0.5,
+        "infer_steps": 30,
+        "use_erg_diffusion": false,
+        "use_erg_lyric": false,
+        "use_erg_tag": false
+      },
+      "schema_version": "early_tweedie_validation_collection_v1",
+      "status": "PASS",
+      "target_sigmas": [
+        0.9,
+        0.8,
+        0.7
+      ]
+    },
+    {
+      "bon_n": 16,
+      "command": "scripts/collect_early_tweedie_validation.py --output-dir runs/early_tweedie_bon16_subset_128_20260528_full01/shard02 --manifest orbit-research/EARLY_TWEEDIE_BON16_128_PROMPTS.json --prompt-offset 32 --n-prompts 16 --bon-n 16 --target-sigmas 0.9 0.8 0.7 --progress-every 16",
+      "cuda_visible_devices": "2",
+      "elapsed_seconds": 39359.284133672714,
+      "gate_policy": "configs/eval/gate_v2.yaml.draft",
+      "gate_policy_hash": "f6eaf0b13704b9fdb39b074931dc6b169c31b9abae86785a8f7a54191bdbdf6d",
+      "generated_at_utc": "2026-05-28T06:46:20Z",
+      "gpu_hours_consumed": 10.933134481575754,
+      "manifest": "orbit-research/EARLY_TWEEDIE_BON16_128_PROMPTS.json",
+      "manifest_sha256": "8be48f7844227cf83bba9797d7a95e8f9b4570cb75833f295a6fcaea1af7d830",
+      "n_candidate_records": 256,
+      "n_prompts": 16,
+      "nvidia_smi_after": [
+        {
+          "index": 0,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 19217,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 77,
+          "uuid": "GPU-ba4e359e-d885-844d-122f-46f09159ede9"
+        },
+        {
+          "index": 1,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 20549,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 44,
+          "uuid": "GPU-e9b030e5-49c1-3055-9703-1db3de538184"
+        },
+        {
+          "index": 2,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 18787,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 39,
+          "uuid": "GPU-ae1cb12e-86d0-9693-7de2-ddd03f1ff643"
+        },
+        {
+          "index": 3,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-872680b0-1f0d-2229-871a-1fa334751a49"
+        },
+        {
+          "index": 4,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 20527,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 43,
+          "uuid": "GPU-cc0f8386-4dc3-6707-194d-b701c36f7a16"
+        },
+        {
+          "index": 5,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 18851,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-21c87527-600e-2469-8134-e4160e91fb23"
+        },
+        {
+          "index": 6,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 18843,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 43,
+          "uuid": "GPU-cfa6584b-bd6d-85e7-d4a9-bec5c58779f6"
+        },
+        {
+          "index": 7,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-f76f23aa-b266-8708-68c7-ed24a5f1c14c"
+        }
+      ],
+      "nvidia_smi_before": [
+        {
+          "index": 0,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-ba4e359e-d885-844d-122f-46f09159ede9"
+        },
+        {
+          "index": 1,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-e9b030e5-49c1-3055-9703-1db3de538184"
+        },
+        {
+          "index": 2,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-ae1cb12e-86d0-9693-7de2-ddd03f1ff643"
+        },
+        {
+          "index": 3,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-872680b0-1f0d-2229-871a-1fa334751a49"
+        },
+        {
+          "index": 4,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-cc0f8386-4dc3-6707-194d-b701c36f7a16"
+        },
+        {
+          "index": 5,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-21c87527-600e-2469-8134-e4160e91fb23"
+        },
+        {
+          "index": 6,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-cfa6584b-bd6d-85e7-d4a9-bec5c58779f6"
+        },
+        {
+          "index": 7,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-f76f23aa-b266-8708-68c7-ed24a5f1c14c"
+        }
+      ],
+      "output_dir": "runs/early_tweedie_bon16_subset_128_20260528_full01/shard02",
+      "prompt_ids": [
+        "dev_0106",
+        "dev_0112",
+        "dev_0191",
+        "dev_0020",
+        "dev_0093",
+        "dev_0118",
+        "dev_0154",
+        "dev_0193",
+        "dev_0032",
+        "dev_0053",
+        "dev_0134",
+        "dev_0147",
+        "dev_0045",
+        "dev_0155",
+        "dev_0158",
+        "dev_0189"
+      ],
+      "prompt_offset": 32,
+      "records_path": "runs/early_tweedie_bon16_subset_128_20260528_full01/shard02/candidate_records.jsonl",
+      "reward_axes": [
+        "semantic_fit",
+        "aesthetic_pq",
+        "aesthetic_pc",
+        "aesthetic_ce",
+        "aesthetic_cu",
+        "lyric_intelligibility",
+        "section_coherence"
+      ],
+      "reward_config": "configs/baselines/r2_bon.yaml",
+      "safety": {
+        "gate_v1_modified": false,
+        "gate_v2_activated": false,
+        "held_out_workflow_launched": false,
+        "human_eval_launched": false,
+        "phase_d_launched": false,
+        "pruning_rl_launched": false,
+        "reward_sigma_prompt_credit_definitions_changed": false,
+        "training_launched": false
+      },
+      "sampler": {
+        "cfg_scale": 5.0,
+        "cfg_type": "cfg",
+        "guidance_interval": 0.5,
+        "infer_steps": 30,
+        "use_erg_diffusion": false,
+        "use_erg_lyric": false,
+        "use_erg_tag": false
+      },
+      "schema_version": "early_tweedie_validation_collection_v1",
+      "status": "PASS",
+      "target_sigmas": [
+        0.9,
+        0.8,
+        0.7
+      ]
+    },
+    {
+      "bon_n": 16,
+      "command": "scripts/collect_early_tweedie_validation.py --output-dir runs/early_tweedie_bon16_subset_128_20260528_full01/shard03 --manifest orbit-research/EARLY_TWEEDIE_BON16_128_PROMPTS.json --prompt-offset 48 --n-prompts 16 --bon-n 16 --target-sigmas 0.9 0.8 0.7 --progress-every 16",
+      "cuda_visible_devices": "3",
+      "elapsed_seconds": 29816.28234767914,
+      "gate_policy": "configs/eval/gate_v2.yaml.draft",
+      "gate_policy_hash": "f6eaf0b13704b9fdb39b074931dc6b169c31b9abae86785a8f7a54191bdbdf6d",
+      "generated_at_utc": "2026-05-28T06:46:20Z",
+      "gpu_hours_consumed": 8.282300652133094,
+      "manifest": "orbit-research/EARLY_TWEEDIE_BON16_128_PROMPTS.json",
+      "manifest_sha256": "8be48f7844227cf83bba9797d7a95e8f9b4570cb75833f295a6fcaea1af7d830",
+      "n_candidate_records": 256,
+      "n_prompts": 16,
+      "nvidia_smi_after": [
+        {
+          "index": 0,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 19463,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 47,
+          "uuid": "GPU-ba4e359e-d885-844d-122f-46f09159ede9"
+        },
+        {
+          "index": 1,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 20449,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 36,
+          "uuid": "GPU-e9b030e5-49c1-3055-9703-1db3de538184"
+        },
+        {
+          "index": 2,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 19149,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 11,
+          "uuid": "GPU-ae1cb12e-86d0-9693-7de2-ddd03f1ff643"
+        },
+        {
+          "index": 3,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 18867,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 8,
+          "uuid": "GPU-872680b0-1f0d-2229-871a-1fa334751a49"
+        },
+        {
+          "index": 4,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 19047,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 41,
+          "uuid": "GPU-cc0f8386-4dc3-6707-194d-b701c36f7a16"
+        },
+        {
+          "index": 5,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 18851,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 4,
+          "uuid": "GPU-21c87527-600e-2469-8134-e4160e91fb23"
+        },
+        {
+          "index": 6,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 20345,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 8,
+          "uuid": "GPU-cfa6584b-bd6d-85e7-d4a9-bec5c58779f6"
+        },
+        {
+          "index": 7,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 18919,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-f76f23aa-b266-8708-68c7-ed24a5f1c14c"
+        }
+      ],
+      "nvidia_smi_before": [
+        {
+          "index": 0,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-ba4e359e-d885-844d-122f-46f09159ede9"
+        },
+        {
+          "index": 1,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-e9b030e5-49c1-3055-9703-1db3de538184"
+        },
+        {
+          "index": 2,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-ae1cb12e-86d0-9693-7de2-ddd03f1ff643"
+        },
+        {
+          "index": 3,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-872680b0-1f0d-2229-871a-1fa334751a49"
+        },
+        {
+          "index": 4,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-cc0f8386-4dc3-6707-194d-b701c36f7a16"
+        },
+        {
+          "index": 5,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-21c87527-600e-2469-8134-e4160e91fb23"
+        },
+        {
+          "index": 6,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-cfa6584b-bd6d-85e7-d4a9-bec5c58779f6"
+        },
+        {
+          "index": 7,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-f76f23aa-b266-8708-68c7-ed24a5f1c14c"
+        }
+      ],
+      "output_dir": "runs/early_tweedie_bon16_subset_128_20260528_full01/shard03",
+      "prompt_ids": [
+        "dev_0026",
+        "dev_0057",
+        "dev_0187",
+        "dev_0211",
+        "dev_0016",
+        "dev_0071",
+        "dev_0245",
+        "dev_0076",
+        "dev_0113",
+        "dev_0210",
+        "dev_0038",
+        "dev_0041",
+        "dev_0151",
+        "dev_0010",
+        "dev_0015",
+        "dev_0216"
+      ],
+      "prompt_offset": 48,
+      "records_path": "runs/early_tweedie_bon16_subset_128_20260528_full01/shard03/candidate_records.jsonl",
+      "reward_axes": [
+        "semantic_fit",
+        "aesthetic_pq",
+        "aesthetic_pc",
+        "aesthetic_ce",
+        "aesthetic_cu",
+        "lyric_intelligibility",
+        "section_coherence"
+      ],
+      "reward_config": "configs/baselines/r2_bon.yaml",
+      "safety": {
+        "gate_v1_modified": false,
+        "gate_v2_activated": false,
+        "held_out_workflow_launched": false,
+        "human_eval_launched": false,
+        "phase_d_launched": false,
+        "pruning_rl_launched": false,
+        "reward_sigma_prompt_credit_definitions_changed": false,
+        "training_launched": false
+      },
+      "sampler": {
+        "cfg_scale": 5.0,
+        "cfg_type": "cfg",
+        "guidance_interval": 0.5,
+        "infer_steps": 30,
+        "use_erg_diffusion": false,
+        "use_erg_lyric": false,
+        "use_erg_tag": false
+      },
+      "schema_version": "early_tweedie_validation_collection_v1",
+      "status": "PASS",
+      "target_sigmas": [
+        0.9,
+        0.8,
+        0.7
+      ]
+    },
+    {
+      "bon_n": 16,
+      "command": "scripts/collect_early_tweedie_validation.py --output-dir runs/early_tweedie_bon16_subset_128_20260528_full01/shard04 --manifest orbit-research/EARLY_TWEEDIE_BON16_128_PROMPTS.json --prompt-offset 64 --n-prompts 16 --bon-n 16 --target-sigmas 0.9 0.8 0.7 --progress-every 16",
+      "cuda_visible_devices": "4",
+      "elapsed_seconds": 48824.283158779144,
+      "gate_policy": "configs/eval/gate_v2.yaml.draft",
+      "gate_policy_hash": "f6eaf0b13704b9fdb39b074931dc6b169c31b9abae86785a8f7a54191bdbdf6d",
+      "generated_at_utc": "2026-05-28T06:46:20Z",
+      "gpu_hours_consumed": 13.562300877438652,
+      "manifest": "orbit-research/EARLY_TWEEDIE_BON16_128_PROMPTS.json",
+      "manifest_sha256": "8be48f7844227cf83bba9797d7a95e8f9b4570cb75833f295a6fcaea1af7d830",
+      "n_candidate_records": 256,
+      "n_prompts": 16,
+      "nvidia_smi_after": [
+        {
+          "index": 0,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-ba4e359e-d885-844d-122f-46f09159ede9"
+        },
+        {
+          "index": 1,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-e9b030e5-49c1-3055-9703-1db3de538184"
+        },
+        {
+          "index": 2,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-ae1cb12e-86d0-9693-7de2-ddd03f1ff643"
+        },
+        {
+          "index": 3,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-872680b0-1f0d-2229-871a-1fa334751a49"
+        },
+        {
+          "index": 4,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 19429,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 57,
+          "uuid": "GPU-cc0f8386-4dc3-6707-194d-b701c36f7a16"
+        },
+        {
+          "index": 5,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-21c87527-600e-2469-8134-e4160e91fb23"
+        },
+        {
+          "index": 6,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-cfa6584b-bd6d-85e7-d4a9-bec5c58779f6"
+        },
+        {
+          "index": 7,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-f76f23aa-b266-8708-68c7-ed24a5f1c14c"
+        }
+      ],
+      "nvidia_smi_before": [
+        {
+          "index": 0,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-ba4e359e-d885-844d-122f-46f09159ede9"
+        },
+        {
+          "index": 1,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-e9b030e5-49c1-3055-9703-1db3de538184"
+        },
+        {
+          "index": 2,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-ae1cb12e-86d0-9693-7de2-ddd03f1ff643"
+        },
+        {
+          "index": 3,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-872680b0-1f0d-2229-871a-1fa334751a49"
+        },
+        {
+          "index": 4,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-cc0f8386-4dc3-6707-194d-b701c36f7a16"
+        },
+        {
+          "index": 5,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-21c87527-600e-2469-8134-e4160e91fb23"
+        },
+        {
+          "index": 6,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-cfa6584b-bd6d-85e7-d4a9-bec5c58779f6"
+        },
+        {
+          "index": 7,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-f76f23aa-b266-8708-68c7-ed24a5f1c14c"
+        }
+      ],
+      "output_dir": "runs/early_tweedie_bon16_subset_128_20260528_full01/shard04",
+      "prompt_ids": [
+        "held_out_0145",
+        "held_out_0149",
+        "held_out_0018",
+        "held_out_0062",
+        "held_out_0073",
+        "held_out_0082",
+        "held_out_0090",
+        "held_out_0113",
+        "held_out_0128",
+        "held_out_0133",
+        "held_out_0138",
+        "held_out_0183",
+        "held_out_0216",
+        "held_out_0233",
+        "held_out_0017",
+        "held_out_0029"
+      ],
+      "prompt_offset": 64,
+      "records_path": "runs/early_tweedie_bon16_subset_128_20260528_full01/shard04/candidate_records.jsonl",
+      "reward_axes": [
+        "semantic_fit",
+        "aesthetic_pq",
+        "aesthetic_pc",
+        "aesthetic_ce",
+        "aesthetic_cu",
+        "lyric_intelligibility",
+        "section_coherence"
+      ],
+      "reward_config": "configs/baselines/r2_bon.yaml",
+      "safety": {
+        "gate_v1_modified": false,
+        "gate_v2_activated": false,
+        "held_out_workflow_launched": false,
+        "human_eval_launched": false,
+        "phase_d_launched": false,
+        "pruning_rl_launched": false,
+        "reward_sigma_prompt_credit_definitions_changed": false,
+        "training_launched": false
+      },
+      "sampler": {
+        "cfg_scale": 5.0,
+        "cfg_type": "cfg",
+        "guidance_interval": 0.5,
+        "infer_steps": 30,
+        "use_erg_diffusion": false,
+        "use_erg_lyric": false,
+        "use_erg_tag": false
+      },
+      "schema_version": "early_tweedie_validation_collection_v1",
+      "status": "PASS",
+      "target_sigmas": [
+        0.9,
+        0.8,
+        0.7
+      ]
+    },
+    {
+      "bon_n": 16,
+      "command": "scripts/collect_early_tweedie_validation.py --output-dir runs/early_tweedie_bon16_subset_128_20260528_full01/shard05 --manifest orbit-research/EARLY_TWEEDIE_BON16_128_PROMPTS.json --prompt-offset 80 --n-prompts 16 --bon-n 16 --target-sigmas 0.9 0.8 0.7 --progress-every 16",
+      "cuda_visible_devices": "5",
+      "elapsed_seconds": 47379.06653165817,
+      "gate_policy": "configs/eval/gate_v2.yaml.draft",
+      "gate_policy_hash": "f6eaf0b13704b9fdb39b074931dc6b169c31b9abae86785a8f7a54191bdbdf6d",
+      "generated_at_utc": "2026-05-28T06:46:20Z",
+      "gpu_hours_consumed": 13.160851814349492,
+      "manifest": "orbit-research/EARLY_TWEEDIE_BON16_128_PROMPTS.json",
+      "manifest_sha256": "8be48f7844227cf83bba9797d7a95e8f9b4570cb75833f295a6fcaea1af7d830",
+      "n_candidate_records": 256,
+      "n_prompts": 16,
+      "nvidia_smi_after": [
+        {
+          "index": 0,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-ba4e359e-d885-844d-122f-46f09159ede9"
+        },
+        {
+          "index": 1,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-e9b030e5-49c1-3055-9703-1db3de538184"
+        },
+        {
+          "index": 2,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-ae1cb12e-86d0-9693-7de2-ddd03f1ff643"
+        },
+        {
+          "index": 3,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-872680b0-1f0d-2229-871a-1fa334751a49"
+        },
+        {
+          "index": 4,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 19049,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 88,
+          "uuid": "GPU-cc0f8386-4dc3-6707-194d-b701c36f7a16"
+        },
+        {
+          "index": 5,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 18851,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 49,
+          "uuid": "GPU-21c87527-600e-2469-8134-e4160e91fb23"
+        },
+        {
+          "index": 6,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-cfa6584b-bd6d-85e7-d4a9-bec5c58779f6"
+        },
+        {
+          "index": 7,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-f76f23aa-b266-8708-68c7-ed24a5f1c14c"
+        }
+      ],
+      "nvidia_smi_before": [
+        {
+          "index": 0,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-ba4e359e-d885-844d-122f-46f09159ede9"
+        },
+        {
+          "index": 1,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-e9b030e5-49c1-3055-9703-1db3de538184"
+        },
+        {
+          "index": 2,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-ae1cb12e-86d0-9693-7de2-ddd03f1ff643"
+        },
+        {
+          "index": 3,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-872680b0-1f0d-2229-871a-1fa334751a49"
+        },
+        {
+          "index": 4,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-cc0f8386-4dc3-6707-194d-b701c36f7a16"
+        },
+        {
+          "index": 5,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-21c87527-600e-2469-8134-e4160e91fb23"
+        },
+        {
+          "index": 6,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-cfa6584b-bd6d-85e7-d4a9-bec5c58779f6"
+        },
+        {
+          "index": 7,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-f76f23aa-b266-8708-68c7-ed24a5f1c14c"
+        }
+      ],
+      "output_dir": "runs/early_tweedie_bon16_subset_128_20260528_full01/shard05",
+      "prompt_ids": [
+        "held_out_0030",
+        "held_out_0042",
+        "held_out_0047",
+        "held_out_0102",
+        "held_out_0008",
+        "held_out_0072",
+        "held_out_0115",
+        "held_out_0150",
+        "held_out_0198",
+        "held_out_0036",
+        "held_out_0089",
+        "held_out_0142",
+        "held_out_0240",
+        "held_out_0250",
+        "held_out_0092",
+        "held_out_0110"
+      ],
+      "prompt_offset": 80,
+      "records_path": "runs/early_tweedie_bon16_subset_128_20260528_full01/shard05/candidate_records.jsonl",
+      "reward_axes": [
+        "semantic_fit",
+        "aesthetic_pq",
+        "aesthetic_pc",
+        "aesthetic_ce",
+        "aesthetic_cu",
+        "lyric_intelligibility",
+        "section_coherence"
+      ],
+      "reward_config": "configs/baselines/r2_bon.yaml",
+      "safety": {
+        "gate_v1_modified": false,
+        "gate_v2_activated": false,
+        "held_out_workflow_launched": false,
+        "human_eval_launched": false,
+        "phase_d_launched": false,
+        "pruning_rl_launched": false,
+        "reward_sigma_prompt_credit_definitions_changed": false,
+        "training_launched": false
+      },
+      "sampler": {
+        "cfg_scale": 5.0,
+        "cfg_type": "cfg",
+        "guidance_interval": 0.5,
+        "infer_steps": 30,
+        "use_erg_diffusion": false,
+        "use_erg_lyric": false,
+        "use_erg_tag": false
+      },
+      "schema_version": "early_tweedie_validation_collection_v1",
+      "status": "PASS",
+      "target_sigmas": [
+        0.9,
+        0.8,
+        0.7
+      ]
+    },
+    {
+      "bon_n": 16,
+      "command": "scripts/collect_early_tweedie_validation.py --output-dir runs/early_tweedie_bon16_subset_128_20260528_full01/shard06 --manifest orbit-research/EARLY_TWEEDIE_BON16_128_PROMPTS.json --prompt-offset 96 --n-prompts 16 --bon-n 16 --target-sigmas 0.9 0.8 0.7 --progress-every 16",
+      "cuda_visible_devices": "6",
+      "elapsed_seconds": 39629.65208244324,
+      "gate_policy": "configs/eval/gate_v2.yaml.draft",
+      "gate_policy_hash": "f6eaf0b13704b9fdb39b074931dc6b169c31b9abae86785a8f7a54191bdbdf6d",
+      "generated_at_utc": "2026-05-28T06:46:20Z",
+      "gpu_hours_consumed": 11.008236689567566,
+      "manifest": "orbit-research/EARLY_TWEEDIE_BON16_128_PROMPTS.json",
+      "manifest_sha256": "8be48f7844227cf83bba9797d7a95e8f9b4570cb75833f295a6fcaea1af7d830",
+      "n_candidate_records": 256,
+      "n_prompts": 16,
+      "nvidia_smi_after": [
+        {
+          "index": 0,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 19227,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 66,
+          "uuid": "GPU-ba4e359e-d885-844d-122f-46f09159ede9"
+        },
+        {
+          "index": 1,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 19071,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 41,
+          "uuid": "GPU-e9b030e5-49c1-3055-9703-1db3de538184"
+        },
+        {
+          "index": 2,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-ae1cb12e-86d0-9693-7de2-ddd03f1ff643"
+        },
+        {
+          "index": 3,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-872680b0-1f0d-2229-871a-1fa334751a49"
+        },
+        {
+          "index": 4,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 20557,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 45,
+          "uuid": "GPU-cc0f8386-4dc3-6707-194d-b701c36f7a16"
+        },
+        {
+          "index": 5,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 18851,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 51,
+          "uuid": "GPU-21c87527-600e-2469-8134-e4160e91fb23"
+        },
+        {
+          "index": 6,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 18843,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 32,
+          "uuid": "GPU-cfa6584b-bd6d-85e7-d4a9-bec5c58779f6"
+        },
+        {
+          "index": 7,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-f76f23aa-b266-8708-68c7-ed24a5f1c14c"
+        }
+      ],
+      "nvidia_smi_before": [
+        {
+          "index": 0,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-ba4e359e-d885-844d-122f-46f09159ede9"
+        },
+        {
+          "index": 1,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-e9b030e5-49c1-3055-9703-1db3de538184"
+        },
+        {
+          "index": 2,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-ae1cb12e-86d0-9693-7de2-ddd03f1ff643"
+        },
+        {
+          "index": 3,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-872680b0-1f0d-2229-871a-1fa334751a49"
+        },
+        {
+          "index": 4,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-cc0f8386-4dc3-6707-194d-b701c36f7a16"
+        },
+        {
+          "index": 5,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-21c87527-600e-2469-8134-e4160e91fb23"
+        },
+        {
+          "index": 6,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-cfa6584b-bd6d-85e7-d4a9-bec5c58779f6"
+        },
+        {
+          "index": 7,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-f76f23aa-b266-8708-68c7-ed24a5f1c14c"
+        }
+      ],
+      "output_dir": "runs/early_tweedie_bon16_subset_128_20260528_full01/shard06",
+      "prompt_ids": [
+        "held_out_0160",
+        "held_out_0169",
+        "held_out_0212",
+        "held_out_0016",
+        "held_out_0023",
+        "held_out_0077",
+        "held_out_0168",
+        "held_out_0193",
+        "held_out_0010",
+        "held_out_0038",
+        "held_out_0137",
+        "held_out_0243",
+        "held_out_0032",
+        "held_out_0114",
+        "held_out_0155",
+        "held_out_0035"
+      ],
+      "prompt_offset": 96,
+      "records_path": "runs/early_tweedie_bon16_subset_128_20260528_full01/shard06/candidate_records.jsonl",
+      "reward_axes": [
+        "semantic_fit",
+        "aesthetic_pq",
+        "aesthetic_pc",
+        "aesthetic_ce",
+        "aesthetic_cu",
+        "lyric_intelligibility",
+        "section_coherence"
+      ],
+      "reward_config": "configs/baselines/r2_bon.yaml",
+      "safety": {
+        "gate_v1_modified": false,
+        "gate_v2_activated": false,
+        "held_out_workflow_launched": false,
+        "human_eval_launched": false,
+        "phase_d_launched": false,
+        "pruning_rl_launched": false,
+        "reward_sigma_prompt_credit_definitions_changed": false,
+        "training_launched": false
+      },
+      "sampler": {
+        "cfg_scale": 5.0,
+        "cfg_type": "cfg",
+        "guidance_interval": 0.5,
+        "infer_steps": 30,
+        "use_erg_diffusion": false,
+        "use_erg_lyric": false,
+        "use_erg_tag": false
+      },
+      "schema_version": "early_tweedie_validation_collection_v1",
+      "status": "PASS",
+      "target_sigmas": [
+        0.9,
+        0.8,
+        0.7
+      ]
+    },
+    {
+      "bon_n": 16,
+      "command": "scripts/collect_early_tweedie_validation.py --output-dir runs/early_tweedie_bon16_subset_128_20260528_full01/shard07 --manifest orbit-research/EARLY_TWEEDIE_BON16_128_PROMPTS.json --prompt-offset 112 --n-prompts 16 --bon-n 16 --target-sigmas 0.9 0.8 0.7 --progress-every 16",
+      "cuda_visible_devices": "7",
+      "elapsed_seconds": 30351.067542552948,
+      "gate_policy": "configs/eval/gate_v2.yaml.draft",
+      "gate_policy_hash": "f6eaf0b13704b9fdb39b074931dc6b169c31b9abae86785a8f7a54191bdbdf6d",
+      "generated_at_utc": "2026-05-28T06:46:20Z",
+      "gpu_hours_consumed": 8.430852095153597,
+      "manifest": "orbit-research/EARLY_TWEEDIE_BON16_128_PROMPTS.json",
+      "manifest_sha256": "8be48f7844227cf83bba9797d7a95e8f9b4570cb75833f295a6fcaea1af7d830",
+      "n_candidate_records": 256,
+      "n_prompts": 16,
+      "nvidia_smi_after": [
+        {
+          "index": 0,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 19459,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 37,
+          "uuid": "GPU-ba4e359e-d885-844d-122f-46f09159ede9"
+        },
+        {
+          "index": 1,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 20473,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 32,
+          "uuid": "GPU-e9b030e5-49c1-3055-9703-1db3de538184"
+        },
+        {
+          "index": 2,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 19153,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 91,
+          "uuid": "GPU-ae1cb12e-86d0-9693-7de2-ddd03f1ff643"
+        },
+        {
+          "index": 3,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-872680b0-1f0d-2229-871a-1fa334751a49"
+        },
+        {
+          "index": 4,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 19079,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-cc0f8386-4dc3-6707-194d-b701c36f7a16"
+        },
+        {
+          "index": 5,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 18851,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 42,
+          "uuid": "GPU-21c87527-600e-2469-8134-e4160e91fb23"
+        },
+        {
+          "index": 6,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 19033,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 26,
+          "uuid": "GPU-cfa6584b-bd6d-85e7-d4a9-bec5c58779f6"
+        },
+        {
+          "index": 7,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 18919,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 37,
+          "uuid": "GPU-f76f23aa-b266-8708-68c7-ed24a5f1c14c"
+        }
+      ],
+      "nvidia_smi_before": [
+        {
+          "index": 0,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-ba4e359e-d885-844d-122f-46f09159ede9"
+        },
+        {
+          "index": 1,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-e9b030e5-49c1-3055-9703-1db3de538184"
+        },
+        {
+          "index": 2,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-ae1cb12e-86d0-9693-7de2-ddd03f1ff643"
+        },
+        {
+          "index": 3,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-872680b0-1f0d-2229-871a-1fa334751a49"
+        },
+        {
+          "index": 4,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-cc0f8386-4dc3-6707-194d-b701c36f7a16"
+        },
+        {
+          "index": 5,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-21c87527-600e-2469-8134-e4160e91fb23"
+        },
+        {
+          "index": 6,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-cfa6584b-bd6d-85e7-d4a9-bec5c58779f6"
+        },
+        {
+          "index": 7,
+          "memory_total_mb": 81920,
+          "memory_used_mb": 2,
+          "name": "NVIDIA A800 80GB PCIe",
+          "utilization_gpu_percent": 0,
+          "uuid": "GPU-f76f23aa-b266-8708-68c7-ed24a5f1c14c"
+        }
+      ],
+      "output_dir": "runs/early_tweedie_bon16_subset_128_20260528_full01/shard07",
+      "prompt_ids": [
+        "held_out_0190",
+        "held_out_0238",
+        "held_out_0046",
+        "held_out_0249",
+        "held_out_0075",
+        "held_out_0170",
+        "held_out_0178",
+        "held_out_0076",
+        "held_out_0122",
+        "held_out_0247",
+        "held_out_0040",
+        "held_out_0156",
+        "held_out_0219",
+        "held_out_0026",
+        "held_out_0175",
+        "held_out_0210"
+      ],
+      "prompt_offset": 112,
+      "records_path": "runs/early_tweedie_bon16_subset_128_20260528_full01/shard07/candidate_records.jsonl",
+      "reward_axes": [
+        "semantic_fit",
+        "aesthetic_pq",
+        "aesthetic_pc",
+        "aesthetic_ce",
+        "aesthetic_cu",
+        "lyric_intelligibility",
+        "section_coherence"
+      ],
+      "reward_config": "configs/baselines/r2_bon.yaml",
+      "safety": {
+        "gate_v1_modified": false,
+        "gate_v2_activated": false,
+        "held_out_workflow_launched": false,
+        "human_eval_launched": false,
+        "phase_d_launched": false,
+        "pruning_rl_launched": false,
+        "reward_sigma_prompt_credit_definitions_changed": false,
+        "training_launched": false
+      },
+      "sampler": {
+        "cfg_scale": 5.0,
+        "cfg_type": "cfg",
+        "guidance_interval": 0.5,
+        "infer_steps": 30,
+        "use_erg_diffusion": false,
+        "use_erg_lyric": false,
+        "use_erg_tag": false
+      },
+      "schema_version": "early_tweedie_validation_collection_v1",
+      "status": "PASS",
+      "target_sigmas": [
+        0.9,
+        0.8,
+        0.7
+      ]
+    }
+  ]
+}

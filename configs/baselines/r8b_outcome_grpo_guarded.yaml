@@ -1,0 +1,59 @@
+project: audio_diffusion_mprm
+run_id: r8b_outcome_grpo_guarded_phase_a
+split: dev
+run_ledger_path: orbit-research/RUN_LEDGER.jsonl
+
+# R8b — Outcome-GRPO-guarded (STOP-B-1 split, stronger terminal baseline).
+# Terminal reward + Lagrangian lyric guard + optional headroom-weighted curriculum.
+# Reported alongside R8a as a stronger control; NOT the canonical control.
+# Per CONTROL_DESIGN §3.4, an M-PRM ≈ R8b tie demotes C3 to a weaker claim than
+# an M-PRM ≈ R8a tie.
+
+model:
+  name: ace_step_v15
+  backbone: ace_step
+  sample_rate: 44100
+  duration_seconds: 60.0
+  cfg_default: 5.0
+  inference_steps: 50
+  latent_rate_factor: 64
+
+reward:
+  beta_robust: 0.5
+  lambda_probe:
+    silence_fraction: 1.0
+    autocorr_repetition: 1.0
+    off_prompt_distance: 1.0
+    hf_artifact_score: 0.5
+
+baseline:
+  rung_id: R8b
+  name: outcome_grpo_guarded
+  description: |
+    Vanilla Flow-GRPO + R_lcb + Lagrangian lyric guard + optional
+    headroom-weighted curriculum. Stronger terminal baseline; reported
+    alongside R8a; NOT canonical.
+  seed: 0
+  prompts_path: configs/prompts/dev.jsonl
+  output_dir: runs/r8b_outcome_grpo_guarded
+  rl_steps: 2000
+  group_size: 4
+  t_train: 5
+  lora_rank: 8
+  learning_rate: 1.0e-6
+  lambda_kl: 0.05
+  epsilon_clip: 0.2
+  extras:
+    # Lyric guard ON.
+    epsilon_lyric: 0.0
+    lambda_init: 0.5
+    lambda_growth: 1.1
+    lambda_decay: 0.95
+    lambda_min: 0.01
+    lambda_max: 5.0
+    lyric_window: 32
+    # Curriculum ON (optional; q_curriculum from R102 BoN spread).
+    use_curriculum: true
+    eta_schedule: [0.5, 0.5, 0.5, 0.5, 0.5]
+    perturbations: [identity, crop, loudness, codec, fold_down, time_shift]
+    seeds: [0, 1, 2]

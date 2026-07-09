@@ -1,0 +1,32 @@
+project: audio_diffusion_mprm
+run_id: r5_sft_on_best_phase_a
+split: dev
+run_ledger_path: orbit-research/RUN_LEDGER.jsonl
+
+model:
+  name: ace_step_v15
+  backbone: ace_step
+  sample_rate: 44100
+  duration_seconds: 60.0
+  cfg_default: 5.0
+  inference_steps: 50
+  latent_rate_factor: 64
+
+reward:
+  beta_robust: 0.5
+  lambda_probe:
+    silence_fraction: 0.0
+
+baseline:
+  rung_id: R5
+  name: sft_on_best
+  description: SFT on top-1 BoN-8 per prompt; offline amortization of BoN.
+  seed: 0
+  prompts_path: configs/prompts/dev.jsonl
+  output_dir: runs/r5_sft_on_best
+  bon_n: 8
+  sft_steps: 1000
+  lora_rank: 8
+  learning_rate: 1.0e-5
+  extras:
+    primary_axis: aesthetic_pq

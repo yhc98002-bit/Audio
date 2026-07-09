@@ -1,0 +1,8 @@
+name: ace_step_v15
+backbone: ace_step
+sample_rate: 44100
+duration_seconds: 60.0
+cfg_default: 5.0
+inference_steps: 50
+latent_rate_factor: 64
+cache_dir: ~/.cache/ace_step

@@ -1,0 +1,428 @@
+{
+  "tag": "bon256",
+  "n_prompts": 32,
+  "total_draws": 8192,
+  "fixed_N_per_prompt": 256,
+  "DECISIVE": {
+    "fraction_zero_clean_vocal": 0.0,
+    "fraction_zero_clean_instrumental": 0.0,
+    "n_zero_clean": 0,
+    "zero_clean_prompts": [],
+    "note": "zero_clean at this N = p\u22480 CANDIDATE basin (needs N=512/1024 + audit + intervention to qualify STRONG_ESCAPABLE_BASIN). p_ci upper bound on the 0-clean prompts bounds the true p."
+  },
+  "bon_curve_vocal": {
+    "1": 0.0862,
+    "2": 0.1611,
+    "4": 0.2839,
+    "8": 0.4543,
+    "16": 0.6389,
+    "32": 0.7968,
+    "64": 0.9144,
+    "128": 0.9779,
+    "256": 0.9968
+  },
+  "bon_curve_instrumental": {
+    "1": 0.3583,
+    "2": 0.5779,
+    "4": 0.8058,
+    "8": 0.9509,
+    "16": 0.9953,
+    "32": 0.9999,
+    "64": 1.0,
+    "128": 1.0,
+    "256": 1.0
+  },
+  "detector_agreement_overall": 0.515,
+  "per_prompt": {
+    "held_out_0001": {
+      "req": "vocal",
+      "n": 256,
+      "clean": 9,
+      "p_hat": 0.0352,
+      "p_ci": [
+        0.0186,
+        0.0655
+      ],
+      "zero_clean": 0,
+      "demucs_panns_agree": 0.07
+    },
+    "held_out_0008": {
+      "req": "vocal",
+      "n": 256,
+      "clean": 40,
+      "p_hat": 0.1562,
+      "p_ci": [
+        0.1169,
+        0.2058
+      ],
+      "zero_clean": 0,
+      "demucs_panns_agree": 0.367
+    },
+    "held_out_0016": {
+      "req": "vocal",
+      "n": 256,
+      "clean": 31,
+      "p_hat": 0.1211,
+      "p_ci": [
+        0.0866,
+        0.1668
+      ],
+      "zero_clean": 0,
+      "demucs_panns_agree": 0.242
+    },
+    "held_out_0017": {
+      "req": "vocal",
+      "n": 256,
+      "clean": 10,
+      "p_hat": 0.0391,
+      "p_ci": [
+        0.0214,
+        0.0704
+      ],
+      "zero_clean": 0,
+      "demucs_panns_agree": 0.156
+    },
+    "held_out_0021": {
+      "req": "vocal",
+      "n": 256,
+      "clean": 38,
+      "p_hat": 0.1484,
+      "p_ci": [
+        0.1101,
+        0.1972
+      ],
+      "zero_clean": 0,
+      "demucs_panns_agree": 0.219
+    },
+    "held_out_0024": {
+      "req": "vocal",
+      "n": 256,
+      "clean": 7,
+      "p_hat": 0.0273,
+      "p_ci": [
+        0.0133,
+        0.0554
+      ],
+      "zero_clean": 0,
+      "demucs_panns_agree": 0.199
+    },
+    "held_out_0035": {
+      "req": "instrumental",
+      "n": 256,
+      "clean": 103,
+      "p_hat": 0.4023,
+      "p_ci": [
+        0.3441,
+        0.4634
+      ],
+      "zero_clean": 0,
+      "demucs_panns_agree": 0.73
+    },
+    "held_out_0041": {
+      "req": "instrumental",
+      "n": 256,
+      "clean": 114,
+      "p_hat": 0.4453,
+      "p_ci": [
+        0.3857,
+        0.5066
+      ],
+      "zero_clean": 0,
+      "demucs_panns_agree": 0.812
+    },
+    "held_out_0043": {
+      "req": "instrumental",
+      "n": 256,
+      "clean": 92,
+      "p_hat": 0.3594,
+      "p_ci": [
+        0.3031,
+        0.4198
+      ],
+      "zero_clean": 0,
+      "demucs_panns_agree": 0.887
+    },
+    "held_out_0045": {
+      "req": "vocal",
+      "n": 256,
+      "clean": 7,
+      "p_hat": 0.0273,
+      "p_ci": [
+        0.0133,
+        0.0554
+      ],
+      "zero_clean": 0,
+      "demucs_panns_agree": 0.102
+    },
+    "held_out_0058": {
+      "req": "instrumental",
+      "n": 256,
+      "clean": 78,
+      "p_hat": 0.3047,
+      "p_ci": [
+        0.2515,
+        0.3636
+      ],
+      "zero_clean": 0,
+      "demucs_panns_agree": 0.824
+    },
+    "held_out_0069": {
+      "req": "vocal",
+      "n": 256,
+      "clean": 53,
+      "p_hat": 0.207,
+      "p_ci": [
+        0.1619,
+        0.2608
+      ],
+      "zero_clean": 0,
+      "demucs_panns_agree": 0.398
+    },
+    "held_out_0080": {
+      "req": "instrumental",
+      "n": 256,
+      "clean": 86,
+      "p_hat": 0.3359,
+      "p_ci": [
+        0.2809,
+        0.3958
+      ],
+      "zero_clean": 0,
+      "demucs_panns_agree": 0.883
+    },
+    "held_out_0088": {
+      "req": "instrumental",
+      "n": 256,
+      "clean": 108,
+      "p_hat": 0.4219,
+      "p_ci": [
+        0.363,
+        0.4831
+      ],
+      "zero_clean": 0,
+      "demucs_panns_agree": 0.859
+    },
+    "held_out_0094": {
+      "req": "instrumental",
+      "n": 256,
+      "clean": 75,
+      "p_hat": 0.293,
+      "p_ci": [
+        0.2406,
+        0.3515
+      ],
+      "zero_clean": 0,
+      "demucs_panns_agree": 0.863
+    },
+    "held_out_0108": {
+      "req": "instrumental",
+      "n": 256,
+      "clean": 111,
+      "p_hat": 0.4336,
+      "p_ci": [
+        0.3743,
+        0.4948
+      ],
+      "zero_clean": 0,
+      "demucs_panns_agree": 0.809
+    },
+    "held_out_0117": {
+      "req": "instrumental",
+      "n": 256,
+      "clean": 61,
+      "p_hat": 0.2383,
+      "p_ci": [
+        0.1902,
+        0.2941
+      ],
+      "zero_clean": 0,
+      "demucs_panns_agree": 0.844
+    },
+    "held_out_0119": {
+      "req": "vocal",
+      "n": 256,
+      "clean": 26,
+      "p_hat": 0.1016,
+      "p_ci": [
+        0.0703,
+        0.1447
+      ],
+      "zero_clean": 0,
+      "demucs_panns_agree": 0.188
+    },
+    "held_out_0134": {
+      "req": "vocal",
+      "n": 256,
+      "clean": 32,
+      "p_hat": 0.125,
+      "p_ci": [
+        0.09,
+        0.1711
+      ],
+      "zero_clean": 0,
+      "demucs_panns_agree": 0.281
+    },
+    "held_out_0142": {
+      "req": "vocal",
+      "n": 256,
+      "clean": 12,
+      "p_hat": 0.0469,
+      "p_ci": [
+        0.027,
+        0.0801
+      ],
+      "zero_clean": 0,
+      "demucs_panns_agree": 0.199
+    },
+    "held_out_0153": {
+      "req": "instrumental",
+      "n": 256,
+      "clean": 93,
+      "p_hat": 0.3633,
+      "p_ci": [
+        0.3068,
+        0.4238
+      ],
+      "zero_clean": 0,
+      "demucs_panns_agree": 0.867
+    },
+    "held_out_0166": {
+      "req": "vocal",
+      "n": 256,
+      "clean": 46,
+      "p_hat": 0.1797,
+      "p_ci": [
+        0.1375,
+        0.2313
+      ],
+      "zero_clean": 0,
+      "demucs_panns_agree": 0.516
+    },
+    "held_out_0170": {
+      "req": "instrumental",
+      "n": 256,
+      "clean": 63,
+      "p_hat": 0.2461,
+      "p_ci": [
+        0.1973,
+        0.3024
+      ],
+      "zero_clean": 0,
+      "demucs_panns_agree": 0.875
+    },
+    "held_out_0193": {
+      "req": "vocal",
+      "n": 256,
+      "clean": 14,
+      "p_hat": 0.0547,
+      "p_ci": [
+        0.0329,
+        0.0897
+      ],
+      "zero_clean": 0,
+      "demucs_panns_agree": 0.473
+    },
+    "held_out_0199": {
+      "req": "vocal",
+      "n": 256,
+      "clean": 3,
+      "p_hat": 0.0117,
+      "p_ci": [
+        0.004,
+        0.0339
+      ],
+      "zero_clean": 0,
+      "demucs_panns_agree": 0.031
+    },
+    "held_out_0204": {
+      "req": "vocal",
+      "n": 256,
+      "clean": 34,
+      "p_hat": 0.1328,
+      "p_ci": [
+        0.0966,
+        0.1799
+      ],
+      "zero_clean": 0,
+      "demucs_panns_agree": 0.203
+    },
+    "held_out_0236": {
+      "req": "instrumental",
+      "n": 256,
+      "clean": 152,
+      "p_hat": 0.5938,
+      "p_ci": [
+        0.5326,
+        0.6521
+      ],
+      "zero_clean": 0,
+      "demucs_panns_agree": 0.863
+    },
+    "held_out_0238": {
+      "req": "instrumental",
+      "n": 256,
+      "clean": 50,
+      "p_hat": 0.1953,
+      "p_ci": [
+        0.1514,
+        0.2482
+      ],
+      "zero_clean": 0,
+      "demucs_panns_agree": 0.852
+    },
+    "held_out_0240": {
+      "req": "vocal",
+      "n": 256,
+      "clean": 7,
+      "p_hat": 0.0273,
+      "p_ci": [
+        0.0133,
+        0.0554
+      ],
+      "zero_clean": 0,
+      "demucs_panns_agree": 0.121
+    },
+    "held_out_0251": {
+      "req": "instrumental",
+      "n": 256,
+      "clean": 70,
+      "p_hat": 0.2734,
+      "p_ci": [
+        0.2225,
+        0.3311
+      ],
+      "zero_clean": 0,
+      "demucs_panns_agree": 0.832
+    },
+    "held_out_0253": {
+      "req": "instrumental",
+      "n": 256,
+      "clean": 120,
+      "p_hat": 0.4688,
+      "p_ci": [
+        0.4085,
+        0.5299
+      ],
+      "zero_clean": 0,
+      "demucs_panns_agree": 0.742
+    },
+    "held_out_0254": {
+      "req": "vocal",
+      "n": 256,
+      "clean": 6,
+      "p_hat": 0.0234,
+      "p_ci": [
+        0.0108,
+        0.0502
+      ],
+      "zero_clean": 0,
+      "demucs_panns_agree": 0.164
+    }
+  },
+  "source_trace": {
+    "ledgers": "ledgers/bon256_w*.jsonl",
+    "n_rows": 8192,
+    "duplicate_rows_dropped": 0,
+    "script": "decisive_read.py"
+  }
+}

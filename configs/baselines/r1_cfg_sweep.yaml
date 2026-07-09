@@ -1,0 +1,32 @@
+project: audio_diffusion_mprm
+run_id: r1_cfg_sweep_phase_a
+split: dev
+run_ledger_path: orbit-research/RUN_LEDGER.jsonl
+
+model:
+  name: ace_step_v15
+  backbone: ace_step
+  sample_rate: 44100
+  duration_seconds: 60.0
+  cfg_default: 5.0
+  inference_steps: 50
+  latent_rate_factor: 64
+
+reward:
+  beta_robust: 0.5
+  lambda_probe:
+    silence_fraction: 0.0
+    autocorr_repetition: 0.0
+    off_prompt_distance: 0.0
+    hf_artifact_score: 0.0
+
+baseline:
+  rung_id: R1
+  name: cfg_sweep
+  description: CFG sweep across {1.5, 3.0, 5.0, 7.5, 10.0}; 1-knob inference ceiling.
+  seed: 0
+  prompts_path: configs/prompts/dev.jsonl
+  output_dir: runs/r1_cfg_sweep
+  cfg_values: [1.5, 3.0, 5.0, 7.5, 10.0]
+  extras:
+    seeds: [0, 1, 2]

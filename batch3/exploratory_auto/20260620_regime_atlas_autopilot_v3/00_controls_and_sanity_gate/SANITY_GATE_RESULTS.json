@@ -1,0 +1,49 @@
+{
+  "n_rows": 160,
+  "n_gen_errors": 0,
+  "by_category": {
+    "A_trivial_vocal": {
+      "n": 40,
+      "type_correct_rate": 0.9,
+      "mean_ratio": 0.4098,
+      "demucs_panns_agree": 0.85,
+      "near_silent_frac": 0.0
+    },
+    "B_trivial_instrumental": {
+      "n": 40,
+      "type_correct_rate": 0.825,
+      "mean_ratio": 0.0825,
+      "demucs_panns_agree": 0.75,
+      "near_silent_frac": 0.0
+    },
+    "C_contradictory": {
+      "n": 24,
+      "type_correct_rate": 0.458,
+      "mean_ratio": 0.187,
+      "demucs_panns_agree": 0.458,
+      "near_silent_frac": 0.0
+    },
+    "D_e2_vocal_tail": {
+      "n": 32,
+      "type_correct_rate": 0.0,
+      "mean_ratio": 0.0528,
+      "demucs_panns_agree": 0.125,
+      "near_silent_frac": 0.0
+    },
+    "E_instrumental_risk": {
+      "n": 24,
+      "type_correct_rate": 0.375,
+      "mean_ratio": 0.257,
+      "demucs_panns_agree": 0.792,
+      "near_silent_frac": 0.0
+    }
+  },
+  "auto_flags": [],
+  "expected_reference": {
+    "A_trivial_vocal": "type_correct should be HIGH (\u2248\u22650.8) if pipeline healthy",
+    "B_trivial_instrumental": "type_correct should be HIGH (\u2248\u22650.8)",
+    "C_contradictory": "defines the bad/ill-posed reference signature (no expectation)",
+    "D_e2_vocal_tail": "expected LOW type_correct (these are the frozen failing vocal tail)",
+    "E_instrumental_risk": "expected MIXED/low (instrumental-leak risk prompts)"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "verdict": "NOTED",
+  "pi": "",
+  "note": "预训练模型倾向于生成有人声的音乐，而不是instumental music. Instrumental Prompt like \"hiphop\" will more trend to generate human voice.",
+  "suspect_clips": [
+    "keep/ctlB_classical_instr/seed1_2027000001.flac",
+    "keep/ctlB_classical_instr/seed4_2027000004.flac",
+    "keep/ctlB_classical_instr/seed5_2027000005.flac",
+    "keep/ctlB_jazz_instr/seed1_2026800001.flac",
+    "keep/ctlB_lofi_instr/seed0_2027100000.flac"
+  ],
+  "total": 160,
+  "ts": "Sun Jun 21 2026 15:33:39 GMT+0800 (中国标准时间)"
+}

@@ -1,0 +1,31 @@
+project: audio_diffusion_mprm
+run_id: r4_bon_cfg_phase_a
+split: dev
+run_ledger_path: orbit-research/RUN_LEDGER.jsonl
+
+model:
+  name: ace_step_v15
+  backbone: ace_step
+  sample_rate: 44100
+  duration_seconds: 60.0
+  cfg_default: 5.0
+  inference_steps: 50
+  latent_rate_factor: 64
+
+reward:
+  beta_robust: 0.5
+  lambda_probe:
+    silence_fraction: 0.0
+
+baseline:
+  rung_id: R4
+  name: bon_plus_cfg
+  description: BoN-N × CFG composite; combined inference ceiling.
+  seed: 0
+  prompts_path: configs/prompts/dev.jsonl
+  output_dir: runs/r4_bon_cfg
+  bon_n: 8
+  cfg_values: [3.0, 5.0, 7.5]
+  extras:
+    primary_axis: aesthetic_pq
+    seeds: [0, 1, 2]

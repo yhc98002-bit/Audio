@@ -1,0 +1,372 @@
+{
+  "boundary": {
+    "current_stage_forbidden_launch_status": {
+      "full_1000_step_rl_rescue_launched": false,
+      "human_eval_launched_by_current_stage": false,
+      "phase_d_launched_by_current_stage": false,
+      "pruning_rl_launched": false,
+      "track_c_gpu_smoke_launched": false
+    },
+    "gate_v1_exists": true,
+    "gate_v1_path": "configs/eval/gate_v1.yaml",
+    "gate_v1_sha256": "43a306753583f03563c792ac9399bb1e30b0525c98c902a1e18756d54e25b3c6",
+    "gate_v2_draft_exists": true,
+    "gate_v2_draft_path": "configs/eval/gate_v2.yaml.draft",
+    "historical_artifact_caveat": "Historical held-out artifacts exist in this checkout; they are not evidence of a new held-out launch during the current trajectory-aware stage.",
+    "historical_held_out_dirs_observed": [
+      "runs/m1a_phase/held_out",
+      "runs/phase_b3_credit_unit/h3_held_out",
+      "runs/phase_b3_credit_unit/h3_held_out_attempt1_oversubscribed",
+      "runs/phase_b3_credit_unit/h3_held_out_v2_global_seed",
+      "runs/r0_base/held_out",
+      "runs/r1_cfg_sweep/held_out",
+      "runs/r2_bon/held_out",
+      "runs/r4_bon_cfg/held_out",
+      "runs/r9_s7_sampler_control/held_out"
+    ],
+    "historical_pi_review_held_out_examples": [
+      "_pi_review_pkg/audio/held_out_0018_r0_seed0.mp3",
+      "_pi_review_pkg/audio/held_out_0018_r0_seed1.mp3",
+      "_pi_review_pkg/audio/held_out_0018_r0_seed2.mp3",
+      "_pi_review_pkg/audio/held_out_0018_r2_seed0.mp3",
+      "_pi_review_pkg/audio/held_out_0018_r2_seed1.mp3",
+      "_pi_review_pkg/audio/held_out_0018_r2_seed2.mp3",
+      "_pi_review_pkg/audio/held_out_0020_r0_seed0.mp3",
+      "_pi_review_pkg/audio/held_out_0020_r0_seed1.mp3"
+    ]
+  },
+  "deliverables": {
+    "boundary_status": {
+      "bytes": null,
+      "exists": false,
+      "path": "orbit-research/TRAJECTORY_AWARE_BOUNDARY_AND_DELIVERABLE_STATUS_2026-05-27.md"
+    },
+    "synthesis_draft": {
+      "bytes": null,
+      "exists": false,
+      "path": "orbit-research/TRAJECTORY_AWARE_RESEARCH_SYNTHESIS_DRAFT_2026-05-27.md"
+    },
+    "track_a_decision_summarizer": {
+      "bytes": 10048,
+      "exists": true,
+      "path": "scripts/summarize_early_tweedie_decision.py"
+    },
+    "track_a_finalize_wrapper": {
+      "bytes": 11926,
+      "exists": true,
+      "path": "scripts/finalize_early_tweedie_validation.py"
+    },
+    "track_a_live_record_check_json": {
+      "bytes": null,
+      "exists": false,
+      "path": "orbit-research/EARLY_TWEEDIE_LIVE_RECORD_CHECK_CURRENT.json"
+    },
+    "track_a_live_record_check_md": {
+      "bytes": null,
+      "exists": false,
+      "path": "orbit-research/EARLY_TWEEDIE_LIVE_RECORD_CHECK_CURRENT.md"
+    },
+    "track_a_live_record_checker": {
+      "bytes": 16481,
+      "exists": true,
+      "path": "scripts/check_early_tweedie_live_records.py"
+    },
+    "track_a_pi_decision": {
+      "bytes": 5637,
+      "exists": true,
+      "path": "orbit-research/EARLY_TWEEDIE_VALIDATION_PI_DECISION.md"
+    },
+    "track_a_validation_json": {
+      "bytes": 71262,
+      "exists": true,
+      "path": "orbit-research/EARLY_TWEEDIE_PRUNING_VALIDATION.json"
+    },
+    "track_a_validation_md": {
+      "bytes": 2203,
+      "exists": true,
+      "path": "orbit-research/EARLY_TWEEDIE_PRUNING_VALIDATION.md"
+    },
+    "track_a_validation_plot_csv": {
+      "bytes": 15367,
+      "exists": true,
+      "path": "orbit-research/EARLY_TWEEDIE_PRUNING_VALIDATION_PLOT.csv"
+    },
+    "track_a_validation_retention_csv": {
+      "bytes": 3742,
+      "exists": true,
+      "path": "orbit-research/EARLY_TWEEDIE_PRUNING_VALIDATION_RETENTION.csv"
+    },
+    "track_a_verification_report": {
+      "bytes": 70135,
+      "exists": true,
+      "path": "orbit-research/EARLY_TWEEDIE_VALIDATION_VERIFICATION_REPORT.json"
+    },
+    "track_a_verifier": {
+      "bytes": 42012,
+      "exists": true,
+      "path": "scripts/verify_early_tweedie_validation.py"
+    },
+    "track_b_global_quality_json": {
+      "bytes": 211819,
+      "exists": true,
+      "path": "orbit-research/GLOBAL_QUALITY_STRUCTURE_ANALYSIS.json"
+    },
+    "track_b_global_quality_md": {
+      "bytes": 5830,
+      "exists": true,
+      "path": "orbit-research/GLOBAL_QUALITY_STRUCTURE_ANALYSIS.md"
+    },
+    "track_c_output_summarizer": {
+      "bytes": 12994,
+      "exists": true,
+      "path": "scripts/summarize_c1_lite_rl_rescue.py"
+    },
+    "track_c_output_summary_json": {
+      "bytes": null,
+      "exists": false,
+      "path": "orbit-research/C1_LITE_RL_RESCUE_OUTPUT_SUMMARY.json"
+    },
+    "track_c_output_summary_md": {
+      "bytes": null,
+      "exists": false,
+      "path": "orbit-research/C1_LITE_RL_RESCUE_OUTPUT_SUMMARY.md"
+    },
+    "track_c_post_track_a_decision_rule": {
+      "bytes": null,
+      "exists": false,
+      "path": "orbit-research/TRACK_C_POST_TRACK_A_DECISION_RULE_2026-05-27.md"
+    },
+    "track_c_smoke_launch_plan_json": {
+      "bytes": null,
+      "exists": false,
+      "path": "orbit-research/C1_LITE_RL_RESCUE_SMOKE_LAUNCH_PLAN_CURRENT.json"
+    },
+    "track_c_smoke_launch_plan_md": {
+      "bytes": null,
+      "exists": false,
+      "path": "orbit-research/C1_LITE_RL_RESCUE_SMOKE_LAUNCH_PLAN_CURRENT.md"
+    },
+    "track_c_smoke_preflight": {
+      "bytes": 11891,
+      "exists": true,
+      "path": "scripts/preflight_c1_lite_rl_rescue_smoke.py"
+    },
+    "track_c_smoke_preflight_json": {
+      "bytes": null,
+      "exists": false,
+      "path": "orbit-research/C1_LITE_RL_RESCUE_SMOKE_PREFLIGHT_CURRENT.json"
+    },
+    "track_c_smoke_preflight_md": {
+      "bytes": null,
+      "exists": false,
+      "path": "orbit-research/C1_LITE_RL_RESCUE_SMOKE_PREFLIGHT_CURRENT.md"
+    },
+    "track_c_smoke_wrapper": {
+      "bytes": 6315,
+      "exists": true,
+      "path": "scripts/run_c1_lite_rl_rescue_smoke.py"
+    },
+    "track_c_stop_decision_template": {
+      "bytes": null,
+      "exists": false,
+      "path": "orbit-research/C1_LITE_RL_RESCUE_STOP_DECISION_TEMPLATE.md"
+    },
+    "trajectory_completion_audit_json": {
+      "bytes": 2008,
+      "exists": true,
+      "path": "orbit-research/TRAJECTORY_AWARE_COMPLETION_AUDIT_CURRENT.json"
+    },
+    "trajectory_completion_audit_md": {
+      "bytes": 1657,
+      "exists": true,
+      "path": "orbit-research/TRAJECTORY_AWARE_COMPLETION_AUDIT_CURRENT.md"
+    },
+    "trajectory_completion_auditor": {
+      "bytes": 10684,
+      "exists": true,
+      "path": "scripts/audit_trajectory_aware_goal_completion.py"
+    },
+    "trajectory_pi_report_generator": {
+      "bytes": 23525,
+      "exists": true,
+      "path": "scripts/generate_trajectory_aware_pi_report.py"
+    },
+    "trajectory_pi_report_json": {
+      "bytes": 11912,
+      "exists": true,
+      "path": "orbit-research/TRAJECTORY_AWARE_PI_REPORT_CURRENT.json"
+    },
+    "trajectory_pi_report_md": {
+      "bytes": 4875,
+      "exists": true,
+      "path": "orbit-research/TRAJECTORY_AWARE_PI_REPORT_CURRENT.md"
+    },
+    "trajectory_refresh_orchestrator": {
+      "bytes": 9986,
+      "exists": true,
+      "path": "scripts/refresh_trajectory_aware_status.py"
+    },
+    "trajectory_refresh_status_json": {
+      "bytes": null,
+      "exists": false,
+      "path": "orbit-research/TRAJECTORY_AWARE_REFRESH_STATUS_CURRENT.json"
+    },
+    "trajectory_refresh_status_md": {
+      "bytes": null,
+      "exists": false,
+      "path": "orbit-research/TRAJECTORY_AWARE_REFRESH_STATUS_CURRENT.md"
+    }
+  },
+  "generated_at_utc": "2026-06-04T04:29:39Z",
+  "schema_version": "trajectory_aware_goal_status_v1",
+  "track_a": {
+    "age_since_newest_record_sec": 620474.5,
+    "aggregate_estimated_finish_local": "2026-06-04 12:29:39",
+    "aggregate_eta_hours": 0.0,
+    "aggregate_records_per_hour": 20.16,
+    "completed": true,
+    "estimated_active_gpu_hours_elapsed": 1625.434,
+    "estimated_final_active_gpu_hours_by_shard_rates": 1625.434,
+    "estimated_remaining_active_gpu_hours_by_shard_rates": 0.0,
+    "exists": true,
+    "expected_records": 4096,
+    "finalizer_lock_exists": true,
+    "finalizer_lock_path": "orbit-research/codex-imports/EARLY_TWEEDIE_FINALIZER_WATCHER_2026-05-27.lock",
+    "finalizer_watcher_processes": 0,
+    "launch_finished_exists": true,
+    "launch_started_utc": "2026-05-26T17:18:58Z",
+    "launcher_exit": "0",
+    "launcher_exit_exists": true,
+    "live_record_check_complete_prompts": null,
+    "live_record_check_errors": null,
+    "live_record_check_exists": false,
+    "live_record_check_generated_at_utc": null,
+    "live_record_check_partial_prompts": null,
+    "live_record_check_path": "orbit-research/EARLY_TWEEDIE_LIVE_RECORD_CHECK_CURRENT.json",
+    "live_record_check_record_lag": null,
+    "live_record_check_records": null,
+    "live_record_check_status": null,
+    "live_record_check_warnings": null,
+    "manual_poll_guidance": "Track A complete: run finalizer now.",
+    "newest_record_write_local": "2026-05-28 08:08:25",
+    "next_manual_poll_after_local": "2026-06-04 12:29:39",
+    "progress_fraction": 1.0,
+    "progress_watcher_processes": 0,
+    "python_collector_processes": 0,
+    "recommended_manual_poll_interval_sec": 0,
+    "records": 4096,
+    "run_root": "runs/early_tweedie_validation_512_bon8_20260527_full01",
+    "shards": [
+      {
+        "age_since_record_write_sec": 624470.5,
+        "eta_hours_to_expected_shard_records": 0.0,
+        "max_elapsed_seconds": 165.00991916656494,
+        "projected_total_gpu_hours_at_current_rate": 203.179,
+        "record_path": "runs/early_tweedie_validation_512_bon8_20260527_full01/shard00/candidate_records.jsonl",
+        "record_write_local": "2026-05-28 07:01:49",
+        "records": 512,
+        "records_per_hour": 2.52,
+        "shard": "shard00",
+        "stall_suspected": false,
+        "summary_exists": true
+      },
+      {
+        "age_since_record_write_sec": 620894.5,
+        "eta_hours_to_expected_shard_records": 0.0,
+        "max_elapsed_seconds": 237.4560661315918,
+        "projected_total_gpu_hours_at_current_rate": 203.179,
+        "record_path": "runs/early_tweedie_validation_512_bon8_20260527_full01/shard01/candidate_records.jsonl",
+        "record_write_local": "2026-05-28 08:01:25",
+        "records": 512,
+        "records_per_hour": 2.52,
+        "shard": "shard01",
+        "stall_suspected": false,
+        "summary_exists": true
+      },
+      {
+        "age_since_record_write_sec": 621968.5,
+        "eta_hours_to_expected_shard_records": 0.0,
+        "max_elapsed_seconds": 180.64165425300598,
+        "projected_total_gpu_hours_at_current_rate": 203.179,
+        "record_path": "runs/early_tweedie_validation_512_bon8_20260527_full01/shard02/candidate_records.jsonl",
+        "record_write_local": "2026-05-28 07:43:31",
+        "records": 512,
+        "records_per_hour": 2.52,
+        "shard": "shard02",
+        "stall_suspected": false,
+        "summary_exists": true
+      },
+      {
+        "age_since_record_write_sec": 623747.5,
+        "eta_hours_to_expected_shard_records": 0.0,
+        "max_elapsed_seconds": 218.91708159446716,
+        "projected_total_gpu_hours_at_current_rate": 203.179,
+        "record_path": "runs/early_tweedie_validation_512_bon8_20260527_full01/shard03/candidate_records.jsonl",
+        "record_write_local": "2026-05-28 07:13:52",
+        "records": 512,
+        "records_per_hour": 2.52,
+        "shard": "shard03",
+        "stall_suspected": false,
+        "summary_exists": true
+      },
+      {
+        "age_since_record_write_sec": 620474.5,
+        "eta_hours_to_expected_shard_records": 0.0,
+        "max_elapsed_seconds": 203.86429738998413,
+        "projected_total_gpu_hours_at_current_rate": 203.179,
+        "record_path": "runs/early_tweedie_validation_512_bon8_20260527_full01/shard04/candidate_records.jsonl",
+        "record_write_local": "2026-05-28 08:08:25",
+        "records": 512,
+        "records_per_hour": 2.52,
+        "shard": "shard04",
+        "stall_suspected": false,
+        "summary_exists": true
+      },
+      {
+        "age_since_record_write_sec": 621749.5,
+        "eta_hours_to_expected_shard_records": 0.0,
+        "max_elapsed_seconds": 186.96612429618835,
+        "projected_total_gpu_hours_at_current_rate": 203.179,
+        "record_path": "runs/early_tweedie_validation_512_bon8_20260527_full01/shard05/candidate_records.jsonl",
+        "record_write_local": "2026-05-28 07:47:10",
+        "records": 512,
+        "records_per_hour": 2.52,
+        "shard": "shard05",
+        "stall_suspected": false,
+        "summary_exists": true
+      },
+      {
+        "age_since_record_write_sec": 621354.5,
+        "eta_hours_to_expected_shard_records": 0.0,
+        "max_elapsed_seconds": 195.23463797569275,
+        "projected_total_gpu_hours_at_current_rate": 203.179,
+        "record_path": "runs/early_tweedie_validation_512_bon8_20260527_full01/shard06/candidate_records.jsonl",
+        "record_write_local": "2026-05-28 07:53:45",
+        "records": 512,
+        "records_per_hour": 2.52,
+        "shard": "shard06",
+        "stall_suspected": false,
+        "summary_exists": true
+      },
+      {
+        "age_since_record_write_sec": 621708.5,
+        "eta_hours_to_expected_shard_records": 0.0,
+        "max_elapsed_seconds": 158.94748950004578,
+        "projected_total_gpu_hours_at_current_rate": 203.179,
+        "record_path": "runs/early_tweedie_validation_512_bon8_20260527_full01/shard07/candidate_records.jsonl",
+        "record_write_local": "2026-05-28 07:47:51",
+        "records": 512,
+        "records_per_hour": 2.52,
+        "shard": "shard07",
+        "stall_suspected": false,
+        "summary_exists": true
+      }
+    ],
+    "slowest_shard_estimated_finish_local": "2026-06-04 12:29:39",
+    "slowest_shard_eta_hours": 0.0,
+    "stall_threshold_sec": 1800,
+    "stalled_shards": [],
+    "track_a_stall_suspected": false,
+    "wall_elapsed_hours": 203.179
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "full_bon8": {
+    "gated_type_error": 0.0117,
+    "gated_type_error_ci95": [
+      0.0,
+      0.0273
+    ],
+    "mean_selected_common": 2.3434,
+    "reward_fraction_vs_bon8_oracle": 0.9931,
+    "per_stratum_type_error": {
+      "instrumental": 0.0206,
+      "vocal": 0.0063
+    },
+    "n_prompts": 256
+  },
+  "bon4_first4": {
+    "gated_type_error": 0.0391,
+    "gated_type_error_ci95": [
+      0.0156,
+      0.0664
+    ],
+    "mean_selected_common": 2.2934,
+    "reward_fraction_vs_bon8_oracle": 0.972,
+    "per_stratum_type_error": {
+      "instrumental": 0.0619,
+      "vocal": 0.0252
+    },
+    "n_prompts": 256
+  },
+  "random_keep4": {
+    "gated_type_error": 0.0195,
+    "gated_type_error_ci95": [
+      0.0039,
+      0.0391
+    ],
+    "mean_selected_common": 2.2895,
+    "reward_fraction_vs_bon8_oracle": 0.9703,
+    "per_stratum_type_error": {
+      "instrumental": 0.0412,
+      "vocal": 0.0063
+    },
+    "n_prompts": 256
+  },
+  "common_restart": {
+    "gated_type_error": 0.0234,
+    "gated_type_error_ci95": [
+      0.0078,
+      0.043
+    ],
+    "mean_selected_common": 2.3331,
+    "reward_fraction_vs_bon8_oracle": 0.9888,
+    "per_stratum_type_error": {
+      "instrumental": 0.0309,
+      "vocal": 0.0189
+    },
+    "n_prompts": 256
+  },
+  "adsr_evpd": {
+    "gated_type_error": 0.0195,
+    "gated_type_error_ci95": [
+      0.0039,
+      0.0391
+    ],
+    "mean_selected_common": 2.3299,
+    "reward_fraction_vs_bon8_oracle": 0.9874,
+    "per_stratum_type_error": {
+      "instrumental": 0.0309,
+      "vocal": 0.0126
+    },
+    "n_prompts": 256
+  },
+  "_note": "every policy now selects via the final gate; compute: full_bon8=1.0, bon4=0.5, \u03c30.8-decision keep-4 = 0.700"
+}

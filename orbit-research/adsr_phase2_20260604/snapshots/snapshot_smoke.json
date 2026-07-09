@@ -1,0 +1,24 @@
+{
+  "coverage_prompts": 2,
+  "coverage_frac": 0.0039,
+  "threshold": 0.15,
+  "threshold_method": "default(<30)",
+  "n_candidates_labeled": 16,
+  "candidate_type_error_prevalence": 0.1875,
+  "prompt_level_affected_rate": 1.0,
+  "per_requested_stratum": {
+    "vocal": {
+      "n_cand": 16,
+      "type_error_rate": 0.1875
+    },
+    "instrumental": {
+      "n_cand": 0,
+      "type_error_rate": null
+    }
+  },
+  "type_error_rate_among_common_score_survivors": 0.0,
+  "early_sigma_vocal_presence_AUC_insample": null,
+  "AUPRC_insample": null,
+  "auc_n": 0,
+  "WARNING": "EARLY-WARNING ONLY \u2014 not a paper claim. AUC is in-sample scalar-feature proxy; EVPD mel-CNN is Phase 2A. Threshold is provisional (recalibrated as coverage grows)."
+}

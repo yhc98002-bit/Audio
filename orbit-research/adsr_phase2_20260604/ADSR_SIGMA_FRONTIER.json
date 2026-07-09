@@ -1,0 +1,35 @@
+{
+  "frontier": [
+    {
+      "decision_sigma": "0.9",
+      "compute_fraction": 0.6167,
+      "evpd_model": "melsumm_logit_s0.9",
+      "common_restart_type_error": 0.1562,
+      "adsr_evpd_select_type_error": 0.1562,
+      "abs_reduction": 0.0,
+      "rel_reduction": 0.0,
+      "n_prompts": 256
+    },
+    {
+      "decision_sigma": "0.8",
+      "compute_fraction": 0.7,
+      "evpd_model": "melsumm_logit_s0.8",
+      "common_restart_type_error": 0.1914,
+      "adsr_evpd_select_type_error": 0.1328,
+      "abs_reduction": 0.0586,
+      "rel_reduction": 0.3062,
+      "n_prompts": 256
+    },
+    {
+      "decision_sigma": "0.7",
+      "compute_fraction": 0.7667,
+      "evpd_model": "melsumm_gbdt_s0.7",
+      "common_restart_type_error": 0.168,
+      "adsr_evpd_select_type_error": 0.1211,
+      "abs_reduction": 0.0469,
+      "rel_reduction": 0.2792,
+      "n_prompts": 256
+    }
+  ],
+  "read": "Earlier \u03c3 = cheaper compute but weaker EVPD. The pilot should use the EARLIEST \u03c3 at which the type-error reduction still holds."
+}

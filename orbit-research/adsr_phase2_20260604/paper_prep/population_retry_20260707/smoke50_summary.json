@@ -1,0 +1,496 @@
+{
+  "condition_summary": {
+    "none": {
+      "errors": 0,
+      "near_silent": 0,
+      "ok": 50,
+      "present_rate": 0.26,
+      "requested_vocal": 1,
+      "rows": 50,
+      "type_correct_rate": 0.38,
+      "vocal_energy_ratio": {
+        "max": 0.767985,
+        "mean": 0.14767924000000002,
+        "median": 0.0827055,
+        "min": 1e-06,
+        "n": 50
+      }
+    }
+  },
+  "conditions": {
+    "none": 50
+  },
+  "errors": 0,
+  "expected_rows": 50,
+  "expected_rows_match": true,
+  "files": [
+    "orbit-research/adsr_phase2_20260604/paper_prep/population_retry_20260707/ledgers/smoke50_w0.jsonl",
+    "orbit-research/adsr_phase2_20260604/paper_prep/population_retry_20260707/ledgers/smoke50_w1.jsonl",
+    "orbit-research/adsr_phase2_20260604/paper_prep/population_retry_20260707/ledgers/smoke50_w2.jsonl",
+    "orbit-research/adsr_phase2_20260604/paper_prep/population_retry_20260707/ledgers/smoke50_w3.jsonl",
+    "orbit-research/adsr_phase2_20260604/paper_prep/population_retry_20260707/ledgers/smoke50_w4.jsonl",
+    "orbit-research/adsr_phase2_20260604/paper_prep/population_retry_20260707/ledgers/smoke50_w5.jsonl",
+    "orbit-research/adsr_phase2_20260604/paper_prep/population_retry_20260707/ledgers/smoke50_w6.jsonl",
+    "orbit-research/adsr_phase2_20260604/paper_prep/population_retry_20260707/ledgers/smoke50_w7.jsonl"
+  ],
+  "missing_flac": 0,
+  "missing_flac_examples": [],
+  "near_silent": 0,
+  "ok": 50,
+  "patterns": [
+    "orbit-research/adsr_phase2_20260604/paper_prep/population_retry_20260707/ledgers/smoke50_w*.jsonl"
+  ],
+  "prompt_summary": {
+    "held_out_0006": {
+      "conditions": {
+        "none": 1
+      },
+      "errors": 0,
+      "ok": 1,
+      "requested_vocal": 1,
+      "rows": 1,
+      "type_correct_rate": 1.0
+    },
+    "held_out_0008": {
+      "conditions": {
+        "none": 1
+      },
+      "errors": 0,
+      "ok": 1,
+      "requested_vocal": 1,
+      "rows": 1,
+      "type_correct_rate": 0.0
+    },
+    "held_out_0009": {
+      "conditions": {
+        "none": 1
+      },
+      "errors": 0,
+      "ok": 1,
+      "requested_vocal": 0,
+      "rows": 1,
+      "type_correct_rate": 0.0
+    },
+    "held_out_0011": {
+      "conditions": {
+        "none": 1
+      },
+      "errors": 0,
+      "ok": 1,
+      "requested_vocal": 1,
+      "rows": 1,
+      "type_correct_rate": 0.0
+    },
+    "held_out_0012": {
+      "conditions": {
+        "none": 1
+      },
+      "errors": 0,
+      "ok": 1,
+      "requested_vocal": 1,
+      "rows": 1,
+      "type_correct_rate": 0.0
+    },
+    "held_out_0014": {
+      "conditions": {
+        "none": 1
+      },
+      "errors": 0,
+      "ok": 1,
+      "requested_vocal": 1,
+      "rows": 1,
+      "type_correct_rate": 0.0
+    },
+    "held_out_0017": {
+      "conditions": {
+        "none": 1
+      },
+      "errors": 0,
+      "ok": 1,
+      "requested_vocal": 1,
+      "rows": 1,
+      "type_correct_rate": 0.0
+    },
+    "held_out_0020": {
+      "conditions": {
+        "none": 1
+      },
+      "errors": 0,
+      "ok": 1,
+      "requested_vocal": 0,
+      "rows": 1,
+      "type_correct_rate": 1.0
+    },
+    "held_out_0021": {
+      "conditions": {
+        "none": 1
+      },
+      "errors": 0,
+      "ok": 1,
+      "requested_vocal": 1,
+      "rows": 1,
+      "type_correct_rate": 0.0
+    },
+    "held_out_0023": {
+      "conditions": {
+        "none": 1
+      },
+      "errors": 0,
+      "ok": 1,
+      "requested_vocal": 1,
+      "rows": 1,
+      "type_correct_rate": 0.0
+    },
+    "held_out_0027": {
+      "conditions": {
+        "none": 1
+      },
+      "errors": 0,
+      "ok": 1,
+      "requested_vocal": 1,
+      "rows": 1,
+      "type_correct_rate": 0.0
+    },
+    "held_out_0029": {
+      "conditions": {
+        "none": 1
+      },
+      "errors": 0,
+      "ok": 1,
+      "requested_vocal": 1,
+      "rows": 1,
+      "type_correct_rate": 1.0
+    },
+    "held_out_0036": {
+      "conditions": {
+        "none": 1
+      },
+      "errors": 0,
+      "ok": 1,
+      "requested_vocal": 1,
+      "rows": 1,
+      "type_correct_rate": 0.0
+    },
+    "held_out_0037": {
+      "conditions": {
+        "none": 1
+      },
+      "errors": 0,
+      "ok": 1,
+      "requested_vocal": 1,
+      "rows": 1,
+      "type_correct_rate": 0.0
+    },
+    "held_out_0039": {
+      "conditions": {
+        "none": 1
+      },
+      "errors": 0,
+      "ok": 1,
+      "requested_vocal": 1,
+      "rows": 1,
+      "type_correct_rate": 0.0
+    },
+    "held_out_0040": {
+      "conditions": {
+        "none": 1
+      },
+      "errors": 0,
+      "ok": 1,
+      "requested_vocal": 0,
+      "rows": 1,
+      "type_correct_rate": 1.0
+    },
+    "held_out_0041": {
+      "conditions": {
+        "none": 1
+      },
+      "errors": 0,
+      "ok": 1,
+      "requested_vocal": 0,
+      "rows": 1,
+      "type_correct_rate": 1.0
+    },
+    "held_out_0044": {
+      "conditions": {
+        "none": 1
+      },
+      "errors": 0,
+      "ok": 1,
+      "requested_vocal": 1,
+      "rows": 1,
+      "type_correct_rate": 1.0
+    },
+    "held_out_0045": {
+      "conditions": {
+        "none": 1
+      },
+      "errors": 0,
+      "ok": 1,
+      "requested_vocal": 1,
+      "rows": 1,
+      "type_correct_rate": 0.0
+    },
+    "held_out_0046": {
+      "conditions": {
+        "none": 1
+      },
+      "errors": 0,
+      "ok": 1,
+      "requested_vocal": 0,
+      "rows": 1,
+      "type_correct_rate": 1.0
+    },
+    "held_out_0055": {
+      "conditions": {
+        "none": 1
+      },
+      "errors": 0,
+      "ok": 1,
+      "requested_vocal": 1,
+      "rows": 1,
+      "type_correct_rate": 0.0
+    },
+    "held_out_0056": {
+      "conditions": {
+        "none": 1
+      },
+      "errors": 0,
+      "ok": 1,
+      "requested_vocal": 1,
+      "rows": 1,
+      "type_correct_rate": 0.0
+    },
+    "held_out_0057": {
+      "conditions": {
+        "none": 1
+      },
+      "errors": 0,
+      "ok": 1,
+      "requested_vocal": 1,
+      "rows": 1,
+      "type_correct_rate": 1.0
+    },
+    "held_out_0059": {
+      "conditions": {
+        "none": 1
+      },
+      "errors": 0,
+      "ok": 1,
+      "requested_vocal": 0,
+      "rows": 1,
+      "type_correct_rate": 0.0
+    },
+    "held_out_0062": {
+      "conditions": {
+        "none": 1
+      },
+      "errors": 0,
+      "ok": 1,
+      "requested_vocal": 1,
+      "rows": 1,
+      "type_correct_rate": 0.0
+    },
+    "held_out_0065": {
+      "conditions": {
+        "none": 1
+      },
+      "errors": 0,
+      "ok": 1,
+      "requested_vocal": 1,
+      "rows": 1,
+      "type_correct_rate": 0.0
+    },
+    "held_out_0068": {
+      "conditions": {
+        "none": 1
+      },
+      "errors": 0,
+      "ok": 1,
+      "requested_vocal": 1,
+      "rows": 1,
+      "type_correct_rate": 0.0
+    },
+    "held_out_0074": {
+      "conditions": {
+        "none": 1
+      },
+      "errors": 0,
+      "ok": 1,
+      "requested_vocal": 0,
+      "rows": 1,
+      "type_correct_rate": 1.0
+    },
+    "held_out_0081": {
+      "conditions": {
+        "none": 1
+      },
+      "errors": 0,
+      "ok": 1,
+      "requested_vocal": 1,
+      "rows": 1,
+      "type_correct_rate": 1.0
+    },
+    "held_out_0082": {
+      "conditions": {
+        "none": 1
+      },
+      "errors": 0,
+      "ok": 1,
+      "requested_vocal": 1,
+      "rows": 1,
+      "type_correct_rate": 0.0
+    },
+    "held_out_0088": {
+      "conditions": {
+        "none": 1
+      },
+      "errors": 0,
+      "ok": 1,
+      "requested_vocal": 0,
+      "rows": 1,
+      "type_correct_rate": 0.0
+    },
+    "held_out_0090": {
+      "conditions": {
+        "none": 1
+      },
+      "errors": 0,
+      "ok": 1,
+      "requested_vocal": 1,
+      "rows": 1,
+      "type_correct_rate": 1.0
+    },
+    "held_out_0094": {
+      "conditions": {
+        "none": 1
+      },
+      "errors": 0,
+      "ok": 1,
+      "requested_vocal": 0,
+      "rows": 1,
+      "type_correct_rate": 1.0
+    },
+    "held_out_0102": {
+      "conditions": {
+        "none": 1
+      },
+      "errors": 0,
+      "ok": 1,
+      "requested_vocal": 1,
+      "rows": 1,
+      "type_correct_rate": 1.0
+    },
+    "held_out_0117": {
+      "conditions": {
+        "none": 3
+      },
+      "errors": 0,
+      "ok": 3,
+      "requested_vocal": 0,
+      "rows": 3,
+      "type_correct_rate": 0.6666666666666666
+    },
+    "held_out_0119": {
+      "conditions": {
+        "none": 1
+      },
+      "errors": 0,
+      "ok": 1,
+      "requested_vocal": 1,
+      "rows": 1,
+      "type_correct_rate": 0.0
+    },
+    "held_out_0140": {
+      "conditions": {
+        "none": 1
+      },
+      "errors": 0,
+      "ok": 1,
+      "requested_vocal": 0,
+      "rows": 1,
+      "type_correct_rate": 1.0
+    },
+    "held_out_0152": {
+      "conditions": {
+        "none": 1
+      },
+      "errors": 0,
+      "ok": 1,
+      "requested_vocal": 1,
+      "rows": 1,
+      "type_correct_rate": 0.0
+    },
+    "held_out_0164": {
+      "conditions": {
+        "none": 1
+      },
+      "errors": 0,
+      "ok": 1,
+      "requested_vocal": 1,
+      "rows": 1,
+      "type_correct_rate": 0.0
+    },
+    "held_out_0193": {
+      "conditions": {
+        "none": 3
+      },
+      "errors": 0,
+      "ok": 3,
+      "requested_vocal": 1,
+      "rows": 3,
+      "type_correct_rate": 0.3333333333333333
+    },
+    "held_out_0204": {
+      "conditions": {
+        "none": 2
+      },
+      "errors": 0,
+      "ok": 2,
+      "requested_vocal": 1,
+      "rows": 2,
+      "type_correct_rate": 0.0
+    },
+    "held_out_0236": {
+      "conditions": {
+        "none": 2
+      },
+      "errors": 0,
+      "ok": 2,
+      "requested_vocal": 0,
+      "rows": 2,
+      "type_correct_rate": 1.0
+    },
+    "held_out_0238": {
+      "conditions": {
+        "none": 1
+      },
+      "errors": 0,
+      "ok": 1,
+      "requested_vocal": 0,
+      "rows": 1,
+      "type_correct_rate": 0.0
+    },
+    "held_out_0240": {
+      "conditions": {
+        "none": 1
+      },
+      "errors": 0,
+      "ok": 1,
+      "requested_vocal": 1,
+      "rows": 1,
+      "type_correct_rate": 0.0
+    }
+  },
+  "prompts": 44,
+  "requested_vocal_counts": {
+    "0": 16,
+    "1": 34
+  },
+  "rows": 50,
+  "sources": {
+    "population_retry_map_heldout": 50
+  },
+  "type_correct_rate": 0.38,
+  "verdict": "PASS"
+}

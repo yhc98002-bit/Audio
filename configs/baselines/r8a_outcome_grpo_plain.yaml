@@ -1,0 +1,52 @@
+project: audio_diffusion_mprm
+run_id: r8a_outcome_grpo_plain_phase_a
+split: dev
+run_ledger_path: orbit-research/RUN_LEDGER.jsonl
+
+# R8a — Outcome-GRPO-plain (STOP-B-1 split, canonical terminal-reward control).
+# Terminal robust-LCB reward only. NO curriculum. NO lyric guard.
+# This is the canonical matched-compute terminal control for the C3 headline
+# (per CONTROL_DESIGN.md §3.1 / §3.4 and EXPERIMENT_PLAN_EXEC.md Block A.2).
+
+model:
+  name: ace_step_v15
+  backbone: ace_step
+  sample_rate: 44100
+  duration_seconds: 60.0
+  cfg_default: 5.0
+  inference_steps: 50
+  latent_rate_factor: 64
+
+reward:
+  beta_robust: 0.5
+  lambda_probe:
+    silence_fraction: 1.0
+    autocorr_repetition: 1.0
+    off_prompt_distance: 1.0
+    hf_artifact_score: 0.5
+
+baseline:
+  rung_id: R8a
+  name: outcome_grpo_plain
+  description: |
+    Vanilla Flow-GRPO + R_lcb terminal reward ONLY (no curriculum, no lyric guard).
+    Canonical matched-compute terminal-reward baseline; the C3 headline tie is
+    M-PRM vs R8a per CONTROL_DESIGN §3.4.
+  seed: 0
+  prompts_path: configs/prompts/dev.jsonl
+  output_dir: runs/r8a_outcome_grpo_plain
+  rl_steps: 2000
+  group_size: 4
+  t_train: 5
+  lora_rank: 8
+  learning_rate: 1.0e-6
+  lambda_kl: 0.05
+  epsilon_clip: 0.2
+  extras:
+    # Lyric guard OFF (epsilon_lyric: null means the guard is not active).
+    epsilon_lyric: null
+    # Curriculum OFF (no q_curriculum; uniform prompt sampling).
+    use_curriculum: false
+    eta_schedule: [0.5, 0.5, 0.5, 0.5, 0.5]
+    perturbations: [identity, crop, loudness, codec, fold_down, time_shift]
+    seeds: [0, 1, 2]

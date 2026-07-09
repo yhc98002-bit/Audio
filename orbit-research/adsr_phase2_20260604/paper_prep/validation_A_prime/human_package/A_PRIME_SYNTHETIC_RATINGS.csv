@@ -1,0 +1,13 @@
+rating_id,media_path,contains_human_voice,confidence_1_to_5,notes
+aprime_human_0001,paper_prep/validation_A_prime/human_package/media/aprime_human_0001.flac,unsure,3,synthetic
+aprime_human_0002,paper_prep/validation_A_prime/human_package/media/aprime_human_0002.flac,unsure,3,synthetic
+aprime_human_0003,paper_prep/validation_A_prime/human_package/media/aprime_human_0003.flac,unsure,3,synthetic
+aprime_human_0004,paper_prep/validation_A_prime/human_package/media/aprime_human_0004.flac,unsure,3,synthetic
+aprime_human_0005,paper_prep/validation_A_prime/human_package/media/aprime_human_0005.flac,unsure,3,synthetic
+aprime_human_0006,paper_prep/validation_A_prime/human_package/media/aprime_human_0006.flac,unsure,3,synthetic
+aprime_human_0007,paper_prep/validation_A_prime/human_package/media/aprime_human_0007.flac,unsure,3,synthetic
+aprime_human_0008,paper_prep/validation_A_prime/human_package/media/aprime_human_0008.flac,unsure,3,synthetic
+aprime_human_0009,paper_prep/validation_A_prime/human_package/media/aprime_human_0009.flac,unsure,3,synthetic
+aprime_human_0010,paper_prep/validation_A_prime/human_package/media/aprime_human_0010.flac,unsure,3,synthetic
+aprime_human_0011,paper_prep/validation_A_prime/human_package/media/aprime_human_0011.flac,unsure,3,synthetic
+aprime_human_0012,paper_prep/validation_A_prime/human_package/media/aprime_human_0012.flac,unsure,3,synthetic

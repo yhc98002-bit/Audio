@@ -1,0 +1,140 @@
+window.MANIFEST_DATA = {
+  "schema_version": "pi_listening_packet_v1",
+  "generated": "2026-05-22",
+  "purpose": "PI listening packet for \u03c3 K=3 decision. Audio re-decoded from the same deterministic config used in \u03c3_calibration_v2 (seeds = base + sorted-prompt-index). Trajectories are bit-identical to the v2 calibration run.",
+  "scope": {
+    "cfg_type": "cfg",
+    "erg": false,
+    "guidance_interval": 0.5,
+    "cfg_scale": 5.0,
+    "infer_step": 30
+  },
+  "items": [
+    {
+      "prompt_id": "dev_0010",
+      "text": "A stomping rock number with a steady beat near 100 bpm, featuring single-coil guitar tone, brushed snare, a soft Hammond pad, in 32-bar AABA form, with a quiet-loud-quiet arc, (no vocals; the lead is the instrument named below).",
+      "lyrics": null,
+      "duration_target_s": 36.0,
+      "structure_hint": "AABA",
+      "seed": 42,
+      "sample_rate": 48000,
+      "files": [
+        {
+          "sigma": null,
+          "label": "final",
+          "step": null,
+          "cfg_active": null,
+          "file": "dev_0010__final.wav"
+        },
+        {
+          "sigma_target": 0.9,
+          "sigma_actual": 0.9044515490531921,
+          "step": 7,
+          "cfg_active": true,
+          "cfg_branch": "CFG-mixed",
+          "file": "dev_0010__sigma0.90_step07.wav"
+        },
+        {
+          "sigma_target": 0.7,
+          "sigma_actual": 0.7104662656784058,
+          "step": 16,
+          "cfg_active": true,
+          "cfg_branch": "CFG-mixed",
+          "file": "dev_0010__sigma0.70_step16.wav"
+        },
+        {
+          "sigma_target": 0.5,
+          "sigma_actual": 0.4914619028568268,
+          "step": 22,
+          "cfg_active": false,
+          "cfg_branch": "cond-only",
+          "file": "dev_0010__sigma0.50_step22.wav"
+        }
+      ]
+    },
+    {
+      "prompt_id": "dev_0026",
+      "text": "Something lonesome in the folk vein \u2014 mid-tempo. Instrumental \u2014 no vocals.",
+      "lyrics": null,
+      "duration_target_s": 35.2,
+      "structure_hint": null,
+      "seed": 43,
+      "sample_rate": 48000,
+      "files": [
+        {
+          "sigma": null,
+          "label": "final",
+          "step": null,
+          "cfg_active": null,
+          "file": "dev_0026__final.wav"
+        },
+        {
+          "sigma_target": 0.9,
+          "sigma_actual": 0.9044515490531921,
+          "step": 7,
+          "cfg_active": true,
+          "cfg_branch": "CFG-mixed",
+          "file": "dev_0026__sigma0.90_step07.wav"
+        },
+        {
+          "sigma_target": 0.7,
+          "sigma_actual": 0.7104662656784058,
+          "step": 16,
+          "cfg_active": true,
+          "cfg_branch": "CFG-mixed",
+          "file": "dev_0026__sigma0.70_step16.wav"
+        },
+        {
+          "sigma_target": 0.5,
+          "sigma_actual": 0.4914619028568268,
+          "step": 22,
+          "cfg_active": false,
+          "cfg_branch": "cond-only",
+          "file": "dev_0026__sigma0.50_step22.wav"
+        }
+      ]
+    },
+    {
+      "prompt_id": "dev_0044",
+      "text": "A wide-open rock composition lingering, featuring distorted guitars, tight drums, bass walking under the riff, in verse-chorus form, with a guitar solo over the second chorus, in English.",
+      "lyrics": "the lights along the river",
+      "duration_target_s": 36.5,
+      "structure_hint": "verse-chorus-verse",
+      "seed": 44,
+      "sample_rate": 48000,
+      "files": [
+        {
+          "sigma": null,
+          "label": "final",
+          "step": null,
+          "cfg_active": null,
+          "file": "dev_0044__final.wav"
+        },
+        {
+          "sigma_target": 0.9,
+          "sigma_actual": 0.9044515490531921,
+          "step": 7,
+          "cfg_active": true,
+          "cfg_branch": "CFG-mixed",
+          "file": "dev_0044__sigma0.90_step07.wav"
+        },
+        {
+          "sigma_target": 0.7,
+          "sigma_actual": 0.7104662656784058,
+          "step": 16,
+          "cfg_active": true,
+          "cfg_branch": "CFG-mixed",
+          "file": "dev_0044__sigma0.70_step16.wav"
+        },
+        {
+          "sigma_target": 0.5,
+          "sigma_actual": 0.4914619028568268,
+          "step": 22,
+          "cfg_active": false,
+          "cfg_branch": "cond-only",
+          "file": "dev_0044__sigma0.50_step22.wav"
+        }
+      ]
+    }
+  ]
+};

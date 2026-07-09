@@ -1,0 +1,58 @@
+project: audio_diffusion_mprm
+run_id: r9_lite_s7_sampler_control_phase_a
+split: dev
+run_ledger_path: orbit-research/RUN_LEDGER.jsonl
+
+# STOP-B-8: R9 runs in LITE mode for M1a because the public upstream ACE-Step v1
+# API exposes only 3 of the original 4 sampler-control axes. The lite controller
+# searches:
+#   - cfg_scale          → upstream `guidance_scale`
+#   - omega_scale        → upstream `omega_scale` (APG strength)
+#   - guidance_interval  → upstream `guidance_interval` (fraction of steps applying CFG)
+# Original axes (sde_eta_mean, step_allocation_late_frac, negative_prompt_strength)
+# are NOT supported by upstream v1; they are deferred to STOP-B-9.
+# See src/mprm/baselines/r9_s7_sampler_control.py for the methodology consequence.
+
+model:
+  name: ace_step_v15
+  backbone: ace_step
+  sample_rate: 44100
+  duration_seconds: 60.0
+  cfg_default: 5.0
+  inference_steps: 50
+  latent_rate_factor: 64
+
+reward:
+  beta_robust: 0.5
+  lambda_probe:
+    silence_fraction: 1.0
+    autocorr_repetition: 1.0
+    off_prompt_distance: 1.0
+    hf_artifact_score: 0.5
+
+baseline:
+  rung_id: R9
+  name: s7_sampler_control_lite
+  description: >-
+    STOP-B-8 R9-LITE: frozen-weight contextual-bandit / BO controller over
+    (cfg_scale, omega_scale, guidance_interval). M1a-launchable subset of the
+    original 4-axis S7 falsifier; the full 4-axis schedule is deferred to
+    STOP-B-9 / Phase B. M1a s7-explain check using this lite mode is a WEAKER
+    falsifier than the original design.
+  seed: 0
+  prompts_path: configs/prompts/dev.jsonl
+  output_dir: runs/r9_s7_sampler_control
+  extras:
+    mode: r9_lite_public_api
+    search_budget: 200
+    cfg_range: [1.5, 10.0]
+    # STOP-B-8 lite-only ranges (replaces eta_range / step_alloc_range / neg_prompt_range):
+    omega_range: [5.0, 15.0]
+    guidance_interval_range: [0.3, 0.7]
+    # Legacy 4-axis ranges kept here for traceability only; they are IGNORED with
+    # a deprecation warning by R9SamplerController (see src/mprm/baselines/r9_s7_sampler_control.py).
+    eta_range: [0.0, 0.0]
+    step_alloc_range: [0.0, 0.0]
+    neg_prompt_range: [0.0, 0.0]
+    exploration_eps: 0.2
+    perturbations: [identity, crop, loudness, codec, fold_down]

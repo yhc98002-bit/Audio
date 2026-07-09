@@ -1,0 +1,206 @@
+{
+  "timestamp": "2026-05-21T12:27:47.068Z",
+  "n_pairs": 32,
+  "summary": {
+    "bon_better": 27,
+    "unclear": 5,
+    "base_better": 0,
+    "undone": 0
+  },
+  "final_q1": "yes",
+  "final_notes": "seed2 base trend to be silent, and seed 2 base are worst in average. ",
+  "per_pair": {
+    "held_out_0244": {
+      "rank": 1,
+      "gain": 0.7057,
+      "verdict": "bon_better",
+      "notes": "seed0 bon >> base; seed1  bon ≈ base, but lyrics bon cleaner; "
+    },
+    "held_out_0101": {
+      "rank": 2,
+      "gain": 0.6436,
+      "verdict": "bon_better",
+      "notes": "seed0 bon >> base; seed1 bon >> base; seed2 base: The first 30 seconds are completely silent. I recommend running a pipeline to check if similar silence issues are widespread. but in considered of this is base model, so that is not very important."
+    },
+    "held_out_0152": {
+      "rank": 3,
+      "gain": 0.6242,
+      "verdict": "bon_better",
+      "notes": "all seed bon >>> base, I particularly love the rhythm of BON, I feel that every aspect of its production is stunning—it sounds just like music released by a real-life artist, and is far superior to Base."
+    },
+    "held_out_0092": {
+      "rank": 4,
+      "gain": 0.6237,
+      "verdict": "bon_better",
+      "notes": "seed2 base silent at most part, bad. bon better"
+    },
+    "held_out_0105": {
+      "rank": 5,
+      "gain": 0.6109,
+      "verdict": "unclear",
+      "notes": "both hard to follow the prompt: no lyrics , why it happen? is it a worthy scientific question? "
+    },
+    "held_out_0161": {
+      "rank": 6,
+      "gain": 0.6041,
+      "verdict": "bon_better",
+      "notes": "both hard to follow the prompt: no lyrics , no vocal stem .  it happen again! seed2 base is very bad."
+    },
+    "held_out_0222": {
+      "rank": 7,
+      "gain": 0.596,
+      "verdict": "bon_better",
+      "notes": "seed0 BoN is much much better than base. "
+    },
+    "held_out_0202": {
+      "rank": 8,
+      "gain": 0.5721,
+      "verdict": "bon_better",
+      "notes": "both are not follow the prompt : no lyrics.\nbut bon is much better in music."
+    },
+    "held_out_0054": {
+      "rank": 9,
+      "gain": 0.5664,
+      "verdict": "bon_better",
+      "notes": "seed 0 both are not follow the prompt : no vocals.  seed 1 has followed prompt, and bon is better. seed 2 base has silent part, so bon much better.\n"
+    },
+    "held_out_0108": {
+      "rank": 10,
+      "gain": 0.5539,
+      "verdict": "bon_better",
+      "notes": "ALL seed both are not follow the prompt : no vocals, very fast ;  but BoN are better in music hearing."
+    },
+    "held_out_0107": {
+      "rank": 11,
+      "gain": 0.5451,
+      "verdict": "bon_better",
+      "notes": ""
+    },
+    "held_out_0124": {
+      "rank": 12,
+      "gain": 0.5325,
+      "verdict": "bon_better",
+      "notes": "base model are bad at following prompt. BoN is much better."
+    },
+    "held_out_0119": {
+      "rank": 13,
+      "gain": 0.5187,
+      "verdict": "unclear",
+      "notes": ""
+    },
+    "held_out_0104": {
+      "rank": 14,
+      "gain": 0.5066,
+      "verdict": "bon_better",
+      "notes": ""
+    },
+    "held_out_0205": {
+      "rank": 15,
+      "gain": 0.5053,
+      "verdict": "bon_better",
+      "notes": ""
+    },
+    "held_out_0233": {
+      "rank": 16,
+      "gain": 0.5049,
+      "verdict": "bon_better",
+      "notes": ""
+    },
+    "held_out_0157": {
+      "rank": 17,
+      "gain": 0.4927,
+      "verdict": "bon_better",
+      "notes": ""
+    },
+    "held_out_0132": {
+      "rank": 18,
+      "gain": 0.4816,
+      "verdict": "bon_better",
+      "notes": ""
+    },
+    "held_out_0046": {
+      "rank": 19,
+      "gain": 0.48,
+      "verdict": "bon_better",
+      "notes": ""
+    },
+    "held_out_0150": {
+      "rank": 20,
+      "gain": 0.4743,
+      "verdict": "bon_better",
+      "notes": ""
+    },
+    "held_out_0243": {
+      "rank": 21,
+      "gain": 0.4726,
+      "verdict": "bon_better",
+      "notes": ""
+    },
+    "held_out_0067": {
+      "rank": 22,
+      "gain": 0.4722,
+      "verdict": "bon_better",
+      "notes": ""
+    },
+    "held_out_0032": {
+      "rank": 23,
+      "gain": 0.4637,
+      "verdict": "bon_better",
+      "notes": "bon sounds better , but bon not follow the prompt(fully instrumental, no vocals)\nhowever , seed2 base do."
+    },
+    "held_out_0163": {
+      "rank": 24,
+      "gain": 0.4606,
+      "verdict": "unclear",
+      "notes": "both bad"
+    },
+    "held_out_0112": {
+      "rank": 25,
+      "gain": 0.4545,
+      "verdict": "bon_better",
+      "notes": ""
+    },
+    "held_out_0043": {
+      "rank": 26,
+      "gain": 0.454,
+      "verdict": "unclear",
+      "notes": "both can't follow the prompt: instrumental"
+    },
+    "held_out_0084": {
+      "rank": 27,
+      "gain": 0.4488,
+      "verdict": "unclear",
+      "notes": ""
+    },
+    "held_out_0030": {
+      "rank": 28,
+      "gain": 0.4449,
+      "verdict": "bon_better",
+      "notes": ""
+    },
+    "held_out_0207": {
+      "rank": 29,
+      "gain": 0.4327,
+      "verdict": "bon_better",
+      "notes": ""
+    },
+    "held_out_0027": {
+      "rank": 30,
+      "gain": 0.4228,
+      "verdict": "bon_better",
+      "notes": ""
+    },
+    "held_out_0018": {
+      "rank": 31,
+      "gain": 0.422,
+      "verdict": "bon_better",
+      "notes": ""
+    },
+    "held_out_0020": {
+      "rank": 32,
+      "gain": 0.4218,
+      "verdict": "bon_better",
+      "notes": ""
+    }
+  }
+}

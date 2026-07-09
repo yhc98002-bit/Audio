@@ -1,0 +1,62 @@
+{
+  "S1_violations_survive_selection": {
+    "pool_violation_rate_heldout": 0.287,
+    "by_kind": {
+      "presence": 0.218,
+      "absence": 0.356
+    },
+    "pickscore_top1_violation_rate": 0.248,
+    "survives_selection": true,
+    "n_prompts": 250,
+    "owlv2_final_thr_devfit": 0.1967
+  },
+  "S2_probe_auc_by_step": {
+    "step6": {
+      "auc_violation": 0.6951,
+      "n": 2000
+    },
+    "step10": {
+      "auc_violation": 0.7624,
+      "n": 2000
+    },
+    "step14": {
+      "auc_violation": 0.7888,
+      "n": 2000
+    },
+    "step16": {
+      "auc_violation": 0.8007,
+      "n": 2000
+    },
+    "step20": {
+      "auc_violation": 0.8152,
+      "n": 2000
+    }
+  },
+  "S3_gated_frontier_and_restart": {
+    "frontier": {
+      "bon2_gated": {
+        "compute": 0.25,
+        "type_error": 0.156
+      },
+      "bon4_gated": {
+        "compute": 0.5,
+        "type_error": 0.092
+      },
+      "bon6_gated": {
+        "compute": 0.75,
+        "type_error": 0.064
+      },
+      "bon8_gated": {
+        "compute": 1.0,
+        "type_error": 0.056
+      }
+    },
+    "probe_gated_restart": {
+      "decision_step": 20,
+      "compute": 0.62,
+      "type_error": 0.096,
+      "probe_thr_devfit": 0.0995
+    }
+  },
+  "read": "music-paper signatures replicated on SDXL presence/absence constraints"
+}

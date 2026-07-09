@@ -1,0 +1,71 @@
+# gate_v1 — Phase A headroom-gate uniform evaluator (STOP-B-7 + STOP-B-7.1).
+#
+# Codex's STOP-B-6 audit surfaced a methodological bug: the gate-critical M1a
+# rungs (R0/R1/R2/R4/R9) each compute their own r_lcb under their own
+# lambda_probe + perturbation set, so the cross-rung r_lcb values that
+# compute_headroom_gate.py compares are not commensurable (R0 has no probe
+# penalty + 1 perturbation; R9 has full probe penalty + 5 perturbations).
+#
+# Fix: every gate-critical M1a output gets a second, UNIFORM metric
+# `gate_r_lcb` computed under this gate_v1 policy. compute_headroom_gate.py
+# reads `gate_r_lcb`, NOT each rung's own `r_lcb`. The per-rung `r_lcb` stays
+# in place for its training/selection role (BoN best-pick, elite selection, …).
+#
+# This file is the SINGLE source of truth for the gate evaluator. Policy choices:
+#
+# - STOP-B-7.1 (Codex STOP-B-7 Q1, option a): `off_prompt_distance` is OMITTED
+#   from the active gate. `anti_hacking_probes` returns 0.0 for this probe when
+#   `base_reference is None` (src/mprm/rewards/probes.py:71), and the current
+#   `_attach_gate_r_lcb` does not have a per-result Base waveform to pass.
+#   Including it with a nonzero lambda would be silently inert — better to be
+#   honest and drop it. Per-rung base-reference plumbing is deferred to a
+#   future gate_v2 if Phase A.3 head-to-head audits land.
+# - broken_section_indicator is in the probe manifest but `anti_hacking_probes`
+#   does not yet emit it (per-genre baseline calibration is deferred to Phase
+#   A.4), so it is also explicitly omitted here.
+# - Active probes: silence_fraction (1.0), autocorr_repetition (1.0),
+#   hf_artifact_score (0.5; absolute-HF policy per STOP-B-6 fix #5).
+# - perturbations match R9's set: identity, crop, loudness, codec, fold_down.
+# - beta_robust = 0.5 matches every rung config.
+#
+# STOP-B-7.1 Q4: gate_v1 ALSO locks the reward-model toggles + variants so a
+# future config that flips e.g. `use_mert=false` cannot silently break
+# commensurability. `_attach_gate_r_lcb` asserts the runtime reward axes
+# match this block.
+#
+# DO NOT edit gate_v1 in place — bump to gate_v2 and migrate. The provenance
+# hash makes silent edits visible to compute_headroom_gate (which refuses to
+# run if any rung's sidecar hash differs from the live hash of this file).
+
+eval_policy:
+  name: gate_v1
+  version: "1.1"
+  description: >-
+    Uniform Phase A headroom-gate evaluator. Applied to all gate-critical M1a
+    rungs (R0/R1/R2/R4/R9) regardless of each rung's training/selection
+    lambda_probe. STOP-B-7.1: off_prompt_distance dropped (inert without
+    base_reference); reward-model set locked for commensurability.
+  beta_robust: 0.5
+  lambda_probe:
+    silence_fraction: 1.0
+    autocorr_repetition: 1.0
+    hf_artifact_score: 0.5
+  perturbations:
+    - identity
+    - crop
+    - loudness
+    - codec
+    - fold_down
+  # STOP-B-7.1 Q4: lock the reward-model set. Each gate-critical rung's
+  # _build_reward_models output must produce exactly these axes (CLAP +
+  # Audiobox PQ/PC/CE/CU + Whisper-WER + MERT). A future config flipping any
+  # use_* toggle would fail the runtime assertion in _attach_gate_r_lcb
+  # instead of silently breaking the gate.
+  reward_axes:
+    - semantic_fit       # CLAP
+    - aesthetic_pq       # Audiobox PQ
+    - aesthetic_pc       # Audiobox PC
+    - aesthetic_ce       # Audiobox CE
+    - aesthetic_cu       # Audiobox CU
+    - lyric_intelligibility  # Whisper-WER
+    - section_coherence  # MERT

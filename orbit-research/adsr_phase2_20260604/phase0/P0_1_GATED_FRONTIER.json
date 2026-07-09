@@ -1,0 +1,66 @@
+{
+  "held_out_floor_all8_fail": 0.0117,
+  "frontier": {
+    "bon4_gated": {
+      "compute_fraction": 0.5,
+      "gated_type_error": 0.0391,
+      "gated_type_error_ci95": [
+        0.0195,
+        0.0625
+      ],
+      "mean_selected_common": 2.2934,
+      "reward_fraction_vs_bon8_oracle": 0.972,
+      "per_stratum_type_error": {
+        "instrumental": 0.0619,
+        "vocal": 0.0252
+      },
+      "n_prompts": 256
+    },
+    "bon5_gated": {
+      "compute_fraction": 0.625,
+      "gated_type_error": 0.0234,
+      "gated_type_error_ci95": [
+        0.0078,
+        0.043
+      ],
+      "mean_selected_common": 2.3099,
+      "reward_fraction_vs_bon8_oracle": 0.9789,
+      "per_stratum_type_error": {
+        "instrumental": 0.0412,
+        "vocal": 0.0126
+      },
+      "n_prompts": 256
+    },
+    "bon6_gated": {
+      "compute_fraction": 0.75,
+      "gated_type_error": 0.0117,
+      "gated_type_error_ci95": [
+        0.0,
+        0.0273
+      ],
+      "mean_selected_common": 2.3247,
+      "reward_fraction_vs_bon8_oracle": 0.9852,
+      "per_stratum_type_error": {
+        "instrumental": 0.0206,
+        "vocal": 0.0063
+      },
+      "n_prompts": 256
+    },
+    "bon8_gated": {
+      "compute_fraction": 1.0,
+      "gated_type_error": 0.0117,
+      "gated_type_error_ci95": [
+        0.0,
+        0.0273
+      ],
+      "mean_selected_common": 2.3434,
+      "reward_fraction_vs_bon8_oracle": 0.9931,
+      "per_stratum_type_error": {
+        "instrumental": 0.0206,
+        "vocal": 0.0063
+      },
+      "n_prompts": 256
+    }
+  },
+  "note": "real seed-order truncation (candidates 0..k-1); BoN-5 = 0.70-budget-matched baseline; floor = held_out prompts with zero gate-passers among all 8"
+}

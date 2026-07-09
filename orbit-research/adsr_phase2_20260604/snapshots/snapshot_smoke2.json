@@ -1,0 +1,37 @@
+{
+  "coverage_complete_prompts": 3,
+  "coverage_frac": 0.0059,
+  "n_candidates_labeled": 24,
+  "near_silent_candidates": 0,
+  "unknown_requested_skipped": 0,
+  "threshold": 0.15,
+  "threshold_method": "gmm_fallback_default(<30)",
+  "threshold_confidence": "low(insufficient_per_stratum)",
+  "threshold_diag": {
+    "n_vocal_req": 24,
+    "n_instr_req": 0,
+    "gmm_crosscheck_thr": 0.15
+  },
+  "candidate_type_error_prevalence": 0.0417,
+  "prompt_level_affected_rate": 0.3333,
+  "per_requested_stratum": {
+    "vocal": {
+      "n_cand": 24,
+      "type_error_rate": 0.0417
+    },
+    "instrumental": {
+      "n_cand": 0,
+      "type_error_rate": null
+    }
+  },
+  "type_error_rate_among_common_score_survivors": {
+    "top1": 0.0,
+    "top2": 0.0,
+    "top4": 0.0
+  },
+  "early_sigma_vocal_presence_AUC_heldout": null,
+  "AUPRC_heldout": null,
+  "auc_n_heldout": 0,
+  "auc_note": "insufficient/degenerate held-out classes yet",
+  "WARNING": "EARLY-WARNING ONLY \u2014 NOT a paper claim. Threshold is provisional/strata-supervised (assumes type-errors are the minority; recalibrated as coverage grows). AUC is a held-out scalar-feature proxy; the real EVPD mel-CNN onset-\u03c3 study is Phase 2A."
+}

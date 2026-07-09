@@ -1,0 +1,2396 @@
+{
+  "created_at": "2026-06-03",
+  "description": "Lyric-floor regen subset (132 prompts): thicken thin EN vocal lyrics + fix 9 metal bpm + dedup 6 near-pairs. Original manifest_index preserved => seeds match the full01 run.",
+  "n_prompts": 132,
+  "schema_version": "early_tweedie_validation_prompt_manifest_v1",
+  "source_files": [
+    "configs/prompts/dev.jsonl",
+    "configs/prompts/held_out.jsonl"
+  ],
+  "split_counts": {
+    "dev": 62,
+    "held_out": 70
+  },
+  "vocal_counts": {
+    "vocal": 129,
+    "instrumental": 3
+  },
+  "prompts": [
+    {
+      "has_lyrics": true,
+      "manifest_index": 0,
+      "prompt_id": "dev_0000",
+      "prompt_source": "configs/prompts/dev.jsonl",
+      "split": "dev",
+      "strata": {
+        "genre": "rock",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "med",
+        "prompt_specificity": "broad",
+        "structural_complexity": "AABA",
+        "tempo_bin": "med_90_120",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 3,
+      "prompt_id": "dev_0003",
+      "prompt_source": "configs/prompts/dev.jsonl",
+      "split": "dev",
+      "strata": {
+        "genre": "folk",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "med",
+        "prompt_specificity": "broad",
+        "structural_complexity": "AABA",
+        "tempo_bin": "fast_120_160",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 4,
+      "prompt_id": "dev_0004",
+      "prompt_source": "configs/prompts/dev.jsonl",
+      "split": "dev",
+      "strata": {
+        "genre": "electronic",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "med",
+        "prompt_specificity": "specific",
+        "structural_complexity": "verse_chorus",
+        "tempo_bin": "med_90_120",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 6,
+      "prompt_id": "dev_0006",
+      "prompt_source": "configs/prompts/dev.jsonl",
+      "split": "dev",
+      "strata": {
+        "genre": "metal",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "broad",
+        "structural_complexity": "AABA",
+        "tempo_bin": "very_fast_160_plus",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 11,
+      "prompt_id": "dev_0011",
+      "prompt_source": "configs/prompts/dev.jsonl",
+      "split": "dev",
+      "strata": {
+        "genre": "electronic",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "broad",
+        "structural_complexity": "simple_AB",
+        "tempo_bin": "very_fast_160_plus",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 13,
+      "prompt_id": "dev_0013",
+      "prompt_source": "configs/prompts/dev.jsonl",
+      "split": "dev",
+      "strata": {
+        "genre": "classical",
+        "language": "en",
+        "length_bin": "med_60_90s",
+        "lyric_density": "low",
+        "prompt_specificity": "medium",
+        "structural_complexity": "verse_chorus",
+        "tempo_bin": "very_fast_160_plus",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 17,
+      "prompt_id": "dev_0017",
+      "prompt_source": "configs/prompts/dev.jsonl",
+      "split": "dev",
+      "strata": {
+        "genre": "pop",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "specific",
+        "structural_complexity": "verse_chorus",
+        "tempo_bin": "slow_60_90",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 29,
+      "prompt_id": "dev_0029",
+      "prompt_source": "configs/prompts/dev.jsonl",
+      "split": "dev",
+      "strata": {
+        "genre": "rock",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "medium",
+        "structural_complexity": "verse_chorus",
+        "tempo_bin": "med_90_120",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 42,
+      "prompt_id": "dev_0042",
+      "prompt_source": "configs/prompts/dev.jsonl",
+      "split": "dev",
+      "strata": {
+        "genre": "metal",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "medium",
+        "structural_complexity": "complex_multi_section",
+        "tempo_bin": "med_90_120",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 44,
+      "prompt_id": "dev_0044",
+      "prompt_source": "configs/prompts/dev.jsonl",
+      "split": "dev",
+      "strata": {
+        "genre": "rock",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "specific",
+        "structural_complexity": "verse_chorus",
+        "tempo_bin": "slow_60_90",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 49,
+      "prompt_id": "dev_0049",
+      "prompt_source": "configs/prompts/dev.jsonl",
+      "split": "dev",
+      "strata": {
+        "genre": "electronic",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "medium",
+        "structural_complexity": "verse_chorus",
+        "tempo_bin": "fast_120_160",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 50,
+      "prompt_id": "dev_0050",
+      "prompt_source": "configs/prompts/dev.jsonl",
+      "split": "dev",
+      "strata": {
+        "genre": "hip_hop",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "specific",
+        "structural_complexity": "verse_chorus",
+        "tempo_bin": "very_fast_160_plus",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 60,
+      "prompt_id": "dev_0060",
+      "prompt_source": "configs/prompts/dev.jsonl",
+      "split": "dev",
+      "strata": {
+        "genre": "electronic",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "med",
+        "prompt_specificity": "broad",
+        "structural_complexity": "complex_multi_section",
+        "tempo_bin": "slow_60_90",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 75,
+      "prompt_id": "dev_0075",
+      "prompt_source": "configs/prompts/dev.jsonl",
+      "split": "dev",
+      "strata": {
+        "genre": "rock",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "medium",
+        "structural_complexity": "complex_multi_section",
+        "tempo_bin": "fast_120_160",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 84,
+      "prompt_id": "dev_0084",
+      "prompt_source": "configs/prompts/dev.jsonl",
+      "split": "dev",
+      "strata": {
+        "genre": "folk",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "broad",
+        "structural_complexity": "AABA",
+        "tempo_bin": "slow_60_90",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 89,
+      "prompt_id": "dev_0089",
+      "prompt_source": "configs/prompts/dev.jsonl",
+      "split": "dev",
+      "strata": {
+        "genre": "pop",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "medium",
+        "structural_complexity": "complex_multi_section",
+        "tempo_bin": "med_90_120",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 90,
+      "prompt_id": "dev_0090",
+      "prompt_source": "configs/prompts/dev.jsonl",
+      "split": "dev",
+      "strata": {
+        "genre": "rock",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "medium",
+        "structural_complexity": "complex_multi_section",
+        "tempo_bin": "very_fast_160_plus",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 99,
+      "prompt_id": "dev_0099",
+      "prompt_source": "configs/prompts/dev.jsonl",
+      "split": "dev",
+      "strata": {
+        "genre": "pop",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "specific",
+        "structural_complexity": "simple_AB",
+        "tempo_bin": "fast_120_160",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 100,
+      "prompt_id": "dev_0100",
+      "prompt_source": "configs/prompts/dev.jsonl",
+      "split": "dev",
+      "strata": {
+        "genre": "folk",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "specific",
+        "structural_complexity": "verse_chorus",
+        "tempo_bin": "slow_60_90",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 101,
+      "prompt_id": "dev_0101",
+      "prompt_source": "configs/prompts/dev.jsonl",
+      "split": "dev",
+      "strata": {
+        "genre": "electronic",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "med",
+        "prompt_specificity": "medium",
+        "structural_complexity": "AABA",
+        "tempo_bin": "med_90_120",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 102,
+      "prompt_id": "dev_0102",
+      "prompt_source": "configs/prompts/dev.jsonl",
+      "split": "dev",
+      "strata": {
+        "genre": "pop",
+        "language": "en",
+        "length_bin": "med_60_90s",
+        "lyric_density": "low",
+        "prompt_specificity": "broad",
+        "structural_complexity": "complex_multi_section",
+        "tempo_bin": "med_90_120",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 105,
+      "prompt_id": "dev_0105",
+      "prompt_source": "configs/prompts/dev.jsonl",
+      "split": "dev",
+      "strata": {
+        "genre": "rock",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "broad",
+        "structural_complexity": "verse_chorus",
+        "tempo_bin": "slow_60_90",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 109,
+      "prompt_id": "dev_0109",
+      "prompt_source": "configs/prompts/dev.jsonl",
+      "split": "dev",
+      "strata": {
+        "genre": "folk",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "specific",
+        "structural_complexity": "verse_chorus",
+        "tempo_bin": "slow_60_90",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 111,
+      "prompt_id": "dev_0111",
+      "prompt_source": "configs/prompts/dev.jsonl",
+      "split": "dev",
+      "strata": {
+        "genre": "hip_hop",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "broad",
+        "structural_complexity": "complex_multi_section",
+        "tempo_bin": "very_fast_160_plus",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 112,
+      "prompt_id": "dev_0112",
+      "prompt_source": "configs/prompts/dev.jsonl",
+      "split": "dev",
+      "strata": {
+        "genre": "pop",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "med",
+        "prompt_specificity": "specific",
+        "structural_complexity": "complex_multi_section",
+        "tempo_bin": "very_fast_160_plus",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 116,
+      "prompt_id": "dev_0116",
+      "prompt_source": "configs/prompts/dev.jsonl",
+      "split": "dev",
+      "strata": {
+        "genre": "hip_hop",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "broad",
+        "structural_complexity": "simple_AB",
+        "tempo_bin": "very_fast_160_plus",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 123,
+      "prompt_id": "dev_0123",
+      "prompt_source": "configs/prompts/dev.jsonl",
+      "split": "dev",
+      "strata": {
+        "genre": "jazz",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "specific",
+        "structural_complexity": "AABA",
+        "tempo_bin": "fast_120_160",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 125,
+      "prompt_id": "dev_0125",
+      "prompt_source": "configs/prompts/dev.jsonl",
+      "split": "dev",
+      "strata": {
+        "genre": "pop",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "specific",
+        "structural_complexity": "verse_chorus",
+        "tempo_bin": "fast_120_160",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 127,
+      "prompt_id": "dev_0127",
+      "prompt_source": "configs/prompts/dev.jsonl",
+      "split": "dev",
+      "strata": {
+        "genre": "metal",
+        "language": "en",
+        "length_bin": "med_60_90s",
+        "lyric_density": "med",
+        "prompt_specificity": "medium",
+        "structural_complexity": "AABA",
+        "tempo_bin": "med_90_120",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 135,
+      "prompt_id": "dev_0135",
+      "prompt_source": "configs/prompts/dev.jsonl",
+      "split": "dev",
+      "strata": {
+        "genre": "metal",
+        "language": "en",
+        "length_bin": "med_60_90s",
+        "lyric_density": "high",
+        "prompt_specificity": "specific",
+        "structural_complexity": "AABA",
+        "tempo_bin": "very_fast_160_plus",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 138,
+      "prompt_id": "dev_0138",
+      "prompt_source": "configs/prompts/dev.jsonl",
+      "split": "dev",
+      "strata": {
+        "genre": "jazz",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "broad",
+        "structural_complexity": "complex_multi_section",
+        "tempo_bin": "very_fast_160_plus",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 139,
+      "prompt_id": "dev_0139",
+      "prompt_source": "configs/prompts/dev.jsonl",
+      "split": "dev",
+      "strata": {
+        "genre": "metal",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "specific",
+        "structural_complexity": "verse_chorus",
+        "tempo_bin": "fast_120_160",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 141,
+      "prompt_id": "dev_0141",
+      "prompt_source": "configs/prompts/dev.jsonl",
+      "split": "dev",
+      "strata": {
+        "genre": "jazz",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "broad",
+        "structural_complexity": "simple_AB",
+        "tempo_bin": "slow_60_90",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 152,
+      "prompt_id": "dev_0152",
+      "prompt_source": "configs/prompts/dev.jsonl",
+      "split": "dev",
+      "strata": {
+        "genre": "folk",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "specific",
+        "structural_complexity": "verse_chorus",
+        "tempo_bin": "med_90_120",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 163,
+      "prompt_id": "dev_0163",
+      "prompt_source": "configs/prompts/dev.jsonl",
+      "split": "dev",
+      "strata": {
+        "genre": "metal",
+        "language": "en",
+        "length_bin": "med_60_90s",
+        "lyric_density": "low",
+        "prompt_specificity": "broad",
+        "structural_complexity": "simple_AB",
+        "tempo_bin": "slow_60_90",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 164,
+      "prompt_id": "dev_0164",
+      "prompt_source": "configs/prompts/dev.jsonl",
+      "split": "dev",
+      "strata": {
+        "genre": "hip_hop",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "specific",
+        "structural_complexity": "verse_chorus",
+        "tempo_bin": "very_fast_160_plus",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 165,
+      "prompt_id": "dev_0165",
+      "prompt_source": "configs/prompts/dev.jsonl",
+      "split": "dev",
+      "strata": {
+        "genre": "pop",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "specific",
+        "structural_complexity": "verse_chorus",
+        "tempo_bin": "fast_120_160",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 168,
+      "prompt_id": "dev_0168",
+      "prompt_source": "configs/prompts/dev.jsonl",
+      "split": "dev",
+      "strata": {
+        "genre": "metal",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "high",
+        "prompt_specificity": "medium",
+        "structural_complexity": "simple_AB",
+        "tempo_bin": "fast_120_160",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 169,
+      "prompt_id": "dev_0169",
+      "prompt_source": "configs/prompts/dev.jsonl",
+      "split": "dev",
+      "strata": {
+        "genre": "electronic",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "medium",
+        "structural_complexity": "simple_AB",
+        "tempo_bin": "med_90_120",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 170,
+      "prompt_id": "dev_0170",
+      "prompt_source": "configs/prompts/dev.jsonl",
+      "split": "dev",
+      "strata": {
+        "genre": "metal",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "med",
+        "prompt_specificity": "specific",
+        "structural_complexity": "complex_multi_section",
+        "tempo_bin": "very_fast_160_plus",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 171,
+      "prompt_id": "dev_0171",
+      "prompt_source": "configs/prompts/dev.jsonl",
+      "split": "dev",
+      "strata": {
+        "genre": "hip_hop",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "med",
+        "prompt_specificity": "medium",
+        "structural_complexity": "simple_AB",
+        "tempo_bin": "fast_120_160",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 175,
+      "prompt_id": "dev_0175",
+      "prompt_source": "configs/prompts/dev.jsonl",
+      "split": "dev",
+      "strata": {
+        "genre": "hip_hop",
+        "language": "en",
+        "length_bin": "med_60_90s",
+        "lyric_density": "low",
+        "prompt_specificity": "medium",
+        "structural_complexity": "complex_multi_section",
+        "tempo_bin": "med_90_120",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 176,
+      "prompt_id": "dev_0176",
+      "prompt_source": "configs/prompts/dev.jsonl",
+      "split": "dev",
+      "strata": {
+        "genre": "folk",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "specific",
+        "structural_complexity": "AABA",
+        "tempo_bin": "med_90_120",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 183,
+      "prompt_id": "dev_0183",
+      "prompt_source": "configs/prompts/dev.jsonl",
+      "split": "dev",
+      "strata": {
+        "genre": "metal",
+        "language": "en",
+        "length_bin": "med_60_90s",
+        "lyric_density": "med",
+        "prompt_specificity": "specific",
+        "structural_complexity": "AABA",
+        "tempo_bin": "slow_60_90",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 184,
+      "prompt_id": "dev_0184",
+      "prompt_source": "configs/prompts/dev.jsonl",
+      "split": "dev",
+      "strata": {
+        "genre": "metal",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "specific",
+        "structural_complexity": "complex_multi_section",
+        "tempo_bin": "fast_120_160",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 186,
+      "prompt_id": "dev_0186",
+      "prompt_source": "configs/prompts/dev.jsonl",
+      "split": "dev",
+      "strata": {
+        "genre": "hip_hop",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "broad",
+        "structural_complexity": "AABA",
+        "tempo_bin": "med_90_120",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 191,
+      "prompt_id": "dev_0191",
+      "prompt_source": "configs/prompts/dev.jsonl",
+      "split": "dev",
+      "strata": {
+        "genre": "pop",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "specific",
+        "structural_complexity": "AABA",
+        "tempo_bin": "fast_120_160",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 193,
+      "prompt_id": "dev_0193",
+      "prompt_source": "configs/prompts/dev.jsonl",
+      "split": "dev",
+      "strata": {
+        "genre": "rock",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "medium",
+        "structural_complexity": "verse_chorus",
+        "tempo_bin": "fast_120_160",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 195,
+      "prompt_id": "dev_0195",
+      "prompt_source": "configs/prompts/dev.jsonl",
+      "split": "dev",
+      "strata": {
+        "genre": "metal",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "high",
+        "prompt_specificity": "medium",
+        "structural_complexity": "complex_multi_section",
+        "tempo_bin": "very_fast_160_plus",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 197,
+      "prompt_id": "dev_0197",
+      "prompt_source": "configs/prompts/dev.jsonl",
+      "split": "dev",
+      "strata": {
+        "genre": "metal",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "specific",
+        "structural_complexity": "complex_multi_section",
+        "tempo_bin": "med_90_120",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 208,
+      "prompt_id": "dev_0208",
+      "prompt_source": "configs/prompts/dev.jsonl",
+      "split": "dev",
+      "strata": {
+        "genre": "pop",
+        "language": "en",
+        "length_bin": "med_60_90s",
+        "lyric_density": "low",
+        "prompt_specificity": "medium",
+        "structural_complexity": "AABA",
+        "tempo_bin": "very_fast_160_plus",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 213,
+      "prompt_id": "dev_0213",
+      "prompt_source": "configs/prompts/dev.jsonl",
+      "split": "dev",
+      "strata": {
+        "genre": "hip_hop",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "med",
+        "prompt_specificity": "specific",
+        "structural_complexity": "complex_multi_section",
+        "tempo_bin": "fast_120_160",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 219,
+      "prompt_id": "dev_0219",
+      "prompt_source": "configs/prompts/dev.jsonl",
+      "split": "dev",
+      "strata": {
+        "genre": "hip_hop",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "specific",
+        "structural_complexity": "verse_chorus",
+        "tempo_bin": "med_90_120",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 225,
+      "prompt_id": "dev_0225",
+      "prompt_source": "configs/prompts/dev.jsonl",
+      "split": "dev",
+      "strata": {
+        "genre": "electronic",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "specific",
+        "structural_complexity": "complex_multi_section",
+        "tempo_bin": "med_90_120",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 227,
+      "prompt_id": "dev_0227",
+      "prompt_source": "configs/prompts/dev.jsonl",
+      "split": "dev",
+      "strata": {
+        "genre": "jazz",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "broad",
+        "structural_complexity": "verse_chorus",
+        "tempo_bin": "slow_60_90",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 228,
+      "prompt_id": "dev_0228",
+      "prompt_source": "configs/prompts/dev.jsonl",
+      "split": "dev",
+      "strata": {
+        "genre": "rock",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "med",
+        "prompt_specificity": "broad",
+        "structural_complexity": "simple_AB",
+        "tempo_bin": "med_90_120",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 229,
+      "prompt_id": "dev_0229",
+      "prompt_source": "configs/prompts/dev.jsonl",
+      "split": "dev",
+      "strata": {
+        "genre": "hip_hop",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "med",
+        "prompt_specificity": "specific",
+        "structural_complexity": "AABA",
+        "tempo_bin": "med_90_120",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 232,
+      "prompt_id": "dev_0232",
+      "prompt_source": "configs/prompts/dev.jsonl",
+      "split": "dev",
+      "strata": {
+        "genre": "rock",
+        "language": "en",
+        "length_bin": "med_60_90s",
+        "lyric_density": "low",
+        "prompt_specificity": "medium",
+        "structural_complexity": "AABA",
+        "tempo_bin": "very_fast_160_plus",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 234,
+      "prompt_id": "dev_0234",
+      "prompt_source": "configs/prompts/dev.jsonl",
+      "split": "dev",
+      "strata": {
+        "genre": "jazz",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "medium",
+        "structural_complexity": "simple_AB",
+        "tempo_bin": "slow_60_90",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 236,
+      "prompt_id": "dev_0236",
+      "prompt_source": "configs/prompts/dev.jsonl",
+      "split": "dev",
+      "strata": {
+        "genre": "metal",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "med",
+        "prompt_specificity": "specific",
+        "structural_complexity": "AABA",
+        "tempo_bin": "very_fast_160_plus",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 240,
+      "prompt_id": "dev_0240",
+      "prompt_source": "configs/prompts/dev.jsonl",
+      "split": "dev",
+      "strata": {
+        "genre": "metal",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "med",
+        "prompt_specificity": "medium",
+        "structural_complexity": "AABA",
+        "tempo_bin": "fast_120_160",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 253,
+      "prompt_id": "dev_0253",
+      "prompt_source": "configs/prompts/dev.jsonl",
+      "split": "dev",
+      "strata": {
+        "genre": "pop",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "specific",
+        "structural_complexity": "verse_chorus",
+        "tempo_bin": "slow_60_90",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 262,
+      "prompt_id": "held_out_0006",
+      "prompt_source": "configs/prompts/held_out.jsonl",
+      "split": "held_out",
+      "strata": {
+        "genre": "pop",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "med",
+        "prompt_specificity": "medium",
+        "structural_complexity": "AABA",
+        "tempo_bin": "slow_60_90",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 267,
+      "prompt_id": "held_out_0011",
+      "prompt_source": "configs/prompts/held_out.jsonl",
+      "split": "held_out",
+      "strata": {
+        "genre": "electronic",
+        "language": "en",
+        "length_bin": "med_60_90s",
+        "lyric_density": "low",
+        "prompt_specificity": "broad",
+        "structural_complexity": "verse_chorus",
+        "tempo_bin": "very_fast_160_plus",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 271,
+      "prompt_id": "held_out_0015",
+      "prompt_source": "configs/prompts/held_out.jsonl",
+      "split": "held_out",
+      "strata": {
+        "genre": "hip_hop",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "broad",
+        "structural_complexity": "complex_multi_section",
+        "tempo_bin": "med_90_120",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 274,
+      "prompt_id": "held_out_0018",
+      "prompt_source": "configs/prompts/held_out.jsonl",
+      "split": "held_out",
+      "strata": {
+        "genre": "electronic",
+        "language": "en",
+        "length_bin": "med_60_90s",
+        "lyric_density": "med",
+        "prompt_specificity": "broad",
+        "structural_complexity": "simple_AB",
+        "tempo_bin": "slow_60_90",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 277,
+      "prompt_id": "held_out_0021",
+      "prompt_source": "configs/prompts/held_out.jsonl",
+      "split": "held_out",
+      "strata": {
+        "genre": "metal",
+        "language": "en",
+        "length_bin": "med_60_90s",
+        "lyric_density": "med",
+        "prompt_specificity": "broad",
+        "structural_complexity": "verse_chorus",
+        "tempo_bin": "fast_120_160",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 286,
+      "prompt_id": "held_out_0030",
+      "prompt_source": "configs/prompts/held_out.jsonl",
+      "split": "held_out",
+      "strata": {
+        "genre": "hip_hop",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "medium",
+        "structural_complexity": "complex_multi_section",
+        "tempo_bin": "med_90_120",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 289,
+      "prompt_id": "held_out_0033",
+      "prompt_source": "configs/prompts/held_out.jsonl",
+      "split": "held_out",
+      "strata": {
+        "genre": "pop",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "broad",
+        "structural_complexity": "complex_multi_section",
+        "tempo_bin": "fast_120_160",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 295,
+      "prompt_id": "held_out_0039",
+      "prompt_source": "configs/prompts/held_out.jsonl",
+      "split": "held_out",
+      "strata": {
+        "genre": "hip_hop",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "specific",
+        "structural_complexity": "verse_chorus",
+        "tempo_bin": "fast_120_160",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 298,
+      "prompt_id": "held_out_0042",
+      "prompt_source": "configs/prompts/held_out.jsonl",
+      "split": "held_out",
+      "strata": {
+        "genre": "hip_hop",
+        "language": "en",
+        "length_bin": "med_60_90s",
+        "lyric_density": "low",
+        "prompt_specificity": "medium",
+        "structural_complexity": "complex_multi_section",
+        "tempo_bin": "med_90_120",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 306,
+      "prompt_id": "held_out_0050",
+      "prompt_source": "configs/prompts/held_out.jsonl",
+      "split": "held_out",
+      "strata": {
+        "genre": "rock",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "medium",
+        "structural_complexity": "AABA",
+        "tempo_bin": "med_90_120",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 307,
+      "prompt_id": "held_out_0051",
+      "prompt_source": "configs/prompts/held_out.jsonl",
+      "split": "held_out",
+      "strata": {
+        "genre": "electronic",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "specific",
+        "structural_complexity": "simple_AB",
+        "tempo_bin": "fast_120_160",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 308,
+      "prompt_id": "held_out_0052",
+      "prompt_source": "configs/prompts/held_out.jsonl",
+      "split": "held_out",
+      "strata": {
+        "genre": "hip_hop",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "broad",
+        "structural_complexity": "AABA",
+        "tempo_bin": "fast_120_160",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": false,
+      "manifest_index": 316,
+      "prompt_id": "held_out_0060",
+      "prompt_source": "configs/prompts/held_out.jsonl",
+      "split": "held_out",
+      "strata": {
+        "genre": "electronic",
+        "language": "en",
+        "length_bin": "med_60_90s",
+        "lyric_density": "n_a_instrumental",
+        "prompt_specificity": "broad",
+        "structural_complexity": "AABA",
+        "tempo_bin": "fast_120_160",
+        "vocal_vs_instrumental": "instrumental"
+      },
+      "vocal_stratum": "instrumental"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 319,
+      "prompt_id": "held_out_0063",
+      "prompt_source": "configs/prompts/held_out.jsonl",
+      "split": "held_out",
+      "strata": {
+        "genre": "pop",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "medium",
+        "structural_complexity": "complex_multi_section",
+        "tempo_bin": "med_90_120",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 320,
+      "prompt_id": "held_out_0064",
+      "prompt_source": "configs/prompts/held_out.jsonl",
+      "split": "held_out",
+      "strata": {
+        "genre": "electronic",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "specific",
+        "structural_complexity": "simple_AB",
+        "tempo_bin": "slow_60_90",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 325,
+      "prompt_id": "held_out_0069",
+      "prompt_source": "configs/prompts/held_out.jsonl",
+      "split": "held_out",
+      "strata": {
+        "genre": "electronic",
+        "language": "en",
+        "length_bin": "med_60_90s",
+        "lyric_density": "low",
+        "prompt_specificity": "medium",
+        "structural_complexity": "complex_multi_section",
+        "tempo_bin": "slow_60_90",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 328,
+      "prompt_id": "held_out_0072",
+      "prompt_source": "configs/prompts/held_out.jsonl",
+      "split": "held_out",
+      "strata": {
+        "genre": "jazz",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "med",
+        "prompt_specificity": "broad",
+        "structural_complexity": "simple_AB",
+        "tempo_bin": "fast_120_160",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 329,
+      "prompt_id": "held_out_0073",
+      "prompt_source": "configs/prompts/held_out.jsonl",
+      "split": "held_out",
+      "strata": {
+        "genre": "electronic",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "specific",
+        "structural_complexity": "complex_multi_section",
+        "tempo_bin": "slow_60_90",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": false,
+      "manifest_index": 332,
+      "prompt_id": "held_out_0076",
+      "prompt_source": "configs/prompts/held_out.jsonl",
+      "split": "held_out",
+      "strata": {
+        "genre": "metal",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "n_a_instrumental",
+        "prompt_specificity": "medium",
+        "structural_complexity": "AABA",
+        "tempo_bin": "med_90_120",
+        "vocal_vs_instrumental": "instrumental"
+      },
+      "vocal_stratum": "instrumental"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 338,
+      "prompt_id": "held_out_0082",
+      "prompt_source": "configs/prompts/held_out.jsonl",
+      "split": "held_out",
+      "strata": {
+        "genre": "electronic",
+        "language": "en",
+        "length_bin": "med_60_90s",
+        "lyric_density": "low",
+        "prompt_specificity": "medium",
+        "structural_complexity": "complex_multi_section",
+        "tempo_bin": "fast_120_160",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 340,
+      "prompt_id": "held_out_0084",
+      "prompt_source": "configs/prompts/held_out.jsonl",
+      "split": "held_out",
+      "strata": {
+        "genre": "rock",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "medium",
+        "structural_complexity": "AABA",
+        "tempo_bin": "slow_60_90",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 348,
+      "prompt_id": "held_out_0092",
+      "prompt_source": "configs/prompts/held_out.jsonl",
+      "split": "held_out",
+      "strata": {
+        "genre": "pop",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "medium",
+        "structural_complexity": "complex_multi_section",
+        "tempo_bin": "slow_60_90",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 349,
+      "prompt_id": "held_out_0093",
+      "prompt_source": "configs/prompts/held_out.jsonl",
+      "split": "held_out",
+      "strata": {
+        "genre": "metal",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "specific",
+        "structural_complexity": "simple_AB",
+        "tempo_bin": "fast_120_160",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 353,
+      "prompt_id": "held_out_0097",
+      "prompt_source": "configs/prompts/held_out.jsonl",
+      "split": "held_out",
+      "strata": {
+        "genre": "pop",
+        "language": "en",
+        "length_bin": "med_60_90s",
+        "lyric_density": "med",
+        "prompt_specificity": "medium",
+        "structural_complexity": "verse_chorus",
+        "tempo_bin": "fast_120_160",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 355,
+      "prompt_id": "held_out_0099",
+      "prompt_source": "configs/prompts/held_out.jsonl",
+      "split": "held_out",
+      "strata": {
+        "genre": "metal",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "med",
+        "prompt_specificity": "medium",
+        "structural_complexity": "AABA",
+        "tempo_bin": "very_fast_160_plus",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 356,
+      "prompt_id": "held_out_0100",
+      "prompt_source": "configs/prompts/held_out.jsonl",
+      "split": "held_out",
+      "strata": {
+        "genre": "folk",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "specific",
+        "structural_complexity": "AABA",
+        "tempo_bin": "slow_60_90",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 360,
+      "prompt_id": "held_out_0104",
+      "prompt_source": "configs/prompts/held_out.jsonl",
+      "split": "held_out",
+      "strata": {
+        "genre": "rock",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "specific",
+        "structural_complexity": "simple_AB",
+        "tempo_bin": "fast_120_160",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 362,
+      "prompt_id": "held_out_0106",
+      "prompt_source": "configs/prompts/held_out.jsonl",
+      "split": "held_out",
+      "strata": {
+        "genre": "pop",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "med",
+        "prompt_specificity": "medium",
+        "structural_complexity": "AABA",
+        "tempo_bin": "slow_60_90",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 366,
+      "prompt_id": "held_out_0110",
+      "prompt_source": "configs/prompts/held_out.jsonl",
+      "split": "held_out",
+      "strata": {
+        "genre": "pop",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "medium",
+        "structural_complexity": "simple_AB",
+        "tempo_bin": "med_90_120",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 371,
+      "prompt_id": "held_out_0115",
+      "prompt_source": "configs/prompts/held_out.jsonl",
+      "split": "held_out",
+      "strata": {
+        "genre": "jazz",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "med",
+        "prompt_specificity": "medium",
+        "structural_complexity": "simple_AB",
+        "tempo_bin": "med_90_120",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 375,
+      "prompt_id": "held_out_0119",
+      "prompt_source": "configs/prompts/held_out.jsonl",
+      "split": "held_out",
+      "strata": {
+        "genre": "hip_hop",
+        "language": "en",
+        "length_bin": "med_60_90s",
+        "lyric_density": "med",
+        "prompt_specificity": "medium",
+        "structural_complexity": "simple_AB",
+        "tempo_bin": "very_fast_160_plus",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 376,
+      "prompt_id": "held_out_0120",
+      "prompt_source": "configs/prompts/held_out.jsonl",
+      "split": "held_out",
+      "strata": {
+        "genre": "hip_hop",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "medium",
+        "structural_complexity": "simple_AB",
+        "tempo_bin": "slow_60_90",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 377,
+      "prompt_id": "held_out_0121",
+      "prompt_source": "configs/prompts/held_out.jsonl",
+      "split": "held_out",
+      "strata": {
+        "genre": "hip_hop",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "medium",
+        "structural_complexity": "simple_AB",
+        "tempo_bin": "fast_120_160",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 379,
+      "prompt_id": "held_out_0123",
+      "prompt_source": "configs/prompts/held_out.jsonl",
+      "split": "held_out",
+      "strata": {
+        "genre": "rock",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "med",
+        "prompt_specificity": "specific",
+        "structural_complexity": "verse_chorus",
+        "tempo_bin": "very_fast_160_plus",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 381,
+      "prompt_id": "held_out_0125",
+      "prompt_source": "configs/prompts/held_out.jsonl",
+      "split": "held_out",
+      "strata": {
+        "genre": "jazz",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "broad",
+        "structural_complexity": "complex_multi_section",
+        "tempo_bin": "very_fast_160_plus",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 390,
+      "prompt_id": "held_out_0134",
+      "prompt_source": "configs/prompts/held_out.jsonl",
+      "split": "held_out",
+      "strata": {
+        "genre": "metal",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "broad",
+        "structural_complexity": "verse_chorus",
+        "tempo_bin": "very_fast_160_plus",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 392,
+      "prompt_id": "held_out_0136",
+      "prompt_source": "configs/prompts/held_out.jsonl",
+      "split": "held_out",
+      "strata": {
+        "genre": "rock",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "specific",
+        "structural_complexity": "complex_multi_section",
+        "tempo_bin": "very_fast_160_plus",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 394,
+      "prompt_id": "held_out_0138",
+      "prompt_source": "configs/prompts/held_out.jsonl",
+      "split": "held_out",
+      "strata": {
+        "genre": "folk",
+        "language": "en",
+        "length_bin": "med_60_90s",
+        "lyric_density": "med",
+        "prompt_specificity": "broad",
+        "structural_complexity": "complex_multi_section",
+        "tempo_bin": "slow_60_90",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 398,
+      "prompt_id": "held_out_0142",
+      "prompt_source": "configs/prompts/held_out.jsonl",
+      "split": "held_out",
+      "strata": {
+        "genre": "metal",
+        "language": "en",
+        "length_bin": "med_60_90s",
+        "lyric_density": "low",
+        "prompt_specificity": "medium",
+        "structural_complexity": "verse_chorus",
+        "tempo_bin": "slow_60_90",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 401,
+      "prompt_id": "held_out_0145",
+      "prompt_source": "configs/prompts/held_out.jsonl",
+      "split": "held_out",
+      "strata": {
+        "genre": "classical",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "specific",
+        "structural_complexity": "verse_chorus",
+        "tempo_bin": "very_fast_160_plus",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 404,
+      "prompt_id": "held_out_0148",
+      "prompt_source": "configs/prompts/held_out.jsonl",
+      "split": "held_out",
+      "strata": {
+        "genre": "rock",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "med",
+        "prompt_specificity": "broad",
+        "structural_complexity": "simple_AB",
+        "tempo_bin": "very_fast_160_plus",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 406,
+      "prompt_id": "held_out_0150",
+      "prompt_source": "configs/prompts/held_out.jsonl",
+      "split": "held_out",
+      "strata": {
+        "genre": "jazz",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "broad",
+        "structural_complexity": "AABA",
+        "tempo_bin": "fast_120_160",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 415,
+      "prompt_id": "held_out_0159",
+      "prompt_source": "configs/prompts/held_out.jsonl",
+      "split": "held_out",
+      "strata": {
+        "genre": "hip_hop",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "broad",
+        "structural_complexity": "complex_multi_section",
+        "tempo_bin": "very_fast_160_plus",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 416,
+      "prompt_id": "held_out_0160",
+      "prompt_source": "configs/prompts/held_out.jsonl",
+      "split": "held_out",
+      "strata": {
+        "genre": "pop",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "medium",
+        "structural_complexity": "AABA",
+        "tempo_bin": "fast_120_160",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 427,
+      "prompt_id": "held_out_0171",
+      "prompt_source": "configs/prompts/held_out.jsonl",
+      "split": "held_out",
+      "strata": {
+        "genre": "rock",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "specific",
+        "structural_complexity": "simple_AB",
+        "tempo_bin": "fast_120_160",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 428,
+      "prompt_id": "held_out_0172",
+      "prompt_source": "configs/prompts/held_out.jsonl",
+      "split": "held_out",
+      "strata": {
+        "genre": "metal",
+        "language": "en",
+        "length_bin": "med_60_90s",
+        "lyric_density": "high",
+        "prompt_specificity": "medium",
+        "structural_complexity": "simple_AB",
+        "tempo_bin": "fast_120_160",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 432,
+      "prompt_id": "held_out_0176",
+      "prompt_source": "configs/prompts/held_out.jsonl",
+      "split": "held_out",
+      "strata": {
+        "genre": "electronic",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "specific",
+        "structural_complexity": "simple_AB",
+        "tempo_bin": "fast_120_160",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 435,
+      "prompt_id": "held_out_0179",
+      "prompt_source": "configs/prompts/held_out.jsonl",
+      "split": "held_out",
+      "strata": {
+        "genre": "folk",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "specific",
+        "structural_complexity": "verse_chorus",
+        "tempo_bin": "med_90_120",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 436,
+      "prompt_id": "held_out_0180",
+      "prompt_source": "configs/prompts/held_out.jsonl",
+      "split": "held_out",
+      "strata": {
+        "genre": "folk",
+        "language": "en",
+        "length_bin": "med_60_90s",
+        "lyric_density": "low",
+        "prompt_specificity": "broad",
+        "structural_complexity": "verse_chorus",
+        "tempo_bin": "fast_120_160",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": false,
+      "manifest_index": 438,
+      "prompt_id": "held_out_0182",
+      "prompt_source": "configs/prompts/held_out.jsonl",
+      "split": "held_out",
+      "strata": {
+        "genre": "metal",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "n_a_instrumental",
+        "prompt_specificity": "specific",
+        "structural_complexity": "complex_multi_section",
+        "tempo_bin": "fast_120_160",
+        "vocal_vs_instrumental": "instrumental"
+      },
+      "vocal_stratum": "instrumental"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 440,
+      "prompt_id": "held_out_0184",
+      "prompt_source": "configs/prompts/held_out.jsonl",
+      "split": "held_out",
+      "strata": {
+        "genre": "rock",
+        "language": "en",
+        "length_bin": "med_60_90s",
+        "lyric_density": "med",
+        "prompt_specificity": "specific",
+        "structural_complexity": "AABA",
+        "tempo_bin": "slow_60_90",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 444,
+      "prompt_id": "held_out_0188",
+      "prompt_source": "configs/prompts/held_out.jsonl",
+      "split": "held_out",
+      "strata": {
+        "genre": "pop",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "high",
+        "prompt_specificity": "medium",
+        "structural_complexity": "complex_multi_section",
+        "tempo_bin": "fast_120_160",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 452,
+      "prompt_id": "held_out_0196",
+      "prompt_source": "configs/prompts/held_out.jsonl",
+      "split": "held_out",
+      "strata": {
+        "genre": "rock",
+        "language": "en",
+        "length_bin": "med_60_90s",
+        "lyric_density": "low",
+        "prompt_specificity": "medium",
+        "structural_complexity": "verse_chorus",
+        "tempo_bin": "very_fast_160_plus",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 459,
+      "prompt_id": "held_out_0203",
+      "prompt_source": "configs/prompts/held_out.jsonl",
+      "split": "held_out",
+      "strata": {
+        "genre": "pop",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "specific",
+        "structural_complexity": "AABA",
+        "tempo_bin": "fast_120_160",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 461,
+      "prompt_id": "held_out_0205",
+      "prompt_source": "configs/prompts/held_out.jsonl",
+      "split": "held_out",
+      "strata": {
+        "genre": "hip_hop",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "med",
+        "prompt_specificity": "medium",
+        "structural_complexity": "complex_multi_section",
+        "tempo_bin": "slow_60_90",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 467,
+      "prompt_id": "held_out_0211",
+      "prompt_source": "configs/prompts/held_out.jsonl",
+      "split": "held_out",
+      "strata": {
+        "genre": "pop",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "medium",
+        "structural_complexity": "complex_multi_section",
+        "tempo_bin": "fast_120_160",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 468,
+      "prompt_id": "held_out_0212",
+      "prompt_source": "configs/prompts/held_out.jsonl",
+      "split": "held_out",
+      "strata": {
+        "genre": "pop",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "med",
+        "prompt_specificity": "broad",
+        "structural_complexity": "complex_multi_section",
+        "tempo_bin": "very_fast_160_plus",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 471,
+      "prompt_id": "held_out_0215",
+      "prompt_source": "configs/prompts/held_out.jsonl",
+      "split": "held_out",
+      "strata": {
+        "genre": "rock",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "med",
+        "prompt_specificity": "broad",
+        "structural_complexity": "AABA",
+        "tempo_bin": "med_90_120",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 472,
+      "prompt_id": "held_out_0216",
+      "prompt_source": "configs/prompts/held_out.jsonl",
+      "split": "held_out",
+      "strata": {
+        "genre": "folk",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "specific",
+        "structural_complexity": "complex_multi_section",
+        "tempo_bin": "med_90_120",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 474,
+      "prompt_id": "held_out_0218",
+      "prompt_source": "configs/prompts/held_out.jsonl",
+      "split": "held_out",
+      "strata": {
+        "genre": "rock",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "specific",
+        "structural_complexity": "simple_AB",
+        "tempo_bin": "slow_60_90",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 477,
+      "prompt_id": "held_out_0221",
+      "prompt_source": "configs/prompts/held_out.jsonl",
+      "split": "held_out",
+      "strata": {
+        "genre": "hip_hop",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "specific",
+        "structural_complexity": "simple_AB",
+        "tempo_bin": "fast_120_160",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 484,
+      "prompt_id": "held_out_0228",
+      "prompt_source": "configs/prompts/held_out.jsonl",
+      "split": "held_out",
+      "strata": {
+        "genre": "folk",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "specific",
+        "structural_complexity": "complex_multi_section",
+        "tempo_bin": "fast_120_160",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 488,
+      "prompt_id": "held_out_0232",
+      "prompt_source": "configs/prompts/held_out.jsonl",
+      "split": "held_out",
+      "strata": {
+        "genre": "rock",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "medium",
+        "structural_complexity": "AABA",
+        "tempo_bin": "slow_60_90",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 489,
+      "prompt_id": "held_out_0233",
+      "prompt_source": "configs/prompts/held_out.jsonl",
+      "split": "held_out",
+      "strata": {
+        "genre": "folk",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "med",
+        "prompt_specificity": "broad",
+        "structural_complexity": "simple_AB",
+        "tempo_bin": "slow_60_90",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 490,
+      "prompt_id": "held_out_0234",
+      "prompt_source": "configs/prompts/held_out.jsonl",
+      "split": "held_out",
+      "strata": {
+        "genre": "metal",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "medium",
+        "structural_complexity": "simple_AB",
+        "tempo_bin": "med_90_120",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 493,
+      "prompt_id": "held_out_0237",
+      "prompt_source": "configs/prompts/held_out.jsonl",
+      "split": "held_out",
+      "strata": {
+        "genre": "hip_hop",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "broad",
+        "structural_complexity": "simple_AB",
+        "tempo_bin": "slow_60_90",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 498,
+      "prompt_id": "held_out_0242",
+      "prompt_source": "configs/prompts/held_out.jsonl",
+      "split": "held_out",
+      "strata": {
+        "genre": "folk",
+        "language": "en",
+        "length_bin": "med_60_90s",
+        "lyric_density": "high",
+        "prompt_specificity": "specific",
+        "structural_complexity": "AABA",
+        "tempo_bin": "very_fast_160_plus",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 502,
+      "prompt_id": "held_out_0246",
+      "prompt_source": "configs/prompts/held_out.jsonl",
+      "split": "held_out",
+      "strata": {
+        "genre": "folk",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "medium",
+        "structural_complexity": "AABA",
+        "tempo_bin": "slow_60_90",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 504,
+      "prompt_id": "held_out_0248",
+      "prompt_source": "configs/prompts/held_out.jsonl",
+      "split": "held_out",
+      "strata": {
+        "genre": "pop",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "specific",
+        "structural_complexity": "complex_multi_section",
+        "tempo_bin": "slow_60_90",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    },
+    {
+      "has_lyrics": true,
+      "manifest_index": 511,
+      "prompt_id": "held_out_0255",
+      "prompt_source": "configs/prompts/held_out.jsonl",
+      "split": "held_out",
+      "strata": {
+        "genre": "metal",
+        "language": "en",
+        "length_bin": "short_30_60s",
+        "lyric_density": "low",
+        "prompt_specificity": "specific",
+        "structural_complexity": "simple_AB",
+        "tempo_bin": "very_fast_160_plus",
+        "vocal_vs_instrumental": "vocal"
+      },
+      "vocal_stratum": "vocal"
+    }
+  ]
+}

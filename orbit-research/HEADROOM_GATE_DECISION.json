@@ -1,0 +1,129 @@
+{
+  "pass_gate": true,
+  "delta_sigma_bon_vs_base": 0.754862530518907,
+  "cfg_explains_gain": false,
+  "s7_explains_gain": false,
+  "human_spot_check_confirms": true,
+  "reason": "all_conditions_satisfied",
+  "notes": [
+    "R9 ran in mode='r9_lite_public_api' (STOP-B-8 r9-lite); the s7-explain check is a WEAKER falsifier than the original 4-axis design \u2014 see orbit-research/STOP_B8_BLOCKER_REPORT.md."
+  ],
+  "split": "held_out",
+  "n_inputs": {
+    "r0_base": 768,
+    "r1_cfg_sweep": 768,
+    "r2_bon": 768,
+    "r4_bon_cfg": 768,
+    "r9_s7_sampler_control": 768
+  },
+  "gate_eval_policy": {
+    "name": "gate_v1",
+    "version": "1.1",
+    "hash": "55c065012c045d681760c9e3621321f5cd4b246d13725f5a5fc079b3500981a6"
+  },
+  "r9_mode": "r9_lite_public_api",
+  "supplementary": {
+    "paired_tests_by_prompt": {
+      "r1_cfg_sweep_minus_r0_base": {
+        "label": "cfg-explain check (CFG sweep vs baseline)",
+        "n_common": 256,
+        "mean_diff": 0.05752382760121694,
+        "sd_diff": 0.05871528053285379,
+        "se_diff": 0.003669705033303362,
+        "t_stat": 15.675327329901405,
+        "df": 255,
+        "p_value": 0.0,
+        "bh_q_value": 0.0
+      },
+      "r2_bon_minus_r0_base": {
+        "label": "BoN-8 ceiling vs baseline",
+        "n_common": 256,
+        "mean_diff": 0.21269187722421734,
+        "sd_diff": 0.16989626889372317,
+        "se_diff": 0.010618516805857698,
+        "t_stat": 20.030281169483672,
+        "df": 255,
+        "p_value": 0.0,
+        "bh_q_value": 0.0
+      },
+      "r4_bon_cfg_minus_r0_base": {
+        "label": "BoN+CFG composite vs baseline",
+        "n_common": 256,
+        "mean_diff": 0.22251039028135164,
+        "sd_diff": 0.16651096466702622,
+        "se_diff": 0.010406935291689139,
+        "t_stat": 21.380971827416467,
+        "df": 255,
+        "p_value": 0.0,
+        "bh_q_value": 0.0
+      },
+      "r1_cfg_sweep_minus_r9_s7_sampler_control": {
+        "label": "CFG vs sampler-control (real CFG signal)",
+        "n_common": 256,
+        "mean_diff": 0.0741207747381113,
+        "sd_diff": 0.07276690685247952,
+        "se_diff": 0.00454793167827997,
+        "t_stat": 16.29768870365788,
+        "df": 255,
+        "p_value": 0.0,
+        "bh_q_value": 0.0
+      },
+      "r2_bon_minus_r9_s7_sampler_control": {
+        "label": "BoN vs sampler-control",
+        "n_common": 256,
+        "mean_diff": 0.2292888243611117,
+        "sd_diff": 0.1725354048827203,
+        "se_diff": 0.010783462805170018,
+        "t_stat": 21.26300507580752,
+        "df": 255,
+        "p_value": 0.0,
+        "bh_q_value": 0.0
+      }
+    },
+    "bootstrap_95_ci_per_rung": {
+      "r0_base": {
+        "mean": 2.07372022306334,
+        "sd": 0.2949615147616448,
+        "ci_low": 2.0523275936100043,
+        "ci_high": 2.0948252214504426,
+        "n": 768,
+        "n_iter": 1000
+      },
+      "r1_cfg_sweep": {
+        "mean": 2.131244050664557,
+        "sd": 0.2678806460700532,
+        "ci_low": 2.1109471011211776,
+        "ci_high": 2.1496424015242197,
+        "n": 768,
+        "n_iter": 1000
+      },
+      "r2_bon": {
+        "mean": 2.2864121002875573,
+        "sd": 0.17621362268434693,
+        "ci_low": 2.273397041683696,
+        "ci_high": 2.2988613210448485,
+        "n": 768,
+        "n_iter": 1000
+      },
+      "r4_bon_cfg": {
+        "mean": 2.2962306133446915,
+        "sd": 0.16646407382079884,
+        "ci_low": 2.2838387900057167,
+        "ci_high": 2.307936475408701,
+        "n": 768,
+        "n_iter": 1000
+      },
+      "r9_s7_sampler_control": {
+        "mean": 2.0571232759264455,
+        "sd": 0.30004619226111223,
+        "ci_low": 2.0357533343696668,
+        "ci_high": 2.0780966812092556,
+        "n": 768,
+        "n_iter": 1000
+      }
+    },
+    "minimum_effect_of_interest_gate_r_lcb": 0.05,
+    "prereg_path": "orbit-research/HEADROOM_GATE_PREREG.md",
+    "note": "Supplementary statistics, pre-registered 2026-05-19. Paired t-test pairs each prompt across rungs (seeds averaged). BH q-values correct for multiple comparison. Bootstrap percentile CIs (n_iter=1000) on each rung's gate_r_lcb mean. This block does NOT change the binding `pass_gate` above."
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "n": 4096,
+  "auc_panns_vs_demucs_label": 0.7536,
+  "panns_thr_balacc": 0.0654,
+  "agreement_at_thr": 0.7788,
+  "cohens_kappa": 0.518,
+  "type_error_rate_under_panns_label": 0.1943,
+  "type_error_rate_under_demucs_label": 0.23
+}

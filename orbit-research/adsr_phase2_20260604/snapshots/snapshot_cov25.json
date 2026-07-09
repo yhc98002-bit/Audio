@@ -1,0 +1,40 @@
+{
+  "coverage_complete_prompts": 129,
+  "coverage_frac": 0.252,
+  "n_candidates_labeled": 1032,
+  "near_silent_candidates": 0,
+  "unknown_requested_skipped": 0,
+  "threshold": 0.1616,
+  "threshold_method": "strata_median_midpoint",
+  "threshold_confidence": "high",
+  "threshold_diag": {
+    "n_vocal_req": 616,
+    "n_instr_req": 416,
+    "median_vocal_req": 0.318,
+    "median_instr_req": 0.005,
+    "separation": 0.313,
+    "gmm_crosscheck_thr": 0.006
+  },
+  "candidate_type_error_prevalence": 0.2132,
+  "prompt_level_affected_rate": 0.6434,
+  "per_requested_stratum": {
+    "vocal": {
+      "n_cand": 616,
+      "type_error_rate": 0.2354
+    },
+    "instrumental": {
+      "n_cand": 416,
+      "type_error_rate": 0.1803
+    }
+  },
+  "type_error_rate_among_common_score_survivors": {
+    "top1": 0.2016,
+    "top2": 0.186,
+    "top4": 0.1802
+  },
+  "early_sigma_vocal_presence_AUC_heldout": 0.7648,
+  "AUPRC_heldout": 0.8054,
+  "auc_n_heldout": 504,
+  "auc_note": "prompt-level held-out (train=dev prompts, eval=held_out prompts); scalar early features only (NOT the EVPD mel-CNN, which is Phase 2A)",
+  "WARNING": "EARLY-WARNING ONLY \u2014 NOT a paper claim. Threshold is provisional/strata-supervised (assumes type-errors are the minority; recalibrated as coverage grows). AUC is a held-out scalar-feature proxy; the real EVPD mel-CNN onset-\u03c3 study is Phase 2A."
+}

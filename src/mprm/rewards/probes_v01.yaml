@@ -1,0 +1,31 @@
+# Probe library v0.1 — METHOD_SPEC §2.3 versioned manifest.
+# Thresholds are initial defaults; lambda calibration is performed in Phase A.4 sub-audit.
+version: v0.1
+date: 2026-05-15
+probes:
+  silence_fraction:
+    window_ms: 20.0
+    threshold: 1.0e-3
+    lambda_default: 0.0
+    activation_floor: 0.30   # METHOD_SPEC §2.3
+  autocorr_repetition:
+    min_lag_seconds: 0.5
+    lambda_default: 0.0
+    activation_floor: 0.60
+  off_prompt_distance:
+    clap_variant: laion-clap-music-630k
+    lambda_default: 0.0
+    activation_floor: 0.10
+  hf_artifact_score:
+    hf_cutoff_hz: 18000.0
+    lambda_default: 0.0
+    activation_floor: 2.5    # multiplicative ratio vs base
+  broken_section_indicator:
+    per_genre_baseline_path: null    # populated in Phase A.4 calibration
+    lambda_default: 0.0
+
+# Calibration plan:
+# - lambda_default = 0.0 in Phase A pilots; non-zero values are set after Phase A.aux
+#   reward-human calibration produces per-genre hacking-severity baselines.
+# - activation_floor is the threshold at which the probe is allowed to fire as a hinge
+#   (`probe_pen = max(0, score - floor) * lambda`).

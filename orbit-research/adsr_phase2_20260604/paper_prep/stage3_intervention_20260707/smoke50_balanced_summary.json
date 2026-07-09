@@ -1,0 +1,18 @@
+{
+  "conditions": {
+    "instr_both": 8,
+    "instr_sampler": 8,
+    "instr_text": 8,
+    "vocal_both": 8,
+    "vocal_guidance": 9,
+    "vocal_hints": 9
+  },
+  "errors": 0,
+  "missing_flac": 0,
+  "near_silent": 0,
+  "near_silent_rate": 0.0,
+  "ok": 50,
+  "prompts": 17,
+  "rows": 50,
+  "type_correct_rate": 0.5
+}

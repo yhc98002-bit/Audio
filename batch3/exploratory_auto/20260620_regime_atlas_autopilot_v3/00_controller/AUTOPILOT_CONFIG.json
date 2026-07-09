@@ -1,0 +1,44 @@
+{
+  "program": "regime_atlas_autopilot_v3",
+  "created": "2026-06-20",
+  "status": "RUNNING_V3.2_LONG_HORIZON",
+  "new_seed_base": 2026200000,
+  "fixed_N": 256,
+  "tail_extension_N": [
+    512,
+    1024
+  ],
+  "label_threshold_acestep": 0.1791,
+  "env_audio": "audio-prm",
+  "env_t2i": "t2i-adsr",
+  "nodes": {
+    "an17": "job93398"
+  },
+  "workers_per_node": 4,
+  "omp_threads": 6,
+  "offline": {
+    "HF_HUB_OFFLINE": 1,
+    "TRANSFORMERS_OFFLINE": 1
+  },
+  "frozen_evpd": "orbit-research/adsr_phase2_20260604/batch2/evpd_sigma08_online.joblib",
+  "frozen_evpd_thr": 0.728,
+  "reward_config": "configs/baselines/r2_bon.yaml",
+  "gate_policy": "configs/eval/gate_v2.yaml.draft (read-only)",
+  "keep_policy": [
+    "ledgers",
+    "metadata",
+    "labels",
+    "scores",
+    "selected",
+    "audit_samples",
+    "intervention_success_pairs",
+    "detector_disagreement",
+    "proxy_disagreement",
+    "sanity_all"
+  ],
+  "scratch": "/dev/shm",
+  "headline_gate": "detector_reliability+manual_audit+fixedN+source_trace",
+  "sanity_gate": "PASSED_PI_2026-06-21",
+  "an29": "RELEASED_2026-06-23_PI_request",
+  "total_gpus": 8
+}

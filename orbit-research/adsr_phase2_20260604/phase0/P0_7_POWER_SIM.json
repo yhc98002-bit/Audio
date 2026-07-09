@@ -1,0 +1,26 @@
+{
+  "calibration": {
+    "evpd_sigma08_rates": {
+      "vocal": {
+        "TPR": 0.779,
+        "FPR": 0.2219
+      },
+      "instrumental": {
+        "TPR": 0.4885,
+        "FPR": 0.0498
+      }
+    },
+    "n_prompts": 256,
+    "e2_subgroup_n": 32,
+    "replicates_R": 2
+  },
+  "E1_expected_relative_effect_mean": 0.0105,
+  "E1_power_at_frozen_criterion(>=+10%, CI>0)": 0.0,
+  "E2_power_vs_intervention_delta": {
+    "delta=0.1": 0.0,
+    "delta=0.2": 0.0,
+    "delta=0.3": 0.0,
+    "delta=0.4": 0.0
+  },
+  "note": "world calibrated from held_out propensities (beta-binom shrunk) + OOF \u03c30.8 EVPD confusion; arm6 delta frozen later by P0.8"
+}

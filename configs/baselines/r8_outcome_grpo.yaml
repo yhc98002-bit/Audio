@@ -1,0 +1,25 @@
+# DEPRECATED in favour of the STOP-B-1 R8a/R8b split.
+#
+# Production launches must use either:
+#   - configs/baselines/r8a_outcome_grpo_plain.yaml    (canonical terminal control)
+#   - configs/baselines/r8b_outcome_grpo_guarded.yaml  (stronger terminal control)
+#
+# launch_baseline.py refuses this config with a hard BLOCK; the file is kept as a
+# pointer so callers loading the old path get a clear error message.
+# See orbit-research/PLAN_CODE_AUDIT.md §6 + orbit-research/archive/PIPELINE_SUMMARY.md
+# STOP-B-2 section.
+#
+# Restored 2026-05-20T08:00Z: this file was incorrectly deleted during agent-driven
+# doc-cleanup. The launch_baseline.py BLOCK at lines 231/682/786 still works without
+# this stub, but the stub itself documents WHY the path is dead — needed for
+# AI-context durability per PI cleanup-reversal: "STOP-B-1/B-2/B-3 fix-pass 历史
+# 是 audit trail. 它让下一个 agent 知道为什么 R108 被拆成 R8a/R8b".
+
+project: audio_diffusion_mprm
+run_id: r8_outcome_grpo_DEPRECATED
+split: dev
+run_ledger_path: orbit-research/RUN_LEDGER.jsonl
+
+baseline:
+  rung_id: R8
+  # see launch_baseline.py for the hard-BLOCK that rejects this rung_id

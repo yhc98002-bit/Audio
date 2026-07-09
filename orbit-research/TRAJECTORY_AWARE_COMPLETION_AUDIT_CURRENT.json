@@ -1,0 +1,44 @@
+{
+  "goal_complete": true,
+  "overall_status": "COMPLETE",
+  "requirements": [
+    {
+      "details": "run_completed=True; records=4096/4096; launcher_exit=0; outputs_exist=True",
+      "evidence": "orbit-research/EARLY_TWEEDIE_PRUNING_VALIDATION.md, orbit-research/EARLY_TWEEDIE_PRUNING_VALIDATION.json, orbit-research/EARLY_TWEEDIE_PRUNING_VALIDATION_PLOT.csv, orbit-research/EARLY_TWEEDIE_PRUNING_VALIDATION_RETENTION.csv",
+      "requirement": "Track A robust Early-Tweedie validation completed",
+      "status": "COMPLETE"
+    },
+    {
+      "details": "verifier_status=PASS_WITH_WARNINGS; error_count=0",
+      "evidence": "orbit-research/EARLY_TWEEDIE_VALIDATION_VERIFICATION_REPORT.json",
+      "requirement": "Track A independent verification passed",
+      "status": "COMPLETE"
+    },
+    {
+      "details": "decision_fields_present=True",
+      "evidence": "orbit-research/EARLY_TWEEDIE_VALIDATION_PI_DECISION.md",
+      "requirement": "Track A PI decision memo produced",
+      "status": "COMPLETE"
+    },
+    {
+      "details": "json_status=COMPLETE_CPU_ONLY",
+      "evidence": "orbit-research/GLOBAL_QUALITY_STRUCTURE_ANALYSIS.md, orbit-research/GLOBAL_QUALITY_STRUCTURE_ANALYSIS.json",
+      "requirement": "Track B global-quality structure analysis completed",
+      "status": "COMPLETE"
+    },
+    {
+      "details": "explicit_stop_marker_present=True",
+      "evidence": "orbit-research/C1_LITE_RL_RESCUE_STOP_DECISION.md",
+      "requirement": "Track C bounded rescue opportunity resolved",
+      "status": "COMPLETE"
+    },
+    {
+      "details": "flags_ok=True; gate_v1_sha256=43a306753583f03563c792ac9399bb1e30b0525c98c902a1e18756d54e25b3c6; gate_v2_draft_exists=True",
+      "evidence": "orbit-research/TRAJECTORY_AWARE_GOAL_STATUS_CURRENT.json",
+      "requirement": "Hard scientific boundaries preserved",
+      "status": "COMPLETE"
+    }
+  ],
+  "schema_version": "trajectory_aware_completion_audit_v1",
+  "status_json": "orbit-research/TRAJECTORY_AWARE_GOAL_STATUS_CURRENT.json"
+}

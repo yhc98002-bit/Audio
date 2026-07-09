@@ -1,0 +1,7 @@
+axis,stratum,sigma_0.9,sigma_0.8,sigma_0.7,PLANNED_sigma_0.5,PLANNED_sigma_0.3
+common_robust_lcb,all,0.2472,0.4833,0.6524,PLANNED,PLANNED
+aesthetic_pq,all,0.2813,0.5381,0.6291,PLANNED,PLANNED
+aesthetic_cu,all,0.2846,0.5117,0.6169,PLANNED,PLANNED
+semantic_fit,all,0.1301,0.2044,0.3032,PLANNED,PLANNED
+lyric_intelligibility,vocal_scorable,0.0384,0.2497,0.5540,PLANNED,PLANNED
+section_coherence,all,0.3883,0.5831,0.6860,PLANNED,PLANNED

@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>σ 校准 PI 评听界面 (2026-05-22)</title>
+<style>
+  :root {
+    --bg: #fafafa;
+    --fg: #1a1a1a;
+    --muted: #666;
+    --border: #ddd;
+    --accent: #2563eb;
+    --good: #16a34a;
+    --warn: #d97706;
+    --bad: #dc2626;
+    --card: #fff;
+    --code-bg: #f3f4f6;
+  }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", sans-serif;
+         background: var(--bg); color: var(--fg); margin: 0; padding: 24px; line-height: 1.5; }
+  h1 { margin: 0 0 8px; font-size: 22px; }
+  h2 { margin: 32px 0 12px; font-size: 18px; border-bottom: 2px solid var(--border); padding-bottom: 4px; }
+  h3 { margin: 16px 0 8px; font-size: 15px; color: var(--accent); }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .header-meta { color: var(--muted); font-size: 13px; margin-bottom: 16px; }
+  .decision-rule { background: #fff7e6; border-left: 4px solid var(--warn); padding: 12px 16px;
+                   margin: 16px 0; border-radius: 4px; font-size: 14px; }
+  .scope-note { background: #eef2ff; border-left: 4px solid var(--accent); padding: 12px 16px;
+                margin: 16px 0; border-radius: 4px; font-size: 13px; }
+  .prompt-card { background: var(--card); border: 1px solid var(--border); border-radius: 6px;
+                 padding: 16px; margin-bottom: 24px; box-shadow: 0 1px 2px rgba(0,0,0,0.04); }
+  .prompt-id { font-family: "SF Mono", Monaco, monospace; font-size: 13px; color: var(--accent); }
+  .prompt-text { font-size: 14px; margin: 8px 0; }
+  .prompt-lyrics { font-size: 12px; color: var(--muted); white-space: pre-wrap;
+                   background: var(--code-bg); padding: 8px; border-radius: 4px; }
+  .row { display: grid; grid-template-columns: 110px 1fr 240px 1fr; gap: 12px; align-items: center;
+         padding: 12px 0; border-top: 1px dashed var(--border); }
+  .row:first-child { border-top: none; }
+  .row.row-final { background: #f0fdf4; padding: 12px 8px; margin: 0 -8px; border-radius: 4px; }
+  .sigma-label { font-weight: 600; font-family: "SF Mono", Monaco, monospace; }
+  .sigma-label small { display: block; color: var(--muted); font-weight: normal; font-size: 11px; }
+  audio { width: 100%; }
+  .verdict-buttons button { font-size: 12px; padding: 4px 10px; margin-right: 4px; cursor: pointer;
+                            border: 1px solid var(--border); background: white; border-radius: 4px; }
+  .verdict-buttons button.sel-yes { background: var(--good); color: white; border-color: var(--good); }
+  .verdict-buttons button.sel-borderline { background: var(--warn); color: white; border-color: var(--warn); }
+  .verdict-buttons button.sel-no { background: var(--bad); color: white; border-color: var(--bad); }
+  .notes-input { width: 100%; padding: 4px 6px; border: 1px solid var(--border); border-radius: 4px;
+                 font-size: 12px; font-family: inherit; box-sizing: border-box; }
+  .summary { background: #f8fafc; border: 1px solid var(--border); border-radius: 6px;
+             padding: 16px; margin-top: 32px; position: sticky; bottom: 12px; box-shadow: 0 -2px 8px rgba(0,0,0,0.06); }
+  .summary table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .summary th, .summary td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--border); }
+  .summary th { background: #f1f5f9; }
+  .recommendation { font-size: 16px; padding: 12px; margin-top: 12px; border-radius: 4px;
+                    background: #ecfdf5; border-left: 4px solid var(--good); }
+  .recommendation.warn { background: #fefce8; border-left-color: var(--warn); }
+  .recommendation.bad { background: #fef2f2; border-left-color: var(--bad); }
+  .toolbar { margin: 16px 0 4px; }
+  .toolbar button { background: var(--accent); color: white; border: none; padding: 8px 16px;
+                    border-radius: 4px; cursor: pointer; font-size: 14px; margin-right: 8px; }
+  .toolbar button.secondary { background: white; color: var(--fg); border: 1px solid var(--border); }
+  .toolbar button:disabled { opacity: 0.5; cursor: not-allowed; }
+  pre.export-out { background: var(--code-bg); padding: 12px; border-radius: 4px;
+                   font-size: 11px; max-height: 300px; overflow: auto; white-space: pre-wrap; }
+  .meta-line { color: var(--muted); font-size: 12px; margin-top: 4px; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>σ 校准 PI 评听界面</h1>
+  <div class="header-meta">
+    Phase B prep §D follow-up · 2026-05-22 · 16 个校准 prompts 中选 3 个
+    （<code>dev_0010</code>、<code>dev_0026</code>、<code>dev_0044</code>），σ ∈ {0.9, 0.7, 0.5} + final
+  </div>
+
+  <div class="scope-note">
+    <strong>采样配置（formal Phase B sampler binding）:</strong> cfg_type='cfg', ERG=False,
+    guidance_interval=0.5, infer_step=30, cfg_scale=5.0.
+    σ=0.9 和 σ=0.7 落在 guidance interval <em>内部</em>（CFG-mixed velocity），
+    σ=0.5 落在 <em>外部</em>（cond-only velocity）。Trajectories 与 v2 σ 校准跑出来的 bit-identical
+    （同 seed + 确定性 pipeline）。
+  </div>
+
+  <div class="decision-rule">
+    <strong>评估目标：</strong>判断 σ=0.9 在每个 prompt 上是否还具有「可辨别的音乐结构」。
+    <ul style="margin: 4px 0 0; padding-left: 20px;">
+      <li>若 <strong>σ=0.9 大部分 prompt 仍可辨别</strong> → 推荐 K=3 = <code>{0.9, 0.7, 0.5}</code></li>
+      <li>若 <strong>σ=0.9 大部分 prompt 太退化</strong> → 推荐 K=3 = <code>{0.8, 0.7, 0.5}</code></li>
+    </ul>
+    每个 (prompt, σ) 给一个判断（Yes / Borderline / No）+ 可选 notes。
+    所有判断保存到浏览器 localStorage，关闭页面不会丢；点 Export 导出 JSON。
+  </div>
+
+  <div id="prompts"></div>
+
+  <div class="summary">
+    <h2 style="margin-top:0">汇总 + 推荐</h2>
+    <table id="summary-table">
+      <thead><tr><th>σ</th><th>Yes</th><th>Borderline</th><th>No</th><th>未判定</th></tr></thead>
+      <tbody></tbody>
+    </table>
+    <div id="recommendation" class="recommendation">等待评分…</div>
+    <div class="toolbar">
+      <button id="export-btn">Export verdicts (JSON)</button>
+      <button id="copy-btn" class="secondary">Copy to clipboard</button>
+      <button id="clear-btn" class="secondary">Clear all (重新开始)</button>
+    </div>
+    <pre id="export-out" class="export-out" style="display:none"></pre>
+  </div>
+</div>
+
+<script src="manifest.js"></script>
+<script>
+const LS_KEY = "pi_sigma_calibration_verdicts_2026_05_22";
+const VERDICTS = ["yes", "borderline", "no"];
+
+function loadState() {
+  try {
+    return JSON.parse(localStorage.getItem(LS_KEY) || "{}");
+  } catch (e) { return {}; }
+}
+function saveState(s) { localStorage.setItem(LS_KEY, JSON.stringify(s)); }
+let STATE = loadState();
+
+function key(promptId, sigma) {
+  return promptId + "::" + (sigma === null ? "final" : ("sigma=" + sigma));
+}
+function setVerdict(promptId, sigma, verdict) {
+  const k = key(promptId, sigma);
+  STATE[k] = STATE[k] || {};
+  STATE[k].verdict = verdict;
+  saveState(STATE);
+  render();
+}
+function setNotes(promptId, sigma, notes) {
+  const k = key(promptId, sigma);
+  STATE[k] = STATE[k] || {};
+  STATE[k].notes = notes;
+  saveState(STATE);
+  // No re-render needed; we don't aggregate notes.
+}
+
+function buildPromptCard(item) {
+  const card = document.createElement("div");
+  card.className = "prompt-card";
+
+  const idEl = document.createElement("div");
+  idEl.innerHTML = `<span class="prompt-id">${item.prompt_id}</span>
+    <span class="meta-line"> · seed=${item.seed} · ${item.duration_target_s}s · sr=${item.sample_rate}</span>`;
+  card.appendChild(idEl);
+
+  const textEl = document.createElement("div");
+  textEl.className = "prompt-text";
+  textEl.textContent = item.text;
+  card.appendChild(textEl);
+
+  if (item.lyrics && item.lyrics.length) {
+    const ly = document.createElement("div");
+    ly.className = "prompt-lyrics";
+    ly.textContent = item.lyrics;
+    card.appendChild(ly);
+  } else {
+    const ly = document.createElement("div");
+    ly.className = "meta-line";
+    ly.textContent = "(no lyrics — instrumental or无歌词)";
+    card.appendChild(ly);
+  }
+
+  // Order: σ=0.90, 0.70, 0.50, final
+  const order = [0.9, 0.7, 0.5, null];
+  for (const sigma of order) {
+    const file = sigma === null
+      ? item.files.find(f => f.label === "final")
+      : item.files.find(f => f.sigma_target === sigma);
+    if (!file) continue;
+    const row = document.createElement("div");
+    row.className = "row" + (sigma === null ? " row-final" : "");
+
+    const sigLabel = document.createElement("div");
+    sigLabel.className = "sigma-label";
+    if (sigma === null) {
+      sigLabel.innerHTML = `final<small>真实生成</small>`;
+    } else {
+      const branch = file.cfg_active ? "CFG-mixed" : "cond-only";
+      sigLabel.innerHTML = `σ=${sigma.toFixed(2)}<small>step ${file.step} · ${branch}</small>`;
+    }
+    row.appendChild(sigLabel);
+
+    const audio = document.createElement("audio");
+    audio.controls = true;
+    audio.preload = "metadata";
+    audio.src = file.file.replace(/^papers\/diagnostic\/pi_listening_packet\//, "");
+    row.appendChild(audio);
+
+    // Verdict + notes (only for σ rows, not final)
+    if (sigma !== null) {
+      const btns = document.createElement("div");
+      btns.className = "verdict-buttons";
+      const cur = STATE[key(item.prompt_id, sigma)] || {};
+      VERDICTS.forEach(v => {
+        const b = document.createElement("button");
+        b.textContent = v === "yes" ? "可辨别 ✓" : v === "borderline" ? "勉强 ~" : "退化 ✗";
+        if (cur.verdict === v) b.classList.add("sel-" + v);
+        b.onclick = () => setVerdict(item.prompt_id, sigma, v);
+        btns.appendChild(b);
+      });
+      row.appendChild(btns);
+
+      const notes = document.createElement("input");
+      notes.className = "notes-input";
+      notes.placeholder = "notes（可选）";
+      notes.value = cur.notes || "";
+      notes.oninput = () => setNotes(item.prompt_id, sigma, notes.value);
+      row.appendChild(notes);
+    } else {
+      // Final row: 2 empty cells to keep grid aligned
+      row.appendChild(document.createElement("div"));
+      row.appendChild(document.createElement("div"));
+    }
+
+    card.appendChild(row);
+  }
+
+  return card;
+}
+
+function render() {
+  const data = window.MANIFEST_DATA;
+  const wrap = document.getElementById("prompts");
+  wrap.innerHTML = "";
+  data.items.forEach(item => wrap.appendChild(buildPromptCard(item)));
+
+  // Aggregate per-σ verdicts
+  const sigmas = [0.9, 0.7, 0.5];
+  const sums = {};
+  sigmas.forEach(s => sums[s] = { yes: 0, borderline: 0, no: 0, missing: 0 });
+  data.items.forEach(item => {
+    sigmas.forEach(s => {
+      const v = (STATE[key(item.prompt_id, s)] || {}).verdict;
+      if (!v) sums[s].missing++;
+      else sums[s][v]++;
+    });
+  });
+  const tbody = document.querySelector("#summary-table tbody");
+  tbody.innerHTML = "";
+  sigmas.forEach(s => {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `<td>σ=${s.toFixed(2)}</td>
+      <td style="color:var(--good)">${sums[s].yes}</td>
+      <td style="color:var(--warn)">${sums[s].borderline}</td>
+      <td style="color:var(--bad)">${sums[s].no}</td>
+      <td style="color:var(--muted)">${sums[s].missing}</td>`;
+    tbody.appendChild(tr);
+  });
+
+  // Recommendation
+  const rec = document.getElementById("recommendation");
+  const s09 = sums[0.9];
+  const total = s09.yes + s09.borderline + s09.no;
+  if (total === 0) {
+    rec.className = "recommendation warn";
+    rec.textContent = "等待 σ=0.9 评分…";
+  } else if (s09.yes >= 2 || (s09.yes >= 1 && s09.borderline >= 1)) {
+    rec.className = "recommendation";
+    rec.innerHTML = `<strong>推荐 K=3 = {0.9, 0.7, 0.5}</strong>
+      （σ=0.9: ${s09.yes} yes / ${s09.borderline} borderline / ${s09.no} no — 大部分可辨别）`;
+  } else if (s09.no >= 2) {
+    rec.className = "recommendation bad";
+    rec.innerHTML = `<strong>推荐 K=3 = {0.8, 0.7, 0.5}</strong>
+      （σ=0.9: ${s09.yes} yes / ${s09.borderline} borderline / ${s09.no} no — 大部分太退化）`;
+  } else {
+    rec.className = "recommendation warn";
+    rec.innerHTML = `结果摇摆（σ=0.9: ${s09.yes} yes / ${s09.borderline} borderline / ${s09.no} no）— 由 PI 判断`;
+  }
+}
+
+document.getElementById("export-btn").onclick = () => {
+  const out = {
+    schema: "pi_sigma_calibration_verdicts_v1",
+    generated_local: new Date().toISOString(),
+    packet_manifest_sha: "see manifest.json",
+    verdicts: STATE,
+  };
+  const txt = JSON.stringify(out, null, 2);
+  document.getElementById("export-out").textContent = txt;
+  document.getElementById("export-out").style.display = "block";
+  // Also offer download
+  const blob = new Blob([txt], { type: "application/json" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "pi_sigma_verdicts_2026-05-22.json";
+  a.click();
+};
+document.getElementById("copy-btn").onclick = () => {
+  const txt = JSON.stringify({ verdicts: STATE }, null, 2);
+  navigator.clipboard.writeText(txt).then(
+    () => alert("已复制到剪贴板"),
+    () => alert("复制失败 — 用 Export 按钮"),
+  );
+};
+document.getElementById("clear-btn").onclick = () => {
+  if (!confirm("确定清空所有评分？")) return;
+  STATE = {};
+  saveState(STATE);
+  render();
+};
+
+render();
+</script>
+</body>
+</html>

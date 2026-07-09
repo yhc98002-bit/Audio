@@ -1,0 +1,44 @@
+{
+  "run": "format_probe_20260707",
+  "model": "qwen3.5-omni-plus",
+  "endpoint": "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions",
+  "results": [
+    {
+      "clip_id": "positive_smoke",
+      "input_format": "flac",
+      "parsed": "yes",
+      "expected": "yes",
+      "correct": true,
+      "error": null,
+      "latency_s": 11.04
+    },
+    {
+      "clip_id": "positive_smoke",
+      "input_format": "wav",
+      "parsed": "yes",
+      "expected": "yes",
+      "correct": true,
+      "error": null,
+      "latency_s": 2.65
+    },
+    {
+      "clip_id": "negative_smoke",
+      "input_format": "flac",
+      "parsed": "no",
+      "expected": "no",
+      "correct": true,
+      "error": null,
+      "latency_s": 2.35
+    },
+    {
+      "clip_id": "negative_smoke",
+      "input_format": "wav",
+      "parsed": "no",
+      "expected": "no",
+      "correct": true,
+      "error": null,
+      "latency_s": 2.2
+    }
+  ],
+  "raw_log": "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion/orbit-research/adsr_phase2_20260604/paper_prep/judge_raw/format_probe_20260707.jsonl"
+}

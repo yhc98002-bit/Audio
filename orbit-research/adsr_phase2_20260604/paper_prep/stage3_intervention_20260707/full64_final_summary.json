@@ -1,0 +1,525 @@
+{
+  "condition_summary": {
+    "instr_both": {
+      "errors": 0,
+      "near_silent": 0,
+      "ok": 960,
+      "present_rate": 0.6229166666666667,
+      "requested_vocal": 0,
+      "rows": 960,
+      "type_correct_rate": 0.3770833333333333,
+      "vocal_energy_ratio": {
+        "max": 0.999952,
+        "mean": 0.3451047989583334,
+        "median": 0.2558725,
+        "min": 2e-06,
+        "n": 960
+      }
+    },
+    "instr_sampler": {
+      "errors": 0,
+      "near_silent": 0,
+      "ok": 960,
+      "present_rate": 0.6552083333333333,
+      "requested_vocal": 0,
+      "rows": 960,
+      "type_correct_rate": 0.34479166666666666,
+      "vocal_energy_ratio": {
+        "max": 0.999975,
+        "mean": 0.35745322812499986,
+        "median": 0.3224055,
+        "min": 1e-06,
+        "n": 960
+      }
+    },
+    "instr_text": {
+      "errors": 0,
+      "near_silent": 0,
+      "ok": 960,
+      "present_rate": 0.6739583333333333,
+      "requested_vocal": 0,
+      "rows": 960,
+      "type_correct_rate": 0.3260416666666667,
+      "vocal_energy_ratio": {
+        "max": 0.999977,
+        "mean": 0.37338690312500034,
+        "median": 0.34460749999999996,
+        "min": 1e-06,
+        "n": 960
+      }
+    },
+    "vocal_both": {
+      "errors": 0,
+      "near_silent": 0,
+      "ok": 1088,
+      "present_rate": 0.7794117647058824,
+      "requested_vocal": 1,
+      "rows": 1088,
+      "type_correct_rate": 0.7794117647058824,
+      "vocal_energy_ratio": {
+        "max": 0.887868,
+        "mean": 0.3236487454044114,
+        "median": 0.30127349999999997,
+        "min": 4e-06,
+        "n": 1088
+      }
+    },
+    "vocal_guidance": {
+      "errors": 0,
+      "near_silent": 0,
+      "ok": 1088,
+      "present_rate": 0.78125,
+      "requested_vocal": 1,
+      "rows": 1088,
+      "type_correct_rate": 0.78125,
+      "vocal_energy_ratio": {
+        "max": 0.986117,
+        "mean": 0.3258269227941172,
+        "median": 0.2972495,
+        "min": 0.000113,
+        "n": 1088
+      }
+    },
+    "vocal_hints": {
+      "errors": 0,
+      "near_silent": 0,
+      "ok": 1088,
+      "present_rate": 0.09375,
+      "requested_vocal": 1,
+      "rows": 1088,
+      "type_correct_rate": 0.09375,
+      "vocal_energy_ratio": {
+        "max": 0.930139,
+        "mean": 0.08206561121323525,
+        "median": 0.0575395,
+        "min": 1e-06,
+        "n": 1088
+      }
+    }
+  },
+  "conditions": {
+    "instr_both": 960,
+    "instr_sampler": 960,
+    "instr_text": 960,
+    "vocal_both": 1088,
+    "vocal_guidance": 1088,
+    "vocal_hints": 1088
+  },
+  "errors": 0,
+  "expected_rows": 6144,
+  "expected_rows_match": true,
+  "files": [
+    "orbit-research/adsr_phase2_20260604/paper_prep/stage3_intervention_20260707/ledgers/full64_w0.jsonl",
+    "orbit-research/adsr_phase2_20260604/paper_prep/stage3_intervention_20260707/ledgers/full64_w1.jsonl",
+    "orbit-research/adsr_phase2_20260604/paper_prep/stage3_intervention_20260707/ledgers/full64_w2.jsonl",
+    "orbit-research/adsr_phase2_20260604/paper_prep/stage3_intervention_20260707/ledgers/full64_w3.jsonl",
+    "orbit-research/adsr_phase2_20260604/paper_prep/stage3_intervention_20260707/ledgers/full64_w4.jsonl",
+    "orbit-research/adsr_phase2_20260604/paper_prep/stage3_intervention_20260707/ledgers/full64_w5.jsonl",
+    "orbit-research/adsr_phase2_20260604/paper_prep/stage3_intervention_20260707/ledgers/full64_w6.jsonl",
+    "orbit-research/adsr_phase2_20260604/paper_prep/stage3_intervention_20260707/ledgers/full64_w7.jsonl"
+  ],
+  "missing_flac": 0,
+  "missing_flac_examples": [],
+  "near_silent": 0,
+  "ok": 6144,
+  "patterns": [
+    "orbit-research/adsr_phase2_20260604/paper_prep/stage3_intervention_20260707/ledgers/full64_w*.jsonl"
+  ],
+  "prompt_summary": {
+    "held_out_0001": {
+      "conditions": {
+        "vocal_both": 64,
+        "vocal_guidance": 64,
+        "vocal_hints": 64
+      },
+      "errors": 0,
+      "ok": 192,
+      "requested_vocal": 1,
+      "rows": 192,
+      "type_correct_rate": 0.625
+    },
+    "held_out_0008": {
+      "conditions": {
+        "vocal_both": 64,
+        "vocal_guidance": 64,
+        "vocal_hints": 64
+      },
+      "errors": 0,
+      "ok": 192,
+      "requested_vocal": 1,
+      "rows": 192,
+      "type_correct_rate": 0.6458333333333334
+    },
+    "held_out_0016": {
+      "conditions": {
+        "vocal_both": 64,
+        "vocal_guidance": 64,
+        "vocal_hints": 64
+      },
+      "errors": 0,
+      "ok": 192,
+      "requested_vocal": 1,
+      "rows": 192,
+      "type_correct_rate": 0.6197916666666666
+    },
+    "held_out_0017": {
+      "conditions": {
+        "vocal_both": 64,
+        "vocal_guidance": 64,
+        "vocal_hints": 64
+      },
+      "errors": 0,
+      "ok": 192,
+      "requested_vocal": 1,
+      "rows": 192,
+      "type_correct_rate": 0.578125
+    },
+    "held_out_0021": {
+      "conditions": {
+        "vocal_both": 64,
+        "vocal_guidance": 64,
+        "vocal_hints": 64
+      },
+      "errors": 0,
+      "ok": 192,
+      "requested_vocal": 1,
+      "rows": 192,
+      "type_correct_rate": 0.7239583333333334
+    },
+    "held_out_0024": {
+      "conditions": {
+        "vocal_both": 64,
+        "vocal_guidance": 64,
+        "vocal_hints": 64
+      },
+      "errors": 0,
+      "ok": 192,
+      "requested_vocal": 1,
+      "rows": 192,
+      "type_correct_rate": 0.5260416666666666
+    },
+    "held_out_0035": {
+      "conditions": {
+        "instr_both": 64,
+        "instr_sampler": 64,
+        "instr_text": 64
+      },
+      "errors": 0,
+      "ok": 192,
+      "requested_vocal": 0,
+      "rows": 192,
+      "type_correct_rate": 0.2916666666666667
+    },
+    "held_out_0041": {
+      "conditions": {
+        "instr_both": 64,
+        "instr_sampler": 64,
+        "instr_text": 64
+      },
+      "errors": 0,
+      "ok": 192,
+      "requested_vocal": 0,
+      "rows": 192,
+      "type_correct_rate": 0.4947916666666667
+    },
+    "held_out_0043": {
+      "conditions": {
+        "instr_both": 64,
+        "instr_sampler": 64,
+        "instr_text": 64
+      },
+      "errors": 0,
+      "ok": 192,
+      "requested_vocal": 0,
+      "rows": 192,
+      "type_correct_rate": 0.234375
+    },
+    "held_out_0045": {
+      "conditions": {
+        "vocal_both": 64,
+        "vocal_guidance": 64,
+        "vocal_hints": 64
+      },
+      "errors": 0,
+      "ok": 192,
+      "requested_vocal": 1,
+      "rows": 192,
+      "type_correct_rate": 0.484375
+    },
+    "held_out_0058": {
+      "conditions": {
+        "instr_both": 64,
+        "instr_sampler": 64,
+        "instr_text": 64
+      },
+      "errors": 0,
+      "ok": 192,
+      "requested_vocal": 0,
+      "rows": 192,
+      "type_correct_rate": 0.3333333333333333
+    },
+    "held_out_0069": {
+      "conditions": {
+        "vocal_both": 64,
+        "vocal_guidance": 64,
+        "vocal_hints": 64
+      },
+      "errors": 0,
+      "ok": 192,
+      "requested_vocal": 1,
+      "rows": 192,
+      "type_correct_rate": 0.6510416666666666
+    },
+    "held_out_0080": {
+      "conditions": {
+        "instr_both": 64,
+        "instr_sampler": 64,
+        "instr_text": 64
+      },
+      "errors": 0,
+      "ok": 192,
+      "requested_vocal": 0,
+      "rows": 192,
+      "type_correct_rate": 0.3697916666666667
+    },
+    "held_out_0088": {
+      "conditions": {
+        "instr_both": 64,
+        "instr_sampler": 64,
+        "instr_text": 64
+      },
+      "errors": 0,
+      "ok": 192,
+      "requested_vocal": 0,
+      "rows": 192,
+      "type_correct_rate": 0.3958333333333333
+    },
+    "held_out_0094": {
+      "conditions": {
+        "instr_both": 64,
+        "instr_sampler": 64,
+        "instr_text": 64
+      },
+      "errors": 0,
+      "ok": 192,
+      "requested_vocal": 0,
+      "rows": 192,
+      "type_correct_rate": 0.28125
+    },
+    "held_out_0108": {
+      "conditions": {
+        "instr_both": 64,
+        "instr_sampler": 64,
+        "instr_text": 64
+      },
+      "errors": 0,
+      "ok": 192,
+      "requested_vocal": 0,
+      "rows": 192,
+      "type_correct_rate": 0.5416666666666666
+    },
+    "held_out_0117": {
+      "conditions": {
+        "instr_both": 64,
+        "instr_sampler": 64,
+        "instr_text": 64
+      },
+      "errors": 0,
+      "ok": 192,
+      "requested_vocal": 0,
+      "rows": 192,
+      "type_correct_rate": 0.16145833333333334
+    },
+    "held_out_0119": {
+      "conditions": {
+        "vocal_both": 64,
+        "vocal_guidance": 64,
+        "vocal_hints": 64
+      },
+      "errors": 0,
+      "ok": 192,
+      "requested_vocal": 1,
+      "rows": 192,
+      "type_correct_rate": 0.640625
+    },
+    "held_out_0134": {
+      "conditions": {
+        "vocal_both": 64,
+        "vocal_guidance": 64,
+        "vocal_hints": 64
+      },
+      "errors": 0,
+      "ok": 192,
+      "requested_vocal": 1,
+      "rows": 192,
+      "type_correct_rate": 0.609375
+    },
+    "held_out_0142": {
+      "conditions": {
+        "vocal_both": 64,
+        "vocal_guidance": 64,
+        "vocal_hints": 64
+      },
+      "errors": 0,
+      "ok": 192,
+      "requested_vocal": 1,
+      "rows": 192,
+      "type_correct_rate": 0.515625
+    },
+    "held_out_0153": {
+      "conditions": {
+        "instr_both": 64,
+        "instr_sampler": 64,
+        "instr_text": 64
+      },
+      "errors": 0,
+      "ok": 192,
+      "requested_vocal": 0,
+      "rows": 192,
+      "type_correct_rate": 0.3802083333333333
+    },
+    "held_out_0166": {
+      "conditions": {
+        "vocal_both": 64,
+        "vocal_guidance": 64,
+        "vocal_hints": 64
+      },
+      "errors": 0,
+      "ok": 192,
+      "requested_vocal": 1,
+      "rows": 192,
+      "type_correct_rate": 0.4375
+    },
+    "held_out_0170": {
+      "conditions": {
+        "instr_both": 64,
+        "instr_sampler": 64,
+        "instr_text": 64
+      },
+      "errors": 0,
+      "ok": 192,
+      "requested_vocal": 0,
+      "rows": 192,
+      "type_correct_rate": 0.3697916666666667
+    },
+    "held_out_0193": {
+      "conditions": {
+        "vocal_both": 64,
+        "vocal_guidance": 64,
+        "vocal_hints": 64
+      },
+      "errors": 0,
+      "ok": 192,
+      "requested_vocal": 1,
+      "rows": 192,
+      "type_correct_rate": 0.23958333333333334
+    },
+    "held_out_0199": {
+      "conditions": {
+        "vocal_both": 64,
+        "vocal_guidance": 64,
+        "vocal_hints": 64
+      },
+      "errors": 0,
+      "ok": 192,
+      "requested_vocal": 1,
+      "rows": 192,
+      "type_correct_rate": 0.453125
+    },
+    "held_out_0204": {
+      "conditions": {
+        "vocal_both": 64,
+        "vocal_guidance": 64,
+        "vocal_hints": 64
+      },
+      "errors": 0,
+      "ok": 192,
+      "requested_vocal": 1,
+      "rows": 192,
+      "type_correct_rate": 0.5729166666666666
+    },
+    "held_out_0236": {
+      "conditions": {
+        "instr_both": 64,
+        "instr_sampler": 64,
+        "instr_text": 64
+      },
+      "errors": 0,
+      "ok": 192,
+      "requested_vocal": 0,
+      "rows": 192,
+      "type_correct_rate": 0.5208333333333334
+    },
+    "held_out_0238": {
+      "conditions": {
+        "instr_both": 64,
+        "instr_sampler": 64,
+        "instr_text": 64
+      },
+      "errors": 0,
+      "ok": 192,
+      "requested_vocal": 0,
+      "rows": 192,
+      "type_correct_rate": 0.2708333333333333
+    },
+    "held_out_0240": {
+      "conditions": {
+        "vocal_both": 64,
+        "vocal_guidance": 64,
+        "vocal_hints": 64
+      },
+      "errors": 0,
+      "ok": 192,
+      "requested_vocal": 1,
+      "rows": 192,
+      "type_correct_rate": 0.4947916666666667
+    },
+    "held_out_0251": {
+      "conditions": {
+        "instr_both": 64,
+        "instr_sampler": 64,
+        "instr_text": 64
+      },
+      "errors": 0,
+      "ok": 192,
+      "requested_vocal": 0,
+      "rows": 192,
+      "type_correct_rate": 0.2864583333333333
+    },
+    "held_out_0253": {
+      "conditions": {
+        "instr_both": 64,
+        "instr_sampler": 64,
+        "instr_text": 64
+      },
+      "errors": 0,
+      "ok": 192,
+      "requested_vocal": 0,
+      "rows": 192,
+      "type_correct_rate": 0.3072916666666667
+    },
+    "held_out_0254": {
+      "conditions": {
+        "vocal_both": 64,
+        "vocal_guidance": 64,
+        "vocal_hints": 64
+      },
+      "errors": 0,
+      "ok": 192,
+      "requested_vocal": 1,
+      "rows": 192,
+      "type_correct_rate": 0.5572916666666666
+    }
+  },
+  "prompts": 32,
+  "requested_vocal_counts": {
+    "0": 2880,
+    "1": 3264
+  },
+  "rows": 6144,
+  "sources": {
+    "E2_tail": 6144
+  },
+  "type_correct_rate": 0.4567057291666667,
+  "verdict": "PASS"
+}

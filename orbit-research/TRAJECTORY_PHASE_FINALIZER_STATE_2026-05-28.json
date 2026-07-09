@@ -1,0 +1,14 @@
+{
+  "bon16_records": 2048,
+  "run_root": "runs/early_tweedie_bon16_subset_128_20260528_full01",
+  "safety": {
+    "gate_v1_modified": false,
+    "human_crowdsourcing_launched": false,
+    "phase_d_launched": false,
+    "pruning_rl_launched": false,
+    "reward_definitions_changed": false,
+    "rl_training_launched": false
+  },
+  "status": "PASS",
+  "updated_utc": "2026-05-28T20:42:23Z"
+}

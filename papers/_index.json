@@ -1,0 +1,83 @@
+[
+  {
+    "id": "2509.05952",
+    "title": "Coefficients-Preserving Sampling for Reinforcement Learning with Flow Matching",
+    "authors": [
+      "Feng Wang",
+      "Zihao Yu"
+    ],
+    "published": "2025-09-07T07:25:00Z",
+    "summary": "Reinforcement Learning (RL) has recently emerged as a powerful technique for improving image and video generation in Diffusion and Flow Matching models, specifically for enhancing output quality and alignment with prompts. A critical step for applying online RL methods on Flow Matching is the introduction of stochasticity into the deterministic framework, commonly realized by Stochastic Differential Equation (SDE). Our investigation reveals a significant drawback to this approach: SDE-based sampling introduces pronounced noise artifacts in the generated images, which we found to be detrimental to the reward learning process. A rigorous theoretical analysis traces the origin of this noise to an excess of stochasticity injected during inference. To address this, we draw inspiration from Denoising Diffusion Implicit Models (DDIM) to reformulate the sampling process. Our proposed method, Coefficients-Preserving Sampling (CPS), eliminates these noise artifacts. This leads to more accurate reward modeling, ultimately enabling faster and more stable convergence for reinforcement learning-based optimizers like Flow-GRPO and Dance-GRPO. Code will be released at https://github.com/IamCreateA"
+  },
+  {
+    "id": "2507.21802",
+    "title": "MixGRPO: Unlocking Flow-based GRPO Efficiency with Mixed ODE-SDE",
+    "authors": [
+      "Junzhe Li",
+      "Yutao Cui",
+      "Tao Huang",
+      "Yinping Ma",
+      "Chun Fan",
+      "Yiming Cheng",
+      "Miles Yang",
+      "Zhao Zhong",
+      "Liefeng Bo"
+    ],
+    "published": "2025-07-29T13:40:09Z",
+    "summary": "Although GRPO substantially enhances flow matching models in human preference alignment of image generation, methods such as FlowGRPO and DanceGRPO still exhibit inefficiency due to the necessity of sampling and optimizing over all denoising steps specified by the Markov Decision Process (MDP). In this paper, we propose $\\textbf{MixGRPO}$, a novel framework that leverages the flexibility of mixed sampling strategies through the integration of stochastic differential equations (SDE) and ordinary differential equations (ODE). This streamlines the optimization process within the MDP to improve efficiency and boost performance. Specifically, MixGRPO introduces a sliding window mechanism, using SDE sampling and GRPO-guided optimization only within the window, while applying ODE sampling outside. This design confines sampling randomness to the time-steps within the window, thereby reducing the optimization overhead, and allowing for more focused gradient updates to accelerate convergence. Additionally, as time-steps beyond the sliding window are not involved in optimization, higher-order solvers are supported for faster sampling. So we present a faster variant, termed $\\textbf{MixGRPO-Fl"
+  },
+  {
+    "id": "2507.21053",
+    "title": "Flow Matching Policy Gradients",
+    "authors": [
+      "David McAllister",
+      "Songwei Ge",
+      "Brent Yi",
+      "Chung Min Kim",
+      "Ethan Weber",
+      "Hongsuk Choi",
+      "Haiwen Feng",
+      "Angjoo Kanazawa"
+    ],
+    "published": "2025-07-28T17:59:57Z",
+    "summary": "Flow-based generative models, including diffusion models, excel at modeling continuous distributions in high-dimensional spaces. In this work, we introduce Flow Policy Optimization (FPO), a simple on-policy reinforcement learning algorithm that brings flow matching into the policy gradient framework. FPO casts policy optimization as maximizing an advantage-weighted ratio computed from the conditional flow matching loss, in a manner compatible with the popular PPO-clip framework. It sidesteps the need for exact likelihood computation while preserving the generative capabilities of flow-based models. Unlike prior approaches for diffusion-based reinforcement learning that bind training to a specific sampling method, FPO is agnostic to the choice of diffusion or flow integration at both training and inference time. We show that FPO can train diffusion-style policies from scratch in a variety of continuous control tasks. We find that flow-based models can capture multimodal action distributions and achieve higher performance than Gaussian policies, particularly in under-conditioned settings."
+  },
+  {
+    "id": "2407.14358",
+    "title": "Stable Audio Open",
+    "authors": [
+      "Zach Evans",
+      "Julian D. Parker",
+      "CJ Carr",
+      "Zack Zukowski",
+      "Josiah Taylor",
+      "Jordi Pons"
+    ],
+    "published": "2024-07-19T14:40:23Z",
+    "summary": "Open generative models are vitally important for the community, allowing for fine-tunes and serving as baselines when presenting new models. However, most current text-to-audio models are private and not accessible for artists and researchers to build upon. Here we describe the architecture and training process of a new open-weights text-to-audio model trained with Creative Commons data. Our evaluation shows that the model's performance is competitive with the state-of-the-art across various metrics. Notably, the reported FDopenl3 results (measuring the realism of the generations) showcase its potential for high-quality stereo sound synthesis at 44.1kHz."
+  },
+  {
+    "id": "2406.10970",
+    "title": "Joint Audio and Symbolic Conditioning for Temporally Controlled Text-to-Music Generation",
+    "authors": [
+      "Or Tal",
+      "Alon Ziv",
+      "Itai Gat",
+      "Felix Kreuk",
+      "Yossi Adi"
+    ],
+    "published": "2024-06-16T15:06:06Z",
+    "summary": "We present JASCO, a temporally controlled text-to-music generation model utilizing both symbolic and audio-based conditions. JASCO can generate high-quality music samples conditioned on global text descriptions along with fine-grained local controls. JASCO is based on the Flow Matching modeling paradigm together with a novel conditioning method. This allows music generation controlled both locally (e.g., chords) and globally (text description). Specifically, we apply information bottleneck layers in conjunction with temporal blurring to extract relevant information with respect to specific controls. This allows the incorporation of both symbolic and audio-based conditions in the same text-to-music model. We experiment with various symbolic control signals (e.g., chords, melody), as well as with audio representations (e.g., separated drum tracks, full-mix). We evaluate JASCO considering both generation quality and condition adherence, using both objective metrics and human studies. Results suggest that JASCO is comparable to the evaluated baselines considering generation quality while allowing significantly better and more versatile controls over the generated music. Samples are ava"
+  },
+  {
+    "id": "2209.03003",
+    "title": "Flow Straight and Fast: Learning to Generate and Transfer Data with Rectified Flow",
+    "authors": [
+      "Xingchao Liu",
+      "Chengyue Gong",
+      "Qiang Liu"
+    ],
+    "published": "2022-09-07T08:59:55Z",
+    "summary": "We present rectified flow, a surprisingly simple approach to learning (neural) ordinary differential equation (ODE) models to transport between two empirically observed distributions π_0 and π_1, hence providing a unified solution to generative modeling and domain transfer, among various other tasks involving distribution transport. The idea of rectified flow is to learn the ODE to follow the straight paths connecting the points drawn from π_0 and π_1 as much as possible. This is achieved by solving a straightforward nonlinear least squares optimization problem, which can be easily scaled to large models without introducing extra parameters beyond standard supervised learning. The straight paths are special and preferred because they are the shortest paths between two points, and can be simulated exactly without time discretization and hence yield computationally efficient models. We show that the procedure of learning a rectified flow from data, called rectification, turns an arbitrary coupling of π_0 and π_1 to a new deterministic coupling with provably non-increasing convex transport costs. In addition, recursively applying rectification allows us to obtain a sequence of flows w"
+  }
+]

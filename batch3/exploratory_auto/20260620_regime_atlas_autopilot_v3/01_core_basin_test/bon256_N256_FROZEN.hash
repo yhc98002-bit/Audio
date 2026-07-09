@@ -1,0 +1,2 @@
+bon256 clean N=256 rows=8192 md5=a0509fad5b7854c4f7e3d26e7fbcb416
+dropped: reshard=0 dup=128 ext512(>=256)=58

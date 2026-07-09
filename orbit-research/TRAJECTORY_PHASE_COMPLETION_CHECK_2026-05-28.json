@@ -1,0 +1,141 @@
+{
+  "audio": {
+    "missing_files": [],
+    "pairs": 32,
+    "present_pairs": 32,
+    "status": "pass"
+  },
+  "audits": {
+    "baseline_fairness": "ACCEPT_WITH_NONBLOCKING_NOTES",
+    "dataset_leakage": "ACCEPT_WITH_NONBLOCKING_NOTES",
+    "learned_etv_risk": "ACCEPT_WITH_NONBLOCKING_NOTES"
+  },
+  "generated_utc": "2026-05-28T20:43:04Z",
+  "quantitative": {
+    "bon16_candidates": 2048,
+    "bon16_prompts": 128,
+    "dataset_candidates": 4096,
+    "main_candidates": 4096,
+    "main_prompts": 512
+  },
+  "required_files": {
+    "orbit-research/BON16_PRUNING_SUBSET_RESULTS.csv": {
+      "exists": true,
+      "size": 1323
+    },
+    "orbit-research/BON16_PRUNING_SUBSET_RESULTS.json": {
+      "exists": true,
+      "size": 57544
+    },
+    "orbit-research/BON16_PRUNING_SUBSET_RESULTS.md": {
+      "exists": true,
+      "size": 1271
+    },
+    "orbit-research/CLAUDE_AUDIT_1_DATASET_LEAKAGE_2026-05-28.json": {
+      "exists": true,
+      "size": 4386
+    },
+    "orbit-research/CLAUDE_AUDIT_2_BASELINE_FAIRNESS_2026-05-28.json": {
+      "exists": true,
+      "size": 5239
+    },
+    "orbit-research/CLAUDE_AUDIT_3_LEARNED_ETV_RISK_2026-05-28.json": {
+      "exists": true,
+      "size": 5124
+    },
+    "orbit-research/EARLY_TRAJECTORY_VERIFIER_RESULTS.json": {
+      "exists": true,
+      "size": 154834
+    },
+    "orbit-research/EARLY_TRAJECTORY_VERIFIER_RESULTS.md": {
+      "exists": true,
+      "size": 2608
+    },
+    "orbit-research/EARLY_TWEEDIE_AXIS_BREAKDOWN.csv": {
+      "exists": true,
+      "size": 12777
+    },
+    "orbit-research/EARLY_TWEEDIE_BON4_BOOTSTRAP.csv": {
+      "exists": true,
+      "size": 374
+    },
+    "orbit-research/EARLY_TWEEDIE_CROSS_AXIS_GENERALIZATION.csv": {
+      "exists": true,
+      "size": 7292
+    },
+    "orbit-research/EARLY_TWEEDIE_MAIN_RESULTS.json": {
+      "exists": true,
+      "size": 154834
+    },
+    "orbit-research/EARLY_TWEEDIE_MAIN_RESULTS.md": {
+      "exists": true,
+      "size": 2157
+    },
+    "orbit-research/EARLY_TWEEDIE_PARETO.csv": {
+      "exists": true,
+      "size": 41773
+    },
+    "orbit-research/EARLY_TWEEDIE_STRATUM_BREAKDOWN.csv": {
+      "exists": true,
+      "size": 9981
+    },
+    "orbit-research/EARLY_VALUE_FEATURE_IMPORTANCE.csv": {
+      "exists": true,
+      "size": 6114
+    },
+    "orbit-research/GLOBAL_QUALITY_MECHANISM_FIGURES.md": {
+      "exists": true,
+      "size": 847
+    },
+    "orbit-research/GLOBAL_QUALITY_MECHANISM_TABLES.csv": {
+      "exists": true,
+      "size": 5054
+    },
+    "orbit-research/ICLR_REVIEWER_RISK_AUDIT.md": {
+      "exists": true,
+      "size": 2212
+    },
+    "orbit-research/RISK_CONTROLLED_PRUNING_TABLE.csv": {
+      "exists": true,
+      "size": 1515
+    },
+    "orbit-research/TRAJECTORY_AWARE_FINAL_PI_REPORT_2026-05-28.md": {
+      "exists": true,
+      "size": 6996
+    },
+    "orbit-research/TRAJECTORY_CANDIDATE_DATASET_CARD.md": {
+      "exists": true,
+      "size": 2339
+    },
+    "orbit-research/human_spotcheck_packet_20260528/HUMAN_SPOTCHECK_PACKET_MANIFEST.md": {
+      "exists": true,
+      "size": 709
+    },
+    "orbit-research/human_spotcheck_packet_20260528/human_spotcheck_pairs.with_audio.jsonl": {
+      "exists": true,
+      "size": 23674
+    },
+    "orbit-research/trajectory_candidate_dataset.jsonl": {
+      "exists": true,
+      "size": 34877954
+    }
+  },
+  "safety": {
+    "canonical_proposal_rewritten": false,
+    "gate_v1_modified": false,
+    "human_crowdsourcing_launched": false,
+    "phase_d_launched": false,
+    "prompt_splits_changed": false,
+    "pruning_rl_launched": false,
+    "reward_definitions_changed": false,
+    "rl_training_launched": false
+  },
+  "status": "PASS",
+  "summary": {
+    "audio_pass": true,
+    "audit_pass": true,
+    "file_pass": true,
+    "quantity_pass": true,
+    "safety_pass": true
+  }
+}

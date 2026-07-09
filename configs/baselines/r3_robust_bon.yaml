@@ -1,0 +1,33 @@
+project: audio_diffusion_mprm
+run_id: r3_robust_bon_phase_a
+split: dev
+run_ledger_path: orbit-research/RUN_LEDGER.jsonl
+
+model:
+  name: ace_step_v15
+  backbone: ace_step
+  sample_rate: 44100
+  duration_seconds: 60.0
+  cfg_default: 5.0
+  inference_steps: 50
+  latent_rate_factor: 64
+
+reward:
+  beta_robust: 0.5
+  lambda_probe:
+    silence_fraction: 1.0
+    autocorr_repetition: 1.0
+    off_prompt_distance: 1.0
+    hf_artifact_score: 0.5
+
+baseline:
+  rung_id: R3
+  name: robust_bon
+  description: Robust BoN using R_lcb over Π = {crop, loudness, codec, fold_down, time_shift, identity}.
+  seed: 0
+  prompts_path: configs/prompts/dev.jsonl
+  output_dir: runs/r3_robust_bon
+  bon_n: 8
+  extras:
+    perturbations: [identity, crop, loudness, codec, fold_down, time_shift]
+    seeds: [0, 1, 2]

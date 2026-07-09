@@ -1,0 +1,80 @@
+{
+  "columns": [
+    "cfg_scale",
+    "condition",
+    "condition_index",
+    "extras",
+    "flac",
+    "near_silent",
+    "ok",
+    "present",
+    "prompt_id",
+    "prompt_index",
+    "requested_vocal",
+    "sample_rate",
+    "seed",
+    "seed_idx",
+    "source",
+    "type_correct",
+    "vocal_energy_ratio",
+    "wall_elapsed_s",
+    "worker_index"
+  ],
+  "duplicate_keys": [],
+  "file_rows": {
+    "orbit-research/adsr_phase2_20260604/paper_prep/stage3_intervention_20260707/ledgers/smoke50_balanced_w0.jsonl": 7,
+    "orbit-research/adsr_phase2_20260604/paper_prep/stage3_intervention_20260707/ledgers/smoke50_balanced_w1.jsonl": 7,
+    "orbit-research/adsr_phase2_20260604/paper_prep/stage3_intervention_20260707/ledgers/smoke50_balanced_w2.jsonl": 6,
+    "orbit-research/adsr_phase2_20260604/paper_prep/stage3_intervention_20260707/ledgers/smoke50_balanced_w3.jsonl": 6,
+    "orbit-research/adsr_phase2_20260604/paper_prep/stage3_intervention_20260707/ledgers/smoke50_balanced_w4.jsonl": 6,
+    "orbit-research/adsr_phase2_20260604/paper_prep/stage3_intervention_20260707/ledgers/smoke50_balanced_w5.jsonl": 6,
+    "orbit-research/adsr_phase2_20260604/paper_prep/stage3_intervention_20260707/ledgers/smoke50_balanced_w6.jsonl": 6,
+    "orbit-research/adsr_phase2_20260604/paper_prep/stage3_intervention_20260707/ledgers/smoke50_balanced_w7.jsonl": 6
+  },
+  "file_sha256": {
+    "orbit-research/adsr_phase2_20260604/paper_prep/stage3_intervention_20260707/ledgers/smoke50_balanced_w0.jsonl": "cac6c0aded6834dbaebe0bebcd4c34d3a6bf32e5bfece95a19d266d4f7015950",
+    "orbit-research/adsr_phase2_20260604/paper_prep/stage3_intervention_20260707/ledgers/smoke50_balanced_w1.jsonl": "d0f931308e63670288f770b79b694d6f92fda7aa6e2d3c8d1fde5aac4db29525",
+    "orbit-research/adsr_phase2_20260604/paper_prep/stage3_intervention_20260707/ledgers/smoke50_balanced_w2.jsonl": "d6546c5ddf08922b09a655400f1d2fec986fc720d30fde2e7bd47698fe69da77",
+    "orbit-research/adsr_phase2_20260604/paper_prep/stage3_intervention_20260707/ledgers/smoke50_balanced_w3.jsonl": "6511178443bfac68398d0d417492f7a6f022647a85d4a0b5843f2a7c87858b35",
+    "orbit-research/adsr_phase2_20260604/paper_prep/stage3_intervention_20260707/ledgers/smoke50_balanced_w4.jsonl": "5c4ca66250de5160baa45997c491bdbf0a7cb3748a91445a79b641d2082f33a4",
+    "orbit-research/adsr_phase2_20260604/paper_prep/stage3_intervention_20260707/ledgers/smoke50_balanced_w5.jsonl": "dd96c3c6a682f68520a04d86a2c005f1cfae357c79a7ee94a9d35ac98e3973bb",
+    "orbit-research/adsr_phase2_20260604/paper_prep/stage3_intervention_20260707/ledgers/smoke50_balanced_w6.jsonl": "d2dcb161b44ad55afbc6681db4a9f7aaccf287cbeeafebe8b0f66a0732b4e4a6",
+    "orbit-research/adsr_phase2_20260604/paper_prep/stage3_intervention_20260707/ledgers/smoke50_balanced_w7.jsonl": "8d157b1bd8dee80749bfc1a5562765cef721f507d90cc035d41e73ad4899e35b"
+  },
+  "files": [
+    "orbit-research/adsr_phase2_20260604/paper_prep/stage3_intervention_20260707/ledgers/smoke50_balanced_w0.jsonl",
+    "orbit-research/adsr_phase2_20260604/paper_prep/stage3_intervention_20260707/ledgers/smoke50_balanced_w1.jsonl",
+    "orbit-research/adsr_phase2_20260604/paper_prep/stage3_intervention_20260707/ledgers/smoke50_balanced_w2.jsonl",
+    "orbit-research/adsr_phase2_20260604/paper_prep/stage3_intervention_20260707/ledgers/smoke50_balanced_w3.jsonl",
+    "orbit-research/adsr_phase2_20260604/paper_prep/stage3_intervention_20260707/ledgers/smoke50_balanced_w4.jsonl",
+    "orbit-research/adsr_phase2_20260604/paper_prep/stage3_intervention_20260707/ledgers/smoke50_balanced_w5.jsonl",
+    "orbit-research/adsr_phase2_20260604/paper_prep/stage3_intervention_20260707/ledgers/smoke50_balanced_w6.jsonl",
+    "orbit-research/adsr_phase2_20260604/paper_prep/stage3_intervention_20260707/ledgers/smoke50_balanced_w7.jsonl"
+  ],
+  "key_columns": [
+    "prompt_id",
+    "condition",
+    "seed_idx"
+  ],
+  "missing_required": [],
+  "n_duplicate_keys": 0,
+  "n_files": 8,
+  "n_missing_required": 0,
+  "n_parse_errors": 0,
+  "n_rows": 50,
+  "parse_errors": [],
+  "patterns": [
+    "orbit-research/adsr_phase2_20260604/paper_prep/stage3_intervention_20260707/ledgers/smoke50_balanced_w*.jsonl"
+  ],
+  "required_columns": [
+    "prompt_id",
+    "condition",
+    "seed_idx",
+    "seed",
+    "type_correct",
+    "requested_vocal",
+    "flac",
+    "ok"
+  ],
+  "verdict": "PASS"
+}

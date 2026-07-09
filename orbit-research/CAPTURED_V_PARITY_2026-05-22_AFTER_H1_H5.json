@@ -1,0 +1,57 @@
+{
+  "schema_version": "captured_v_parity_v1",
+  "generated": "2026-05-22 13:26",
+  "scope": {
+    "cfg_type": "cfg",
+    "erg": false,
+    "guidance_interval": 1.0,
+    "note": "APG/ERG parity is explicitly out of scope. guidance_interval=1.0 is the minimal sampling-side change required for captured-v parity (cond-only segments at out-of-interval steps would otherwise mismatch predict_velocity's always-mix semantic)."
+  },
+  "config": {
+    "n_prompts": 4,
+    "n_seeds": 3,
+    "target_sigmas": [0.5, 0.3, 0.1],
+    "cfg_scale": 5.0,
+    "infer_step": 30,
+    "duration_s": 10.0,
+    "base_seed": 42,
+    "tolerance_rel": 0.05
+  },
+  "fixes_applied_relative_to_first_parity_run": [
+    {
+      "id": "H1",
+      "fix": "predict_velocity timestep dtype changed from model_dtype (bfloat16) to torch.float32 to match upstream scheduler.timesteps",
+      "file": "src/mprm/inference/ace_step.py",
+      "lines": "around 686-704 of the dtype line",
+      "isolated_effect": "rel_err 11.17% → 10.70% (correct change but not dominant)"
+    },
+    {
+      "id": "H5",
+      "fix": "sample() called with extras={'guidance_interval': 1.0} so CFG mixing applies to the entire trajectory (matches predict_velocity's stateless always-mix contract)",
+      "file": "test-only (no adapter code change needed)",
+      "lines": "n/a",
+      "isolated_effect": "rel_err 10.70% → 0.0 (dominant cause confirmed)"
+    }
+  ],
+  "overall": {
+    "max_abs_err": 0.0,
+    "mean_abs_err": 0.0,
+    "mean_v_capt_abs": null,
+    "relative_err": 0.0,
+    "count_elements": 4 * 3 * 3 * 493056,
+    "verdict": "PASS"
+  },
+  "per_case_pattern": "All 4 prompts × 3 seeds × σ {0.491, 0.329, 0.104} returned max_abs=0.0, mean_abs=0.0, rel=0.0 (bit-identical).",
+  "codex_review": {
+    "thread_id": "019e4e27-b67f-7570-9ddf-7aa83660d905",
+    "model": "gpt-5.5",
+    "reasoning_effort": "high",
+    "verdict": {
+      "Q1_H5_correct": "yes (confirmed against pipeline_ace_step.py main inference loop; no other upstream path produces v_cond at out-of-interval steps under these settings)",
+      "Q2_H1_dtype_fix_minimal": "yes (float32 only affects sinusoidal time_proj precision; transformer.decode internally casts to hidden_states.dtype before the learned embedding path)",
+      "Q3_minimal_action": "Option C (document constraint + Phase B scripts set guidance_interval=1.0 explicitly). Option A would silently change sampling trajectory; Option B adds required step_index/interval state",
+      "Q4_phase_b1_semantic_consistency": "yes (Phase B.1 should use guidance_interval=1.0; with default 0.5, captured v_out is branch-dependent: mixed inside [start, end), v_cond outside)"
+    }
+  },
+  "phase_b1_implication": "Phase B.1 reliability calibration uses captured v_out directly (not predict_velocity). With guidance_interval=0.5 default, captured v_out semantics differ across σ checkpoints depending on which side of the interval boundary they fall. For consistent 'full-CFG velocity' Tweedie reconstructions across all σ checkpoints, Phase B.1 sampling must explicitly set guidance_interval=1.0. This is a constraint to encode in the Phase B.1 config (configs/runs/phase_b1_reliability.yaml when authored); NOT applied to AceStepModel.sample() default yet (PI to decide if Option A is preferred)."
+}

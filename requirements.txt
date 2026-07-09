@@ -1,0 +1,32 @@
+# Phase A audit scaffold dependencies; lockfile lives in repository hash CI.
+# Reward-model versions are pinned to match published references (see METHOD_SPEC.md §2.1 + A16/A28/A29).
+
+torch>=2.2
+torchaudio>=2.2
+transformers>=4.40
+accelerate>=0.30
+peft>=0.10
+diffusers>=0.27
+librosa>=0.10
+scipy>=1.11
+scikit-learn>=1.3
+numpy>=1.26
+pandas>=2.2
+pydantic>=2.6
+pyyaml>=6.0
+jsonlines>=4.0
+rich>=13.0
+tqdm>=4.66
+mir_eval>=0.7
+demucs>=4.0
+openai-whisper>=20231117
+soundfile>=0.12
+einops>=0.7
+
+# Reward models (separate sub-installs; instructions in scripts/d2_reward_harness.py)
+# laion-clap from github.com/LAION-AI/CLAP
+# audiobox-aesthetics from github.com/facebookresearch/audiobox-aesthetics
+# mert via huggingface m-a-p/MERT-v1-95M
+
+# Human-evaluation UI (Block D.hum; built in M0 per STOP-B-1 fix #4)
+gradio>=4.0

@@ -1,0 +1,76 @@
+{
+  "columns": [
+    "condition",
+    "detector_disagree",
+    "flac",
+    "kept",
+    "near_silent",
+    "panns_vocal",
+    "present",
+    "prompt_id",
+    "requested_vocal",
+    "score_aesthetic_pq",
+    "score_common_robust_lcb",
+    "score_lyric_intelligibility",
+    "score_semantic_fit",
+    "seed",
+    "seed_idx",
+    "source",
+    "type_correct",
+    "vocal_energy_ratio"
+  ],
+  "duplicate_keys": [],
+  "file_rows": {
+    "batch3/exploratory_auto/20260620_regime_atlas_autopilot_v3/01_core_basin_test/ledgers/bon256_w0.jsonl": 9216,
+    "batch3/exploratory_auto/20260620_regime_atlas_autopilot_v3/01_core_basin_test/ledgers/bon256_w1.jsonl": 1024,
+    "batch3/exploratory_auto/20260620_regime_atlas_autopilot_v3/01_core_basin_test/ledgers/bon256_w2.jsonl": 1024,
+    "batch3/exploratory_auto/20260620_regime_atlas_autopilot_v3/01_core_basin_test/ledgers/bon256_w3.jsonl": 1024,
+    "batch3/exploratory_auto/20260620_regime_atlas_autopilot_v3/01_core_basin_test/ledgers/bon256_w4.jsonl": 1024,
+    "batch3/exploratory_auto/20260620_regime_atlas_autopilot_v3/01_core_basin_test/ledgers/bon256_w5.jsonl": 1024,
+    "batch3/exploratory_auto/20260620_regime_atlas_autopilot_v3/01_core_basin_test/ledgers/bon256_w6.jsonl": 1024,
+    "batch3/exploratory_auto/20260620_regime_atlas_autopilot_v3/01_core_basin_test/ledgers/bon256_w7.jsonl": 1024
+  },
+  "file_sha256": {
+    "batch3/exploratory_auto/20260620_regime_atlas_autopilot_v3/01_core_basin_test/ledgers/bon256_w0.jsonl": "f1ad57b01a17af798836040841cdbb6c6f3bddd4bc1a8bffc4770201a46099a1",
+    "batch3/exploratory_auto/20260620_regime_atlas_autopilot_v3/01_core_basin_test/ledgers/bon256_w1.jsonl": "769d949133d6db584d56790186d0119cad667aa5f6f83a6e7c13d812886814b2",
+    "batch3/exploratory_auto/20260620_regime_atlas_autopilot_v3/01_core_basin_test/ledgers/bon256_w2.jsonl": "67fb55d2d720e908dfd1ee8e5865358a0bd6856d89e3e517344240d202521937",
+    "batch3/exploratory_auto/20260620_regime_atlas_autopilot_v3/01_core_basin_test/ledgers/bon256_w3.jsonl": "af9934c684e0fd1cae739b54f93f9de1759fa27d48ae28f2d82166f9219e33cb",
+    "batch3/exploratory_auto/20260620_regime_atlas_autopilot_v3/01_core_basin_test/ledgers/bon256_w4.jsonl": "4a41a972224297e1042c0b8489d272faf6b372e22f62b4ba9911c95a71e94371",
+    "batch3/exploratory_auto/20260620_regime_atlas_autopilot_v3/01_core_basin_test/ledgers/bon256_w5.jsonl": "e7a0c3d04f5ce879504120490a25fcaafdfb0d3e4547b0b6c0c7a10bbc54a915",
+    "batch3/exploratory_auto/20260620_regime_atlas_autopilot_v3/01_core_basin_test/ledgers/bon256_w6.jsonl": "4841809eb8021579511e83e4d1c4c09149074a1b5337e37c3bab5ecd12f5f081",
+    "batch3/exploratory_auto/20260620_regime_atlas_autopilot_v3/01_core_basin_test/ledgers/bon256_w7.jsonl": "04486afb10b467659d6a63cd428f46d36c5de5bc95bb1a6c6f70fd80798640e4"
+  },
+  "files": [
+    "batch3/exploratory_auto/20260620_regime_atlas_autopilot_v3/01_core_basin_test/ledgers/bon256_w0.jsonl",
+    "batch3/exploratory_auto/20260620_regime_atlas_autopilot_v3/01_core_basin_test/ledgers/bon256_w1.jsonl",
+    "batch3/exploratory_auto/20260620_regime_atlas_autopilot_v3/01_core_basin_test/ledgers/bon256_w2.jsonl",
+    "batch3/exploratory_auto/20260620_regime_atlas_autopilot_v3/01_core_basin_test/ledgers/bon256_w3.jsonl",
+    "batch3/exploratory_auto/20260620_regime_atlas_autopilot_v3/01_core_basin_test/ledgers/bon256_w4.jsonl",
+    "batch3/exploratory_auto/20260620_regime_atlas_autopilot_v3/01_core_basin_test/ledgers/bon256_w5.jsonl",
+    "batch3/exploratory_auto/20260620_regime_atlas_autopilot_v3/01_core_basin_test/ledgers/bon256_w6.jsonl",
+    "batch3/exploratory_auto/20260620_regime_atlas_autopilot_v3/01_core_basin_test/ledgers/bon256_w7.jsonl"
+  ],
+  "key_columns": [
+    "prompt_id",
+    "condition",
+    "seed_idx"
+  ],
+  "missing_required": [],
+  "n_duplicate_keys": 0,
+  "n_files": 8,
+  "n_missing_required": 0,
+  "n_parse_errors": 0,
+  "n_rows": 16384,
+  "parse_errors": [],
+  "patterns": [
+    "batch3/exploratory_auto/20260620_regime_atlas_autopilot_v3/01_core_basin_test/ledgers/bon256_w*.jsonl"
+  ],
+  "required_columns": [
+    "prompt_id",
+    "condition",
+    "seed_idx",
+    "type_correct",
+    "requested_vocal"
+  ],
+  "verdict": "PASS"
+}

@@ -1,0 +1,22 @@
+{
+  "conditions": {
+    "instr_both": 36,
+    "instr_sampler": 61,
+    "instr_text": 73,
+    "vocal_both": 1088,
+    "vocal_guidance": 1088,
+    "vocal_hints": 1088
+  },
+  "errors": 0,
+  "missing_flac": 0,
+  "near_silent": 0,
+  "rows": 3434,
+  "type_correct_by_condition": {
+    "instr_both": 0.2222222222222222,
+    "instr_sampler": 0.36065573770491804,
+    "instr_text": 0.273972602739726,
+    "vocal_both": 0.7794117647058824,
+    "vocal_guidance": 0.78125,
+    "vocal_hints": 0.09375
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "label_threshold": 0.1791,
+  "threshold_method": "strata_median_midpoint",
+  "median_vocal_req": 0.3415,
+  "median_instr_req": 0.0166,
+  "separation": 0.3249,
+  "n_candidates": 4096,
+  "candidate_type_error_rate": 0.23,
+  "prompt_level_affected_rate": 0.6367,
+  "per_stratum": {
+    "vocal_prompt": {
+      "n": 2528,
+      "type_error_rate": 0.2108
+    },
+    "instrumental_prompt": {
+      "n": 1568,
+      "type_error_rate": 0.2608
+    },
+    "vocal_req_no_vocal": {
+      "n": 533
+    },
+    "instr_req_has_vocal": {
+      "n": 409
+    }
+  },
+  "en_vocal_scorable_type_error": {
+    "n": 2256,
+    "type_error_rate": 0.2012
+  },
+  "survivor_set_type_error_by_common_score": {
+    "top1_by_common": 0.1992,
+    "top2_by_common": 0.2139,
+    "top4_by_common": 0.2134
+  },
+  "survivor_top1_by_stratum": {
+    "vocal": 0.1867,
+    "instrumental": 0.2194
+  },
+  "ambiguous_count": 557,
+  "ambiguous_frac": 0.136,
+  "ambiguous_def": "|ratio - 0.1791| < 0.05 and not near_silent",
+  "ratio_hist_0to1_20bins": [
+    1010,
+    265,
+    275,
+    266,
+    296,
+    259,
+    251,
+    234,
+    221,
+    182,
+    165,
+    136,
+    107,
+    93,
+    89,
+    67,
+    53,
+    43,
+    37,
+    47
+  ]
+}

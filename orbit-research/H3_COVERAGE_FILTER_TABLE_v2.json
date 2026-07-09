@@ -1,0 +1,300 @@
+{
+  "held_out_v2_vocal": {
+    "n_prompts": 159,
+    "coverage_table": {
+      "CU-TS|musicality": {
+        "finite": 0,
+        "total": 159,
+        "coverage": 0.0,
+        "mean_rho": NaN
+      },
+      "CU-TS|coherence": {
+        "finite": 0,
+        "total": 159,
+        "coverage": 0.0,
+        "mean_rho": NaN
+      },
+      "CU-TS|prompt_fit": {
+        "finite": 0,
+        "total": 159,
+        "coverage": 0.0,
+        "mean_rho": NaN
+      },
+      "CU-FW|musicality": {
+        "finite": 159,
+        "total": 159,
+        "coverage": 1.0,
+        "mean_rho": 0.42361051036572384
+      },
+      "CU-FW|coherence": {
+        "finite": 0,
+        "total": 159,
+        "coverage": 0.0,
+        "mean_rho": NaN
+      },
+      "CU-FW|prompt_fit": {
+        "finite": 159,
+        "total": 159,
+        "coverage": 1.0,
+        "mean_rho": 0.5923280894453276
+      },
+      "CU-BW|musicality": {
+        "finite": 159,
+        "total": 159,
+        "coverage": 1.0,
+        "mean_rho": 0.49567679750274146
+      },
+      "CU-BW|coherence": {
+        "finite": 35,
+        "total": 159,
+        "coverage": 0.22012578616352202,
+        "mean_rho": 1.0
+      },
+      "CU-BW|prompt_fit": {
+        "finite": 159,
+        "total": 159,
+        "coverage": 1.0,
+        "mean_rho": 0.5821848333884947
+      },
+      "CU-LS|musicality": {
+        "finite": 157,
+        "total": 159,
+        "coverage": 0.9874213836477987,
+        "mean_rho": 0.43511808692119663
+      },
+      "CU-LS|coherence": {
+        "finite": 129,
+        "total": 159,
+        "coverage": 0.8113207547169812,
+        "mean_rho": 0.880916628591047
+      },
+      "CU-LS|prompt_fit": {
+        "finite": 157,
+        "total": 159,
+        "coverage": 0.9874213836477987,
+        "mean_rho": 0.4892365720953206
+      },
+      "CU-MS|musicality": {
+        "finite": 159,
+        "total": 159,
+        "coverage": 1.0,
+        "mean_rho": 0.45345911949685525
+      },
+      "CU-MS|coherence": {
+        "finite": 159,
+        "total": 159,
+        "coverage": 1.0,
+        "mean_rho": 0.7264150943396225
+      },
+      "CU-MS|prompt_fit": {
+        "finite": 159,
+        "total": 159,
+        "coverage": 1.0,
+        "mean_rho": 0.510691823899371
+      },
+      "CU-NULL-rand-section|musicality": {
+        "finite": 159,
+        "total": 159,
+        "coverage": 1.0,
+        "mean_rho": 0.016981132075471694
+      },
+      "CU-NULL-rand-section|coherence": {
+        "finite": 159,
+        "total": 159,
+        "coverage": 1.0,
+        "mean_rho": 0.04591194968553458
+      },
+      "CU-NULL-rand-section|prompt_fit": {
+        "finite": 159,
+        "total": 159,
+        "coverage": 1.0,
+        "mean_rho": 0.0062893081761006275
+      }
+    },
+    "best_non_section_per_axis": {
+      "musicality": {
+        "section_rho": 0.45345911949685525,
+        "raw_best": [
+          "CU-BW",
+          0.49567679750274146,
+          1.0
+        ],
+        "raw_delta": -0.04221767800588622,
+        "filt_best": [
+          "CU-BW",
+          0.49567679750274146,
+          1.0
+        ],
+        "filt_delta": -0.04221767800588622
+      },
+      "coherence": {
+        "section_rho": 0.7264150943396225,
+        "raw_best": [
+          "CU-BW",
+          1.0,
+          0.22012578616352202
+        ],
+        "raw_delta": -0.2735849056603775,
+        "filt_best": [
+          "CU-LS",
+          0.880916628591047,
+          0.8113207547169812
+        ],
+        "filt_delta": -0.15450153425142454
+      },
+      "prompt_fit": {
+        "section_rho": 0.510691823899371,
+        "raw_best": [
+          "CU-FW",
+          0.5923280894453276,
+          1.0
+        ],
+        "raw_delta": -0.0816362655459566,
+        "filt_best": [
+          "CU-FW",
+          0.5923280894453276,
+          1.0
+        ],
+        "filt_delta": -0.0816362655459566
+      }
+    }
+  },
+  "held_out_v2_instr": {
+    "n_prompts": 97,
+    "coverage_table": {
+      "CU-TS|musicality": {
+        "finite": 0,
+        "total": 97,
+        "coverage": 0.0,
+        "mean_rho": NaN
+      },
+      "CU-TS|coherence": {
+        "finite": 0,
+        "total": 97,
+        "coverage": 0.0,
+        "mean_rho": NaN
+      },
+      "CU-TS|prompt_fit": {
+        "finite": 0,
+        "total": 97,
+        "coverage": 0.0,
+        "mean_rho": NaN
+      },
+      "CU-FW|musicality": {
+        "finite": 97,
+        "total": 97,
+        "coverage": 1.0,
+        "mean_rho": 0.4485783647320942
+      },
+      "CU-FW|coherence": {
+        "finite": 0,
+        "total": 97,
+        "coverage": 0.0,
+        "mean_rho": NaN
+      },
+      "CU-FW|prompt_fit": {
+        "finite": 97,
+        "total": 97,
+        "coverage": 1.0,
+        "mean_rho": 0.4966430620223988
+      },
+      "CU-BW|musicality": {
+        "finite": 97,
+        "total": 97,
+        "coverage": 1.0,
+        "mean_rho": 0.45031160738778664
+      },
+      "CU-BW|coherence": {
+        "finite": 22,
+        "total": 97,
+        "coverage": 0.2268041237113402,
+        "mean_rho": 0.9987012987012986
+      },
+      "CU-BW|prompt_fit": {
+        "finite": 97,
+        "total": 97,
+        "coverage": 1.0,
+        "mean_rho": 0.48019903728448793
+      },
+      "CU-MS|musicality": {
+        "finite": 97,
+        "total": 97,
+        "coverage": 1.0,
+        "mean_rho": 0.47010309278350504
+      },
+      "CU-MS|coherence": {
+        "finite": 97,
+        "total": 97,
+        "coverage": 1.0,
+        "mean_rho": 0.7206185567010308
+      },
+      "CU-MS|prompt_fit": {
+        "finite": 97,
+        "total": 97,
+        "coverage": 1.0,
+        "mean_rho": 0.6639175257731957
+      },
+      "CU-NULL-rand-section|musicality": {
+        "finite": 97,
+        "total": 97,
+        "coverage": 1.0,
+        "mean_rho": -0.009278350515463916
+      },
+      "CU-NULL-rand-section|coherence": {
+        "finite": 97,
+        "total": 97,
+        "coverage": 1.0,
+        "mean_rho": -0.055670103092783495
+      },
+      "CU-NULL-rand-section|prompt_fit": {
+        "finite": 97,
+        "total": 97,
+        "coverage": 1.0,
+        "mean_rho": -0.039175257731958756
+      }
+    },
+    "best_non_section_per_axis": {
+      "musicality": {
+        "section_rho": 0.47010309278350504,
+        "raw_best": [
+          "CU-BW",
+          0.45031160738778664,
+          1.0
+        ],
+        "raw_delta": 0.0197914853957184,
+        "filt_best": [
+          "CU-BW",
+          0.45031160738778664,
+          1.0
+        ],
+        "filt_delta": 0.0197914853957184
+      },
+      "coherence": {
+        "section_rho": 0.7206185567010308,
+        "raw_best": [
+          "CU-BW",
+          0.9987012987012986,
+          0.2268041237113402
+        ],
+        "raw_delta": -0.27808274200026784,
+        "filt_best": null,
+        "filt_delta": null
+      },
+      "prompt_fit": {
+        "section_rho": 0.6639175257731957,
+        "raw_best": [
+          "CU-FW",
+          0.4966430620223988,
+          1.0
+        ],
+        "raw_delta": 0.16727446375079696,
+        "filt_best": [
+          "CU-FW",
+          0.4966430620223988,
+          1.0
+        ],
+        "filt_delta": 0.16727446375079696
+      }
+    }
+  }
+}

@@ -1,0 +1,5 @@
+regime,prompts,fraction
+easy_ge_1_in_2,67,0.5234375
+low_1_in_16_to_1_in_4,23,0.1796875
+rare_le_1_in_16,5,0.0390625
+seed_recoverable_1_in_4_to_1_in_2,33,0.2578125

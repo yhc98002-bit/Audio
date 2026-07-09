@@ -1,0 +1,57 @@
+{
+  "all_preflight_pass": true,
+  "checks": {
+    "1_4096_distinct_records": {
+      "records": 4096,
+      "distinct": 4096,
+      "pass": true
+    },
+    "2_512_prompts": {
+      "prompts": 512,
+      "pass": true
+    },
+    "3_final_vocal_labels_all_4096": {
+      "ok_labels": 4096,
+      "cover_records": true,
+      "pass": true
+    },
+    "4_early_mels_present": {
+      "mel_npy_files": 12288,
+      "distinct_pid_ci_sigma_present": 12288,
+      "expected": 12288,
+      "labels_missing_sigma_key": 0,
+      "pass": true
+    },
+    "5_vocal_scorable_en_vocal_282": {
+      "en_vocal": 282,
+      "expected": 282,
+      "keys_eq_canonical": true,
+      "pass": true
+    },
+    "6_instrumental_sentinel_maskable": {
+      "instrumental_prompts": 196,
+      "instr_candidates": 1568,
+      "all_sentinel_1.0": true,
+      "pass": true
+    },
+    "7_non_en_vocal_excluded_identifiable": {
+      "non_en_vocal_prompts": 34,
+      "expected": 34,
+      "pass": true
+    },
+    "8_prompt_level_split_preserved": {
+      "splits": {
+        "dev": 256,
+        "held_out": 256
+      },
+      "split_consistent_within_prompt": true,
+      "pass": true
+    }
+  },
+  "dataset": {
+    "merged_run": "adsr_recollect_20260604_full01_merged",
+    "raw_labels": "orbit-research/adsr_phase2_20260604/vocal_presence_raw.jsonl",
+    "meldir": "orbit-research/adsr_phase2_20260604/mel",
+    "canonical": "orbit-research/trajectory_candidate_dataset.jsonl"
+  }
+}

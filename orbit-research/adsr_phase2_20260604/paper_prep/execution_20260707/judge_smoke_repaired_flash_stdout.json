@@ -1,0 +1,170 @@
+{
+  "protocol": "aprime_smoke",
+  "run": "smoke_10clip_repaired_flash_20260707",
+  "n_clips": 10,
+  "n_correct": 6,
+  "verdict": "FAIL",
+  "results": [
+    {
+      "clip_path": "orbit-research/adsr_phase2_20260604/paper_prep/storage_triage/A_PRIME_500_JUDGE_SAMPLE/media/aprime_0132_9eb1d0e52752.flac",
+      "clip_sha256": "da77cff61ccb0af2a14e6effc95e0fde0c3f9bbf3095b5745303debc2961dc86",
+      "votes": [
+        "yes",
+        "yes",
+        "yes"
+      ],
+      "vote_counts": {
+        "yes": 3
+      },
+      "majority": "yes",
+      "expected": "yes",
+      "correct": true
+    },
+    {
+      "clip_path": "orbit-research/adsr_phase2_20260604/paper_prep/storage_triage/A_PRIME_500_JUDGE_SAMPLE/media/aprime_0379_7b1bf6aece21.flac",
+      "clip_sha256": "2d132ac1682d231f814a9ae019c1e1e8cfdfbc1a203d5c10d8bbb4c16d30e63d",
+      "votes": [
+        "yes",
+        "yes",
+        "yes"
+      ],
+      "vote_counts": {
+        "yes": 3
+      },
+      "majority": "yes",
+      "expected": "yes",
+      "correct": true
+    },
+    {
+      "clip_path": "orbit-research/adsr_phase2_20260604/paper_prep/storage_triage/A_PRIME_500_JUDGE_SAMPLE/media/aprime_0160_e6ba8673890c.flac",
+      "clip_sha256": "9ac0e5f69817b2eb274d69213af751e4536c7e6a5a75800133a32044bcf38c36",
+      "votes": [
+        "yes",
+        "yes",
+        "yes"
+      ],
+      "vote_counts": {
+        "yes": 3
+      },
+      "majority": "yes",
+      "expected": "yes",
+      "correct": true
+    },
+    {
+      "clip_path": "orbit-research/adsr_phase2_20260604/paper_prep/storage_triage/A_PRIME_500_JUDGE_SAMPLE/media/aprime_0087_76fcff5bf430.flac",
+      "clip_sha256": "b93cf1d7c6f1a78d550abfa77b550bd991d7e1dc8b7c3d018ed9e41a1d8d89b2",
+      "votes": [
+        "yes",
+        "yes",
+        "yes"
+      ],
+      "vote_counts": {
+        "yes": 3
+      },
+      "majority": "yes",
+      "expected": "yes",
+      "correct": true
+    },
+    {
+      "clip_path": "orbit-research/adsr_phase2_20260604/paper_prep/storage_triage/A_PRIME_500_JUDGE_SAMPLE/media/aprime_0406_514e4242add9.flac",
+      "clip_sha256": "36eb67fc6cef98964d812e0c157580e0f62e0d7dd5bd0877b9c28331d74ab2fb",
+      "votes": [
+        "no",
+        "no",
+        "no"
+      ],
+      "vote_counts": {
+        "no": 3
+      },
+      "majority": "no",
+      "expected": "no",
+      "correct": true
+    },
+    {
+      "clip_path": "orbit-research/adsr_phase2_20260604/paper_prep/storage_triage/A_PRIME_500_JUDGE_SAMPLE/media/aprime_0209_99f9f4b0fa3f.flac",
+      "clip_sha256": "a28b12caec0ec9d452a375252e9d064538dabdc4aaf18fcadfcb6216208c6f34",
+      "votes": [
+        "yes",
+        "yes",
+        "yes"
+      ],
+      "vote_counts": {
+        "yes": 3
+      },
+      "majority": "yes",
+      "expected": "no",
+      "correct": false
+    },
+    {
+      "clip_path": "orbit-research/adsr_phase2_20260604/paper_prep/storage_triage/A_PRIME_500_JUDGE_SAMPLE/media/aprime_0174_6844f5f64d42.flac",
+      "clip_sha256": "b26570fd30720553ac238833f5b631dca345fe328a01c31f44ada103eebe4880",
+      "votes": [
+        "yes",
+        "yes",
+        "yes"
+      ],
+      "vote_counts": {
+        "yes": 3
+      },
+      "majority": "yes",
+      "expected": "yes",
+      "correct": true
+    },
+    {
+      "clip_path": "orbit-research/adsr_phase2_20260604/paper_prep/storage_triage/A_PRIME_500_JUDGE_SAMPLE/media/aprime_0323_70e420c71e92.flac",
+      "clip_sha256": "111df2b37d14fdcc0d514971dd1db3f1955d7b218058c36c27245fbc10cf765d",
+      "votes": [
+        "yes",
+        "yes",
+        "yes"
+      ],
+      "vote_counts": {
+        "yes": 3
+      },
+      "majority": "yes",
+      "expected": "no",
+      "correct": false
+    },
+    {
+      "clip_path": "orbit-research/adsr_phase2_20260604/paper_prep/storage_triage/A_PRIME_500_JUDGE_SAMPLE/media/aprime_0019_a00fb96bef52.flac",
+      "clip_sha256": "514c7a03f7b321d9d8c5657cfb58c6312a2e63da2ad67e5039ffb952439cbf40",
+      "votes": [
+        "yes",
+        "yes",
+        "yes"
+      ],
+      "vote_counts": {
+        "yes": 3
+      },
+      "majority": "yes",
+      "expected": "no",
+      "correct": false
+    },
+    {
+      "clip_path": "orbit-research/adsr_phase2_20260604/paper_prep/storage_triage/A_PRIME_500_JUDGE_SAMPLE/media/aprime_0332_2d40c0a2a223.flac",
+      "clip_sha256": "c8b90147bfc652625dbe5ad4e7c5659ef5891be339aa6b9a3083d26b3adae10d",
+      "votes": [
+        "yes",
+        "yes",
+        "yes"
+      ],
+      "vote_counts": {
+        "yes": 3
+      },
+      "majority": "yes",
+      "expected": "no",
+      "correct": false
+    }
+  ],
+  "ts": "2026-07-07T06:39:55-0700",
+  "model": "qwen3.5-omni-flash",
+  "endpoint": "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions",
+  "decoding": {
+    "temperature": 0.0,
+    "seed": 20260706,
+    "stream": true,
+    "modalities": [
+      "text"
+    ]
+  }
+}

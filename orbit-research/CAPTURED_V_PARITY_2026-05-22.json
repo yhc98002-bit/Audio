@@ -1,0 +1,696 @@
+{
+  "schema_version": "captured_v_parity_v1",
+  "generated": "2026-05-22",
+  "scope": {
+    "cfg_type": "cfg",
+    "erg": false,
+    "note": "APG/ERG parity is explicitly out of scope."
+  },
+  "config": {
+    "n_prompts": 4,
+    "n_seeds": 3,
+    "target_sigmas": [
+      0.5,
+      0.3,
+      0.1
+    ],
+    "cfg_scale": 5.0,
+    "infer_step": 30,
+    "duration_s": 10.0,
+    "base_seed": 42,
+    "tolerance_rel": 0.05
+  },
+  "overall": {
+    "max_abs_err": 1.3359375,
+    "mean_abs_err": 0.08969245457814799,
+    "mean_v_capt_abs": 0.8028033938672807,
+    "relative_err": 0.11172406004174906,
+    "count_elements": 493056
+  },
+  "determinism_followup": {
+    "added": "2026-05-22 (Phase B prep §B halt)",
+    "test": "predict_velocity called TWICE with identical inputs (same z, σ, prompt, condition_cache); seed=42, 3 σ values",
+    "self_vs_self_max_abs": 0.0,
+    "self_vs_self_mean_abs": 0.0,
+    "self_vs_self_rel_err": 0.0,
+    "verdict": "predict_velocity is BIT-DETERMINISTIC — the captured-v vs predict_velocity mismatch is NOT bf16/CUDA noise floor; it is a real semantic difference between the sampling path (pipeline's main loop calling ace_step_transformer.decode) and the predict_velocity path (this adapter's reconstruction). Halting Phase B.1 prep per PI directive.",
+    "leading_hypotheses_for_pi_decision": [
+      "H1 (most likely): timestep dtype mismatch. Pipeline uses scheduler.timesteps which is float32 (set in scheduling_flow_match_euler_discrete.py:215). predict_velocity constructs timestep in `model_dtype` (bf16 default). The transformer's `time_proj` may handle dtype internally but a bf16 → fp32 → bf16 round-trip could lose precision in the positional embedding for timesteps that don't fit cleanly in bf16's ~7 mantissa bits.",
+      "H2: text encoder cpu_offload state. Pipeline uses @cpu_offload('text_encoder_model') on get_text_embeddings. After sampling, the encoder is offloaded to CPU; on the next call from _build_condition_cache (run AFTER sampling), the encoder is re-moved to GPU. If the GPU/CPU move + re-move introduces any non-determinism or state change, encoder outputs would differ.",
+      "H3: condition cache ordering. _build_condition_cache is computed AFTER the first sample() call (line 99 of d3_captured_v_parity.py). If the pipeline's text embedding internals are stateful (e.g. tokenizer state, weight quantization on first GPU move), the cache encodings may differ from what was used during sampling.",
+      "H4: attention_mask dtype. Pipeline (line 1080) builds `attention_mask = torch.ones(bsz, frame_length, device=device, dtype=self.dtype)` where self.dtype is bf16. predict_velocity does the same. Should match."
+    ],
+    "self_vs_self_diagnostic_script": "scripts/d3_predict_velocity_determinism.py"
+  },
+  "cases": [
+    {
+      "prompt_idx": 0,
+      "prompt_text": "a calm acoustic guitar melody with no vocals",
+      "seed": 42,
+      "sigma_target": 0.5,
+      "sigma_actual": 0.4914619028568268,
+      "step_index": 22,
+      "max_abs_err": 0.28125,
+      "mean_abs_err": 0.048688825219869614,
+      "mean_v_capt_abs": 0.88157057762146,
+      "relative_err": 0.05522963952725773,
+      "v_shape": [
+        1,
+        8,
+        16,
+        107
+      ]
+    },
+    {
+      "prompt_idx": 0,
+      "prompt_text": "a calm acoustic guitar melody with no vocals",
+      "seed": 42,
+      "sigma_target": 0.3,
+      "sigma_actual": 0.329061895608902,
+      "step_index": 25,
+      "max_abs_err": 0.359375,
+      "mean_abs_err": 0.060051329433918,
+      "mean_v_capt_abs": 0.8503864407539368,
+      "relative_err": 0.0706165180393488,
+      "v_shape": [
+        1,
+        8,
+        16,
+        107
+      ]
+    },
+    {
+      "prompt_idx": 0,
+      "prompt_text": "a calm acoustic guitar melody with no vocals",
+      "seed": 42,
+      "sigma_target": 0.1,
+      "sigma_actual": 0.10432276874780655,
+      "step_index": 28,
+      "max_abs_err": 0.859375,
+      "mean_abs_err": 0.11688363552093506,
+      "mean_v_capt_abs": 0.6317322850227356,
+      "relative_err": 0.18502083602823702,
+      "v_shape": [
+        1,
+        8,
+        16,
+        107
+      ]
+    },
+    {
+      "prompt_idx": 0,
+      "prompt_text": "a calm acoustic guitar melody with no vocals",
+      "seed": 43,
+      "sigma_target": 0.5,
+      "sigma_actual": 0.4914619028568268,
+      "step_index": 22,
+      "max_abs_err": 0.376953125,
+      "mean_abs_err": 0.05342791602015495,
+      "mean_v_capt_abs": 0.8807957768440247,
+      "relative_err": 0.06065868777390404,
+      "v_shape": [
+        1,
+        8,
+        16,
+        107
+      ]
+    },
+    {
+      "prompt_idx": 0,
+      "prompt_text": "a calm acoustic guitar melody with no vocals",
+      "seed": 43,
+      "sigma_target": 0.3,
+      "sigma_actual": 0.329061895608902,
+      "step_index": 25,
+      "max_abs_err": 0.34375,
+      "mean_abs_err": 0.05890846252441406,
+      "mean_v_capt_abs": 0.8535149097442627,
+      "relative_err": 0.06901866839334383,
+      "v_shape": [
+        1,
+        8,
+        16,
+        107
+      ]
+    },
+    {
+      "prompt_idx": 0,
+      "prompt_text": "a calm acoustic guitar melody with no vocals",
+      "seed": 43,
+      "sigma_target": 0.1,
+      "sigma_actual": 0.10432276874780655,
+      "step_index": 28,
+      "max_abs_err": 0.8173828125,
+      "mean_abs_err": 0.11166784912347794,
+      "mean_v_capt_abs": 0.6567863821983337,
+      "relative_err": 0.17002156583958666,
+      "v_shape": [
+        1,
+        8,
+        16,
+        107
+      ]
+    },
+    {
+      "prompt_idx": 0,
+      "prompt_text": "a calm acoustic guitar melody with no vocals",
+      "seed": 44,
+      "sigma_target": 0.5,
+      "sigma_actual": 0.4914619028568268,
+      "step_index": 22,
+      "max_abs_err": 1.3359375,
+      "mean_abs_err": 0.09302212297916412,
+      "mean_v_capt_abs": 0.8995946049690247,
+      "relative_err": 0.10340449182925804,
+      "v_shape": [
+        1,
+        8,
+        16,
+        107
+      ]
+    },
+    {
+      "prompt_idx": 0,
+      "prompt_text": "a calm acoustic guitar melody with no vocals",
+      "seed": 44,
+      "sigma_target": 0.3,
+      "sigma_actual": 0.329061895608902,
+      "step_index": 25,
+      "max_abs_err": 0.4375,
+      "mean_abs_err": 0.06561057269573212,
+      "mean_v_capt_abs": 0.8670923113822937,
+      "relative_err": 0.07566734456581402,
+      "v_shape": [
+        1,
+        8,
+        16,
+        107
+      ]
+    },
+    {
+      "prompt_idx": 0,
+      "prompt_text": "a calm acoustic guitar melody with no vocals",
+      "seed": 44,
+      "sigma_target": 0.1,
+      "sigma_actual": 0.10432276874780655,
+      "step_index": 28,
+      "max_abs_err": 0.94873046875,
+      "mean_abs_err": 0.13319016993045807,
+      "mean_v_capt_abs": 0.6781780123710632,
+      "relative_err": 0.196394114083403,
+      "v_shape": [
+        1,
+        8,
+        16,
+        107
+      ]
+    },
+    {
+      "prompt_idx": 1,
+      "prompt_text": "an upbeat electronic dance track with synthesizer leads",
+      "seed": 142,
+      "sigma_target": 0.5,
+      "sigma_actual": 0.4914619028568268,
+      "step_index": 22,
+      "max_abs_err": 0.4453125,
+      "mean_abs_err": 0.05595843121409416,
+      "mean_v_capt_abs": 0.8932578563690186,
+      "relative_err": 0.06264532779096753,
+      "v_shape": [
+        1,
+        8,
+        16,
+        107
+      ]
+    },
+    {
+      "prompt_idx": 1,
+      "prompt_text": "an upbeat electronic dance track with synthesizer leads",
+      "seed": 142,
+      "sigma_target": 0.3,
+      "sigma_actual": 0.329061895608902,
+      "step_index": 25,
+      "max_abs_err": 0.4765625,
+      "mean_abs_err": 0.06712796539068222,
+      "mean_v_capt_abs": 0.8658677339553833,
+      "relative_err": 0.07752681241976064,
+      "v_shape": [
+        1,
+        8,
+        16,
+        107
+      ]
+    },
+    {
+      "prompt_idx": 1,
+      "prompt_text": "an upbeat electronic dance track with synthesizer leads",
+      "seed": 142,
+      "sigma_target": 0.1,
+      "sigma_actual": 0.10432276874780655,
+      "step_index": 28,
+      "max_abs_err": 0.78125,
+      "mean_abs_err": 0.13467831909656525,
+      "mean_v_capt_abs": 0.6694696545600891,
+      "relative_err": 0.2011716560701513,
+      "v_shape": [
+        1,
+        8,
+        16,
+        107
+      ]
+    },
+    {
+      "prompt_idx": 1,
+      "prompt_text": "an upbeat electronic dance track with synthesizer leads",
+      "seed": 143,
+      "sigma_target": 0.5,
+      "sigma_actual": 0.4914619028568268,
+      "step_index": 22,
+      "max_abs_err": 0.4296875,
+      "mean_abs_err": 0.0588635690510273,
+      "mean_v_capt_abs": 0.9568242430686951,
+      "relative_err": 0.06151972995818125,
+      "v_shape": [
+        1,
+        8,
+        16,
+        107
+      ]
+    },
+    {
+      "prompt_idx": 1,
+      "prompt_text": "an upbeat electronic dance track with synthesizer leads",
+      "seed": 143,
+      "sigma_target": 0.3,
+      "sigma_actual": 0.329061895608902,
+      "step_index": 25,
+      "max_abs_err": 0.5234375,
+      "mean_abs_err": 0.06726975739002228,
+      "mean_v_capt_abs": 0.9245859384536743,
+      "relative_err": 0.07275663039233295,
+      "v_shape": [
+        1,
+        8,
+        16,
+        107
+      ]
+    },
+    {
+      "prompt_idx": 1,
+      "prompt_text": "an upbeat electronic dance track with synthesizer leads",
+      "seed": 143,
+      "sigma_target": 0.1,
+      "sigma_actual": 0.10432276874780655,
+      "step_index": 28,
+      "max_abs_err": 0.8125,
+      "mean_abs_err": 0.13502736389636993,
+      "mean_v_capt_abs": 0.744390070438385,
+      "relative_err": 0.18139328996805376,
+      "v_shape": [
+        1,
+        8,
+        16,
+        107
+      ]
+    },
+    {
+      "prompt_idx": 1,
+      "prompt_text": "an upbeat electronic dance track with synthesizer leads",
+      "seed": 144,
+      "sigma_target": 0.5,
+      "sigma_actual": 0.4914619028568268,
+      "step_index": 22,
+      "max_abs_err": 0.974609375,
+      "mean_abs_err": 0.0744016170501709,
+      "mean_v_capt_abs": 0.8115730881690979,
+      "relative_err": 0.09167580607930251,
+      "v_shape": [
+        1,
+        8,
+        16,
+        107
+      ]
+    },
+    {
+      "prompt_idx": 1,
+      "prompt_text": "an upbeat electronic dance track with synthesizer leads",
+      "seed": 144,
+      "sigma_target": 0.3,
+      "sigma_actual": 0.329061895608902,
+      "step_index": 25,
+      "max_abs_err": 0.7421875,
+      "mean_abs_err": 0.06781750917434692,
+      "mean_v_capt_abs": 0.7795360684394836,
+      "relative_err": 0.0869972691707615,
+      "v_shape": [
+        1,
+        8,
+        16,
+        107
+      ]
+    },
+    {
+      "prompt_idx": 1,
+      "prompt_text": "an upbeat electronic dance track with synthesizer leads",
+      "seed": 144,
+      "sigma_target": 0.1,
+      "sigma_actual": 0.10432276874780655,
+      "step_index": 28,
+      "max_abs_err": 0.7265625,
+      "mean_abs_err": 0.10846850275993347,
+      "mean_v_capt_abs": 0.6041642427444458,
+      "relative_err": 0.17953479382892631,
+      "v_shape": [
+        1,
+        8,
+        16,
+        107
+      ]
+    },
+    {
+      "prompt_idx": 2,
+      "prompt_text": "a melancholic piano piece in a minor key",
+      "seed": 242,
+      "sigma_target": 0.5,
+      "sigma_actual": 0.4914619028568268,
+      "step_index": 22,
+      "max_abs_err": 0.375,
+      "mean_abs_err": 0.06639716774225235,
+      "mean_v_capt_abs": 0.8933839797973633,
+      "relative_err": 0.07432097423250472,
+      "v_shape": [
+        1,
+        8,
+        16,
+        107
+      ]
+    },
+    {
+      "prompt_idx": 2,
+      "prompt_text": "a melancholic piano piece in a minor key",
+      "seed": 242,
+      "sigma_target": 0.3,
+      "sigma_actual": 0.329061895608902,
+      "step_index": 25,
+      "max_abs_err": 0.5,
+      "mean_abs_err": 0.07803736627101898,
+      "mean_v_capt_abs": 0.8701494932174683,
+      "relative_err": 0.08968271185502585,
+      "v_shape": [
+        1,
+        8,
+        16,
+        107
+      ]
+    },
+    {
+      "prompt_idx": 2,
+      "prompt_text": "a melancholic piano piece in a minor key",
+      "seed": 242,
+      "sigma_target": 0.1,
+      "sigma_actual": 0.10432276874780655,
+      "step_index": 28,
+      "max_abs_err": 0.8125,
+      "mean_abs_err": 0.14290274679660797,
+      "mean_v_capt_abs": 0.6717910170555115,
+      "relative_err": 0.21271904977675465,
+      "v_shape": [
+        1,
+        8,
+        16,
+        107
+      ]
+    },
+    {
+      "prompt_idx": 2,
+      "prompt_text": "a melancholic piano piece in a minor key",
+      "seed": 243,
+      "sigma_target": 0.5,
+      "sigma_actual": 0.4914619028568268,
+      "step_index": 22,
+      "max_abs_err": 0.5390625,
+      "mean_abs_err": 0.07423004508018494,
+      "mean_v_capt_abs": 0.925364077091217,
+      "relative_err": 0.08021712417616117,
+      "v_shape": [
+        1,
+        8,
+        16,
+        107
+      ]
+    },
+    {
+      "prompt_idx": 2,
+      "prompt_text": "a melancholic piano piece in a minor key",
+      "seed": 243,
+      "sigma_target": 0.3,
+      "sigma_actual": 0.329061895608902,
+      "step_index": 25,
+      "max_abs_err": 0.671875,
+      "mean_abs_err": 0.08970770239830017,
+      "mean_v_capt_abs": 0.90372234582901,
+      "relative_err": 0.0992646721776131,
+      "v_shape": [
+        1,
+        8,
+        16,
+        107
+      ]
+    },
+    {
+      "prompt_idx": 2,
+      "prompt_text": "a melancholic piano piece in a minor key",
+      "seed": 243,
+      "sigma_target": 0.1,
+      "sigma_actual": 0.10432276874780655,
+      "step_index": 28,
+      "max_abs_err": 0.844482421875,
+      "mean_abs_err": 0.13081631064414978,
+      "mean_v_capt_abs": 0.695626974105835,
+      "relative_err": 0.18805525880059815,
+      "v_shape": [
+        1,
+        8,
+        16,
+        107
+      ]
+    },
+    {
+      "prompt_idx": 2,
+      "prompt_text": "a melancholic piano piece in a minor key",
+      "seed": 244,
+      "sigma_target": 0.5,
+      "sigma_actual": 0.4914619028568268,
+      "step_index": 22,
+      "max_abs_err": 0.4765625,
+      "mean_abs_err": 0.08571746200323105,
+      "mean_v_capt_abs": 0.9491479396820068,
+      "relative_err": 0.0903099068328052,
+      "v_shape": [
+        1,
+        8,
+        16,
+        107
+      ]
+    },
+    {
+      "prompt_idx": 2,
+      "prompt_text": "a melancholic piano piece in a minor key",
+      "seed": 244,
+      "sigma_target": 0.3,
+      "sigma_actual": 0.329061895608902,
+      "step_index": 25,
+      "max_abs_err": 0.8203125,
+      "mean_abs_err": 0.09123378247022629,
+      "mean_v_capt_abs": 0.919988214969635,
+      "relative_err": 0.09916842518818302,
+      "v_shape": [
+        1,
+        8,
+        16,
+        107
+      ]
+    },
+    {
+      "prompt_idx": 2,
+      "prompt_text": "a melancholic piano piece in a minor key",
+      "seed": 244,
+      "sigma_target": 0.1,
+      "sigma_actual": 0.10432276874780655,
+      "step_index": 28,
+      "max_abs_err": 0.8828125,
+      "mean_abs_err": 0.13692542910575867,
+      "mean_v_capt_abs": 0.7121245265007019,
+      "relative_err": 0.1922773672444544,
+      "v_shape": [
+        1,
+        8,
+        16,
+        107
+      ]
+    },
+    {
+      "prompt_idx": 3,
+      "prompt_text": "a jazzy lo-fi hip-hop beat with vinyl crackle",
+      "seed": 342,
+      "sigma_target": 0.5,
+      "sigma_actual": 0.4914619028568268,
+      "step_index": 22,
+      "max_abs_err": 0.46484375,
+      "mean_abs_err": 0.07521609961986542,
+      "mean_v_capt_abs": 0.9047622680664062,
+      "relative_err": 0.0831335504083431,
+      "v_shape": [
+        1,
+        8,
+        16,
+        107
+      ]
+    },
+    {
+      "prompt_idx": 3,
+      "prompt_text": "a jazzy lo-fi hip-hop beat with vinyl crackle",
+      "seed": 342,
+      "sigma_target": 0.3,
+      "sigma_actual": 0.329061895608902,
+      "step_index": 25,
+      "max_abs_err": 0.5,
+      "mean_abs_err": 0.07921703904867172,
+      "mean_v_capt_abs": 0.8742474913597107,
+      "relative_err": 0.09061168585736065,
+      "v_shape": [
+        1,
+        8,
+        16,
+        107
+      ]
+    },
+    {
+      "prompt_idx": 3,
+      "prompt_text": "a jazzy lo-fi hip-hop beat with vinyl crackle",
+      "seed": 342,
+      "sigma_target": 0.1,
+      "sigma_actual": 0.10432276874780655,
+      "step_index": 28,
+      "max_abs_err": 0.953125,
+      "mean_abs_err": 0.13928446173667908,
+      "mean_v_capt_abs": 0.6574569940567017,
+      "relative_err": 0.21185334249355728,
+      "v_shape": [
+        1,
+        8,
+        16,
+        107
+      ]
+    },
+    {
+      "prompt_idx": 3,
+      "prompt_text": "a jazzy lo-fi hip-hop beat with vinyl crackle",
+      "seed": 343,
+      "sigma_target": 0.5,
+      "sigma_actual": 0.4914619028568268,
+      "step_index": 22,
+      "max_abs_err": 0.66796875,
+      "mean_abs_err": 0.07395629584789276,
+      "mean_v_capt_abs": 0.8438142538070679,
+      "relative_err": 0.0876452317725393,
+      "v_shape": [
+        1,
+        8,
+        16,
+        107
+      ]
+    },
+    {
+      "prompt_idx": 3,
+      "prompt_text": "a jazzy lo-fi hip-hop beat with vinyl crackle",
+      "seed": 343,
+      "sigma_target": 0.3,
+      "sigma_actual": 0.329061895608902,
+      "step_index": 25,
+      "max_abs_err": 0.453125,
+      "mean_abs_err": 0.06882566958665848,
+      "mean_v_capt_abs": 0.8260118961334229,
+      "relative_err": 0.08332285516568554,
+      "v_shape": [
+        1,
+        8,
+        16,
+        107
+      ]
+    },
+    {
+      "prompt_idx": 3,
+      "prompt_text": "a jazzy lo-fi hip-hop beat with vinyl crackle",
+      "seed": 343,
+      "sigma_target": 0.1,
+      "sigma_actual": 0.10432276874780655,
+      "step_index": 28,
+      "max_abs_err": 0.83984375,
+      "mean_abs_err": 0.11896610260009766,
+      "mean_v_capt_abs": 0.6309608817100525,
+      "relative_err": 0.18854750912239046,
+      "v_shape": [
+        1,
+        8,
+        16,
+        107
+      ]
+    },
+    {
+      "prompt_idx": 3,
+      "prompt_text": "a jazzy lo-fi hip-hop beat with vinyl crackle",
+      "seed": 344,
+      "sigma_target": 0.5,
+      "sigma_actual": 0.4914619028568268,
+      "step_index": 22,
+      "max_abs_err": 0.974609375,
+      "mean_abs_err": 0.09479273110628128,
+      "mean_v_capt_abs": 0.8084121942520142,
+      "relative_err": 0.1172579183989036,
+      "v_shape": [
+        1,
+        8,
+        16,
+        107
+      ]
+    },
+    {
+      "prompt_idx": 3,
+      "prompt_text": "a jazzy lo-fi hip-hop beat with vinyl crackle",
+      "seed": 344,
+      "sigma_target": 0.3,
+      "sigma_actual": 0.329061895608902,
+      "step_index": 25,
+      "max_abs_err": 0.435546875,
+      "mean_abs_err": 0.0720246210694313,
+      "mean_v_capt_abs": 0.7901305556297302,
+      "relative_err": 0.09115534205866527,
+      "v_shape": [
+        1,
+        8,
+        16,
+        107
+      ]
+    },
+    {
+      "prompt_idx": 3,
+      "prompt_text": "a jazzy lo-fi hip-hop beat with vinyl crackle",
+      "seed": 344,
+      "sigma_target": 0.1,
+      "sigma_actual": 0.10432276874780655,
+      "step_index": 28,
+      "max_abs_err": 0.650390625,
+      "mean_abs_err": 0.09961341321468353,
+      "mean_v_capt_abs": 0.5745068788528442,
+      "relative_err": 0.17338941774481134,
+      "v_shape": [
+        1,
+        8,
+        16,
+        107
+      ]
+    }
+  ],
+  "verdict": "FAIL"
+}

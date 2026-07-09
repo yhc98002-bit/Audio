@@ -1,0 +1,408 @@
+{
+  "beta_binomial": {
+    "all": {
+      "mean": 1.84,
+      "var": 4.369,
+      "binomial_var_at_same_mean": 1.417,
+      "beta_binom_alpha": 0.5426,
+      "beta_binom_beta": 1.8167,
+      "ICC": 0.2977
+    },
+    "vocal": {
+      "n_prompts": 316,
+      "mean": 1.687,
+      "frac_ge6": 0.038,
+      "beta_binom_alpha": 0.7194,
+      "beta_binom_beta": 2.6926,
+      "ICC": 0.2267
+    },
+    "instrumental": {
+      "n_prompts": 196,
+      "mean": 2.087,
+      "frac_ge6": 0.148,
+      "beta_binom_alpha": 0.4065,
+      "beta_binom_beta": 1.1518,
+      "ICC": 0.3909
+    }
+  },
+  "n_ge6_prompts": 41,
+  "E2_subgroup_frozen": {
+    "definition": "held_out AND Batch-1 violations >= 5/8",
+    "n": 32,
+    "by_stratum": {
+      "vocal": 17,
+      "instrumental": 15
+    }
+  },
+  "ge6_qualitative_table": [
+    {
+      "prompt_id": "dev_0054",
+      "vs": "instrumental",
+      "lang": "en",
+      "genre": "classical",
+      "split": "dev",
+      "lyric_density": "n_a_instrumental",
+      "violations": 8
+    },
+    {
+      "prompt_id": "dev_0057",
+      "vs": "instrumental",
+      "lang": "en",
+      "genre": "folk",
+      "split": "dev",
+      "lyric_density": "n_a_instrumental",
+      "violations": 8
+    },
+    {
+      "prompt_id": "dev_0221",
+      "vs": "instrumental",
+      "lang": "en",
+      "genre": "classical",
+      "split": "dev",
+      "lyric_density": "n_a_instrumental",
+      "violations": 8
+    },
+    {
+      "prompt_id": "dev_0226",
+      "vs": "instrumental",
+      "lang": "en",
+      "genre": "classical",
+      "split": "dev",
+      "lyric_density": "n_a_instrumental",
+      "violations": 8
+    },
+    {
+      "prompt_id": "dev_0248",
+      "vs": "vocal",
+      "lang": "en",
+      "genre": "metal",
+      "split": "dev",
+      "lyric_density": "high",
+      "violations": 8
+    },
+    {
+      "prompt_id": "held_out_0153",
+      "vs": "instrumental",
+      "lang": "en",
+      "genre": "classical",
+      "split": "held_out",
+      "lyric_density": "n_a_instrumental",
+      "violations": 8
+    },
+    {
+      "prompt_id": "held_out_0193",
+      "vs": "vocal",
+      "lang": "zh",
+      "genre": "rock",
+      "split": "held_out",
+      "lyric_density": "low",
+      "violations": 8
+    },
+    {
+      "prompt_id": "held_out_0236",
+      "vs": "instrumental",
+      "lang": "en",
+      "genre": "classical",
+      "split": "held_out",
+      "lyric_density": "n_a_instrumental",
+      "violations": 8
+    },
+    {
+      "prompt_id": "dev_0026",
+      "vs": "instrumental",
+      "lang": "en",
+      "genre": "folk",
+      "split": "dev",
+      "lyric_density": "n_a_instrumental",
+      "violations": 7
+    },
+    {
+      "prompt_id": "dev_0040",
+      "vs": "vocal",
+      "lang": "en",
+      "genre": "metal",
+      "split": "dev",
+      "lyric_density": "med",
+      "violations": 7
+    },
+    {
+      "prompt_id": "dev_0059",
+      "vs": "vocal",
+      "lang": "zh",
+      "genre": "metal",
+      "split": "dev",
+      "lyric_density": "med",
+      "violations": 7
+    },
+    {
+      "prompt_id": "dev_0104",
+      "vs": "instrumental",
+      "lang": "en",
+      "genre": "jazz",
+      "split": "dev",
+      "lyric_density": "n_a_instrumental",
+      "violations": 7
+    },
+    {
+      "prompt_id": "dev_0121",
+      "vs": "instrumental",
+      "lang": "en",
+      "genre": "folk",
+      "split": "dev",
+      "lyric_density": "n_a_instrumental",
+      "violations": 7
+    },
+    {
+      "prompt_id": "dev_0131",
+      "vs": "instrumental",
+      "lang": "en",
+      "genre": "electronic",
+      "split": "dev",
+      "lyric_density": "n_a_instrumental",
+      "violations": 7
+    },
+    {
+      "prompt_id": "dev_0151",
+      "vs": "instrumental",
+      "lang": "en",
+      "genre": "pop",
+      "split": "dev",
+      "lyric_density": "n_a_instrumental",
+      "violations": 7
+    },
+    {
+      "prompt_id": "held_out_0080",
+      "vs": "instrumental",
+      "lang": "en",
+      "genre": "classical",
+      "split": "held_out",
+      "lyric_density": "n_a_instrumental",
+      "violations": 7
+    },
+    {
+      "prompt_id": "held_out_0117",
+      "vs": "instrumental",
+      "lang": "en",
+      "genre": "folk",
+      "split": "held_out",
+      "lyric_density": "n_a_instrumental",
+      "violations": 7
+    },
+    {
+      "prompt_id": "held_out_0204",
+      "vs": "vocal",
+      "lang": "en",
+      "genre": "metal",
+      "split": "held_out",
+      "lyric_density": "med",
+      "violations": 7
+    },
+    {
+      "prompt_id": "held_out_0251",
+      "vs": "instrumental",
+      "lang": "en",
+      "genre": "jazz",
+      "split": "held_out",
+      "lyric_density": "n_a_instrumental",
+      "violations": 7
+    },
+    {
+      "prompt_id": "dev_0038",
+      "vs": "instrumental",
+      "lang": "en",
+      "genre": "pop",
+      "split": "dev",
+      "lyric_density": "n_a_instrumental",
+      "violations": 6
+    },
+    {
+      "prompt_id": "dev_0048",
+      "vs": "instrumental",
+      "lang": "en",
+      "genre": "classical",
+      "split": "dev",
+      "lyric_density": "n_a_instrumental",
+      "violations": 6
+    },
+    {
+      "prompt_id": "dev_0091",
+      "vs": "vocal",
+      "lang": "en",
+      "genre": "metal",
+      "split": "dev",
+      "lyric_density": "med",
+      "violations": 6
+    },
+    {
+      "prompt_id": "dev_0120",
+      "vs": "instrumental",
+      "lang": "en",
+      "genre": "classical",
+      "split": "dev",
+      "lyric_density": "n_a_instrumental",
+      "violations": 6
+    },
+    {
+      "prompt_id": "dev_0122",
+      "vs": "vocal",
+      "lang": "en",
+      "genre": "hip_hop",
+      "split": "dev",
+      "lyric_density": "high",
+      "violations": 6
+    },
+    {
+      "prompt_id": "dev_0137",
+      "vs": "instrumental",
+      "lang": "en",
+      "genre": "classical",
+      "split": "dev",
+      "lyric_density": "n_a_instrumental",
+      "violations": 6
+    },
+    {
+      "prompt_id": "dev_0156",
+      "vs": "vocal",
+      "lang": "ja",
+      "genre": "hip_hop",
+      "split": "dev",
+      "lyric_density": "med",
+      "violations": 6
+    },
+    {
+      "prompt_id": "dev_0166",
+      "vs": "instrumental",
+      "lang": "en",
+      "genre": "jazz",
+      "split": "dev",
+      "lyric_density": "n_a_instrumental",
+      "violations": 6
+    },
+    {
+      "prompt_id": "dev_0207",
+      "vs": "vocal",
+      "lang": "en",
+      "genre": "hip_hop",
+      "split": "dev",
+      "lyric_density": "med",
+      "violations": 6
+    },
+    {
+      "prompt_id": "dev_0218",
+      "vs": "instrumental",
+      "lang": "en",
+      "genre": "folk",
+      "split": "dev",
+      "lyric_density": "n_a_instrumental",
+      "violations": 6
+    },
+    {
+      "prompt_id": "dev_0246",
+      "vs": "instrumental",
+      "lang": "en",
+      "genre": "jazz",
+      "split": "dev",
+      "lyric_density": "n_a_instrumental",
+      "violations": 6
+    },
+    {
+      "prompt_id": "dev_0254",
+      "vs": "instrumental",
+      "lang": "en",
+      "genre": "classical",
+      "split": "dev",
+      "lyric_density": "n_a_instrumental",
+      "violations": 6
+    },
+    {
+      "prompt_id": "dev_0255",
+      "vs": "instrumental",
+      "lang": "en",
+      "genre": "rock",
+      "split": "dev",
+      "lyric_density": "n_a_instrumental",
+      "violations": 6
+    },
+    {
+      "prompt_id": "held_out_0021",
+      "vs": "vocal",
+      "lang": "en",
+      "genre": "metal",
+      "split": "held_out",
+      "lyric_density": "med",
+      "violations": 6
+    },
+    {
+      "prompt_id": "held_out_0035",
+      "vs": "instrumental",
+      "lang": "en",
+      "genre": "folk",
+      "split": "held_out",
+      "lyric_density": "n_a_instrumental",
+      "violations": 6
+    },
+    {
+      "prompt_id": "held_out_0041",
+      "vs": "instrumental",
+      "lang": "en",
+      "genre": "classical",
+      "split": "held_out",
+      "lyric_density": "n_a_instrumental",
+      "violations": 6
+    },
+    {
+      "prompt_id": "held_out_0058",
+      "vs": "instrumental",
+      "lang": "en",
+      "genre": "jazz",
+      "split": "held_out",
+      "lyric_density": "n_a_instrumental",
+      "violations": 6
+    },
+    {
+      "prompt_id": "held_out_0094",
+      "vs": "instrumental",
+      "lang": "en",
+      "genre": "classical",
+      "split": "held_out",
+      "lyric_density": "n_a_instrumental",
+      "violations": 6
+    },
+    {
+      "prompt_id": "held_out_0166",
+      "vs": "vocal",
+      "lang": "zh",
+      "genre": "electronic",
+      "split": "held_out",
+      "lyric_density": "low",
+      "violations": 6
+    },
+    {
+      "prompt_id": "held_out_0170",
+      "vs": "instrumental",
+      "lang": "en",
+      "genre": "jazz",
+      "split": "held_out",
+      "lyric_density": "n_a_instrumental",
+      "violations": 6
+    },
+    {
+      "prompt_id": "held_out_0238",
+      "vs": "instrumental",
+      "lang": "en",
+      "genre": "folk",
+      "split": "held_out",
+      "lyric_density": "n_a_instrumental",
+      "violations": 6
+    },
+    {
+      "prompt_id": "held_out_0240",
+      "vs": "vocal",
+      "lang": "en",
+      "genre": "metal",
+      "split": "held_out",
+      "lyric_density": "med",
+      "violations": 6
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "ungated_selected_type_error": {
+    "evpd_k4_select (Batch-2 \u03c30.8 repro)": 0.1328,
+    "oracle_k4_select": 0.0117,
+    "oracle_unconstrained": 0.0117
+  },
+  "gated_selected_type_error": {
+    "evpd_k4": 0.0195,
+    "oracle_k4": 0.0117,
+    "oracle_unconstrained": 0.0117
+  },
+  "note": "detector-error contribution = evpd_k4 \u2212 oracle_k4; structure contribution = oracle_k4 \u2212 oracle_unconstrained (all \u03c30.8-decision, held_out)"
+}

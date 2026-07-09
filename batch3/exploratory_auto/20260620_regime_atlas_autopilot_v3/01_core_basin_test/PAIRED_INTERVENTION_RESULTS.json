@@ -1,0 +1,178 @@
+{
+  "vocal_V3_vs_BoN": {
+    "mean_delta_p": 0.6877,
+    "n": 17,
+    "n_improved": 17,
+    "per_prompt": {
+      "held_out_0001": {
+        "bon": 0.035,
+        "v3": 0.891,
+        "delta": 0.855
+      },
+      "held_out_0008": {
+        "bon": 0.156,
+        "v3": 0.789,
+        "delta": 0.633
+      },
+      "held_out_0016": {
+        "bon": 0.121,
+        "v3": 0.891,
+        "delta": 0.77
+      },
+      "held_out_0017": {
+        "bon": 0.039,
+        "v3": 0.828,
+        "delta": 0.789
+      },
+      "held_out_0021": {
+        "bon": 0.148,
+        "v3": 0.922,
+        "delta": 0.773
+      },
+      "held_out_0024": {
+        "bon": 0.027,
+        "v3": 0.664,
+        "delta": 0.637
+      },
+      "held_out_0045": {
+        "bon": 0.027,
+        "v3": 0.688,
+        "delta": 0.66
+      },
+      "held_out_0069": {
+        "bon": 0.207,
+        "v3": 0.836,
+        "delta": 0.629
+      },
+      "held_out_0119": {
+        "bon": 0.102,
+        "v3": 0.883,
+        "delta": 0.781
+      },
+      "held_out_0134": {
+        "bon": 0.125,
+        "v3": 0.867,
+        "delta": 0.742
+      },
+      "held_out_0142": {
+        "bon": 0.047,
+        "v3": 0.719,
+        "delta": 0.672
+      },
+      "held_out_0166": {
+        "bon": 0.18,
+        "v3": 0.688,
+        "delta": 0.508
+      },
+      "held_out_0193": {
+        "bon": 0.055,
+        "v3": 0.398,
+        "delta": 0.344
+      },
+      "held_out_0199": {
+        "bon": 0.012,
+        "v3": 0.664,
+        "delta": 0.652
+      },
+      "held_out_0204": {
+        "bon": 0.133,
+        "v3": 0.867,
+        "delta": 0.734
+      },
+      "held_out_0240": {
+        "bon": 0.027,
+        "v3": 0.727,
+        "delta": 0.699
+      },
+      "held_out_0254": {
+        "bon": 0.023,
+        "v3": 0.836,
+        "delta": 0.812
+      }
+    }
+  },
+  "instr_Istrong_vs_BoN": {
+    "mean_delta_p": 0.0063,
+    "n": 15,
+    "n_improved": 9,
+    "per_prompt": {
+      "held_out_0035": {
+        "bon": 0.402,
+        "istrong": 0.219,
+        "delta": -0.184
+      },
+      "held_out_0041": {
+        "bon": 0.445,
+        "istrong": 0.484,
+        "delta": 0.039
+      },
+      "held_out_0043": {
+        "bon": 0.359,
+        "istrong": 0.242,
+        "delta": -0.117
+      },
+      "held_out_0058": {
+        "bon": 0.305,
+        "istrong": 0.344,
+        "delta": 0.039
+      },
+      "held_out_0080": {
+        "bon": 0.336,
+        "istrong": 0.391,
+        "delta": 0.055
+      },
+      "held_out_0088": {
+        "bon": 0.422,
+        "istrong": 0.328,
+        "delta": -0.094
+      },
+      "held_out_0094": {
+        "bon": 0.293,
+        "istrong": 0.312,
+        "delta": 0.02
+      },
+      "held_out_0108": {
+        "bon": 0.434,
+        "istrong": 0.492,
+        "delta": 0.059
+      },
+      "held_out_0117": {
+        "bon": 0.238,
+        "istrong": 0.164,
+        "delta": -0.074
+      },
+      "held_out_0153": {
+        "bon": 0.363,
+        "istrong": 0.555,
+        "delta": 0.191
+      },
+      "held_out_0170": {
+        "bon": 0.246,
+        "istrong": 0.344,
+        "delta": 0.098
+      },
+      "held_out_0236": {
+        "bon": 0.594,
+        "istrong": 0.5,
+        "delta": -0.094
+      },
+      "held_out_0238": {
+        "bon": 0.195,
+        "istrong": 0.312,
+        "delta": 0.117
+      },
+      "held_out_0251": {
+        "bon": 0.273,
+        "istrong": 0.492,
+        "delta": 0.219
+      },
+      "held_out_0253": {
+        "bon": 0.469,
+        "istrong": 0.289,
+        "delta": -0.18
+      }
+    }
+  },
+  "source": "ledgers/{bon256,v3_vocal,istrong_instr}_w*.jsonl",
+  "note": "clean-rate (type_correct) p_hat; V3 N=128, I_strong N=128, BoN N=256; canonical Demucs label"
+}

@@ -1,0 +1,342 @@
+# gate_v2.yaml — DRAFT 2026-05-21 for PI review (NOT live yet).
+#
+# Status: DRAFT. Live activation requires PI review of:
+#   1. CVaR β=0 default per FINAL_REVISION_CRITIC.md #11 (CVaR-aggregator β, NOT
+#      `beta_robust` — separate parameter; see "Two distinct β's" below).
+#   2. reward-harness commit SHAs / local revisions (TODO_PI_VERIFY — see SHA-PIN section).
+#      Do NOT pin via HF "latest main"; record the local cached revisions used at
+#      M1a runtime via `orbit-research/GATE_V1_SHA_BACKFILL_2026-05-21.md`.
+#   3. STOP-B-* probes inherited from gate_v1.
+#
+# Round-2 critique-file (FINAL_REVISION_CRITIC.md) prescriptions implemented:
+#   #11 CVaR β=0 default for trained M-PRM policy (β=0.5 is OFFLINE scoring
+#       sensitivity, not a separate trained policy)
+#   #6 Tweedie ρ_gate=0.5 binary (replaces gate_v1 implicit 0.35 — applied to
+#      Phase B reliability gate, not the gate_v1 evaluator policy itself)
+#   gate_v1 retained FROZEN for M1a/R050 historical compatibility. This file is
+#   SEPARATE. DO NOT delete gate_v1.yaml. DO NOT edit gate_v1.yaml.
+#
+# Two distinct β's (audit-Round-4-fix 2026-05-21 — disambiguation, was conflated
+# in the prior draft):
+#   • `eval_policy.beta_robust` (0.5)         — weight inside the robust-reward
+#     aggregator (LCB combination of mean+SD across perturbations). UNCHANGED
+#     from gate_v1 — every rung config (`configs/baselines/r*.yaml`) sets
+#     beta_robust: 0.5 and gate_v2 keeps that value.
+#   • `round_2_context.cvar_aggregator.beta` (0) — weight on the per-section
+#     mean reward inside `A_song = CVaR_α({A_u}) + β · mean({A_u})`. This is
+#     what FINAL_REVISION_CRITIC.md #11 changed from 0.5 to 0 for trained M-PRM
+#     policies. β=0.5 is reported only as offline scoring sensitivity on saved
+#     per-section reward distributions; it is NOT a separately trained policy.
+#
+# Activation steps (post-PI-review):
+#   1. PI verifies SHA pins in §sha_pinned below (see GATE_V1_SHA_BACKFILL note).
+#   2. mv configs/eval/gate_v2.yaml.draft configs/eval/gate_v2.yaml
+#   3. Compute SHA256 of new file; update any consuming script's hash check.
+#   4. M1a results' sidecars are NOT re-stamped (they stay bound to gate_v1).
+#   5. Phase B+ runs stamp gate_v2 hash in their sidecars.
+#
+# Difference from gate_v1 (line-by-line):
+#   eval_policy.beta_robust:    0.5   → 0.5 (UNCHANGED — separate from CVaR β)
+#   reward_axes:                unchanged (same 7 axes)
+#   probes:                     unchanged (silence/autocorr/hf_artifact; off_prompt_distance still inert per STOP-B-7.1)
+#   perturbations:              unchanged (identity, crop, loudness, codec, fold_down)
+#   round_2_context.cvar_aggregator.beta: 0.5 → 0  (critique #11 — CVaR mean-weight)
+#   round_2_context.tweedie_reliability_threshold.rho_min: 0.35 → 0.5  (critique #6)
+#   sha_pinned:                 NEW (reward-harness model checkpoint SHA pins for 148-day window — critique #15 housekeeping)
+
+eval_policy:
+  name: gate_v2
+  version: "2.0-draft"
+  description: >-
+    Phase B / Phase C / Phase D evaluator. Replaces gate_v1 (which binds M1a +
+    R050 only) for downstream gate_r_lcb computation. Round-2 reframing applied:
+    CVaR β = 0 default in trained M-PRM policy (gate_v1's β_robust = 0.5 was the
+    *robust-reward* β — a SEPARATE parameter; β_robust remains 0.5 here too).
+    The CVaR β=0.5 figure is now reported as an OFFLINE scoring sensitivity on
+    saved per-section reward distributions, NOT a separately trained policy —
+    per FINAL_REVISION_CRITIC.md #11.
+  beta_robust: 0.5   # UNCHANGED from gate_v1. Robust-reward LCB weight; NOT the CVaR β.
+  lambda_probe:
+    silence_fraction: 1.0
+    autocorr_repetition: 1.0
+    hf_artifact_score: 0.5
+  perturbations:
+    - identity
+    - crop
+    - loudness
+    - codec
+    - fold_down
+  reward_axes:
+    - semantic_fit       # CLAP
+    - aesthetic_pq       # Audiobox PQ
+    - aesthetic_pc       # Audiobox PC
+    - aesthetic_ce       # Audiobox CE
+    - aesthetic_cu       # Audiobox CU
+    - lyric_intelligibility  # Whisper-WER
+    - section_coherence  # MERT
+
+# NEW in gate_v2 (FINAL_REVISION_CRITIC.md #15 housekeeping cross-reference;
+# the actual SHA-pin enforcement is critique-independent because the project
+# window is 148 days and silent upstream model updates would invalidate
+# cross-phase comparisons):
+sha_pinned:
+  description: >-
+    Commit-SHA (or HF revision tag) pins for all reward-harness model
+    checkpoints. PI verifies each before gate_v2 goes live. **Do NOT use HF
+    "latest main" as binding provenance** — record the local cached revisions
+    that were actually used at M1a runtime via the companion note
+    `orbit-research/GATE_V1_SHA_BACKFILL_2026-05-21.md` and migrate those
+    revisions here for gate_v2 if they are still the intended pins. Any model
+    that points at a mutable tag/branch exposes the project to silent upstream
+    drift across the 148-day window.
+  status: LOCAL_VERIFIED_PENDING_PI_FINAL_APPROVAL  # local-file SHA256s bound on 2026-05-22; PI final approval is per-launch, not file-level
+  binding_principle: >-
+    Pin to file-SHA256 of actually-loaded local files (not HF "latest main"). Each
+    entry records the SAME file the reward implementation in `src/mprm/rewards/`
+    actually reads at runtime. PI verification 2026-05-22: all SHAs computed on
+    Paratera A800 box from files on disk; cross-reference
+    `orbit-research/GATE_V1_SHA_BACKFILL_2026-05-21.md` §2 for the provenance trail.
+  models:
+    clap:
+      hf_repo: "laion/clap-htsat-fused"
+      checkpoint_url_at_download: "https://dl.fbaipublicfiles.com/laion_clap/630k-audioset-best.pt"
+      local_path: "~/.cache/clap/630k-audioset-best.pt"
+      file_size_bytes: 1863587645
+      sha256: "8053c9775516af2f4902e1e8281e356cc1bf7a85e8b761908170767b77c3f037"
+      consumer: "src/mprm/rewards/clap.py (laion_clap.CLAP_Module amodel='HTSAT-tiny')"
+      tokenizers:
+        # Loaded by laion_clap text branch via HF_HUB_OFFLINE lookups (see
+        # src/mprm/compat/laion_clap_local_tokenizers.py). HF refs are the
+        # `refs/main` snapshot present on disk at audit time.
+        bert_base_uncased:
+          hf_repo: "bert-base-uncased"
+          hf_revision: "86b5e0934494bd15c9632b12f734a8a67f723594"
+          local_path: "~/HDD_POOL/source/laion_clap_tokenizers/bert-base-uncased"
+        roberta_base:
+          hf_repo: "roberta-base"
+          hf_revision: "e2da8e2f811d1448a5b465c236feacd80ffbac7b"
+          local_path: "~/HDD_POOL/source/laion_clap_tokenizers/roberta-base"
+        bart_base:
+          hf_repo: "facebook/bart-base"
+          hf_revision: "aadd2ab0ae0c8268c7c9693540e9904811f36177"
+          local_path: "~/HDD_POOL/source/laion_clap_tokenizers/facebook--bart-base"
+    audiobox_aesthetics:
+      hf_repo: "facebook/audiobox-aesthetics"
+      checkpoint_url_at_download: "https://dl.fbaipublicfiles.com/audiobox-aesthetics/checkpoint.pt"
+      local_path: "~/HDD_POOL/source/audiobox_aesthetics/checkpoint.pt"
+      file_size_bytes: 415520834
+      sha256: "a4931a7a01c3e6733352e9d85371835f03bf9135f8b31e1583c23538811d4a32"
+      consumer: "src/mprm/rewards/audiobox.py (AesPredictor checkpoint_pth=<this file>)"
+      filename_note: >-
+        Local file is `checkpoint.pt` (NOT `audiobox_aesthetics_v1.pth` as a prior
+        draft guessed). File SHA-256 above is the binding identifier; filename is
+        informational.
+    whisper:
+      hf_repo: "openai/whisper-large-v3"
+      model_size: "large-v3"
+      local_path: "~/.cache/whisper/large-v3.pt"
+      file_size_bytes: 3087371615
+      sha256: "e5b1a55b89c1367dacf97e3e19bfd829a01529dbfdeefa8caeb59b3f1b81dadb"
+      consumer: "src/mprm/rewards/whisper_wer.py (whisper.load_model('large-v3'))"
+      note: >-
+        Lazy-downloaded by `openai-whisper` 20250625 on first use. SHA256 captured
+        2026-05-22; the openai-whisper release URL is fixed per-version so this
+        SHA is stable across re-downloads of the same release.
+    mert:
+      hf_repo: "m-a-p/MERT-v1-95M"  # CORRECTED 2026-05-22 from prior draft typo (was "MERT-v1-330M")
+      local_path: "~/HDD_POOL/source/mert/MERT-v1-95M"
+      consumer: "src/mprm/rewards/mert.py (transformers AutoModel trust_remote_code=True)"
+      directory_manifest:
+        manifest_sha256: "ef116b0bc4bbc56bee9c281e3a722c71ccb6f7e7140354f4cb7e554c43614a11"
+        manifest_note: "SHA256 of sorted `sha256 filename` lines for the 5 files below"
+        files:
+          - { filename: "pytorch_model.bin",     size: 377552987, sha256: "a2b8b747f72c06e0595aeae41ae5473f4364938c6b39b2c58be38c48e6bd3fcd" }
+          - { filename: "config.json",           size: 1817,      sha256: "ea2627c4c7825cd66f3c944b6b966331604c35928174e0100cd4a82829424e32" }
+          - { filename: "configuration_MERT.py", size: 5340,      sha256: "ae0ec2bab8f59c724ba9878a7c20b67210189536ea62d34a56775968e9decb03" }
+          - { filename: "modeling_MERT.py",      size: 18033,     sha256: "6c3ee73cef6f0c30ef494f88d96f891fa6925ffe663fa391b512f4b57abecc6c" }
+          - { filename: "preprocessor_config.json", size: 211,    sha256: "cc5a5e4a5d3b1a758a5ed984b2eaa15bb0522d811d44a9eed82bfca4baa0dc8f" }
+      decision_note: >-
+        Bind to MERT-v1-95M (the variant actually pre-staged + used at M1a per
+        `tools/predownload_reward_weights.sh`, `CLAUDE.md`, and the M1a/R050
+        evidence on disk). The prior draft text "MERT-v1-330M" was a typo and is
+        corrected here. PI choice (a) from `GATE_V1_SHA_BACKFILL_2026-05-21.md`
+        §4 item 1.
+    demucs:
+      hf_repo: "facebook/demucs"
+      release_tag: "v4-htdemucs"
+      bundled_filename: "955717e8-8726e21a.th"
+      local_path: "~/.cache/torch/hub/checkpoints/955717e8-8726e21a.th"
+      file_size_bytes: 84141911
+      sha256: "8726e21a993978c7ba086d3872e7608d7d5bfca646ca4aca459ffda844faa8b4"
+      consumer: "src/mprm/rewards/demucs.py (demucs.pretrained.get_model('htdemucs'))"
+      note: >-
+        BagOfModels root checkpoint. Auto-downloaded on first use by the
+        `demucs` 4.0.1 PyPI package; SHA256 captured 2026-05-22.
+
+# Round-2 reframing context (informational; not consumed by code, but reviewed by PI):
+round_2_context:
+  applies_to_phases: ["Phase B", "Phase C", "Phase D"]
+  predecessor: "configs/eval/gate_v1.yaml (FROZEN; binds M1a + R050)"
+  authority: "FINAL_REVISION_CRITIC.md #6 (Tweedie ρ_gate), #11 (CVaR β), #15 (SHA pin)"
+  cvar_aggregator:
+    alpha: 0.30
+    beta: 0  # main M-PRM trained-policy setting (CVaR mean-weight)
+    beta_offline_sensitivity_only: 0.5  # NOT a trained policy; reports re-aggregated saved reward distributions
+    note: "DISTINCT from `eval_policy.beta_robust` above (0.5). beta_robust = robust-reward LCB weight; cvar_aggregator.beta = CVaR aggregator mean-weight. Audit-Round-4-fix 2026-05-21."
+  tweedie_reliability_threshold:
+    rho_min: 0.5  # binary gate per FINAL_REVISION_CRITIC.md #6 (revised from gate_v1 implicit 0.35)
+    # Per-axis fallback (when an individual axis × checkpoint pair fails ρ≥0.5).
+    # NOT the whole-gate clean-fail action — for that see
+    # `tweedie_stage_1_checkpoints.escalation.clean_fail` below.
+    fallback: "outcome-only on axes failing ρ≥0.5 (per-axis fallback; whole-gate clean-fail → see tweedie_stage_1_checkpoints.escalation.clean_fail)"
+  tweedie_reliability_curve:
+    # REVISED 2026-05-22 (replaces the K=3 PI-approved binding): PI listening
+    # surfaced sample-dependent reward emergence — high-quality trajectories may
+    # become musically interpretable earlier than low-quality ones. Phase B.1
+    # therefore characterizes a fixed σ→metric CURVE on a predeclared σ set,
+    # not just K=3 hand-selected checkpoints.
+    #
+    # Values bound to the formal Phase B sampler subset (cfg='cfg', ERG=False,
+    # guidance_interval=0.5, infer_step=30, cfg_scale=5.0, scheduler shift=3.0).
+    # σ_actual values are full-precision from SIGMA_CALIBRATION_REPORT_v2 —
+    # deterministic scheduler.sigmas[k] for the listed step_indices.
+    pi_approval_status: "PI_APPROVED_2026-05-23"
+    pi_approval_evidence: |
+      PI tiered-rule patch directive 2026-05-23; smoke test PASS
+      (runs/phase_b1_reliability_smoke/, 1 prompt × 6 σ, ledger event
+      phase_b1_reliability_smoke, all 4 figures emitted with CFG-branch
+      metadata); Codex ACCEPT (thread 019e507c-c143-7801-9804-37ed51a88d29)
+      after 1 priority-order bug fix in _classify_tier;
+      unit tests 10/10 PASS over the tiered rule.
+    # NB: This block REPLACES the prior `tweedie_stage_1_checkpoints` PI-approved
+    # K=3={0.9,0.7,0.5} binding (which was correctly approved against the prior
+    # K=3 design but is superseded by the curve design). Do NOT treat the prior
+    # K=3 PI approval as still in force for execution; it remains in the audit
+    # trail as a historical decision point.
+    primary_nontrivial_targets: [0.9, 0.8, 0.7, 0.6]
+    late_reference_targets: [0.5, 0.3]
+    excluded_from_primary_interpretation: [0.1]
+    rationale: |
+      Primary checkpoints (σ ∈ {0.9, 0.8, 0.7, 0.6}) evaluate non-trivial
+      early/middle process signal. They are the load-bearing σ region for the
+      H2 process-reward claim.
+      Late-reference checkpoints (σ ∈ {0.5, 0.3}) characterize stabilization
+      toward final audio but CANNOT by themselves establish the primary H2
+      claim — they are descriptive references only.
+      σ = 0.1 is excluded from primary interpretation because the v2
+      calibration showed near-final reward saturation (|Δ aesthetic|/final_std
+      = 0.031, LSD median 0.65). It is NOT included in the primary formal run
+      and may only enter analysis as an appendix reference if PI explicitly
+      approves later.
+    # Per-σ binding: full-precision scheduler_sigma_actual + step_index +
+    # cfg_active_flag, plus the sampler/scheduler parameters this run is
+    # bound to. σ_actual values come from
+    # orbit-research/SIGMA_CALIBRATION_REPORT_v2_2026-05-22.json
+    # per_sigma_per_prompt (verified uniform across all 16 calibration prompts).
+    checkpoints:
+      "0.9":
+        role: primary_nontrivial
+        scheduler_sigma_actual: 0.9044515490531921
+        step_index: 7
+        cfg_active: true
+      "0.8":
+        role: primary_nontrivial
+        scheduler_sigma_actual: 0.810310423374176
+        step_index: 12
+        cfg_active: true
+      "0.7":
+        role: primary_nontrivial
+        scheduler_sigma_actual: 0.7104662656784058
+        step_index: 16
+        cfg_active: true
+      "0.6":
+        role: primary_nontrivial
+        scheduler_sigma_actual: 0.6143013834953308
+        step_index: 19
+        cfg_active: true
+      "0.5":
+        role: late_reference
+        scheduler_sigma_actual: 0.4914619028568268
+        step_index: 22
+        cfg_active: false
+      "0.3":
+        role: late_reference
+        scheduler_sigma_actual: 0.329061895608902
+        step_index: 25
+        cfg_active: false
+    sampler_params:  # informational restatement; authoritative copy is in `sampler_binding` above
+      inference_steps: 30
+      scheduler_shift: 3.0
+      cfg_type: "cfg"
+      erg: false
+      guidance_interval: 0.5
+      guidance_scale: 5.0
+    selection_evidence:
+      - "orbit-research/SIGMA_CALIBRATION_REPORT_v2_2026-05-22.json"     # 16-prompt expanded σ diagnostic (LSD + Audiobox + CLAP + MERT, deltas + spreads)
+      - "orbit-research/CAPTURED_V_PARITY_2026-05-22_GI05.json"           # adapter↔pipeline velocity parity (0.0 rel_err, both branches)
+      - "papers/diagnostic/pi_listening_packet/"                          # 3-prompt × σ ∈ {0.9, 0.7, 0.5} PI listening packet
+    historical_decision_log:
+      - date: "2026-05-22 (morning)"
+        decision: "K=3 = {0.9, 0.7, 0.5} PI-approved against prior K-point design"
+        status: "SUPERSEDED 2026-05-22 (afternoon) by curve design — retained for audit only; not in force for execution"
+      - date: "2026-05-22 (afternoon)"
+        decision: "Switch to predeclared σ curve {primary: 0.9/0.8/0.7/0.6; late_reference: 0.5/0.3}"
+        status: "PENDING_PI_REVIEW"
+    escalation:
+      ambiguous: >-
+        First expand to 128 prompts using the SAME 6 σ values (primary +
+        late_reference). Do NOT automatically add σ=0.1 (excluded) or change
+        the curve — that requires explicit PI re-approval based on the
+        64→128 evidence (see configs/runs/phase_b1_reliability.yaml).
+      clean_fail: >-
+        Pivot to outcome-only / terminal-reward route per NULL_RESULT_CONTRACT
+        §2 Block B.1.
+  lyric_guard_epsilon:
+    values: [0, "global_sigma_WER", "no-guard"]
+    note: >-
+      Lyric-guard tradeoff check uses global σ_WER (mean=0.109 from
+      `tools/measure_sigma_wer.py`). Per-prompt ε_p with floor is DROPPED per
+      anti-scope-creep policy 2026-05-21 (audit Fix #5 DROP).
+  locality_ratio:
+    action_localized_min: 1.5
+    strict_mask_min: 2.0
+    note: >-
+      LocalityRatio thresholds for decoder-locality probe. Gradient-locality
+      probe is rebuttal-only per anti-scope-creep policy 2026-05-21 (audit
+      Fix #2 modify).
+  # Phase B prep §B parity closure (2026-05-22 H1+H5).
+  # Bound sampler subset for formal Phase B / Phase C process-reward work.
+  # APG / ERG / non-default guidance_interval are explicitly out of scope.
+  sampler_binding:
+    cfg_type: "cfg"  # plain CFG only; APG / cfg_zero_star not validated
+    use_erg_tag: false
+    use_erg_lyric: false
+    use_erg_diffusion: false
+    guidance_interval: 0.5  # upstream default — preserves Phase A trajectory semantics
+    guidance_scale: 5.0
+    infer_step: 30         # Codex consistency fix 2026-05-22: surface here so this block is self-contained
+    scheduler_shift: 3.0   # FlowMatchEulerDiscreteScheduler(shift=3.0) — hardcoded in upstream pipeline_ace_step.py
+    guidance_scale: 5.0
+    note: >-
+      Captured `trajectory_model_outputs[k]` is branch-dependent: CFG-mixed
+      inside `[start_idx, end_idx)`, cond-only outside. AceStepModel.sample
+      records the per-step boolean in `extras['trajectory_cfg_active']`.
+      Clean-target reconstruction uses the effective velocity actually applied
+      by the sampler at each step (`v_effective(k) = trajectory_model_outputs[k]`).
+      Any code path that calls `predict_velocity` to RECOMPUTE the velocity
+      must pass `cfg_active=trajectory_cfg_active[k]` explicitly per the
+      2026-05-22 H5 fix in `src/mprm/inference/ace_step.py`.
+    captured_v_parity_evidence: "orbit-research/CAPTURED_V_PARITY_2026-05-22_GI05.json (4 prompts × 3 seeds × 4 σ targets, both branches; rel_err=0.0 bit-identical)"
+  curriculum:
+    derived_from: "DEV-only audit"  # critique #7 dev-only curriculum
+    held_out_uses_uniform_sampling: true
+  kl_pre_registration:
+    max_kl_vs_ref: 5.0  # nats; abort threshold (trajectory-mean per-step KL); per FINAL_REVISION_CRITIC.md C8
+    final_kl_reported_in_main_table: true
+    adaptive_controller: false  # audit Fix #7 DROP — rescue patch only on training instability
+    calibration_experiments: false  # audit Fix #6 modify — no dedicated calibration runs
+  gate_v1_status:
+    frozen: true
+    binds: ["M1a", "R050"]
+    do_not_edit: true
+    historical_compatibility: "preserve provenance hash + sidecar matching"

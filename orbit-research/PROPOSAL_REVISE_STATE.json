@@ -1,0 +1,70 @@
+{
+  "skill": "proposal-revise",
+  "phase": "phase-4-summary",
+  "round": 3,
+  "status": "awaiting_human_continue",
+  "target": "both",
+  "critique_inventory": [
+    {
+      "id": "R3-1",
+      "raw_text": "ETV-pruning method -> ADSR restart/defer/continue + EVPD + 2 components",
+      "owning_stage": 5,
+      "addressed": "yes"
+    },
+    {
+      "id": "R3-2",
+      "raw_text": "new hypotheses H1-H6 (H2b presence/content, H3 restart>selection, H5 type-errors)",
+      "owning_stage": 4,
+      "addressed": "yes"
+    },
+    {
+      "id": "R3-3",
+      "raw_text": "new contributions C1-C6 (C2 ADSR, C3 EVPD, C5 lyric first-class)",
+      "owning_stage": 21,
+      "addressed": "yes"
+    },
+    {
+      "id": "R3-4",
+      "raw_text": "experiments E1-E9 + Phases 1-7",
+      "owning_stage": 16,
+      "addressed": "yes"
+    },
+    {
+      "id": "R3-5",
+      "raw_text": "ADSR baselines/controls (type-match restart, EVPD vs off-the-shelf, two-factor ablation)",
+      "owning_stage": 11,
+      "addressed": "yes"
+    },
+    {
+      "id": "R3-6",
+      "raw_text": "CLAUDE.md/AGENTS.md current-state reframed to ADSR",
+      "owning_stage": 21,
+      "addressed": "yes"
+    }
+  ],
+  "next_action": "human-must-confirm-adsr-reframe-then-call-/experiment-bridge",
+  "next_skill_hint": "/experiment-bridge OR /proposal-revise (index/secondary files, more rounds)",
+  "timestamp": "2026-06-04T07:30:00Z",
+  "artifact_inventory": [
+    "AGENTS.md",
+    "CLAUDE.md",
+    "orbit-research/ALGORITHMIC_FORMALIZATION.md",
+    "orbit-research/ASSUMPTION_LEDGER.md",
+    "orbit-research/COMPONENT_BUNDLE_LADDER.md",
+    "orbit-research/CONTROL_DESIGN.md",
+    "orbit-research/CURRENT_CANONICAL_FILES.md",
+    "orbit-research/DIAGNOSTIC_EXPERIMENT_PLAN.md",
+    "orbit-research/NULL_RESULT_CONTRACT.md",
+    "orbit-research/archive/etv_pre_adsr_20260604/",
+    "refine-logs/ADSR_REFRAME_BRIEF.md",
+    "refine-logs/EXPERIMENT_PLAN.md",
+    "refine-logs/EXPERIMENT_PLAN_EXEC.md",
+    "refine-logs/FINAL_PROPOSAL.md",
+    "refine-logs/FINAL_PROPOSAL_SHORT.md",
+    "refine-logs/METHOD_SPEC.md",
+    "refine-logs/REVISION_INTAKE_R3_adsr.md",
+    "refine-logs/REVISION_REPORT_R3_adsr.md"
+  ],
+  "codex_thread_id": "019e914d-fae1-74f2-a7f0-25425244775a",
+  "notes": "Round 3 = ETV->ADSR mechanism reframe (project's third framing). 8 canonical files reframed v4.0 via 8 drafting agents into staging, Codex-reviewed (4 must-fixes + outcome-presupposing residuals fixed), promoted. Evidence honesty: foundation kept, EVPD/restart/ADSR/vocal-presence-labels marked PLANNED-not-run. ETV-era archived. NOT reframed (flagged): EXPERIMENT_PLAN.md index, CURRENT_CANONICAL_FILES.md, other v1.3 ETV-addendum contracts. PI sign-off pending. [2026-06-04 follow-up: index files (EXPERIMENT_PLAN.md, CURRENT_CANONICAL_FILES.md) fully reframed to v4.0 ADSR; the 4 v1.3 contracts got 2026-06-04 ADSR Pivot Addenda superseding their ETV addenda (MLP dropped, evidence-honest). Whole canonical stack now ADSR-consistent.]"
+}
