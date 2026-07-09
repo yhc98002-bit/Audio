@@ -60,6 +60,7 @@ paper_prep/scripts/.dashscope_key
 *.tsv
 *.pid
 *.sha256
+*RUN_ROOT.txt
 
 # Large experiment outputs and model caches
 runs/
