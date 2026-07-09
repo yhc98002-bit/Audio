@@ -37,6 +37,11 @@ paper_prep/scripts/.dashscope_key
 *.m4a
 *.mp4
 *.mov
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.pdf
 *.pt
 *.pth
 *.ckpt
@@ -52,6 +57,9 @@ paper_prep/scripts/.dashscope_key
 *.arrow
 *.log
 *.jsonl
+*.tsv
+*.pid
+*.sha256
 
 # Large experiment outputs and model caches
 runs/
@@ -68,6 +76,31 @@ orbit-research/codex-imports/
 orbit-research/adsr_resume_coord/
 orbit-research/*listening*packet*/
 orbit-research/adsr_phase2_20260604/batch*/
+orbit-research/adsr_phase1_20260604/
+orbit-research/agent_tasks/
+orbit-research/canonical_backups_2026-05-23/
+orbit-research/codex-prompts/
+orbit-research/etv_lyricfix*/
+orbit-research/global_quality_structure_analysis_20260527/
+orbit-research/human_spotcheck_packet_20260528/
+orbit-research/phase_c1_completion_cpu_prep_20260525/
+orbit-research/phase_c1_training_dynamics_audit_20260526/
+orbit-research/prompt_set_audit_20260529/
+orbit-research/adsr_phase2_20260604/watch.pid
+orbit-research/adsr_phase2_20260604/paper_prep/sao/**/*.sh
+orbit-research/adsr_phase2_20260604/paper_prep/scripts/heartbeat*.sh
+orbit-research/adsr_phase2_20260604/paper_prep/storage_triage/DELETED_AUDIO_MANIFEST.csv
+orbit-research/adsr_phase2_20260604/paper_prep/storage_triage/DELETE_CANDIDATES.csv
+orbit-research/adsr_phase2_20260604/paper_prep/storage_triage/checksums/
+orbit-research/adsr_phase2_20260604/paper_prep/validation_A_prime/tar_extracted/
+orbit-research/adsr_phase2_20260604/phase0/rater_packet/
+orbit-research/adsr_phase2_20260604/phase3/human_ab/
+orbit-research/adsr_phase2_20260604/t2i/fig1_curated_examples/
+**/tar_extract_members_*.txt
+**/checksums/
+**/tar_extracted/
+**/rater_packet/
+**/human_ab/
 batch3/**/audio/
 batch3/**/media/
 batch3/**/outputs/
