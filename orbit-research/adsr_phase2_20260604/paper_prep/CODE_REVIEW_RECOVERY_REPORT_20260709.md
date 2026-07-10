@@ -8,8 +8,8 @@ REGENERATION_FIDELITY_STATUS = TODO
 evidence: TODO
 AMENDMENT_STATUS = TODO
 evidence: TODO
-BATCH3_REANALYSIS_STATUS = TODO
-evidence: TODO
+BATCH3_REANALYSIS_STATUS = PASS
+evidence: paper_prep/reanalysis_20260709/BATCH3_RESULTS_V2.json; paper_prep/reanalysis_20260709/BATCH3_RESULTS_V2.md; paper_prep/reanalysis_20260709/BATCH3_OLD_VS_V2_DIFF.csv; paper_prep/reanalysis_20260709/BATCH3_LEDGER_COMPLETENESS_REPORT.md; scripts/batch3_analyze_v2.py; tests/test_batch3_analyze_v2.py
 PUBLICATION_STATS_V2_STATUS = TODO
 evidence: TODO
 A_PRIME_PRIMARY_PACKAGE_STATUS = TODO
