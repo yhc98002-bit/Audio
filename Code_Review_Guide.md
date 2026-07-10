@@ -27,7 +27,7 @@ the P0 rows first; generated media and large ledgers are evidence, not source.
 | Priority | File | Decision or risk |
 |---:|---|---|
 | P0 | `paper_prep/CODE_REVIEW_RECOVERY_REPORT_20260709.md` | Current 16-status recovery contract and evidence links. |
-| P0 | `paper_prep/HUMAN_STUDY_CRITERIA_AMENDMENT_20260709.md` | Requires signature before ratings become gate evidence. |
+| P0 | `paper_prep/HUMAN_STUDY_CRITERIA_AMENDMENT_20260709.md` | Signed by Richard Ye in commit `41d130c`; verify the approved constructs before collecting ratings. |
 | P0 | `paper_prep/PLAN.md` | Claim-by-claim numbers, paths, audit status, and wording caps. No blocked claim may appear as supported. |
 | P0 | `paper_prep/model_identity/MODEL_IDENTITY_AUDIT_20260709.md` | Corrects frozen evidence from presumed v1.5 to verified ACE-Step v1. |
 | P1 | `paper_prep/GATE_B_SUPERSESSION_NOTE_20260709.md` | Explains how later audits refine Gate-B without rewriting it. |
