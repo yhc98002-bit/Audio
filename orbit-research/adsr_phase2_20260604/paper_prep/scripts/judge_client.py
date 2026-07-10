@@ -34,7 +34,7 @@ from pathlib import Path
 
 ENDPOINT = "https://dashscope.aliyuncs.com/compatible-mode/v1/chat/completions"
 MODEL = os.environ.get("DASHSCOPE_MODEL", "qwen3.5-omni-plus")
-ROOT = Path("/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion")
+ROOT = Path(os.environ.get("MPRM_REPO_ROOT", Path(__file__).resolve().parents[4])).resolve()
 JUDGE_RAW = ROOT / "orbit-research/adsr_phase2_20260604/paper_prep/judge_raw"
 
 import requests

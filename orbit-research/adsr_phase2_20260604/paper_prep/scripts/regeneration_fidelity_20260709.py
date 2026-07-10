@@ -21,8 +21,10 @@ from typing import Iterable
 
 import numpy as np
 
+from mprm.common.thresholds import VOCAL_PRESENCE_THRESHOLD
 
-DEMUCS_THRESHOLD = 0.1791
+
+DEMUCS_THRESHOLD = VOCAL_PRESENCE_THRESHOLD
 CONTROL_COUNT = 50
 CONTROL_SELECTION_SEED = 20260709
 PATH_PATTERN = re.compile(r"candidate_(\d+)_seed(\d+)\.(?:wav|flac)$")

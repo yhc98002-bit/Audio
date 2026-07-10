@@ -10,13 +10,14 @@ Usage: python panns_score_files.py IN.csv OUT.jsonl [--device cuda]
 import argparse
 import csv
 import json
+import os
 import sys
 import time
 from pathlib import Path
 
 import numpy as np
 
-REPO = Path("/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion")
+REPO = Path(os.environ.get("MPRM_REPO_ROOT", Path(__file__).resolve().parents[4])).resolve()
 VOCAL_CLASSES = ["Singing", "Speech", "Male singing", "Female singing", "Child singing",
                  "Choir", "Rapping", "Human voice", "Vocal music", "A capella"]
 

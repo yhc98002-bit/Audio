@@ -15,9 +15,10 @@ import os, sys
 
 REPO = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO))
+from mprm.common.thresholds import VOCAL_PRESENCE_THRESHOLD
 P0 = REPO / "orbit-research/adsr_phase2_20260604/phase0/respawn_screen"
 B3 = REPO / "orbit-research/adsr_phase2_20260604/batch3"
-THR = 0.1791
+THR = VOCAL_PRESENCE_THRESHOLD
 
 # import by real module name so ProcessPoolExecutor children can re-import (picklable)
 sys.path.insert(0, str(REPO / "scripts"))

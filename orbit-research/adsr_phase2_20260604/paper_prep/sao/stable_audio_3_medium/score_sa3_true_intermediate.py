@@ -23,7 +23,9 @@ def find_repo_root(path: Path) -> Path:
 
 ROOT = find_repo_root(Path(__file__).resolve())
 sys.path.insert(0, str(ROOT))
-THRESHOLD = 0.1791
+from mprm.common.thresholds import VOCAL_PRESENCE_THRESHOLD
+
+THRESHOLD = VOCAL_PRESENCE_THRESHOLD
 
 
 def read_jsonl(path: Path) -> list[dict]:

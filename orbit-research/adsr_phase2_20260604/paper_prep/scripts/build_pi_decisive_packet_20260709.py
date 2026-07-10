@@ -12,9 +12,11 @@ import random
 import shutil
 from pathlib import Path
 
+from mprm.common.thresholds import VOCAL_PRESENCE_THRESHOLD
+
 
 SHUFFLE_SEED = 20260709
-THRESHOLD = 0.1791
+THRESHOLD = VOCAL_PRESENCE_THRESHOLD
 
 
 def find_root(path: Path) -> Path:

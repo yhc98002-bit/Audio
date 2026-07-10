@@ -1,4 +1,4 @@
-# Current Canonical Files (ADSR Gate-B authorized state, 2026-07-06)
+# Current Canonical Files (ADSR publication recovery state, 2026-07-09)
 
 This index is the current reading path for the project. Files not listed here are
 either raw evidence, archived history, package snapshots, or intermediate agent
@@ -27,13 +27,22 @@ Current scientific state:
   claim chain, process-integrity notes, scope caveats, and deliverables index.
 - **Retry / robustness work:** logs and compact artifacts live under
   `batch3/exploratory_auto/20260620_regime_atlas_autopilot_v3/`.
-- **Operational node split:** `an12` runs Stage 3 generation; `an29` runs Stage 4
-  second-model work. `an17` is no longer allocated and must not be targeted.
+- **Backbone identity:** frozen Batch 1/2/3, Stage 3, N2, and ATLAS evidence is
+  ACE-Step v1. The misleading adapter logical name is not evidence of v1.5.
+- **Publication recovery:** Stage 3, N2, Batch-3 reanalysis v2, publication
+  statistics v2, and the SA3 pilot are complete. A-prime and B-prime remain
+  unrated human gates. The bounded ACE-Step v1.5 replication is tracked under
+  `paper_prep/v15_replication_20260709/`.
+- **Operational node split:** `an12` runs ACE-Step v1.5 replication; `an29`
+  runs ADSR detector/calibration and SA3 follow-up. `an17` is not allocated.
 
 ## 1. Start Here
 
 | File | Role |
 |---|---|
+| `orbit-research/adsr_phase2_20260604/paper_prep/CODE_REVIEW_RECOVERY_REPORT_20260709.md` | **Current publication/code-review recovery status contract.** |
+| `orbit-research/adsr_phase2_20260604/paper_prep/GATE_B_SUPERSESSION_NOTE_20260709.md` | Explains which later audits refine Gate-B without rewriting frozen evidence. |
+| `Code_Review_Guide.md` | Concise source and evidence review path. |
 | `orbit-research/adsr_phase2_20260604/GATE_B_FINAL_REPORT.md` | **Authoritative current results index for the PI-authorized June ADSR program.** |
 | `batch3/exploratory_auto/20260620_regime_atlas_autopilot_v3/` | Retry-study logs and compact artifacts for the current robustness line. |
 | `experiment_plan_current.md` | Current execution plan following Gate-B authorization. |

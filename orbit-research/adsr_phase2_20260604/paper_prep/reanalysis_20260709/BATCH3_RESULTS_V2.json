@@ -97,6 +97,43 @@
       "wall_gpu_hours": 2.2435861111111097
     }
   },
+  "near_silent_by_arm": {
+    "arm1": {
+      "completed_rows": 2560,
+      "near_silent_rate": 0.0,
+      "near_silent_rows": 0
+    },
+    "arm2": {
+      "completed_rows": 2078,
+      "near_silent_rate": 0.0,
+      "near_silent_rows": 0
+    },
+    "arm3": {
+      "completed_rows": 2095,
+      "near_silent_rate": 0.0,
+      "near_silent_rows": 0
+    },
+    "arm4": {
+      "completed_rows": 2189,
+      "near_silent_rate": 0.0,
+      "near_silent_rows": 0
+    },
+    "arm6": {
+      "completed_rows": 2328,
+      "near_silent_rate": 0.0,
+      "near_silent_rows": 0
+    },
+    "arm7": {
+      "completed_rows": 4096,
+      "near_silent_rate": 0.0,
+      "near_silent_rows": 0
+    },
+    "arm8": {
+      "completed_rows": 2048,
+      "near_silent_rate": 0.0,
+      "near_silent_rows": 0
+    }
+  },
   "primary": {
     "by_direction": {
       "instrumental": {

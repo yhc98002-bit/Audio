@@ -12,8 +12,10 @@ import random
 import shutil
 from pathlib import Path
 
+from mprm.common.thresholds import VOCAL_PRESENCE_THRESHOLD
 
-THRESHOLD = 0.1791
+
+THRESHOLD = VOCAL_PRESENCE_THRESHOLD
 SELECTION_SEED = 20260709
 LABEL_A = (
     "Do you hear any sound a reasonable listener would perceive as a human voice or vocalization? "

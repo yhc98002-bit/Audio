@@ -13,8 +13,10 @@ import math
 from collections import Counter, defaultdict
 from pathlib import Path
 
+from mprm.common.thresholds import VOCAL_PRESENCE_THRESHOLD
 
-THR = 0.1791
+
+THR = VOCAL_PRESENCE_THRESHOLD
 
 
 def load_jsonl(path: Path):

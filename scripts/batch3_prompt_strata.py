@@ -12,12 +12,14 @@ import glob, json
 from collections import defaultdict
 from pathlib import Path
 
+from mprm.common.thresholds import VOCAL_PRESENCE_THRESHOLD
+
 REPO = Path(__file__).resolve().parent.parent
 MERGED = REPO / "runs/adsr_recollect_20260604_full01_merged"
 RAW = REPO / "orbit-research/adsr_phase2_20260604/vocal_presence_raw.jsonl"
 MASTER = REPO / "orbit-research/EARLY_TWEEDIE_VALIDATION_512_PROMPTS.json"
 P2 = REPO / "orbit-research/adsr_phase2_20260604"
-THR = 0.179
+THR = VOCAL_PRESENCE_THRESHOLD
 TARGET = 192   # if cheap; will be trimmed to >=128 across strata
 
 

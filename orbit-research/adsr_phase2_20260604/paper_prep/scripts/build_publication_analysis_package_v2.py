@@ -17,12 +17,14 @@ from typing import Iterable, Sequence
 
 import numpy as np
 
+from mprm.common.thresholds import VOCAL_PRESENCE_THRESHOLD
+
 
 BOOTSTRAP_REPS = 10_000
 BOOTSTRAP_SEED = 20260709
 DEPLOYMENT_N = (4, 5, 8, 16)
 DRAW_BOUNDS = (16, 128, 1024)
-THRESHOLD = 0.1791
+THRESHOLD = VOCAL_PRESENCE_THRESHOLD
 REGIMES = (
     "rare_le_1_in_16",
     "low_1_in_16_to_1_in_4",

@@ -6,6 +6,7 @@ from __future__ import annotations
 import csv
 import json
 import math
+import os
 from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont
@@ -14,7 +15,7 @@ from reportlab.lib.pagesizes import letter
 from reportlab.pdfgen import canvas
 
 
-ROOT = Path("/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion")
+ROOT = Path(os.environ.get("MPRM_REPO_ROOT", Path(__file__).resolve().parents[4])).resolve()
 PAPER = ROOT / "orbit-research/adsr_phase2_20260604/paper_prep"
 EXEC = PAPER / "execution_20260707"
 STAGE3 = PAPER / "stage3_intervention_20260707"
@@ -391,4 +392,3 @@ Prompt-level CSV: `paper_prep/population_retry_20260707/full128_prompt_clean_rat
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

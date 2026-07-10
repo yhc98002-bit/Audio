@@ -8,10 +8,12 @@ import csv
 import json
 from collections import Counter, defaultdict
 from pathlib import Path
+
+from mprm.common.thresholds import VOCAL_PRESENCE_THRESHOLD
 from typing import Iterable
 
 
-DEMUCS_THRESHOLD = 0.1791
+DEMUCS_THRESHOLD = VOCAL_PRESENCE_THRESHOLD
 PANNS_THRESHOLD = 0.0654
 
 

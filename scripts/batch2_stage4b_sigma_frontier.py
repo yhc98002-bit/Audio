@@ -11,11 +11,13 @@ import glob, json, statistics
 from collections import defaultdict
 from pathlib import Path
 
+from mprm.common.thresholds import VOCAL_PRESENCE_THRESHOLD
+
 REPO = Path(__file__).resolve().parent.parent
 MERGED = REPO / "runs/adsr_recollect_20260604_full01_merged"
 RAW = REPO / "orbit-research/adsr_phase2_20260604/vocal_presence_raw.jsonl"
 P2 = REPO / "orbit-research/adsr_phase2_20260604"
-THR_LABEL = 0.179
+THR_LABEL = VOCAL_PRESENCE_THRESHOLD
 STEPS = {"0.9": 7.0, "0.8": 12.0, "0.7": 16.0}
 FULL = 30.0
 K = 4

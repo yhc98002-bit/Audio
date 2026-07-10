@@ -281,6 +281,28 @@ def cost_summary(attempts: dict, arm: int) -> dict:
     }
 
 
+def near_silent_summary(attempts: dict) -> dict[str, dict[str, float | int]]:
+    output = {}
+    for arm in ARMS:
+        completed = [
+            row
+            for (_prompt, candidate_arm, _rep), rows in attempts.items()
+            if candidate_arm == arm
+            for row in rows
+            if row.get("completed") is True
+        ]
+        missing = sum("near_silent" not in row for row in completed)
+        if missing:
+            raise ValueError(f"arm {arm} has {missing} completed rows without near_silent")
+        count = sum(row["near_silent"] is True for row in completed)
+        output[f"arm{arm}"] = {
+            "completed_rows": len(completed),
+            "near_silent_rows": count,
+            "near_silent_rate": count / len(completed) if completed else math.nan,
+        }
+    return output
+
+
 def analyze(attempts: dict, prompt_index: dict, tail_ids: set[str]) -> dict:
     rng = np.random.RandomState(20260612)
 
@@ -346,6 +368,7 @@ def analyze(attempts: dict, prompt_index: dict, tail_ids: set[str]) -> dict:
     curves = {f"arm{arm}": yield_curve(attempts, arm, weights) for arm in ARMS}
     curves["arm5"] = dict(curves["arm4"])
     costs = {f"arm{arm}": cost_summary(attempts, arm) for arm in ARMS}
+    near_silent = near_silent_summary(attempts)
     margins = {}
     for axis, limit in (("final_common_robust_lcb", -0.015), ("final_semantic_fit", -0.015), ("final_aesthetic_pq", -0.02), ("final_lyric_intelligibility", -0.02)):
         value = selected_summaries["arm6"]["axes"][axis]["unweighted_mean"] - selected_summaries["arm1"]["axes"][axis]["unweighted_mean"]
@@ -357,6 +380,7 @@ def analyze(attempts: dict, prompt_index: dict, tail_ids: set[str]) -> dict:
         "selected": selected_summaries,
         "yield_vs_compute": curves,
         "cost_accounting": costs,
+        "near_silent_by_arm": near_silent,
         "selected_axis_margins_arm6_minus_arm1": margins,
         "verdict": verdict,
     }
@@ -390,6 +414,10 @@ def write_outputs(out_dir: Path, result: dict, diff_rows: list[dict], completene
         writer.writeheader()
         writer.writerows(diff_rows)
     secondary = result["secondary"]
+    near_silent_rows = "\n".join(
+        f"| {arm} | {values['near_silent_rows']} | {values['completed_rows']} | {values['near_silent_rate']:.6f} |"
+        for arm, values in result["near_silent_by_arm"].items()
+    )
     report = f"""# Batch-3 Results V2
 
 `BATCH3_REANALYSIS_STATUS = {status}`
@@ -418,6 +446,16 @@ neither reading changes the gate.
   candidates without adding generation cost.
 - Population weights are joined by prompt ID. Weighted and unweighted selected
   summaries are both retained in the JSON.
+
+## Near-Silent Audit
+
+`near_silent` is defined by the generation worker as mixture RMS `< 1e-3`
+before the vocal-presence threshold is applied. Rates below use completed
+candidate rows; aborted trajectories have no decoded waveform and are excluded.
+
+| Arm | Near-silent | Completed | Rate |
+|---|---:|---:|---:|
+{near_silent_rows}
 """
     (out_dir / "BATCH3_RESULTS_V2.md").write_text(report, encoding="utf-8")
     completeness_text = "# Batch-3 Ledger Completeness Report\n\n" + "\n".join(f"- {key}: {value}" for key, value in completeness.items()) + "\n"

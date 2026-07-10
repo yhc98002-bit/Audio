@@ -17,13 +17,15 @@ import time
 from pathlib import Path
 
 
-REPO = Path("/HOME/paratera_xy/pxy1289/HDD_POOL/HaocunYe/Research/AudioDiffusion")
+REPO = Path(os.environ.get("MPRM_REPO_ROOT", Path(__file__).resolve().parents[4])).resolve()
 sys.path.insert(0, str(REPO))
 sys.path.insert(0, str(REPO / "scripts"))
 sys.path.insert(0, str(REPO / "src"))
 
+from mprm.common.thresholds import VOCAL_PRESENCE_THRESHOLD
+
 NEW_SEED_BASE = 2030000000
-THR = 0.1791
+THR = VOCAL_PRESENCE_THRESHOLD
 BASE_EXTRAS = {
     "cfg_type": "apg",
     "guidance_interval": 0.5,

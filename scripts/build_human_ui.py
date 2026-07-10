@@ -22,6 +22,8 @@ from __future__ import annotations
 import argparse, csv, json, os
 from pathlib import Path
 
+from mprm.common.thresholds import VOCAL_PRESENCE_THRESHOLD
+
 REPO = Path(__file__).resolve().parent.parent
 B3 = REPO / "orbit-research/adsr_phase2_20260604"
 AB = B3 / "phase3/human_ab"
@@ -341,7 +343,7 @@ def build_ab(package: bool, reduced: bool = False):
 
 def _detector_disagreements():
     """case_ids where Demucs and PANNs disagree on vocal presence (highest human value)."""
-    THR, PT = 0.1791, 0.0654
+    THR, PT = VOCAL_PRESENCE_THRESHOLD, 0.0654
     lab = {}
     for l in open(B3 / "vocal_presence_raw.jsonl"):
         d = json.loads(l)

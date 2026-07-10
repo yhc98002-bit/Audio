@@ -5,11 +5,12 @@ from __future__ import annotations
 
 import csv
 import json
+import os
 import random
 from pathlib import Path
 
 
-ROOT = Path("/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion")
+ROOT = Path(os.environ.get("MPRM_REPO_ROOT", Path(__file__).resolve().parents[4])).resolve()
 PAPER = ROOT / "paper_prep"
 A_OUT = PAPER / "validation_A_prime/A_PRIME_MANIFEST.csv"
 B_OUT = PAPER / "validation_B_prime/B_PRIME_MANIFEST.csv"

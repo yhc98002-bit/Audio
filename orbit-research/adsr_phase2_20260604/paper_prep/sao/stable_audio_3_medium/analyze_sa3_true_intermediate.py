@@ -9,8 +9,10 @@ import math
 from collections import defaultdict
 from pathlib import Path
 
+from mprm.common.thresholds import VOCAL_PRESENCE_THRESHOLD
 
-THRESHOLD = 0.1791
+
+THRESHOLD = VOCAL_PRESENCE_THRESHOLD
 
 
 def read_jsonl(path: Path) -> list[dict]:

@@ -11,7 +11,9 @@ import os
 import time
 from pathlib import Path
 
-THR = 0.1791
+from mprm.common.thresholds import VOCAL_PRESENCE_THRESHOLD
+
+THR = VOCAL_PRESENCE_THRESHOLD
 
 _MODEL = None
 

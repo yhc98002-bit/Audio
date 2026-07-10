@@ -5,10 +5,11 @@ from __future__ import annotations
 
 import csv
 import json
+import os
 from pathlib import Path
 
 
-ROOT = Path("/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion")
+ROOT = Path(os.environ.get("MPRM_REPO_ROOT", Path(__file__).resolve().parents[4])).resolve()
 PAPER = ROOT / "paper_prep"
 IN_MANIFEST = PAPER / "storage_triage/A_PRIME_500_JUDGE_SAMPLE/manifest_enriched.csv"
 PROMPTS = ROOT / "configs/prompts/held_out.jsonl"

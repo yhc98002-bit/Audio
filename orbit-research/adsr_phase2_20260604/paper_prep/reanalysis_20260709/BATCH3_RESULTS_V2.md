@@ -26,3 +26,19 @@ neither reading changes the gate.
   candidates without adding generation cost.
 - Population weights are joined by prompt ID. Weighted and unweighted selected
   summaries are both retained in the JSON.
+
+## Near-Silent Audit
+
+`near_silent` is defined by the generation worker as mixture RMS `< 1e-3`
+before the vocal-presence threshold is applied. Rates below use completed
+candidate rows; aborted trajectories have no decoded waveform and are excluded.
+
+| Arm | Near-silent | Completed | Rate |
+|---|---:|---:|---:|
+| arm1 | 0 | 2560 | 0.000000 |
+| arm2 | 0 | 2078 | 0.000000 |
+| arm3 | 0 | 2095 | 0.000000 |
+| arm4 | 0 | 2189 | 0.000000 |
+| arm6 | 0 | 2328 | 0.000000 |
+| arm7 | 0 | 4096 | 0.000000 |
+| arm8 | 0 | 2048 | 0.000000 |

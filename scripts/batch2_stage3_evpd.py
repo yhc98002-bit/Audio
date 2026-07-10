@@ -15,6 +15,8 @@ from collections import defaultdict
 from pathlib import Path
 import numpy as np
 
+from mprm.common.thresholds import VOCAL_PRESENCE_THRESHOLD
+
 REPO = Path(__file__).resolve().parent.parent
 MERGED = REPO / "runs/adsr_recollect_20260604_full01_merged"
 RAW = REPO / "orbit-research/adsr_phase2_20260604/vocal_presence_raw.jsonl"
@@ -22,7 +24,7 @@ MELDIR = REPO / "orbit-research/adsr_phase2_20260604/mel"
 P2 = REPO / "orbit-research/adsr_phase2_20260604"
 CACHE = P2 / "batch2" / "evpd_feature_cache.npz"
 SIGMAS = ["0.9", "0.8", "0.7"]
-THR_LABEL = 0.179            # Demucs vocal-presence label cutoff (Stage 1)
+THR_LABEL = VOCAL_PRESENCE_THRESHOLD
 TPOOL = 128                  # adaptive time-pool width for CNN
 SCALAR_KEYS = ["aesthetic_pq", "section_coherence", "probe_silence_fraction", "common_robust_lcb"]
 

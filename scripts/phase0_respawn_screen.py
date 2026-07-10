@@ -22,10 +22,11 @@ from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO))
+from mprm.common.thresholds import VOCAL_PRESENCE_THRESHOLD
 P0 = REPO / "orbit-research/adsr_phase2_20260604/phase0/respawn_screen"
 MERGED = REPO / "runs/adsr_recollect_20260604_full01_merged"
 RAW = REPO / "orbit-research/adsr_phase2_20260604/vocal_presence_raw.jsonl"
-THR = 0.1791
+THR = VOCAL_PRESENCE_THRESHOLD
 SEED_BASE = 2026061000   # fresh base — deliberately disjoint from canonical 2026052700
 N_PER_DIR = 10
 SEEDS_PER_COND = 4

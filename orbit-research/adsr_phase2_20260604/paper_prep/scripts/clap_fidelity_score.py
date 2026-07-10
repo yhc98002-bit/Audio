@@ -21,7 +21,7 @@ from mprm.data.prompts import Prompt, load_prompts
 from mprm.rewards.clap import ClapReward
 
 
-ROOT = Path("/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion")
+ROOT = Path(os.environ.get("MPRM_REPO_ROOT", Path(__file__).resolve().parents[4])).resolve()
 PAPER = ROOT / "orbit-research/adsr_phase2_20260604/paper_prep"
 SOURCE_MANIFEST = PAPER / "storage_triage/CLAP_FIDELITY_INPUT_MANIFEST.csv"
 PROMPTS = ROOT / "configs/prompts/held_out.jsonl"
@@ -272,4 +272,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     sys.exit(main())
-

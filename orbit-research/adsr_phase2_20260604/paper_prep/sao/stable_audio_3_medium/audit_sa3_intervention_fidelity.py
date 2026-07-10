@@ -15,10 +15,12 @@ import sys
 from collections import defaultdict
 from pathlib import Path
 
+from mprm.common.thresholds import VOCAL_PRESENCE_THRESHOLD
+
 import numpy as np
 
 
-THRESHOLD = 0.1791
+THRESHOLD = VOCAL_PRESENCE_THRESHOLD
 BOOTSTRAP_SEED = 20260709
 
 

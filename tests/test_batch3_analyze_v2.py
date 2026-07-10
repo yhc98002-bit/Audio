@@ -29,3 +29,23 @@ def test_expected_cells_include_only_tail_rep2_for_arms4_and6():
     assert len(keys) == 2 * len(module.ARMS) * 2 + 2
     assert ("b", 4, 2) in keys and ("b", 6, 2) in keys
     assert ("a", 4, 2) not in keys and ("b", 1, 2) not in keys
+
+
+def test_near_silent_summary_is_per_arm_and_requires_field():
+    attempts = {
+        ("p", arm, 0): [
+            {"completed": True, "near_silent": arm == 1},
+            {"completed": False},
+        ]
+        for arm in module.ARMS
+    }
+    summary = module.near_silent_summary(attempts)
+    assert summary["arm1"] == {
+        "completed_rows": 1,
+        "near_silent_rows": 1,
+        "near_silent_rate": 1.0,
+    }
+    assert summary["arm2"]["near_silent_rate"] == 0.0
+    attempts[("p", 1, 0)][0].pop("near_silent")
+    with pytest.raises(ValueError, match="without near_silent"):
+        module.near_silent_summary(attempts)

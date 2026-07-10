@@ -29,6 +29,8 @@ from collections import defaultdict
 from pathlib import Path
 import numpy as np
 
+from mprm.common.thresholds import is_vocal_present
+
 REPO = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO))
 B3 = REPO / "orbit-research/adsr_phase2_20260604/batch3"
@@ -41,6 +43,16 @@ ARM3_THR = 1.4667           # dev Q40 of early-0.8 common (DEV_CALIBRATIONS.json
 BUDGETS = {1: 168, 2: 168, 3: 168, 4: 168, 6: 168, 7: 240, 8: 120,
            9: 168}  # arm 9 = probe-on-evidence (Phase-2 offline winner, confirmatory run)
 ARM_ORDER = [4, 6, 3, 1, 7, 8, 2]   # arm 2 last: yoked to arm 4's abort count
+
+
+def _validate_only_arm(only_arm: int | None) -> None:
+    if only_arm is not None and only_arm not in BUDGETS:
+        raise ValueError(f"unknown --only-arm {only_arm}; expected one of {sorted(BUDGETS)}")
+    if only_arm == 2:
+        raise ValueError(
+            "--only-arm 2 is invalid: random-restart is yoked to the matching "
+            "arm-4 abort count, which is unavailable in a standalone arm-2 run"
+        )
 
 
 def mel_summary(audio_np, sr=48000):
@@ -96,6 +108,7 @@ def main():
     ap.add_argument("--prompts-file", default=None,
                     help="override prompt subset (jsonl, same schema)")
     args = ap.parse_args()
+    _validate_only_arm(args.only_arm)
 
     import joblib, torch
     from mprm.common.config import load_config
@@ -331,7 +344,7 @@ def main():
                         save_audio(wav, res.waveform, res.sample_rate)
                         t0 = time.time()
                         ratio, near_sil = gate.ratio(res.waveform, res.sample_rate)
-                        present = int((ratio >= 0.1791) and not near_sil)
+                        present = int(is_vocal_present(ratio, near_sil))
                         scores = _score_common_metrics(reward_models=reward_models,
                                                        waveform=res.waveform,
                                                        sample_rate=res.sample_rate,
