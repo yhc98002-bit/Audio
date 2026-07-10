@@ -7,6 +7,7 @@ import argparse
 import csv
 import hashlib
 import json
+import os
 from collections import Counter, defaultdict
 from pathlib import Path
 
@@ -212,7 +213,12 @@ def write_csv(path: Path, rows: list[dict]) -> None:
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--paper-prep", type=Path, default=Path("paper_prep"))
-    parser.add_argument("--external-root", type=Path, default=Path("/HOME/paratera_xy/pxy1289/ADSR_T9_20260709"))
+    parser.add_argument(
+        "--external-root",
+        type=Path,
+        default=Path(os.environ.get("ADSR_V15_EXTERNAL_ROOT", "ADSR_T9_20260709")),
+        help="Bulk retry/intervention audio root (or set ADSR_V15_EXTERNAL_ROOT).",
+    )
     parser.add_argument("--skip-audio-hashes", action="store_true")
     args = parser.parse_args()
     base = args.paper_prep / "v15_replication_20260709"

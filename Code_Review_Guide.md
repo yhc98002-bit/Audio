@@ -16,9 +16,10 @@ the P0 rows first; generated media and large ledgers are evidence, not source.
 | P0 | `paper_prep/scripts/build_publication_analysis_package_v2.py` | Produces deployment success, expected-draw bounds, prompt-bootstrap CIs, N2 membership uncertainty, and Figure 2 without mutating old figures. |
 | P0 | `paper_prep/scripts/validation_gate_v2.py` | Shared fail-closed ID/cardinality/abstention checks used by both human gates. |
 | P0 | `paper_prep/validation_A_prime/score_human_A_prime.py` and `validation_B_prime/score_human_B_prime.py` | Enforce exact admin/rating joins and compute the amended A-prime and pair-level B-prime gates. Blank templates must remain `AWAITING_RATINGS`. |
+| P0 | `paper_prep/scripts/build_selfhost_pi_gold_smoke.py`, `run_selfhost_audio_judge.py`, and `judge_selfhost_20260709/launch_vllm_an29.sh` | Build a balanced smoke only from high-confidence PI labels, serve a complete local Qwen3-Omni snapshot, log deterministic raw calls, and compute held-out calibration metrics. Review the fail-closed PI provenance, snapshot, duplicate-ID, parser, and abstention checks. This judge can scale human labels only after calibration; it is never ground truth. |
 | P0 | `paper_prep/scripts/regeneration_fidelity_20260709.py` | Replays 50 ACE-Step v1 controls, hashes decoded waveforms, pins detector/CLAP randomness, and keeps regenerated media sensitivity-only by default. |
 | P1 | `paper_prep/scripts/judge_client.py` | Logs deterministic raw judge requests/responses, audio format, model metadata, and parser output without writing credentials. It is not a validated ground-truth source. |
-| P1 | `paper_prep/scripts/run_v15_replication.py` | Uses official ACE-Step 1.5 source/model paths, deterministic manifests, sharded append-only generation, decode/non-silence checks, and exact provenance. |
+| P1 | `paper_prep/scripts/build_v15_replication_manifests.py`, `run_v15_replication.py`, `score_v15_replication.py`, `analyze_v15_replication.py`, and `audit_v15_replication.py` | Use the pinned official ACE-Step 1.5 source/model, build deterministic manifests, preserve failed attempts, score canonical labels, compute bounded prevalence/retry/intervention results, and require exactly one successful row per key plus matching audio hashes. |
 | P1 | `src/mprm/common/thresholds.py`, `provenance.py`, `run_ledger.py` | Centralize the 0.1791 detector rule and preserve config, Git, and model hashes across start/final/fail ledger events. |
 
 ## Markdown Requiring PI Attention
@@ -30,7 +31,8 @@ the P0 rows first; generated media and large ledgers are evidence, not source.
 | P0 | `paper_prep/PLAN.md` | Claim-by-claim numbers, paths, audit status, and wording caps. No blocked claim may appear as supported. |
 | P0 | `paper_prep/model_identity/MODEL_IDENTITY_AUDIT_20260709.md` | Corrects frozen evidence from presumed v1.5 to verified ACE-Step v1. |
 | P1 | `paper_prep/GATE_B_SUPERSESSION_NOTE_20260709.md` | Explains how later audits refine Gate-B without rewriting it. |
-| P1 | `paper_prep/v15_replication_20260709/V15_ENV_MODEL_PROVENANCE.md` | Source revision, ModelScope model, environment, and replication status. |
+| P1 | `paper_prep/v15_replication_20260709/V15_FINAL_REPLICATION_REPORT.md` | Bounded v1.5 replication numbers and the boundary that keeps them separate from frozen ACE-Step v1 evidence. |
+| P1 | `paper_prep/judge_selfhost_20260709/SELFHOST_JUDGE_REPORT.md` | Qwen3-Omni model/runtime provenance, infrastructure smoke, calibration state, and the exact reason no judge-derived claim is allowed before PI gold exists. |
 
 ## Review Questions
 

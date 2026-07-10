@@ -16,63 +16,112 @@ A_PRIME_PRIMARY_PACKAGE_STATUS = ORIGINAL_ONLY_PI_READY
 evidence: paper_prep/validation_A_prime/primary_package_20260709/README.md; paper_prep/validation_A_prime/primary_package_20260709/A_PRIME_PRIMARY_ADMIN.csv; paper_prep/validation_A_prime/A_PRIME_HUMAN_GATE_REPORT_20260709.md; paper_prep/validation_A_prime/score_human_A_prime.py
 B_PRIME_PI_PACKAGE_STATUS = READY
 evidence: paper_prep/validation_B_prime/pi_package_20260709/README.md; paper_prep/validation_B_prime/pi_package_20260709/B_PRIME_ORDERED_ADMIN.csv; paper_prep/validation_B_prime/B_PRIME_HUMAN_GATE_REPORT_20260709.md; paper_prep/validation_B_prime/score_human_B_prime.py
-JUDGE_VALIDATION_STATUS = TODO
-evidence: TODO
+JUDGE_VALIDATION_STATUS = PI_BLOCKED
+evidence: paper_prep/judge_selfhost_20260709/SELFHOST_JUDGE_REPORT.md; paper_prep/judge_selfhost_20260709/SELFHOST_INFRASTRUCTURE_SUMMARY.json; paper_prep/judge_raw/selfhost_qwen3_omni_infrastructure_20260710.jsonl; tests/test_selfhost_audio_judge.py
 SA3_INTERMEDIATE_STATUS = TRUE_INTERMEDIATE_COMPLETE
 evidence: src/mprm/inference/sa3.py; paper_prep/sao/stable_audio_3_medium/true_intermediate/SA3_INTERMEDIATE_REPORT.md; paper_prep/sao/stable_audio_3_medium/true_intermediate/SA3_INTERMEDIATE_LEDGER.jsonl; paper_prep/sao/stable_audio_3_medium/true_intermediate/SA3_INTERMEDIATE_METRICS.csv; tests/test_sa3_true_intermediate.py; tests/test_sa3_intermediate_analysis.py
 SA3_LABEL_CALIBRATION_STATUS = PACKAGE_READY
 evidence: paper_prep/sao/stable_audio_3_medium/label_calibration/SA3_LABEL_CALIBRATION_REPORT.md; paper_prep/sao/stable_audio_3_medium/label_calibration/SA3_LABEL_CALIBRATION_ADMIN.csv; paper_prep/sao/stable_audio_3_medium/score_sa3_label_calibration.py; paper_prep/sao/stable_audio_3_medium/intervention_fidelity/SA3_INTERVENTION_FIDELITY_REPORT.md; tests/test_sa3_label_calibration.py; tests/test_sa3_intervention_fidelity.py
-V15_REPLICATION_STATUS = TODO
-evidence: TODO
-TEST_SUITE_STATUS = TODO
-evidence: TODO
-P0_OPEN_COUNT = TODO
-evidence: TODO
-FULL_DRAFT_STATUS = TODO
-evidence: TODO
-REDUCED_DRAFT_STATUS = TODO
-evidence: TODO
+V15_REPLICATION_STATUS = COMPLETE
+evidence: paper_prep/v15_replication_20260709/V15_FINAL_REPLICATION_REPORT.md; paper_prep/v15_replication_20260709/V15_ATTEMPT_AUDIT.csv; paper_prep/v15_replication_20260709/V15_AUDIO_MANIFEST.csv; paper_prep/scripts/audit_v15_replication.py; tests/test_v15_replication.py
+TEST_SUITE_STATUS = PASS
+evidence: paper_prep/execution_20260709/logs/full_pytest_final.log; tests/
+P0_OPEN_COUNT = 0
+evidence: paper_prep/execution_20260709/CODE_REVIEW_RECOVERY_LEDGER.jsonl; paper_prep/TODO_COMPLIANCE_20260709.md; this report
+FULL_DRAFT_STATUS = NOT_READY
+evidence: paper_prep/validation_A_prime/A_PRIME_HUMAN_GATE_REPORT_20260709.md; paper_prep/validation_B_prime/B_PRIME_HUMAN_GATE_REPORT_20260709.md; paper_prep/judge_selfhost_20260709/SELFHOST_JUDGE_REPORT.md
+REDUCED_DRAFT_STATUS = READY_WITH_REDUCED_CLAIMS
+evidence: paper_prep/PLAN.md; paper_prep/TODO_COMPLIANCE_20260709.md; paper_prep/model_identity/MODEL_IDENTITY_AUDIT_20260709.md
 
 ## Headline Number Changes
 
-- T5: Batch-3 old-v2 headline differences are below 0.00005; both frozen
-  interval readings support the tail-rescue endpoint.
-- T6: all shared per-try old-v2 differences are below 0.000001. The legacy
-  `1/mean(p)` quantity is retired and replaced by prompt-averaged deployment
-  success at N={4,5,8,16}; this is an estimand correction, not a changed result.
-- T2: 50/50 replay controls are bit-identical after decoding. Paired,
-  deterministic rescoring gives zero Demucs label flips, mean absolute Demucs
-  ratio delta 0.000000, and mean/minimum CLAP audio cosine 1.000000. WAV
-  container hashes differ because metadata/container bytes are not the decoded
-  waveform identity criterion.
+| Topic | Earlier package | Recovered package | Consequence |
+|---|---|---|---|
+| Frozen backbone identity | Described as ACE-Step v1.5 | Recovered import/checkpoint provenance identifies ACE-Step v1 | All frozen primary claims are relabeled v1; v1.5 evidence is separate. |
+| Batch-3 reanalysis | Historical rounded report | Maximum old-v2 headline difference below 0.00005; no gate flip | Numerical claim retained with a reproducible fail-closed analyzer. |
+| Efficiency estimand | `1/mean(p)` labeled expected draws | Deployment success `S_N`; at N=4 vocal baseline 0.291566 vs V3 0.988660 | Retires the invalid estimand and keeps the difficult-set caveat. |
+| N2 regime stability | Hard regime assignments only | 25/128 prompts have uncertain bootstrap membership | Regime counts remain, with membership uncertainty disclosed. |
+| A-prime primary set | 816 mixed original/regenerated rows | 690/690 original-only rows; 126 regenerated rows sensitivity-only | Human package is complete, but 0 ratings means no validation pass. |
+| B-prime endpoint | 160 ordered model calls treated as votes | 80 first-presentation primary pairs plus 24 delayed reversed reliability pairs | Old 50/77 model-call result is excluded from the primary claim. |
+| SA3 observability | Low-step proxy | Same-trajectory intermediates captured and decoded; held-out balanced accuracy 1.000, tied with independent low-step | Instrumentation is complete, but D7 promotion fails. |
+| ACE-Step v1.5 | No bounded replication | 1,024 prevalence, 512 retry, and 256 intervention rows | Severe vocal difficulty replicates; intervention lift +0.054688 is weak/uncertain. |
+| Self-hosted judge | Failed external Qwen smoke | Complete Qwen3-Omni service; infrastructure 10/10; 0 PI-gold labels | Engineering blocker closed, scientific validation remains PI-blocked. |
+
+T2 additionally found 50/50 decoded-waveform-identical replay controls, zero
+Demucs label flips in 126 sensitivity rows, mean absolute ratio delta 0.000000,
+and mean/minimum CLAP audio cosine 1.000000. Container-byte differences are not
+treated as decoded waveform differences.
 
 ## Files And Commits
 
-TODO as tasks complete.
+| Task | Commit | Status | Principal review artifact |
+|---|---|---|---|
+| T0 | `7dd68c6` | model identity resolved as ACE-Step v1 | `paper_prep/model_identity/MODEL_IDENTITY_AUDIT_20260709.md` |
+| T1 | `a5a6023` | cardinality reconciled | `paper_prep/validation_A_prime/A_PRIME_CARDINALITY_REPORT.md` |
+| T5 | `ec3e80f` | Batch-3 v2 pass | `paper_prep/reanalysis_20260709/BATCH3_RESULTS_V2.md` |
+| T6 | `5469f6c` | publication statistics v2 pass | `paper_prep/analysis_v2/PUBLICATION_STATS_V2_REPORT.md` |
+| T3 | `f722880` | amendment drafted, packages fail-closed | `paper_prep/HUMAN_STUDY_CRITERIA_AMENDMENT_20260709.md` |
+| T4 | `ba7eaf4` | 42-clip decisive packet ready | `paper_prep/pi_decisive_packet_20260709/README.md` |
+| T8 | `1f7fa91` | true-intermediate capture complete | `paper_prep/sao/stable_audio_3_medium/true_intermediate/SA3_INTERMEDIATE_REPORT.md` |
+| T2 | `832e498` | regeneration fidelity exact | `paper_prep/validation_A_prime/REGENERATION_FIDELITY_REPORT.md` |
+| T11 | `d7a66ae` | docs and P1 hardening pass with documented threshold exception | `paper_prep/TODO_COMPLIANCE_20260709.md` |
+| T9 | `8cba0f5` | bounded v1.5 replication complete | `paper_prep/v15_replication_20260709/V15_FINAL_REPLICATION_REPORT.md` |
+| T7 | `268518e` | service prepared, validation PI-blocked | `paper_prep/judge_selfhost_20260709/SELFHOST_JUDGE_REPORT.md` |
+
+The compact manual-review entry point is `Code_Review_Guide.md`. The claim
+table is `paper_prep/PLAN.md`.
 
 ## Test Results
 
-TODO after each task and at finalization.
+- Final full suite: 161 passed, 0 failed, 0 skipped; wall time 6m46.136s.
+- T7 focused suite: 7 passed; launcher and staging scripts also passed `bash -n`.
+- T2 focused rerun after path parameterization: 9 passed and the 1,794-audio
+  v1.5 audit passed.
+- The first finalization suite exposed one release-path test failure caused by
+  a hard-coded external T9 root. `audit_v15_replication.py` now accepts
+  `--external-root` or `ADSR_V15_EXTERNAL_ROOT`; the final suite above passed.
+
+Evidence: `paper_prep/execution_20260709/logs/full_pytest_final.log`.
 
 ## Node Job Log
 
-TODO after node availability checks.
+| Node | ADSR work completed | Current ADSR state | Non-ADSR load |
+|---|---|---|---|
+| `an12` | T2 exact replay; T9 bounded v1.5 generation/scoring | No active ADSR compute; all non-human-gated claim tasks are complete | BlindGain processes occupy GPUs 0-3; not counted as ADSR and not modified. |
+| `an29` | T8 SA3 lane; T9 support; T7 model staging, runtime recovery, and smoke | `adsr_qwen_server` resident on GPUs 0,2,3,4, waiting for PI gold | BlindGain launchers target other GPUs; not counted as ADSR and not modified. |
+
+Heartbeat and gap details are in `paper_prep/NODE_SATURATION_AUDIT_20260709.md`,
+`paper_prep/heartbeat_an12.log`, and `paper_prep/heartbeat_an29.log`.
 
 ## Remaining Human Actions
 
 - Sign the D4/D5 criteria amendment.
-- Rate the 690-row original-only A-prime package and the 104-presentation
-  B-prime package; current fail-closed reports are `AWAITING_RATINGS`.
-- Rate the separate 42-clip decisive construct packet before selecting the
-  self-hosted-judge calibration branch.
+- Rate the 42-clip decisive construct packet first. This supplies the balanced
+  PI-corrected truth needed for the self-hosted smoke and selects the construct
+  branch; it is not itself an A-prime pass.
+- Rate and score the 690-row original-only A-prime package.
+- Rate and score the B-prime package: 80 primary presentations plus 24 delayed
+  reversed reliability presentations.
+- Rate the separate 60-clip SA3 threshold-calibration packet only if the PI
+  wants to pursue promotion beyond the reduced second-backbone pilot.
 
 ## Changed Claims
 
+- Frozen evidence is ACE-Step v1. The bounded v1.5 replication cannot be merged
+  into, or used to relabel, the frozen evidence.
+- Efficiency uses prompt-averaged limited-draw deployment success. The legacy
+  `1/mean(p)` quantity is not an expected-draw claim.
+- A-prime and B-prime are package-readiness/limitation statements only. No human
+  confirmation or unqualified audible-quality claim is allowed.
 - SA3 true-intermediate capture is implemented and audited, but D7 promotion
   fails because it does not beat the perfect independent low-step comparator.
 - The SA3 intervention lift is automatic-label pilot evidence only: 14/256 to
   191/256 present at matched budgets; human threshold calibration is unrated.
-- No full cross-backbone ADSR claim is allowed from the SA3 lane.
+- The router is an offline negative/reduced result: cross-validated threshold
+  policy 0.970018 vs always-recondition 0.974455.
+- CLAP wording is limited to no clear drop detected; the expanded mean delta is
+  +0.005996 with 95% CI [-0.003375, 0.015661].
+- No full cross-backbone ADSR or validated automatic-judge claim is allowed.
 
 ## Dual-PI Blockers
 
@@ -80,3 +129,10 @@ TODO after node availability checks.
   package remains original-only. Moving regenerated rows into a primary gate
   still requires the amendment's explicit dual-PI approval; no such promotion
   has been made.
+
+## Final Recommendation
+
+The project is ready to draft only with the reduced claim table in `PLAN.md`.
+Full-strength readiness remains unavailable until real A-prime and B-prime
+ratings pass their frozen scorers. There are no unresolved engineering P0 tasks;
+the remaining primary gates require human judgment.
