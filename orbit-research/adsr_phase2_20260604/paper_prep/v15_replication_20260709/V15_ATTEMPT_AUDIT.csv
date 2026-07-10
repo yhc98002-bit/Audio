@@ -1,0 +1,5 @@
+stage,manifest_rows,generation_attempts,generation_pass,generation_fail,score_rows,near_silent_rows,audio_files,hash_mismatches,failure_categories
+smoke,2,3,2,1,2,0,2,0,"{""audio_path_or_export_failure"": 1}"
+prevalence,1024,1894,1024,870,1024,0,1024,0,"{""nan_or_inf_latents"": 870}"
+retry,512,1024,512,512,512,0,512,0,"{""nan_or_inf_latents"": 512}"
+intervention,256,257,256,1,256,0,256,0,"{""nan_or_inf_latents"": 1}"

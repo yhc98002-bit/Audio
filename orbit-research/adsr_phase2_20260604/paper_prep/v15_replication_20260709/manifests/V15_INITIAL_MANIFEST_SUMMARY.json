@@ -1,0 +1,7 @@
+{
+  "prevalence_prompts": 128,
+  "prevalence_rows": 1024,
+  "prevalence_seeds_per_prompt": 8,
+  "seed_policy": "2033000000 + manifest_index*8 + seed_idx",
+  "smoke_rows": 2
+}
