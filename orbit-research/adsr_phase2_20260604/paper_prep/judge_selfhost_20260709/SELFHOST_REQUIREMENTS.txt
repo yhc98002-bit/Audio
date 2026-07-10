@@ -1,0 +1,9 @@
+# vLLM 0.11.1 is the first tagged vLLM registry with Qwen3-Omni support.
+# PyTorch 2.9.0 uses CUDA 12.8 wheels; do not resolve this stack to CUDA 13
+# on the cluster's NVIDIA 535 driver.
+vllm==0.11.1
+torch==2.9.0
+torchaudio==2.9.0
+torchvision==0.24.0
+transformers>=4.56,<5
+qwen-omni-utils==0.0.9

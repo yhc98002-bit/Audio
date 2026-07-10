@@ -1,0 +1,5 @@
+checked_at	modelscope_id	http_status	selection
+2026-07-10T16:30:00+08:00	Qwen/Qwen3.5-Omni-Light	404	not_available_as_public_modelscope_snapshot
+2026-07-10T16:30:00+08:00	Qwen/Qwen3.5-Omni-Flash	404	not_available_as_public_modelscope_snapshot
+2026-07-10T16:30:00+08:00	Qwen/Qwen3-Omni-30B-A3B-Instruct	200	selected_for_reproducible_self_hosted_judge
+2026-07-10T16:30:00+08:00	Qwen/Qwen3-Omni-30B-A3B-Captioner	200	downloaded_secondary_candidate

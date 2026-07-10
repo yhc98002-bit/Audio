@@ -1,0 +1,88 @@
+{
+  "status": "INFRASTRUCTURE_PASS",
+  "rows": 10,
+  "parsed_calls": 10,
+  "total_calls": 10,
+  "results": [
+    {
+      "clip_id": "smoke_v2_01",
+      "true_label": "",
+      "majority_label": "yes",
+      "calls": [
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "smoke_v2_02",
+      "true_label": "",
+      "majority_label": "yes",
+      "calls": [
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "smoke_v2_03",
+      "true_label": "",
+      "majority_label": "yes",
+      "calls": [
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "smoke_v2_04",
+      "true_label": "",
+      "majority_label": "yes",
+      "calls": [
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "smoke_v2_05",
+      "true_label": "",
+      "majority_label": "yes",
+      "calls": [
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "smoke_v2_06",
+      "true_label": "",
+      "majority_label": "no",
+      "calls": [
+        "no"
+      ]
+    },
+    {
+      "clip_id": "smoke_v2_07",
+      "true_label": "",
+      "majority_label": "yes",
+      "calls": [
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "smoke_v2_08",
+      "true_label": "",
+      "majority_label": "yes",
+      "calls": [
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "smoke_v2_09",
+      "true_label": "",
+      "majority_label": "yes",
+      "calls": [
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "smoke_v2_10",
+      "true_label": "",
+      "majority_label": "yes",
+      "calls": [
+        "yes"
+      ]
+    }
+  ]
+}
