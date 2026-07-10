@@ -10,8 +10,8 @@ AMENDMENT_STATUS = TODO
 evidence: TODO
 BATCH3_REANALYSIS_STATUS = PASS
 evidence: paper_prep/reanalysis_20260709/BATCH3_RESULTS_V2.json; paper_prep/reanalysis_20260709/BATCH3_RESULTS_V2.md; paper_prep/reanalysis_20260709/BATCH3_OLD_VS_V2_DIFF.csv; paper_prep/reanalysis_20260709/BATCH3_LEDGER_COMPLETENESS_REPORT.md; scripts/batch3_analyze_v2.py; tests/test_batch3_analyze_v2.py
-PUBLICATION_STATS_V2_STATUS = TODO
-evidence: TODO
+PUBLICATION_STATS_V2_STATUS = PASS
+evidence: paper_prep/scripts/build_publication_analysis_package_v2.py; paper_prep/analysis_v2/PUBLICATION_STATS_V2_REPORT.md; paper_prep/analysis_v2/OLD_VS_V2_PUBLICATION_NUMBER_DIFF.md; paper_prep/analysis_v2/deployment_success_metrics.csv; paper_prep/analysis_v2/n2_regime_membership_bootstrap.csv; paper_prep/figures_v2/fig2_retry_regime_ecdf_forest.png; tests/test_publication_analysis_package_v2.py
 A_PRIME_PRIMARY_PACKAGE_STATUS = TODO
 evidence: TODO
 B_PRIME_PI_PACKAGE_STATUS = TODO
@@ -35,7 +35,11 @@ evidence: TODO
 
 ## Headline Number Changes
 
-TODO after T5 and T6.
+- T5: Batch-3 old-v2 headline differences are below 0.00005; both frozen
+  interval readings support the tail-rescue endpoint.
+- T6: all shared per-try old-v2 differences are below 0.000001. The legacy
+  `1/mean(p)` quantity is retired and replaced by prompt-averaged deployment
+  success at N={4,5,8,16}; this is an estimand correction, not a changed result.
 
 ## Files And Commits
 
