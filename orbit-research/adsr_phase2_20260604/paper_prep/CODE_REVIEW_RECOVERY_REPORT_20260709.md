@@ -18,10 +18,10 @@ B_PRIME_PI_PACKAGE_STATUS = READY
 evidence: paper_prep/validation_B_prime/pi_package_20260709/README.md; paper_prep/validation_B_prime/pi_package_20260709/B_PRIME_ORDERED_ADMIN.csv; paper_prep/validation_B_prime/B_PRIME_HUMAN_GATE_REPORT_20260709.md; paper_prep/validation_B_prime/score_human_B_prime.py
 JUDGE_VALIDATION_STATUS = TODO
 evidence: TODO
-SA3_INTERMEDIATE_STATUS = TODO
-evidence: TODO
-SA3_LABEL_CALIBRATION_STATUS = TODO
-evidence: TODO
+SA3_INTERMEDIATE_STATUS = TRUE_INTERMEDIATE_COMPLETE
+evidence: src/mprm/inference/sa3.py; paper_prep/sao/stable_audio_3_medium/true_intermediate/SA3_INTERMEDIATE_REPORT.md; paper_prep/sao/stable_audio_3_medium/true_intermediate/SA3_INTERMEDIATE_LEDGER.jsonl; paper_prep/sao/stable_audio_3_medium/true_intermediate/SA3_INTERMEDIATE_METRICS.csv; tests/test_sa3_true_intermediate.py; tests/test_sa3_intermediate_analysis.py
+SA3_LABEL_CALIBRATION_STATUS = PACKAGE_READY
+evidence: paper_prep/sao/stable_audio_3_medium/label_calibration/SA3_LABEL_CALIBRATION_REPORT.md; paper_prep/sao/stable_audio_3_medium/label_calibration/SA3_LABEL_CALIBRATION_ADMIN.csv; paper_prep/sao/stable_audio_3_medium/score_sa3_label_calibration.py; paper_prep/sao/stable_audio_3_medium/intervention_fidelity/SA3_INTERVENTION_FIDELITY_REPORT.md; tests/test_sa3_label_calibration.py; tests/test_sa3_intervention_fidelity.py
 V15_REPLICATION_STATUS = TODO
 evidence: TODO
 TEST_SUITE_STATUS = TODO
@@ -63,7 +63,11 @@ TODO after node availability checks.
 
 ## Changed Claims
 
-TODO after T5, T6, and T8.
+- SA3 true-intermediate capture is implemented and audited, but D7 promotion
+  fails because it does not beat the perfect independent low-step comparator.
+- The SA3 intervention lift is automatic-label pilot evidence only: 14/256 to
+  191/256 present at matched budgets; human threshold calibration is unrated.
+- No full cross-backbone ADSR claim is allowed from the SA3 lane.
 
 ## Dual-PI Blockers
 
