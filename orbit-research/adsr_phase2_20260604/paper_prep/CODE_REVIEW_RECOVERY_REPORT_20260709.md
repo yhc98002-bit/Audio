@@ -136,3 +136,9 @@ The project is ready to draft only with the reduced claim table in `PLAN.md`.
 Full-strength readiness remains unavailable until real A-prime and B-prime
 ratings pass their frozen scorers. There are no unresolved engineering P0 tasks;
 the remaining primary gates require human judgment.
+
+## Repository Publication
+
+- Branch: `codex/publication-code-recovery-20260709`
+- Draft review: `https://github.com/yhc98002-bit/Audio/pull/1`
+- Final test log: `paper_prep/execution_20260709/logs/full_pytest_final.log`
