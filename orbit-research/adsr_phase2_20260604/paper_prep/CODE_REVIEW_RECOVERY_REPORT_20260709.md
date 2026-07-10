@@ -4,8 +4,8 @@ MODEL_IDENTITY_STATUS = RESOLVED_ACE_STEP_V1
 evidence: paper_prep/model_identity/MODEL_IDENTITY_AUDIT_20260709.md; paper_prep/execution_20260709/ESCALATION_T0.md
 A_PRIME_CARDINALITY_STATUS = RECONCILED
 evidence: paper_prep/validation_A_prime/A_PRIME_CARDINALITY_RECONCILIATION.csv; paper_prep/validation_A_prime/A_PRIME_CARDINALITY_REPORT.md; paper_prep/scripts/reconcile_a_prime_cardinality.py; tests/test_reconcile_a_prime_cardinality.py
-REGENERATION_FIDELITY_STATUS = TODO
-evidence: TODO
+REGENERATION_FIDELITY_STATUS = EXACT
+evidence: paper_prep/validation_A_prime/REGENERATION_FIDELITY_CONTROLS.csv; paper_prep/validation_A_prime/REGENERATION_FIDELITY_REPORT.md; paper_prep/validation_A_prime/regeneration_fidelity_20260709/CONTROL_GENERATION_LEDGER.jsonl; paper_prep/validation_A_prime/regeneration_fidelity_20260709/REGENERATION_RELABEL_RESULTS.csv; paper_prep/scripts/regeneration_fidelity_20260709.py; tests/test_regeneration_fidelity_20260709.py
 AMENDMENT_STATUS = DRAFTED_AWAITING_SIGNATURE
 evidence: paper_prep/HUMAN_STUDY_CRITERIA_AMENDMENT_20260709.md; paper_prep/scripts/validation_gate_v2.py; tests/test_validation_gate_v2.py
 BATCH3_REANALYSIS_STATUS = PASS
@@ -40,6 +40,11 @@ evidence: TODO
 - T6: all shared per-try old-v2 differences are below 0.000001. The legacy
   `1/mean(p)` quantity is retired and replaced by prompt-averaged deployment
   success at N={4,5,8,16}; this is an estimand correction, not a changed result.
+- T2: 50/50 replay controls are bit-identical after decoding. Paired,
+  deterministic rescoring gives zero Demucs label flips, mean absolute Demucs
+  ratio delta 0.000000, and mean/minimum CLAP audio cosine 1.000000. WAV
+  container hashes differ because metadata/container bytes are not the decoded
+  waveform identity criterion.
 
 ## Files And Commits
 
@@ -71,4 +76,7 @@ TODO after node availability checks.
 
 ## Dual-PI Blockers
 
-TODO after T1 and T2.
+- T2 permits regenerated media to be considered, but the primary A-prime
+  package remains original-only. Moving regenerated rows into a primary gate
+  still requires the amendment's explicit dual-PI approval; no such promotion
+  has been made.
