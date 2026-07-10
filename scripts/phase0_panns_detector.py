@@ -15,11 +15,12 @@ import numpy as np
 
 REPO = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO))
+from mprm.common.thresholds import VOCAL_PRESENCE_THRESHOLD
 MERGED = REPO / "runs/adsr_recollect_20260604_full01_merged"
 RAW = REPO / "orbit-research/adsr_phase2_20260604/vocal_presence_raw.jsonl"
 P0 = REPO / "orbit-research/adsr_phase2_20260604/phase0"
 OUT = P0 / "panns_labels.jsonl"
-THR = 0.1791
+THR = VOCAL_PRESENCE_THRESHOLD
 VOCAL_CLASSES = ["Singing", "Speech", "Male singing", "Female singing", "Child singing",
                  "Choir", "Rapping", "Human voice", "Vocal music", "A capella"]
 

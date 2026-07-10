@@ -21,12 +21,14 @@ from collections import defaultdict
 from pathlib import Path
 import numpy as np
 
+from mprm.common.thresholds import VOCAL_PRESENCE_THRESHOLD
+
 REPO = Path(__file__).resolve().parent.parent
 MERGED = REPO / "runs/adsr_recollect_20260604_full01_merged"
 RAW = REPO / "orbit-research/adsr_phase2_20260604/vocal_presence_raw.jsonl"
 EVPD_PRED = REPO / "orbit-research/adsr_phase2_20260604/batch2/evpd_test_predictions.jsonl"
 P2 = REPO / "orbit-research/adsr_phase2_20260604"
-THR_LABEL = 0.179
+THR_LABEL = VOCAL_PRESENCE_THRESHOLD
 SIGMA07, FULL = 16.0, 30.0
 COMMON, AES, SEM, LYR = "final_common_robust_lcb", "final_aesthetic_pq", "final_semantic_fit", "final_lyric_intelligibility"
 RNG = np.random.RandomState(20260609)

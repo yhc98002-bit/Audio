@@ -1,0 +1,29 @@
+Using CPython 3.10.20 interpreter at: /HOME/paratera_xy/pxy1289/.conda/envs/audio-prm/bin/python
+  × No solution found when resolving dependencies:
+  ╰─▶ Because the current Python version (3.10.20) does not satisfy
+      Python>=3.11 and pywavelets==1.9.0 depends on Python>=3.11, we can
+      conclude that pywavelets==1.9.0 cannot be used.
+      And because you require pywavelets==1.9.0, we can conclude that your
+      requirements are unsatisfiable.
+Using CPython 3.10.20 interpreter at: /HOME/paratera_xy/pxy1289/.conda/envs/audio-prm/bin/python
+Resolved 4 packages in 4ms
+Downloading pywavelets (4.3MiB)
+ Downloaded pywavelets
+Prepared 4 packages in 4.11s
+Installed 4 packages in 185ms
+ + einx==0.3.0
+ + pytorch-wavelets==1.3.0
+ + pywavelets==1.8.0
+ + vector-quantize-pytorch==1.27.20
+Using CPython 3.10.20 interpreter at: /HOME/paratera_xy/pxy1289/.conda/envs/audio-prm/bin/python
+Resolved 1 package in 620ms
+Prepared 1 package in 316ms
+Installed 1 package in 60ms
+ + frozendict==2.4.7
+Using CPython 3.10.20 interpreter at: /HOME/paratera_xy/pxy1289/.conda/envs/audio-prm/bin/python
+Resolved 1 package in 640ms
+Downloading setuptools (2.2MiB)
+ Downloaded setuptools
+Prepared 1 package in 7.89s
+Installed 1 package in 522ms
+ + setuptools==71.1.0

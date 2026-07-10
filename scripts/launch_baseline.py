@@ -6,6 +6,7 @@ Usage:
 from __future__ import annotations
 
 import argparse
+from copy import deepcopy
 import json
 import os
 import sys
@@ -39,6 +40,16 @@ PEEK_NO_YAML = "no_yaml"
 PEEK_MISSING_FILE = "missing_file"
 PEEK_MALFORMED = "malformed"
 PEEK_NO_RUNG_ID = "no_rung_id"
+
+
+def _copy_config_for_seed(cfg):
+    """Return a fully isolated config for one seed.
+
+    Config contains nested dataclasses and mutable ``baseline.extras``. A
+    top-level constructor copy aliases those objects and lets one seed mutate
+    the next seed's configuration.
+    """
+    return deepcopy(cfg)
 
 
 def _early_peek_rung_id(config_path: Path) -> tuple[str | None, str]:
@@ -660,12 +671,14 @@ def main() -> int:
     # `load_audio` is imported locally inside _attach_r_lcb (STOP-B-6 fix #2) —
     # do NOT re-import here, the local import is the contract.
     from mprm.common.config import load_config
+    from mprm.common.provenance import collect_run_provenance
     from mprm.common.run_ledger import RunLedger
     from mprm.common.seeding import seed_everything
     from mprm.data.prompts import load_prompts
     from mprm.eval.parsers import save_baseline_results, summarize_baseline
 
     cfg = load_config(args.config)
+    run_provenance = collect_run_provenance(args.config, cfg.model, Path(__file__).parents[1])
     split = args.split if args.split is not None else cfg.split
     cfg = cfg.__class__(**{**cfg.__dict__, "split": split})
 
@@ -757,11 +770,12 @@ def main() -> int:
 
     for seed in seeds:
         seed_everything(seed)
-        per_seed_cfg = cfg.__class__(**{**cfg.__dict__})
+        per_seed_cfg = _copy_config_for_seed(cfg)
         per_seed_cfg.baseline.seed = seed
         per_seed_cfg.baseline.output_dir = str(Path(cfg.baseline.output_dir) / split / f"seed{seed}")
         ledger.start(run_id=f"{cfg.run_id}-seed{seed}", rung_id=cfg.baseline.rung_id,
-                     stage="phase_a", split=split, seed=seed, gpu_count=gpu_count)
+                     stage="phase_a", split=split, seed=seed, gpu_count=gpu_count,
+                     **run_provenance)
         t0 = time.time()
         try:
             model = _build_model(cfg.model)

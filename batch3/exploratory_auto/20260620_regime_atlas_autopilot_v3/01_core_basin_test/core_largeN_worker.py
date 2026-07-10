@@ -13,13 +13,15 @@ Usage: CUDA_VISIBLE_DEVICES=g python core_largeN_worker.py --prompts P.jsonl --n
          --condition none --out <dir> --tag bon256 --worker-index W --num-workers N
 """
 from __future__ import annotations
-import argparse, dataclasses, glob, json, sys, time
+import argparse, dataclasses, glob, json, os, sys, time
 from pathlib import Path
 
-REPO = Path("/HOME/paratera_xy/pxy1289/HDD_POOL/HaocunYe/Research/AudioDiffusion")
+REPO = Path(os.environ.get("MPRM_REPO_ROOT", Path(__file__).resolve().parents[4])).resolve()
 sys.path.insert(0, str(REPO)); sys.path.insert(0, str(REPO / "scripts"))
+from mprm.common.thresholds import VOCAL_PRESENCE_THRESHOLD
+
 NEW_SEED_BASE = 2026200000
-THR, PANNS_THR = 0.1791, 0.0654
+THR, PANNS_THR = VOCAL_PRESENCE_THRESHOLD, 0.0654
 KEEP_PER_PROMPT = 4
 BASE_EXTRAS = {"cfg_type": "apg", "guidance_interval": 0.5,
                "use_erg_tag": False, "use_erg_lyric": False, "use_erg_diffusion": False}

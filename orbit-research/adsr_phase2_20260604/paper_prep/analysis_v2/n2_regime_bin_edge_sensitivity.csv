@@ -1,0 +1,13 @@
+edge_spec,rare_edge,recoverable_edge,easy_edge,regime,prompt_count,fraction
+frozen,0.0625,0.25,0.5,rare_le_1_in_16,5,0.0390625
+frozen,0.0625,0.25,0.5,low_1_in_16_to_1_in_4,23,0.1796875
+frozen,0.0625,0.25,0.5,seed_recoverable_1_in_4_to_1_in_2,33,0.2578125
+frozen,0.0625,0.25,0.5,easy_ge_1_in_2,67,0.5234375
+edges_minus_1_over_128,0.0546875,0.2421875,0.4921875,rare_le_1_in_16,4,0.03125
+edges_minus_1_over_128,0.0546875,0.2421875,0.4921875,low_1_in_16_to_1_in_4,22,0.171875
+edges_minus_1_over_128,0.0546875,0.2421875,0.4921875,seed_recoverable_1_in_4_to_1_in_2,32,0.25
+edges_minus_1_over_128,0.0546875,0.2421875,0.4921875,easy_ge_1_in_2,70,0.546875
+edges_plus_1_over_128,0.0703125,0.2578125,0.5078125,rare_le_1_in_16,7,0.0546875
+edges_plus_1_over_128,0.0703125,0.2578125,0.5078125,low_1_in_16_to_1_in_4,21,0.1640625
+edges_plus_1_over_128,0.0703125,0.2578125,0.5078125,seed_recoverable_1_in_4_to_1_in_2,34,0.265625
+edges_plus_1_over_128,0.0703125,0.2578125,0.5078125,easy_ge_1_in_2,66,0.515625

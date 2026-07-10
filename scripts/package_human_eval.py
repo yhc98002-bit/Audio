@@ -10,10 +10,10 @@ Stages everything (with REAL audio, symlinks dereferenced) into /tmp, writes a C
 isolates the PI-only unblinding key, and tars it. Nothing is distributed — the PI hands it out.
 """
 from __future__ import annotations
-import csv, json, shutil, subprocess
+import csv, json, os, shutil, subprocess
 from pathlib import Path
 
-REPO = Path("/HOME/paratera_xy/pxy1289/HDD_POOL/HaocunYe/Research/AudioDiffusion")
+REPO = Path(os.environ.get("MPRM_REPO_ROOT", Path(__file__).resolve().parents[1])).resolve()
 B3 = REPO / "orbit-research/adsr_phase2_20260604"
 SAN = REPO / "batch3/exploratory_auto/20260620_regime_atlas_autopilot_v3/00_controls_and_sanity_gate"
 STAGE = Path("/tmp/adsr_human_eval_pkg")

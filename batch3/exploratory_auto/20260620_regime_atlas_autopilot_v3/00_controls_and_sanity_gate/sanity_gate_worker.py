@@ -15,12 +15,14 @@ from __future__ import annotations
 import argparse, json, os, sys, time
 from pathlib import Path
 
-REPO = Path("/HOME/paratera_xy/pxy1289/HDD_POOL/HaocunYe/Research/AudioDiffusion")
+REPO = Path(os.environ.get("MPRM_REPO_ROOT", Path(__file__).resolve().parents[4])).resolve()
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(REPO))
 sys.path.insert(0, str(REPO / "scripts"))
+from mprm.common.thresholds import VOCAL_PRESENCE_THRESHOLD
+
 NEW_SEED_BASE = 2026200000          # new namespace, disjoint from Batch-3 (2026062000)
-THR = 0.1791
+THR = VOCAL_PRESENCE_THRESHOLD
 SAMPLE_KW = dict(cfg_scale=5.0, steps=30)
 BASE_EXTRAS = {"cfg_type": "apg", "guidance_interval": 0.5,
                "use_erg_tag": False, "use_erg_lyric": False, "use_erg_diffusion": False}

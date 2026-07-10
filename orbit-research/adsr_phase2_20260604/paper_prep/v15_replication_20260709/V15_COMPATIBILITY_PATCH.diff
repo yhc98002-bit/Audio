@@ -1,0 +1,35 @@
+diff --git a/acestep/core/generation/handler/init_service_loader.py b/acestep/core/generation/handler/init_service_loader.py
+--- a/acestep/core/generation/handler/init_service_loader.py
++++ b/acestep/core/generation/handler/init_service_loader.py
+@@
+                 self.model = AutoModel.from_pretrained(
+                     model_checkpoint_path,
+                     trust_remote_code=True,
+                     attn_implementation=candidate,
+                     dtype=self.dtype,
++                    low_cpu_mem_usage=False,
+                 )
+diff --git a/vector_quantize_pytorch/residual_fsq.py b/vector_quantize_pytorch/residual_fsq.py
+--- a/vector_quantize_pytorch/residual_fsq.py
++++ b/vector_quantize_pytorch/residual_fsq.py
+@@
+-        levels_tensor = tensor(levels)
+-        assert (levels_tensor > 1).all()
++        # Transformers 5 constructs modules on the meta device before loading
++        # weights. Keep this configuration check independent of tensor device.
++        assert all(level > 1 for level in levels)
++        levels_tensor = tensor(levels)
+diff --git a/vector_quantize_pytorch/finite_scalar_quantization.py b/vector_quantize_pytorch/finite_scalar_quantization.py
+--- a/vector_quantize_pytorch/finite_scalar_quantization.py
++++ b/vector_quantize_pytorch/finite_scalar_quantization.py
+@@
+ from functools import wraps, partial
+ from contextlib import nullcontext
++from math import prod
+ from typing import List, Tuple
+@@
+         if return_indices:
+-            self.codebook_size = self._levels.prod().item()
++            # Avoid reading a meta tensor during Transformers 5 empty-weight
++            # initialization; this value is entirely determined by config.
++            self.codebook_size = prod(levels)

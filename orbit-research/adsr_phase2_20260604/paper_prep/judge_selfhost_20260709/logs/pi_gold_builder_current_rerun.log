@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion/paper_prep/scripts/build_selfhost_pi_gold_smoke.py", line 92, in <module>
+    raise SystemExit(main())
+  File "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion/paper_prep/scripts/build_selfhost_pi_gold_smoke.py", line 81, in main
+    selected = select_pi_gold(read_csv(args.admin), read_csv(args.ratings))
+  File "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion/paper_prep/scripts/build_selfhost_pi_gold_smoke.py", line 63, in select_pi_gold
+    raise ValueError(
+ValueError: need five confidence>=4 PI-gold yes clips; found 0
+EXIT_CODE=1

@@ -15,13 +15,15 @@ from collections import defaultdict, Counter
 from pathlib import Path
 import numpy as np
 
+from mprm.common.thresholds import VOCAL_PRESENCE_THRESHOLD
+
 REPO = Path(__file__).resolve().parent.parent
 MERGED = REPO / "runs/adsr_recollect_20260604_full01_merged"
 RAW = REPO / "orbit-research/adsr_phase2_20260604/vocal_presence_raw.jsonl"
 AMBIG = REPO / "orbit-research/adsr_phase2_20260604/vocal_ambiguous_check_packet.jsonl"
 P0 = REPO / "orbit-research/adsr_phase2_20260604/phase0"
 B3 = REPO / "orbit-research/adsr_phase2_20260604/batch3"
-THR = 0.1791
+THR = VOCAL_PRESENCE_THRESHOLD
 
 
 def load():

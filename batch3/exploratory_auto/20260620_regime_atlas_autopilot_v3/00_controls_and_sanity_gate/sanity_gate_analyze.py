@@ -3,13 +3,15 @@
 SANITY_GATE_AUDIO_MANIFEST.csv + PI_SANITY_GATE_REQUEST.md. Computes auto-FLAGS for the hard
 interrupt conditions (§13) but does NOT self-certify PASS — the PI decides (non-self-certified gate)."""
 from __future__ import annotations
-import csv, glob, json
+import csv, glob, json, os
 from collections import defaultdict
 from pathlib import Path
 import numpy as np
 
+from mprm.common.thresholds import VOCAL_PRESENCE_THRESHOLD
+
 HERE = Path(__file__).resolve().parent
-REPO = Path("/HOME/paratera_xy/pxy1289/HDD_POOL/HaocunYe/Research/AudioDiffusion")
+REPO = Path(os.environ.get("MPRM_REPO_ROOT", Path(__file__).resolve().parents[4])).resolve()
 CATS = ["A_trivial_vocal", "B_trivial_instrumental", "C_contradictory",
         "D_e2_vocal_tail", "E_instrumental_risk"]
 
@@ -45,7 +47,7 @@ def main():
         ratio = np.mean([r["vocal_energy_ratio"] for r in rs])
         pann = [r["panns_vocal"] for r in rs if r.get("panns_vocal") is not None]
         # detector agreement: Demucs present vs PANNs present (thr 0.0654 from project calib)
-        agr = np.mean([int((r["vocal_energy_ratio"] >= 0.1791) == (r["panns_vocal"] >= 0.0654))
+        agr = np.mean([int((r["vocal_energy_ratio"] >= VOCAL_PRESENCE_THRESHOLD) == (r["panns_vocal"] >= 0.0654))
                        for r in rs if r.get("panns_vocal") is not None]) if pann else None
         nsil = np.mean([int(r["near_silent"]) for r in rs])
         return dict(n=len(rs), type_correct_rate=round(float(tc), 3),

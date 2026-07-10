@@ -20,12 +20,14 @@ from collections import defaultdict
 from pathlib import Path
 import numpy as np
 
+from mprm.common.thresholds import VOCAL_PRESENCE_THRESHOLD
+
 REPO = Path(__file__).resolve().parent.parent
 MERGED = REPO / "runs/adsr_recollect_20260604_full01_merged"
 RAW = REPO / "orbit-research/adsr_phase2_20260604/vocal_presence_raw.jsonl"
 EVPD08 = REPO / "orbit-research/adsr_phase2_20260604/batch2/evpd_test_pred_s0.8.jsonl"
 P0 = REPO / "orbit-research/adsr_phase2_20260604/phase0"
-THR = 0.1791
+THR = VOCAL_PRESENCE_THRESHOLD
 NBOOT = 2000
 RNG = np.random.RandomState(20260610)
 

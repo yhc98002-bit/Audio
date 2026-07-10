@@ -1,0 +1,67 @@
+{
+  "candidate_ratio_values_checked": 90304,
+  "canonical_threshold": 0.1791,
+  "field_counts": {
+    "abs_demucs_ratio_delta_vs_rescored": 100,
+    "demucs_ratio": 238,
+    "gate_ratio": 18315,
+    "mean_vocal_energy_ratio": 6,
+    "median_vocal_energy_ratio": 23,
+    "original_demucs_ratio_rescored": 100,
+    "recorded_demucs_ratio": 150,
+    "recorded_demucs_ratio_delta": 100,
+    "replay_demucs_ratio": 100,
+    "vocal_energy_ratio": 71172
+  },
+  "files_discovered": 272,
+  "files_with_candidate_ratios": 151,
+  "gap_hit_count": 7,
+  "gap_hits": [
+    {
+      "field": "vocal_energy_ratio",
+      "line": 49,
+      "path": "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion/batch3/exploratory_auto/20260620_regime_atlas_autopilot_v3/01_core_basin_test/ledgers/_quarantine_dirty_bon256_20260623/bon256_w13.jsonl",
+      "value": 0.17908
+    },
+    {
+      "field": "vocal_energy_ratio",
+      "line": 255,
+      "path": "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion/batch3/exploratory_auto/20260620_regime_atlas_autopilot_v3/01_core_basin_test/ledgers/bon256_general_w7.jsonl",
+      "value": 0.17904
+    },
+    {
+      "field": "vocal_energy_ratio",
+      "line": 2641,
+      "path": "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion/batch3/exploratory_auto/20260620_regime_atlas_autopilot_v3/01_core_basin_test/ledgers/bon256_w0.jsonl",
+      "value": 0.17908
+    },
+    {
+      "field": "vocal_energy_ratio",
+      "line": 81,
+      "path": "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion/batch3/exploratory_auto/20260620_regime_atlas_autopilot_v3/01_core_basin_test/ledgers/v3_vocal_w0.jsonl",
+      "value": 0.17902
+    },
+    {
+      "field": "vocal_energy_ratio",
+      "line": 1875,
+      "path": "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion/orbit-research/adsr_phase2_20260604/paper_prep/population_retry_20260707/ledgers/full128_w4.jsonl",
+      "value": 0.179038
+    },
+    {
+      "field": "vocal_energy_ratio",
+      "line": 1120,
+      "path": "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion/orbit-research/adsr_phase2_20260604/paper_prep/population_retry_20260707/ledgers/full128_w6.jsonl",
+      "value": 0.179084
+    },
+    {
+      "field": "vocal_energy_ratio",
+      "line": 424,
+      "path": "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion/orbit-research/adsr_phase2_20260604/paper_prep/stage3_intervention_20260707/ledgers/full64_w3.jsonl",
+      "value": 0.179077
+    }
+  ],
+  "historical_threshold": 0.179,
+  "parse_errors": [],
+  "rows_parsed": 164847,
+  "status": "FAIL"
+}

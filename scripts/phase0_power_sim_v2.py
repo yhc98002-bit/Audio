@@ -18,10 +18,12 @@ from collections import defaultdict
 from pathlib import Path
 import numpy as np
 
+from mprm.common.thresholds import VOCAL_PRESENCE_THRESHOLD
+
 REPO = Path(__file__).resolve().parent.parent
 P0 = REPO / "orbit-research/adsr_phase2_20260604/phase0"
 B3 = REPO / "orbit-research/adsr_phase2_20260604/batch3"
-THR = 0.1791
+THR = VOCAL_PRESENCE_THRESHOLD
 BUDGET, PROBE, CONT, FULL = 168, 12, 18, 30
 MAX_ABORT = 6
 R = 2

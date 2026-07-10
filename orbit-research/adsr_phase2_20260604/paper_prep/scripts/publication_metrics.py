@@ -8,12 +8,13 @@ import csv
 import glob
 import json
 import math
+import os
 from collections import defaultdict
 from pathlib import Path
 from statistics import median
 
 
-REPO = Path("/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion")
+REPO = Path(os.environ.get("MPRM_REPO_ROOT", Path(__file__).resolve().parents[4])).resolve()
 ATLAS = REPO / "batch3/exploratory_auto/20260620_regime_atlas_autopilot_v3/01_core_basin_test"
 PH2 = REPO / "orbit-research/adsr_phase2_20260604"
 

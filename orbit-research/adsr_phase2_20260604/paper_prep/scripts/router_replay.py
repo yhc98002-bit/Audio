@@ -5,11 +5,12 @@ from __future__ import annotations
 
 import csv
 import json
+import os
 from collections import defaultdict
 from pathlib import Path
 
 
-ROOT = Path("/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion")
+ROOT = Path(os.environ.get("MPRM_REPO_ROOT", Path(__file__).resolve().parents[4])).resolve()
 PAPER = ROOT / "orbit-research/adsr_phase2_20260604/paper_prep"
 ATLAS = ROOT / "batch3/exploratory_auto/20260620_regime_atlas_autopilot_v3/01_core_basin_test"
 OUTDIR = PAPER / "router_replay"
@@ -186,4 +187,3 @@ does not replace one.
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

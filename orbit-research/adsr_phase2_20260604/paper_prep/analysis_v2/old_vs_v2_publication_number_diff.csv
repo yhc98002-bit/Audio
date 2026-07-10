@@ -1,0 +1,12 @@
+metric,old_value,v2_value,difference,abs_difference_gt_0_01
+baseline_vocal_prompt_mean,0.08812,0.0881204044117647,4.0441176470118467e-07,0
+baseline_instrumental_prompt_mean,0.359115,0.35911458333333335,-4.1666666666939634e-07,0
+V3_prompt_paired_delta,0.685777,0.6857766544117647,-3.4558823525099314e-07,0
+I_strong_prompt_paired_delta,0.005469,0.00546875,-2.5000000000025e-07,0
+stage3_instr_both_pooled_rate,0.3770833333333333,0.3770833333333333,0.0,0
+stage3_instr_sampler_pooled_rate,0.34479166666666666,0.34479166666666666,0.0,0
+stage3_instr_text_pooled_rate,0.3260416666666667,0.3260416666666667,0.0,0
+stage3_vocal_both_pooled_rate,0.7794117647058824,0.7794117647058824,0.0,0
+stage3_vocal_guidance_pooled_rate,0.78125,0.78125,0.0,0
+stage3_vocal_hints_pooled_rate,0.09375,0.09375,0.0,0
+N2_pooled_seed_rate_descriptive_only,0.533447265625,0.533447265625,0.0,0

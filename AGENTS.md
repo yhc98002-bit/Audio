@@ -1,7 +1,9 @@
 # Project: ADSR for Flow-Matching Music Generation
 
-Music-generation research project using ACE-Step v1.5. Stable Audio Open is the
-cross-backbone target for the current robustness / second-model line.
+Music-generation research project whose frozen ADSR evidence uses ACE-Step v1.
+ACE-Step v1.5 is a bounded replication target, and Stable Audio 3 Medium is the
+executed cross-backbone pilot. Stable Audio Open 1.0 remains a legacy adapter,
+not the model used by the SA3 pilot.
 
 ADSR means **Axis-Deferred Speculative Restart**: allocate inference compute via
 RESTART / DEFER / CONTINUE. Restart terminates a low-promise trajectory and
@@ -12,14 +14,15 @@ M-PRM / section credit / RL evidence is boundary context.
 ## Current State
 
 ```yaml
-stage: post_gate_b_authorized_retry_study_prep
+stage: publication_code_review_recovery
 proposal_status: PI_AUTHORIZED_JUNE_PROGRAM_AND_RESULTS
 adsr_final_plan: ADSR_Research_Plan_FINAL_EN_2026-05-29.md
 authoritative_results_index: orbit-research/adsr_phase2_20260604/GATE_B_FINAL_REPORT.md
+publication_recovery_report: orbit-research/adsr_phase2_20260604/paper_prep/CODE_REVIEW_RECOVERY_REPORT_20260709.md
 retry_study_logs: batch3/exploratory_auto/20260620_regime_atlas_autopilot_v3/
 canonical_index: orbit-research/CURRENT_CANONICAL_FILES.md
 run_ledger: orbit-research/RUN_LEDGER.jsonl
-last_updated: "2026-07-06"
+last_updated: "2026-07-09"
 ```
 
 PI authorization note, 2026-07-06:
@@ -45,10 +48,10 @@ Short context only; detailed evidence lives in the references below.
 
 ## Active Next Step
 
-Prepare the authorized retry / robustness work from the Gate-B result state.
-Current compute split: `an12` runs Stage 3 generation; `an29` runs Stage 4
-second-model work. `an17` is no longer allocated and must not be targeted by
-launcher scripts.
+Close the code-review recovery brief without changing frozen evidence. Stage 3,
+N2, and the SA3 pilot are complete. `an12` is assigned to the bounded ACE-Step
+v1.5 replication; `an29` is assigned to ADSR detector/calibration audits and
+SA3 follow-up. `an17` is no longer allocated and must not be targeted.
 
 ## Hard Boundaries
 
@@ -77,6 +80,8 @@ conda activate audio-prm
 
 Core entrypoints: `orbit-research/CURRENT_CANONICAL_FILES.md`,
 `orbit-research/adsr_phase2_20260604/GATE_B_FINAL_REPORT.md`,
+`orbit-research/adsr_phase2_20260604/paper_prep/CODE_REVIEW_RECOVERY_REPORT_20260709.md`,
+`orbit-research/adsr_phase2_20260604/paper_prep/GATE_B_SUPERSESSION_NOTE_20260709.md`,
 `ADSR_Research_Plan_FINAL_EN_2026-05-29.md`, `experiment_plan_current.md`,
 `refine-logs/ADSR_REFRAME_BRIEF.md`, `refine-logs/FINAL_PROPOSAL.md`,
 `refine-logs/METHOD_SPEC.md`, `refine-logs/EXPERIMENT_PLAN_EXEC.md`,
