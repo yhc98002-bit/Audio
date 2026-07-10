@@ -1,0 +1,419 @@
+{
+ "0c400857a4": {
+  "overall_preference": "B",
+  "prompt_fit": "A",
+  "vocal_artifacts": "B"
+ },
+ "15c5ab12b4": {
+  "overall_preference": "B",
+  "prompt_fit": "tie",
+  "vocal_artifacts": "B",
+  "comment": "两个都不是纯伴奏"
+ },
+ "1afed822a5": {
+  "overall_preference": "B",
+  "prompt_fit": "A",
+  "vocal_artifacts": "A"
+ },
+ "1bcc08bf50": {
+  "overall_preference": "tie",
+  "prompt_fit": "tie",
+  "vocal_artifacts": "tie",
+  "comment": "两段几乎一样"
+ },
+ "4330d3ef21": {
+  "overall_preference": "B",
+  "prompt_fit": "B",
+  "vocal_artifacts": "B"
+ },
+ "559e9c07d6": {
+  "overall_preference": "B",
+  "prompt_fit": "tie",
+  "vocal_artifacts": "B",
+  "comment": "A有人声，B不是庄重古典，两者都不符合prompt"
+ },
+ "58d566feba": {
+  "overall_preference": "A",
+  "prompt_fit": "tie",
+  "vocal_artifacts": "A"
+ },
+ "59691e99aa": {
+  "overall_preference": "A",
+  "prompt_fit": "A",
+  "vocal_artifacts": "B"
+ },
+ "5c3837be9b": {
+  "overall_preference": "B",
+  "prompt_fit": "tie",
+  "vocal_artifacts": "tie",
+  "confidence": "low"
+ },
+ "5f883dad0b": {
+  "overall_preference": "A",
+  "prompt_fit": "A",
+  "vocal_artifacts": "A"
+ },
+ "775110280c": {
+  "overall_preference": "tie",
+  "prompt_fit": "tie",
+  "vocal_artifacts": "tie",
+  "comment": "两个片段几乎一样"
+ },
+ "79cd69caa5": {
+  "overall_preference": "A",
+  "prompt_fit": "tie",
+  "vocal_artifacts": "A"
+ },
+ "7c68b8be11": {
+  "overall_preference": "B",
+  "prompt_fit": "tie",
+  "vocal_artifacts": "tie",
+  "comment": "都有人声"
+ },
+ "7d5f199c74": {
+  "overall_preference": "A",
+  "prompt_fit": "tie",
+  "vocal_artifacts": "A"
+ },
+ "966bfff564": {
+  "overall_preference": "A",
+  "prompt_fit": "tie",
+  "vocal_artifacts": "A",
+  "comment": "A不算清唱，B副歌不够沉重，故平局"
+ },
+ "0452678119": {
+  "overall_preference": "A",
+  "prompt_fit": "B",
+  "vocal_artifacts": "A"
+ },
+ "0d73d4c967": {
+  "overall_preference": "B",
+  "prompt_fit": "B",
+  "vocal_artifacts": "B"
+ },
+ "0dc621676d": {
+  "overall_preference": "A",
+  "prompt_fit": "A",
+  "vocal_artifacts": "A"
+ },
+ "0edf418c90": {
+  "overall_preference": "B",
+  "prompt_fit": "tie",
+  "vocal_artifacts": "B"
+ },
+ "0ee6281212": {
+  "overall_preference": "A",
+  "prompt_fit": "A",
+  "vocal_artifacts": "A"
+ },
+ "1dec4ff807": {
+  "overall_preference": "tie",
+  "prompt_fit": "tie",
+  "vocal_artifacts": "tie"
+ },
+ "1f45861ddf": {
+  "overall_preference": "tie",
+  "prompt_fit": "tie",
+  "vocal_artifacts": "tie",
+  "comment": "这俩不是一模一样吗？？同时播放音轨完全重合"
+ },
+ "23a4428f3b": {
+  "overall_preference": "tie",
+  "prompt_fit": "tie",
+  "vocal_artifacts": "tie",
+  "comment": "听不出区别"
+ },
+ "369f221eb7": {
+  "overall_preference": "tie",
+  "prompt_fit": "tie",
+  "vocal_artifacts": "tie"
+ },
+ "37f3136689": {
+  "overall_preference": "B",
+  "prompt_fit": "B",
+  "vocal_artifacts": "B"
+ },
+ "3a3a027580": {
+  "overall_preference": "tie",
+  "prompt_fit": "tie",
+  "vocal_artifacts": "tie"
+ },
+ "45f9308b5c": {
+  "overall_preference": "tie",
+  "prompt_fit": "tie",
+  "vocal_artifacts": "tie"
+ },
+ "469135185c": {
+  "overall_preference": "tie",
+  "vocal_artifacts": "tie",
+  "prompt_fit": "tie"
+ },
+ "0964546740": {
+  "prompt_fit": "tie",
+  "overall_preference": "B",
+  "vocal_artifacts": "B",
+  "confidence": "low"
+ },
+ "39cdd7883c": {
+  "overall_preference": "tie",
+  "prompt_fit": "tie",
+  "vocal_artifacts": "tie"
+ },
+ "4cf922879e": {
+  "overall_preference": "B",
+  "prompt_fit": "B",
+  "vocal_artifacts": "B"
+ },
+ "4d52fdb395": {
+  "overall_preference": "B",
+  "prompt_fit": "B",
+  "vocal_artifacts": "tie"
+ },
+ "52a3395873": {
+  "overall_preference": "A",
+  "prompt_fit": "A",
+  "vocal_artifacts": "A"
+ },
+ "5a1a9b570b": {
+  "overall_preference": "tie",
+  "prompt_fit": "tie",
+  "vocal_artifacts": "tie"
+ },
+ "610e49ae0e": {
+  "overall_preference": "B",
+  "prompt_fit": "A",
+  "vocal_artifacts": "B"
+ },
+ "658a086f98": {
+  "overall_preference": "A",
+  "prompt_fit": "B",
+  "vocal_artifacts": "A"
+ },
+ "7cd6073fb3": {
+  "overall_preference": "B",
+  "vocal_artifacts": "B",
+  "prompt_fit": "B"
+ },
+ "a2b5e83a7b": {
+  "overall_preference": "tie",
+  "prompt_fit": "tie",
+  "vocal_artifacts": "tie",
+  "comment": "都有人声",
+  "confidence": "low"
+ },
+ "ab9bad400f": {
+  "overall_preference": "B",
+  "prompt_fit": "B",
+  "vocal_artifacts": "B"
+ },
+ "06f4701ac6": {
+  "overall_preference": "A",
+  "prompt_fit": "B",
+  "vocal_artifacts": "A"
+ },
+ "069de95daf": {
+  "overall_preference": "B",
+  "prompt_fit": "B",
+  "vocal_artifacts": "B"
+ },
+ "0ed5ee6322": {
+  "overall_preference": "A",
+  "prompt_fit": "A",
+  "vocal_artifacts": "A"
+ },
+ "12b92c7484": {
+  "overall_preference": "B",
+  "prompt_fit": "B",
+  "vocal_artifacts": "B"
+ },
+ "14439f519a": {
+  "overall_preference": "B",
+  "prompt_fit": "B",
+  "vocal_artifacts": "B"
+ },
+ "1b2e1ef1e1": {
+  "overall_preference": "B",
+  "prompt_fit": "B",
+  "vocal_artifacts": "tie"
+ },
+ "1bfaec2e1a": {
+  "overall_preference": "B",
+  "prompt_fit": "B",
+  "vocal_artifacts": "B"
+ },
+ "28c0b8d178": {
+  "overall_preference": "B",
+  "prompt_fit": "tie",
+  "vocal_artifacts": "B"
+ },
+ "312449388f": {
+  "overall_preference": "tie",
+  "prompt_fit": "tie",
+  "vocal_artifacts": "tie"
+ },
+ "35461ee581": {
+  "overall_preference": "B",
+  "vocal_artifacts": "B",
+  "prompt_fit": "tie"
+ },
+ "377c6103fb": {
+  "overall_preference": "tie",
+  "prompt_fit": "tie",
+  "vocal_artifacts": "tie"
+ },
+ "37ddd7508b": {
+  "overall_preference": "tie",
+  "prompt_fit": "tie",
+  "vocal_artifacts": "tie",
+  "confidence": "low"
+ },
+ "3a75fafe4a": {
+  "overall_preference": "B",
+  "prompt_fit": "B",
+  "vocal_artifacts": "A"
+ },
+ "65b7dc1f0c": {
+  "overall_preference": "tie",
+  "prompt_fit": "tie",
+  "vocal_artifacts": "tie"
+ },
+ "68917e9ad4": {
+  "overall_preference": "B",
+  "prompt_fit": "B",
+  "vocal_artifacts": "B"
+ },
+ "7785d4d1e3": {
+  "overall_preference": "A",
+  "prompt_fit": "B",
+  "vocal_artifacts": "A"
+ },
+ "8ca6dff588": {
+  "overall_preference": "B",
+  "prompt_fit": "B",
+  "vocal_artifacts": "B"
+ },
+ "192439394a": {
+  "overall_preference": "tie",
+  "prompt_fit": "tie",
+  "vocal_artifacts": "tie"
+ },
+ "1b56e856e6": {
+  "overall_preference": "B",
+  "prompt_fit": "B",
+  "vocal_artifacts": "B",
+  "confidence": "high"
+ },
+ "1de7136439": {
+  "overall_preference": "A",
+  "prompt_fit": "A",
+  "vocal_artifacts": "A",
+  "confidence": "high"
+ },
+ "2286127a28": {
+  "overall_preference": "A",
+  "prompt_fit": "tie",
+  "vocal_artifacts": "tie"
+ },
+ "264728786f": {
+  "prompt_fit": "B",
+  "overall_preference": "A",
+  "vocal_artifacts": "A",
+  "confidence": "high"
+ },
+ "2b1b642d29": {
+  "overall_preference": "A",
+  "prompt_fit": "A",
+  "vocal_artifacts": "A"
+ },
+ "3a80d5e5d6": {
+  "overall_preference": "B",
+  "prompt_fit": "B",
+  "vocal_artifacts": "B"
+ },
+ "4b0b74e60f": {
+  "overall_preference": "A",
+  "prompt_fit": "B",
+  "vocal_artifacts": "A"
+ },
+ "4c5a75414f": {
+  "overall_preference": "tie",
+  "vocal_artifacts": "tie",
+  "prompt_fit": "tie"
+ },
+ "4c7a1ff29e": {
+  "overall_preference": "A",
+  "prompt_fit": "tie",
+  "vocal_artifacts": "A"
+ },
+ "4dd84edc4d": {
+  "overall_preference": "B",
+  "prompt_fit": "tie",
+  "vocal_artifacts": "B"
+ },
+ "74e77a5d91": {
+  "overall_preference": "tie",
+  "prompt_fit": "tie",
+  "vocal_artifacts": "tie"
+ },
+ "8d9b963d6e": {
+  "overall_preference": "tie",
+  "prompt_fit": "tie",
+  "vocal_artifacts": "tie"
+ },
+ "0e929f6df2": {
+  "overall_preference": "tie",
+  "prompt_fit": "tie",
+  "vocal_artifacts": "tie"
+ },
+ "3e11db4efe": {
+  "overall_preference": "tie",
+  "prompt_fit": "tie",
+  "vocal_artifacts": "tie"
+ },
+ "3f73378469": {
+  "prompt_fit": "tie",
+  "overall_preference": "B",
+  "vocal_artifacts": "B",
+  "comment": "两个都有人声"
+ },
+ "48ee6761b0": {
+  "overall_preference": "B",
+  "prompt_fit": "B",
+  "vocal_artifacts": "B"
+ },
+ "517b7a7682": {
+  "overall_preference": "tie",
+  "prompt_fit": "tie",
+  "vocal_artifacts": "tie"
+ },
+ "5c95b4856b": {
+  "overall_preference": "B",
+  "prompt_fit": "A",
+  "vocal_artifacts": "A"
+ },
+ "6ebb11813a": {
+  "overall_preference": "B",
+  "prompt_fit": "B",
+  "vocal_artifacts": "B"
+ },
+ "819e7fb30f": {
+  "overall_preference": "tie",
+  "prompt_fit": "tie",
+  "vocal_artifacts": "tie"
+ },
+ "8dcd41f95c": {
+  "overall_preference": "A",
+  "prompt_fit": "A",
+  "vocal_artifacts": "A"
+ },
+ "aaafe53dd7": {
+  "overall_preference": "A",
+  "prompt_fit": "A",
+  "vocal_artifacts": "tie"
+ },
+ "ab23d83c0f": {
+  "overall_preference": "tie",
+  "vocal_artifacts": "tie",
+  "prompt_fit": "tie"
+ }
+}

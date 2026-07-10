@@ -17,7 +17,7 @@ evidence: paper_prep/validation_A_prime/primary_package_20260709/README.md; pape
 B_PRIME_PI_PACKAGE_STATUS = READY
 evidence: paper_prep/validation_B_prime/pi_package_20260709/README.md; paper_prep/validation_B_prime/pi_package_20260709/B_PRIME_ORDERED_ADMIN.csv; paper_prep/validation_B_prime/B_PRIME_HUMAN_GATE_REPORT_20260709.md; paper_prep/validation_B_prime/score_human_B_prime.py
 JUDGE_VALIDATION_STATUS = PI_BLOCKED
-evidence: paper_prep/judge_selfhost_20260709/SELFHOST_JUDGE_REPORT.md; paper_prep/judge_selfhost_20260709/SELFHOST_INFRASTRUCTURE_SUMMARY.json; paper_prep/judge_raw/selfhost_qwen3_omni_infrastructure_20260710.jsonl; tests/test_selfhost_audio_judge.py
+evidence: paper_prep/judge_selfhost_20260709/SELFHOST_JUDGE_REPORT.md; paper_prep/legacy_human_results_20260710/JUDGE_GOLD_CXY_T7_REPORT.md; paper_prep/legacy_human_results_20260710/JUDGE_GOLD_CXY_20260710.csv; paper_prep/judge_raw/selfhost_qwen3_omni_legacy_cxy_heldout_20260710.jsonl; tests/test_selfhost_audio_judge.py; tests/test_legacy_cxy_t7_audit_20260710.py
 SA3_INTERMEDIATE_STATUS = TRUE_INTERMEDIATE_COMPLETE
 evidence: src/mprm/inference/sa3.py; paper_prep/sao/stable_audio_3_medium/true_intermediate/SA3_INTERMEDIATE_REPORT.md; paper_prep/sao/stable_audio_3_medium/true_intermediate/SA3_INTERMEDIATE_METRICS.csv; tests/test_sa3_true_intermediate.py; tests/test_sa3_intermediate_analysis.py
 SA3_LABEL_CALIBRATION_STATUS = PACKAGE_READY
@@ -25,7 +25,7 @@ evidence: paper_prep/sao/stable_audio_3_medium/label_calibration/SA3_LABEL_CALIB
 V15_REPLICATION_STATUS = COMPLETE
 evidence: paper_prep/v15_replication_20260709/V15_FINAL_REPLICATION_REPORT.md; paper_prep/v15_replication_20260709/V15_ATTEMPT_AUDIT.csv; paper_prep/v15_replication_20260709/V15_AUDIO_MANIFEST.csv; paper_prep/scripts/audit_v15_replication.py; tests/test_v15_replication.py
 TEST_SUITE_STATUS = PASS
-evidence: paper_prep/execution_20260709/logs/full_pytest_final.log; tests/test_code_review_recovery_report.py
+evidence: paper_prep/execution_20260709/logs/full_pytest_legacy_ingest_20260710.log; tests/test_code_review_recovery_report.py; tests/test_legacy_cxy_ingest_20260710.py; tests/test_legacy_cxy_t7_audit_20260710.py; tests/test_rating_package_integrity_20260710.py
 P0_OPEN_COUNT = 0
 evidence: paper_prep/execution_20260709/CODE_REVIEW_RECOVERY_LEDGER.jsonl; paper_prep/TODO_COMPLIANCE_20260709.md; paper_prep/PLAN.md
 FULL_DRAFT_STATUS = NOT_READY
@@ -45,7 +45,7 @@ evidence: paper_prep/PLAN.md; paper_prep/TODO_COMPLIANCE_20260709.md; paper_prep
 | B-prime endpoint | 160 ordered model calls treated as votes | 80 first-presentation primary pairs plus 24 delayed reversed reliability pairs | Old 50/77 model-call result is excluded from the primary claim. |
 | SA3 observability | Low-step proxy | Same-trajectory intermediates captured and decoded; held-out balanced accuracy 1.000, tied with independent low-step | Instrumentation is complete, but D7 promotion fails. |
 | ACE-Step v1.5 | No bounded replication | 1,024 prevalence, 512 retry, and 256 intervention rows | Severe vocal difficulty replicates; intervention lift +0.054688 is weak/uncertain. |
-| Self-hosted judge | Failed external Qwen smoke | Complete Qwen3-Omni service; infrastructure 10/10; 0 PI-gold labels | Engineering blocker closed, scientific validation remains PI-blocked. |
+| Self-hosted judge | Failed external Qwen smoke | Complete Qwen3-Omni service and a clean held-out legacy-CXY diagnostic | Engineering blocker closed; validation remains PI-blocked because the pre-amendment gold is single-rater and class-imbalanced. |
 
 T2 additionally found 50/50 decoded-waveform-identical replay controls, zero
 Demucs label flips in 126 sensitivity rows, mean absolute ratio delta 0.000000,
@@ -74,28 +74,32 @@ table is `paper_prep/PLAN.md`.
 
 ## Test Results
 
-- Final full suite: 162 passed, 0 failed, 0 skipped; wall time 4m48.945s.
-- T7 focused suite: 7 passed; launcher and staging scripts also passed `bash -n`.
+- Final full suite after legacy ingest: 171 passed, 0 failed, 0 skipped.
+- Legacy-ingest/report-contract focused suite: 10 passed.
+- Earlier T7 focused suite: 7 passed; launcher and staging scripts also passed `bash -n`.
 - T2 focused rerun after path parameterization: 9 passed and the 1,794-audio
   v1.5 audit passed.
 - The first finalization suite exposed one release-path test failure caused by
   a hard-coded external T9 root. `audit_v15_replication.py` now accepts
   `--external-root` or `ADSR_V15_EXTERNAL_ROOT`; the final suite above passed.
 
-Evidence: `paper_prep/execution_20260709/logs/full_pytest_final.log`.
+Evidence: `paper_prep/execution_20260709/logs/full_pytest_legacy_ingest_20260710.log`.
 
 ## Node Job Log
 
 | Node | ADSR work completed | Current ADSR state | Non-ADSR load |
 |---|---|---|---|
 | `an12` | T2 exact replay; T9 bounded v1.5 generation/scoring | No active ADSR compute; all non-human-gated claim tasks are complete | BlindGain processes occupy GPUs 0-3; not counted as ADSR and not modified. |
-| `an29` | T8 SA3 lane; T9 support; T7 model staging, runtime recovery, and smoke | `adsr_qwen_server` resident on GPUs 0,2,3,4, waiting for PI gold | BlindGain launchers target other GPUs; not counted as ADSR and not modified. |
+| `an29` | T8 SA3 lane; T9 support; T7 model staging, runtime recovery, smoke, and held-out legacy-CXY diagnostic | `adsr_qwen_server` resident on GPUs 0,2,3,4, waiting for PI or second-rater agreement evidence | BlindGain launchers target other GPUs; not counted as ADSR and not modified. |
 
 Heartbeat and gap details are in `paper_prep/NODE_SATURATION_AUDIT_20260709.md`,
 `paper_prep/heartbeat_an12.log`, and `paper_prep/heartbeat_an29.log`.
 
 ## Remaining Human Actions
 
+- Obtain PI or second-rater overlap on the original-media CXY judge-gold clips,
+  report inter-rater kappa, and repeat the held-out T7 audit before considering
+  judge promotion. The current diagnostic cannot auto-pass validation.
 - Rate the 42-clip decisive construct packet first. This supplies the balanced
   PI-corrected truth needed for the self-hosted smoke and selects the construct
   branch; it is not itself an A-prime pass.
