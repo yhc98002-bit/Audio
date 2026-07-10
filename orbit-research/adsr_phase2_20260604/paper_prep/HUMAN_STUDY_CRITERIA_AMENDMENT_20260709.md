@@ -1,6 +1,6 @@
 # Human Study Criteria Amendment
 
-`AMENDMENT_STATUS = DRAFTED_AWAITING_SIGNATURE`
+`AMENDMENT_STATUS = SIGNED`
 
 Drafted: 2026-07-09, before any real ratings were collected for the amended
 A-prime or B-prime packages.
@@ -107,6 +107,10 @@ Implementation and tests:
 
 ## Signature
 
-PI signature: ____________________
+PI signature: Richard Ye
 
-Date: ____________________
+Date: 2026-07-10
+
+Approval statement: "I have read and approve
+HUMAN_STUDY_CRITERIA_AMENDMENT_20260709.md as committed at ed59500 as the
+governing A′/B′ criteria; zero ratings existed at signing."

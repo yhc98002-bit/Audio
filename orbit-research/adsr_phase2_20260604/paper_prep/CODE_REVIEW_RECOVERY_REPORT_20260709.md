@@ -6,8 +6,8 @@ A_PRIME_CARDINALITY_STATUS = RECONCILED
 evidence: paper_prep/validation_A_prime/A_PRIME_CARDINALITY_RECONCILIATION.csv; paper_prep/validation_A_prime/A_PRIME_CARDINALITY_REPORT.md; paper_prep/scripts/reconcile_a_prime_cardinality.py; tests/test_reconcile_a_prime_cardinality.py
 REGENERATION_FIDELITY_STATUS = EXACT
 evidence: paper_prep/validation_A_prime/REGENERATION_FIDELITY_CONTROLS.csv; paper_prep/validation_A_prime/REGENERATION_FIDELITY_REPORT.md; paper_prep/validation_A_prime/regeneration_fidelity_20260709/CONTROL_GENERATION_LEDGER.jsonl; paper_prep/validation_A_prime/regeneration_fidelity_20260709/REGENERATION_RELABEL_RESULTS.csv; paper_prep/scripts/regeneration_fidelity_20260709.py; tests/test_regeneration_fidelity_20260709.py
-AMENDMENT_STATUS = DRAFTED_AWAITING_SIGNATURE
-evidence: paper_prep/HUMAN_STUDY_CRITERIA_AMENDMENT_20260709.md; paper_prep/scripts/validation_gate_v2.py; tests/test_validation_gate_v2.py
+AMENDMENT_STATUS = SIGNED
+evidence: paper_prep/HUMAN_STUDY_CRITERIA_AMENDMENT_20260709.md; paper_prep/HUMAN_STUDY_CRITERIA_AMENDMENT_SIGNATURE_20260710.md; paper_prep/scripts/validation_gate_v2.py; tests/test_validation_gate_v2.py
 BATCH3_REANALYSIS_STATUS = PASS
 evidence: paper_prep/reanalysis_20260709/BATCH3_RESULTS_V2.json; paper_prep/reanalysis_20260709/BATCH3_RESULTS_V2.md; paper_prep/reanalysis_20260709/BATCH3_OLD_VS_V2_DIFF.csv; paper_prep/reanalysis_20260709/BATCH3_LEDGER_COMPLETENESS_REPORT.md; scripts/batch3_analyze_v2.py; tests/test_batch3_analyze_v2.py
 PUBLICATION_STATS_V2_STATUS = PASS
@@ -67,6 +67,7 @@ treated as decoded waveform differences.
 | T11 | `d7a66ae` | docs and P1 hardening pass with documented threshold exception | `paper_prep/TODO_COMPLIANCE_20260709.md` |
 | T9 | `8cba0f5` | bounded v1.5 replication complete | `paper_prep/v15_replication_20260709/V15_FINAL_REPLICATION_REPORT.md` |
 | T7 | `268518e` | service prepared, validation PI-blocked | `paper_prep/judge_selfhost_20260709/SELFHOST_JUDGE_REPORT.md` |
+| Signature | `41d130c` | D4/D5 amendment signed by Richard Ye | `paper_prep/HUMAN_STUDY_CRITERIA_AMENDMENT_SIGNATURE_20260710.md` |
 
 The compact manual-review entry point is `Code_Review_Guide.md`. The claim
 table is `paper_prep/PLAN.md`.
@@ -95,7 +96,6 @@ Heartbeat and gap details are in `paper_prep/NODE_SATURATION_AUDIT_20260709.md`,
 
 ## Remaining Human Actions
 
-- Sign the D4/D5 criteria amendment.
 - Rate the 42-clip decisive construct packet first. This supplies the balanced
   PI-corrected truth needed for the self-hosted smoke and selects the construct
   branch; it is not itself an A-prime pass.
