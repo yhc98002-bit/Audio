@@ -6,16 +6,16 @@ A_PRIME_CARDINALITY_STATUS = RECONCILED
 evidence: paper_prep/validation_A_prime/A_PRIME_CARDINALITY_RECONCILIATION.csv; paper_prep/validation_A_prime/A_PRIME_CARDINALITY_REPORT.md; paper_prep/scripts/reconcile_a_prime_cardinality.py; tests/test_reconcile_a_prime_cardinality.py
 REGENERATION_FIDELITY_STATUS = TODO
 evidence: TODO
-AMENDMENT_STATUS = TODO
-evidence: TODO
+AMENDMENT_STATUS = DRAFTED_AWAITING_SIGNATURE
+evidence: paper_prep/HUMAN_STUDY_CRITERIA_AMENDMENT_20260709.md; paper_prep/scripts/validation_gate_v2.py; tests/test_validation_gate_v2.py
 BATCH3_REANALYSIS_STATUS = PASS
 evidence: paper_prep/reanalysis_20260709/BATCH3_RESULTS_V2.json; paper_prep/reanalysis_20260709/BATCH3_RESULTS_V2.md; paper_prep/reanalysis_20260709/BATCH3_OLD_VS_V2_DIFF.csv; paper_prep/reanalysis_20260709/BATCH3_LEDGER_COMPLETENESS_REPORT.md; scripts/batch3_analyze_v2.py; tests/test_batch3_analyze_v2.py
 PUBLICATION_STATS_V2_STATUS = PASS
 evidence: paper_prep/scripts/build_publication_analysis_package_v2.py; paper_prep/analysis_v2/PUBLICATION_STATS_V2_REPORT.md; paper_prep/analysis_v2/OLD_VS_V2_PUBLICATION_NUMBER_DIFF.md; paper_prep/analysis_v2/deployment_success_metrics.csv; paper_prep/analysis_v2/n2_regime_membership_bootstrap.csv; paper_prep/figures_v2/fig2_retry_regime_ecdf_forest.png; tests/test_publication_analysis_package_v2.py
-A_PRIME_PRIMARY_PACKAGE_STATUS = TODO
-evidence: TODO
-B_PRIME_PI_PACKAGE_STATUS = TODO
-evidence: TODO
+A_PRIME_PRIMARY_PACKAGE_STATUS = ORIGINAL_ONLY_PI_READY
+evidence: paper_prep/validation_A_prime/primary_package_20260709/README.md; paper_prep/validation_A_prime/primary_package_20260709/A_PRIME_PRIMARY_ADMIN.csv; paper_prep/validation_A_prime/A_PRIME_HUMAN_GATE_REPORT_20260709.md; paper_prep/validation_A_prime/score_human_A_prime.py
+B_PRIME_PI_PACKAGE_STATUS = READY
+evidence: paper_prep/validation_B_prime/pi_package_20260709/README.md; paper_prep/validation_B_prime/pi_package_20260709/B_PRIME_ORDERED_ADMIN.csv; paper_prep/validation_B_prime/B_PRIME_HUMAN_GATE_REPORT_20260709.md; paper_prep/validation_B_prime/score_human_B_prime.py
 JUDGE_VALIDATION_STATUS = TODO
 evidence: TODO
 SA3_INTERMEDIATE_STATUS = TODO
@@ -55,7 +55,11 @@ TODO after node availability checks.
 
 ## Remaining Human Actions
 
-TODO after T3, T4, T7, and T8 calibration packaging.
+- Sign the D4/D5 criteria amendment.
+- Rate the 690-row original-only A-prime package and the 104-presentation
+  B-prime package; current fail-closed reports are `AWAITING_RATINGS`.
+- Rate the separate 42-clip decisive construct packet before selecting the
+  self-hosted-judge calibration branch.
 
 ## Changed Claims
 
