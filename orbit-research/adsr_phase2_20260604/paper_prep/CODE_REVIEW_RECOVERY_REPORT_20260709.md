@@ -19,15 +19,15 @@ evidence: paper_prep/validation_B_prime/pi_package_20260709/README.md; paper_pre
 JUDGE_VALIDATION_STATUS = PI_BLOCKED
 evidence: paper_prep/judge_selfhost_20260709/SELFHOST_JUDGE_REPORT.md; paper_prep/judge_selfhost_20260709/SELFHOST_INFRASTRUCTURE_SUMMARY.json; paper_prep/judge_raw/selfhost_qwen3_omni_infrastructure_20260710.jsonl; tests/test_selfhost_audio_judge.py
 SA3_INTERMEDIATE_STATUS = TRUE_INTERMEDIATE_COMPLETE
-evidence: src/mprm/inference/sa3.py; paper_prep/sao/stable_audio_3_medium/true_intermediate/SA3_INTERMEDIATE_REPORT.md; paper_prep/sao/stable_audio_3_medium/true_intermediate/SA3_INTERMEDIATE_LEDGER.jsonl; paper_prep/sao/stable_audio_3_medium/true_intermediate/SA3_INTERMEDIATE_METRICS.csv; tests/test_sa3_true_intermediate.py; tests/test_sa3_intermediate_analysis.py
+evidence: src/mprm/inference/sa3.py; paper_prep/sao/stable_audio_3_medium/true_intermediate/SA3_INTERMEDIATE_REPORT.md; paper_prep/sao/stable_audio_3_medium/true_intermediate/SA3_INTERMEDIATE_METRICS.csv; tests/test_sa3_true_intermediate.py; tests/test_sa3_intermediate_analysis.py
 SA3_LABEL_CALIBRATION_STATUS = PACKAGE_READY
 evidence: paper_prep/sao/stable_audio_3_medium/label_calibration/SA3_LABEL_CALIBRATION_REPORT.md; paper_prep/sao/stable_audio_3_medium/label_calibration/SA3_LABEL_CALIBRATION_ADMIN.csv; paper_prep/sao/stable_audio_3_medium/score_sa3_label_calibration.py; paper_prep/sao/stable_audio_3_medium/intervention_fidelity/SA3_INTERVENTION_FIDELITY_REPORT.md; tests/test_sa3_label_calibration.py; tests/test_sa3_intervention_fidelity.py
 V15_REPLICATION_STATUS = COMPLETE
 evidence: paper_prep/v15_replication_20260709/V15_FINAL_REPLICATION_REPORT.md; paper_prep/v15_replication_20260709/V15_ATTEMPT_AUDIT.csv; paper_prep/v15_replication_20260709/V15_AUDIO_MANIFEST.csv; paper_prep/scripts/audit_v15_replication.py; tests/test_v15_replication.py
 TEST_SUITE_STATUS = PASS
-evidence: paper_prep/execution_20260709/logs/full_pytest_final.log; tests/
+evidence: paper_prep/execution_20260709/logs/full_pytest_final.log; tests/test_code_review_recovery_report.py
 P0_OPEN_COUNT = 0
-evidence: paper_prep/execution_20260709/CODE_REVIEW_RECOVERY_LEDGER.jsonl; paper_prep/TODO_COMPLIANCE_20260709.md; this report
+evidence: paper_prep/execution_20260709/CODE_REVIEW_RECOVERY_LEDGER.jsonl; paper_prep/TODO_COMPLIANCE_20260709.md; paper_prep/PLAN.md
 FULL_DRAFT_STATUS = NOT_READY
 evidence: paper_prep/validation_A_prime/A_PRIME_HUMAN_GATE_REPORT_20260709.md; paper_prep/validation_B_prime/B_PRIME_HUMAN_GATE_REPORT_20260709.md; paper_prep/judge_selfhost_20260709/SELFHOST_JUDGE_REPORT.md
 REDUCED_DRAFT_STATUS = READY_WITH_REDUCED_CLAIMS
@@ -73,7 +73,7 @@ table is `paper_prep/PLAN.md`.
 
 ## Test Results
 
-- Final full suite: 161 passed, 0 failed, 0 skipped; wall time 6m46.136s.
+- Final full suite: 162 passed, 0 failed, 0 skipped; wall time 4m48.945s.
 - T7 focused suite: 7 passed; launcher and staging scripts also passed `bash -n`.
 - T2 focused rerun after path parameterization: 9 passed and the 1,794-audio
   v1.5 audit passed.
