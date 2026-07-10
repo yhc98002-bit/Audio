@@ -2,8 +2,8 @@
 
 MODEL_IDENTITY_STATUS = RESOLVED_ACE_STEP_V1
 evidence: paper_prep/model_identity/MODEL_IDENTITY_AUDIT_20260709.md; paper_prep/execution_20260709/ESCALATION_T0.md
-A_PRIME_CARDINALITY_STATUS = TODO
-evidence: TODO
+A_PRIME_CARDINALITY_STATUS = RECONCILED
+evidence: paper_prep/validation_A_prime/A_PRIME_CARDINALITY_RECONCILIATION.csv; paper_prep/validation_A_prime/A_PRIME_CARDINALITY_REPORT.md; paper_prep/scripts/reconcile_a_prime_cardinality.py; tests/test_reconcile_a_prime_cardinality.py
 REGENERATION_FIDELITY_STATUS = TODO
 evidence: TODO
 AMENDMENT_STATUS = TODO
