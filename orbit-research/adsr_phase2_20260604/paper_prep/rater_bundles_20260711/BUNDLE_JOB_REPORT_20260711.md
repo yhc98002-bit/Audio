@@ -133,8 +133,8 @@ run remains contingent on Test 1 returning `demucs_missing`.
 
 ## Test Results
 
-1. Full suite in the required `audio-prm` environment: 233 tests collected,
-   233 passed, exit code 0.
+1. Full suite in the required `audio-prm` environment: 234 tests collected,
+   234 passed, zero failures, exit code 0 (70.82 seconds).
 2. Post-line-ending focused rerun: 20 tests passed.
 3. Provenance/scorer focused runs: all passed, including invalid-source
    rejection for A-prime and B-prime and a positive validated-judge path.
