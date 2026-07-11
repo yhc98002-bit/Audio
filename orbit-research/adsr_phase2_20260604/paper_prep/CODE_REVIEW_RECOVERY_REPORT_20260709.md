@@ -47,10 +47,11 @@ evidence: paper_prep/PLAN.md; paper_prep/TODO_COMPLIANCE_20260709.md; paper_prep
 | ACE-Step v1.5 | No bounded replication | 1,024 prevalence, 512 retry, and 256 intervention rows | Severe vocal difficulty replicates; intervention lift +0.054688 is weak/uncertain. |
 | Self-hosted judge | Failed external Qwen smoke | Complete Qwen3-Omni service and a clean held-out legacy-CXY diagnostic | Engineering blocker closed; validation remains PI-blocked because the pre-amendment gold is single-rater and class-imbalanced. |
 
-T2 additionally found 50/50 decoded-waveform-identical replay controls, zero
-Demucs label flips in 126 sensitivity rows, mean absolute ratio delta 0.000000,
-and mean/minimum CLAP audio cosine 1.000000. Container-byte differences are not
-treated as decoded waveform differences.
+T2 additionally found 20/126 label flips (18/100 A-prime regenerated + 2/26
+rare-clean regenerated); the 50/50 regeneration controls remain exact. Mean
+absolute ratio delta is 0.000000, and mean/minimum CLAP audio cosine is
+1.000000. Container-byte differences are not treated as decoded waveform
+differences.
 
 ## Files And Commits
 

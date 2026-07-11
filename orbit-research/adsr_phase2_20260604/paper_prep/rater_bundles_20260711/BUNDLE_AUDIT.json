@@ -1,0 +1,54 @@
+{
+  "shuffle_seed": 20260711,
+  "nonce_present": true,
+  "nonce_sha256": "b222a93d8bf8473e6d0a7a9f398e848c6c8b162adcc903240667c168b1763f6f",
+  "bundles": {
+    "t1_decisive": {
+      "rows": 42,
+      "media_files": 42,
+      "leak_test": "PASS"
+    },
+    "t2_aprime_core": {
+      "rows": 190,
+      "media_files": 190,
+      "leak_test": "PASS"
+    },
+    "t3_bprime_primary": {
+      "rows": 80,
+      "media_files": 160,
+      "leak_test": "PASS"
+    },
+    "t4_bprime_reverse": {
+      "rows": 24,
+      "media_files": 48,
+      "leak_test": "PASS"
+    },
+    "t5_sa3_calibration": {
+      "rows": 60,
+      "media_files": 60,
+      "leak_test": "PASS"
+    }
+  },
+  "archives": [
+    {
+      "sha256": "bd3352e2926f5b8f8182e277bdc8448bed31f8267a63cc2be0fc70f4bcb07895",
+      "path": "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion/orbit-research/adsr_phase2_20260604/paper_prep/rater_bundles_20260711/t1_decisive.zip"
+    },
+    {
+      "sha256": "08ef8b9377c48c0ef0108926c82e2713ec8d461af807629591ec7a2eb212c995",
+      "path": "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion/orbit-research/adsr_phase2_20260604/paper_prep/rater_bundles_20260711/t2_aprime_core.zip"
+    },
+    {
+      "sha256": "71c4dcbc38e69beadd107b07e283b3fa28c634a5414cc91cb58f01d27901dc97",
+      "path": "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion/orbit-research/adsr_phase2_20260604/paper_prep/rater_bundles_20260711/t3_bprime_primary.zip"
+    },
+    {
+      "sha256": "f3225b33fe0eb3a5d5295dd11db9868c23c78dfa0460a9eb96723eca06637c9d",
+      "path": "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion/orbit-research/adsr_phase2_20260604/paper_prep/rater_bundles_20260711/t4_bprime_reverse.zip"
+    },
+    {
+      "sha256": "ef39419302eab4e9d14357e1144c89e4ca3ba4d42e9207f5b62ceea0c4cb5ed5",
+      "path": "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion/orbit-research/adsr_phase2_20260604/paper_prep/rater_bundles_20260711/t5_sa3_calibration.zip"
+    }
+  ]
+}

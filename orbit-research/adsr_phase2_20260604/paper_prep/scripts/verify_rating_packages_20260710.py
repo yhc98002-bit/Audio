@@ -64,7 +64,7 @@ SPECS = (
     PackageSpec(
         name="PI decisive construct packet",
         directory=PAPER / "pi_decisive_packet_20260709",
-        admin_files=("DECISIVE_PACKET_ADMIN.csv",),
+        admin_files=(str(PAPER / "rater_admin_keys_20260711/t1_decisive/DECISIVE_PACKET_ADMIN.csv"),),
         rating_file="DECISIVE_PACKET_RATINGS.csv",
         expected_admin_rows=(42,),
         expected_rating_rows=42,
@@ -72,7 +72,7 @@ SPECS = (
     PackageSpec(
         name="A-prime original-only primary package",
         directory=PAPER / "validation_A_prime/primary_package_20260709",
-        admin_files=("A_PRIME_PRIMARY_ADMIN.csv",),
+        admin_files=(str(PAPER / "rater_admin_keys_20260711/t2_aprime/A_PRIME_PRIMARY_ADMIN.csv"),),
         rating_file="A_PRIME_PRIMARY_RATINGS.csv",
         expected_admin_rows=(690,),
         expected_rating_rows=690,
@@ -80,7 +80,10 @@ SPECS = (
     PackageSpec(
         name="B-prime solo-rater package",
         directory=PAPER / "validation_B_prime/pi_package_20260709",
-        admin_files=("B_PRIME_ORDERED_ADMIN.csv", "B_PRIME_PAIR_ADMIN.csv"),
+        admin_files=(
+            str(PAPER / "rater_admin_keys_20260711/t3_t4_bprime/B_PRIME_ORDERED_ADMIN.csv"),
+            str(PAPER / "rater_admin_keys_20260711/t3_t4_bprime/B_PRIME_PAIR_ADMIN.csv"),
+        ),
         rating_file="B_PRIME_PI_RATINGS.csv",
         expected_admin_rows=(104, 80),
         expected_rating_rows=104,
@@ -222,14 +225,15 @@ def verify_package(spec: PackageSpec) -> PackageResult:
         return result
     admins: list[list[dict[str, str]]] = []
     for filename, expected in zip(spec.admin_files, spec.expected_admin_rows, strict=True):
-        path = spec.directory / filename
+        candidate = Path(filename)
+        path = candidate if candidate.is_absolute() else spec.directory / candidate
         try:
             rows = read_csv(path)
         except (OSError, ValueError) as exc:
             result.failures.append(str(exc))
             rows = []
         admins.append(rows)
-        result.admin_rows[filename] = len(rows)
+        result.admin_rows[path.name] = len(rows)
         if len(rows) != expected:
             result.failures.append(f"{filename}: expected {expected} rows, found {len(rows)}")
     rating_path = spec.directory / spec.rating_file

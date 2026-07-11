@@ -2,11 +2,26 @@
 """Score the non-gating PI construct-branch packet."""
 from __future__ import annotations
 
+import argparse
 import csv
 import json
 import math
+import sys
 from collections import Counter
 from pathlib import Path
+
+
+def find_root(path: Path) -> Path:
+    for candidate in path.parents:
+        if (candidate / "src/mprm").is_dir() and (candidate / "orbit-research").is_dir():
+            return candidate
+    raise RuntimeError("repository root not found")
+
+
+ROOT = find_root(Path(__file__).resolve())
+sys.path.insert(0, str(ROOT / "paper_prep/scripts"))
+from bundle_response_io import remap_bundle_rows  # noqa: E402
+from rating_provenance import validate_human_rating_rows  # noqa: E402
 
 
 def normalize(value: str) -> str:
@@ -44,13 +59,11 @@ def score(admin: list[dict[str, str]], ratings: list[dict[str, str]]) -> dict:
         raise ValueError("admin/rating ID mismatch")
     if len(admin) != 42:
         raise ValueError(f"decisive packet must contain 42 rows, got {len(admin)}")
+    provenance_counts = validate_human_rating_rows(ratings, id_field="rating_id")
     rating_index = {row["rating_id"]: row for row in ratings}
     scored = []
-    real_complete = True
     for admin_row in admin:
         rating = rating_index[admin_row["rating_id"]]
-        source = normalize(rating.get("rating_source", ""))
-        real_complete &= bool(source and source not in {"synthetic", "test_fixture"})
         a = label_a_presence(rating.get("label_a_voice_presence", ""))
         b = label_b_presence(rating.get("label_b_constraint", ""), admin_row["requested_vocal"])
         scored.append({**admin_row, "label_a_presence": a, "label_b_presence": b})
@@ -80,9 +93,7 @@ def score(admin: list[dict[str, str]], ratings: list[dict[str, str]]) -> dict:
         for row in control_decided
     )
 
-    if not real_complete:
-        verdict = "AWAITING_RATINGS"
-    elif len(decided_b) < 20 or len(control_decided) < 5:
+    if len(decided_b) < 20 or len(control_decided) < 5:
         verdict = "construct_mismatch"
     elif control_matches < 5 or (not math.isnan(construct_disagreement) and construct_disagreement >= 0.25):
         verdict = "construct_mismatch"
@@ -94,7 +105,8 @@ def score(admin: list[dict[str, str]], ratings: list[dict[str, str]]) -> dict:
         verdict = "construct_mismatch"
     return {
         "branch_verdict": verdict,
-        "real_ratings_complete": real_complete,
+        "real_ratings_complete": True,
+        "provenance_counts": provenance_counts,
         "contested_rows": len(contested),
         "contested_label_b_decided": len(decided_b),
         "judge_matches_label_b": judge_matches,
@@ -113,10 +125,20 @@ def read_csv(path: Path) -> list[dict[str, str]]:
 
 
 def main() -> int:
-    package = Path(__file__).resolve().parent
+    keys = Path(__file__).resolve().parent
+    package = ROOT / "paper_prep/pi_decisive_packet_20260709"
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--admin", type=Path, default=keys / "DECISIVE_PACKET_ADMIN.csv")
+    parser.add_argument("--ratings", type=Path, default=package / "DECISIVE_PACKET_RATINGS.csv")
+    parser.add_argument("--bundle-key", type=Path, default=keys / "T1_BUNDLE_KEY.csv")
+    parser.add_argument("--out", type=Path, default=keys / "DECISIVE_BRANCH_REPORT.md")
+    args = parser.parse_args()
+    ratings = remap_bundle_rows(
+        read_csv(args.ratings), args.bundle_key, scorer_id_field="rating_id"
+    )
     result = score(
-        read_csv(package / "DECISIVE_PACKET_ADMIN.csv"),
-        read_csv(package / "DECISIVE_PACKET_RATINGS.csv"),
+        read_csv(args.admin),
+        ratings,
     )
     report = f"""# Decisive Construct Branch Report
 
@@ -135,7 +157,7 @@ This packet selects a diagnostic branch; it is not A-prime validation.
 {json.dumps(result, indent=2, sort_keys=True)}
 ```
 """
-    (package / "DECISIVE_BRANCH_REPORT.md").write_text(report, encoding="utf-8")
+    args.out.write_text(report, encoding="utf-8")
     print(result["branch_verdict"])
     return 0
 

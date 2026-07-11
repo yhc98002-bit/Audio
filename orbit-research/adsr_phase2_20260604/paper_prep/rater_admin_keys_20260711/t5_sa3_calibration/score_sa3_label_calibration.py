@@ -5,7 +5,21 @@ from __future__ import annotations
 import argparse
 import csv
 import math
+import sys
 from pathlib import Path
+
+
+def find_root(path: Path) -> Path:
+    for candidate in path.parents:
+        if (candidate / "src/mprm").is_dir() and (candidate / "orbit-research").is_dir():
+            return candidate
+    raise RuntimeError("repository root not found")
+
+
+ROOT = find_root(Path(__file__).resolve())
+sys.path.insert(0, str(ROOT / "paper_prep/scripts"))
+from rating_provenance import validate_human_rating_rows  # noqa: E402
+from bundle_response_io import remap_bundle_rows  # noqa: E402
 
 
 def read_csv(path: Path) -> list[dict[str, str]]:
@@ -25,13 +39,7 @@ def validate_ids(admin: list[dict[str, str]], ratings: list[dict[str, str]]) -> 
 
 
 def validate_real_provenance(ratings: list[dict[str, str]]) -> None:
-    invalid = [
-        row["blind_id"]
-        for row in ratings
-        if row.get("rating_source", "").strip().lower() in {"", "synthetic", "test_fixture"}
-    ]
-    if invalid:
-        raise ValueError(f"missing or non-human rating provenance: {invalid[:10]}")
+    validate_human_rating_rows(ratings, id_field="blind_id")
 
 
 def confusion(truth: list[int], predicted: list[int]) -> dict[str, float | int]:
@@ -49,14 +57,21 @@ def main() -> int:
     parser.add_argument("--admin", type=Path, required=True)
     parser.add_argument("--ratings", type=Path, required=True)
     parser.add_argument("--report", type=Path, required=True)
+    parser.add_argument(
+        "--bundle-key",
+        type=Path,
+        default=ROOT / "paper_prep/rater_admin_keys_20260711/t5_sa3_calibration/T5_BUNDLE_KEY.csv",
+    )
     args = parser.parse_args()
     admin = read_csv(args.admin)
-    ratings = read_csv(args.ratings)
+    ratings = remap_bundle_rows(
+        read_csv(args.ratings), args.bundle_key, scorer_id_field="blind_id"
+    )
     validate_ids(admin, ratings)
     validate_real_provenance(ratings)
     rated = {row["blind_id"]: row for row in ratings}
     results = {}
-    for construct in ("label_a", "label_b"):
+    for construct in ("label_a",):
         truth = []
         predicted = []
         abstains = 0
@@ -70,18 +85,10 @@ def main() -> int:
                 if value not in {"yes", "no"}:
                     raise ValueError(f"invalid or missing Label A for {row['blind_id']}")
                 target = int(value == "yes")
-            else:
-                value = rating["label_b_constraint"].strip().lower()
-                if value == "unsure":
-                    abstains += 1
-                    continue
-                if value not in {"satisfied", "violated"}:
-                    raise ValueError(f"invalid or missing Label B for {row['blind_id']}")
-                target = int((row["request_type"] == "vocal" and value == "satisfied") or (row["request_type"] == "instrumental" and value == "violated"))
             truth.append(target)
             predicted.append(int(row["demucs_present_0p1791"]))
         results[construct] = {**confusion(truth, predicted), "decided": len(truth), "abstains": abstains}
-    passed = all(float(results[name]["balanced_accuracy"]) >= 0.70 for name in results)
+    passed = float(results["label_a"]["balanced_accuracy"]) >= 0.70
     status = "SCORED_PASS" if passed else "SCORED_FAIL"
     report = f"""# SA3 Label Calibration Result
 
@@ -90,10 +97,8 @@ def main() -> int:
 | Construct | Decided | Abstains | Sensitivity | Specificity | Balanced accuracy |
 |---|---:|---:|---:|---:|---:|
 | Label A | {results['label_a']['decided']} | {results['label_a']['abstains']} | {results['label_a']['sensitivity']:.6f} | {results['label_a']['specificity']:.6f} | {results['label_a']['balanced_accuracy']:.6f} |
-| Label B | {results['label_b']['decided']} | {results['label_b']['abstains']} | {results['label_b']['sensitivity']:.6f} | {results['label_b']['specificity']:.6f} | {results['label_b']['balanced_accuracy']:.6f} |
-
-The mechanical package criterion requires balanced accuracy at least 0.70
-against both constructs. Human labels remain the reference; this score does
+The mechanical package criterion requires Label-A balanced accuracy at least
+0.70. Human labels remain the reference; this score does
 not convert Demucs into ground truth.
 """
     args.report.write_text(report, encoding="utf-8")

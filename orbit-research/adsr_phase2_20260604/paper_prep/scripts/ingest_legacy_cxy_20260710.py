@@ -527,9 +527,12 @@ def main() -> int:
         "source_clip_id",
         "A-prime human admin manifest",
     )
-    primary_rows = read_csv(PAPER / "validation_A_prime/primary_package_20260709/A_PRIME_PRIMARY_ADMIN.csv")
+    primary_rows = read_csv(PAPER / "rater_admin_keys_20260711/t2_aprime/A_PRIME_PRIMARY_ADMIN.csv")
     primary_by_source = multi_index(primary_rows, "source_clip_id")
-    decisive_by_source = multi_index(read_csv(PAPER / "pi_decisive_packet_20260709/DECISIVE_PACKET_ADMIN.csv"), "source_id")
+    decisive_by_source = multi_index(
+        read_csv(PAPER / "rater_admin_keys_20260711/t1_decisive/DECISIVE_PACKET_ADMIN.csv"),
+        "source_id",
+    )
     adj_sheet = unique_index(
         read_csv(PAPER / "validation_A_prime/tar_extracted/adsr_human_eval_pkg/2_label_adjudication/response_sheet.csv"),
         "case_id",

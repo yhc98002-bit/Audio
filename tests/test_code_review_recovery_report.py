@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import csv
 import re
 import subprocess
 from pathlib import Path
@@ -8,6 +9,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 PHASE_ROOT = ROOT / "orbit-research/adsr_phase2_20260604"
 REPORT = PHASE_ROOT / "paper_prep/CODE_REVIEW_RECOVERY_REPORT_20260709.md"
+MOVE_MAP_PATH = PHASE_ROOT / "paper_prep/rater_admin_keys_20260711/ADMIN_MOVE_MAP.csv"
 
 ALLOWED_STATUS_VALUES = {
     "MODEL_IDENTITY_STATUS": {
@@ -49,7 +51,16 @@ ALLOWED_STATUS_VALUES = {
 STATUS_RE = re.compile(r"([A-Z][A-Z0-9_]+) = (\S+)")
 
 
+def evidence_moves() -> dict[str, str]:
+    with MOVE_MAP_PATH.open(newline="", encoding="utf-8") as handle:
+        rows = list(csv.DictReader(handle))
+    mapping = {row["old_path"]: row["new_path"] for row in rows}
+    assert len(mapping) == len(rows)
+    return mapping
+
+
 def resolve_evidence_path(reference: str) -> tuple[Path, str]:
+    reference = evidence_moves().get(reference, reference)
     if reference.startswith("paper_prep/"):
         return PHASE_ROOT / reference, f"orbit-research/adsr_phase2_20260604/{reference}"
     if reference.startswith(("src/", "scripts/", "tests/")):

@@ -30,6 +30,7 @@ ROOT = find_root(Path(__file__).resolve())
 PAPER = ROOT / "paper_prep"
 A_DIR = PAPER / "validation_A_prime"
 OUT = PAPER / "pi_decisive_packet_20260709"
+KEYS = PAPER / "rater_admin_keys_20260711/t1_decisive"
 
 
 def read_csv(path: Path) -> list[dict[str, str]]:
@@ -284,7 +285,8 @@ def main() -> int:
                 "notes": "",
             }
         )
-    write_csv(OUT / "DECISIVE_PACKET_ADMIN.csv", admin)
+    KEYS.mkdir(parents=True, exist_ok=True)
+    write_csv(KEYS / "DECISIVE_PACKET_ADMIN.csv", admin)
     write_csv(OUT / "DECISIVE_PACKET_RATINGS.csv", ratings)
     readme = """# PI Decisive Construct Packet
 
@@ -301,7 +303,7 @@ than forcing a label. After all rows are rated with non-synthetic provenance,
 run:
 
 ```bash
-python paper_prep/pi_decisive_packet_20260709/score_decisive_packet.py
+python paper_prep/rater_admin_keys_20260711/t1_decisive/score_decisive_packet.py
 ```
 
 The scorer returns one branch: `judge_over_calling`, `demucs_missing`, or
