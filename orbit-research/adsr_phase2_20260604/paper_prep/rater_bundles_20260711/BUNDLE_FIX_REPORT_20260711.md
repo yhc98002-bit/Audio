@@ -114,7 +114,7 @@ Two pre-release v2 build attempts were also retained without deletion under
 
 - Base commit: `b093462f4a12f5dec68de93098393e8e6fb68128`.
 - Implementation commit: `7ebf6443b3a5f4d7d4907f6d4872968dfc7afb23`.
-- Report and contract test: the commit containing this report.
+- Report and contract-test commit: `eb609814ffa922a116053ee38ae3bc905edc9c50`.
 
 Changed tracked files comprise the bundle builder, bundle tests, three v2
 key maps, three v2 HTML/README pairs, active audit/checksum metadata, the
