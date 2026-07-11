@@ -2,7 +2,19 @@
 from __future__ import annotations
 
 import math
+import sys
 from collections import Counter, defaultdict
+from pathlib import Path
+
+
+SCRIPTS = Path(__file__).resolve().parent
+if str(SCRIPTS) not in sys.path:
+    sys.path.insert(0, str(SCRIPTS))
+
+from rating_provenance import (  # noqa: E402
+    validate_a_prime_rating_provenance,
+    validate_human_rating_rows,
+)
 
 
 def require_unique(rows: list[dict[str, str]], key: str, source: str) -> None:
@@ -94,11 +106,6 @@ def _a_presence(row: dict[str, str], construct: str) -> int | None:
     return int((requested_vocal and value == "satisfied") or (not requested_vocal and value == "violated"))
 
 
-def _real_ratings_complete(ratings: list[dict[str, str]]) -> bool:
-    sources = [_normal(row.get("rating_source", "")) for row in ratings]
-    return bool(sources) and all(source and source not in {"synthetic", "test_fixture"} for source in sources)
-
-
 def score_a_prime(
     admin: list[dict[str, str]],
     ratings: list[dict[str, str]],
@@ -108,6 +115,7 @@ def score_a_prime(
         raise ValueError(f"invalid abstain policy {abstain_policy}")
     validate_exact_ids(admin, ratings)
     require_unique(admin, "source_clip_id", "A-prime admin")
+    provenance_counts = validate_a_prime_rating_provenance(admin, ratings)
     rating_index = {row["rating_id"]: row for row in ratings}
     primary = [row for row in admin if row["analysis_role"] == "primary" and row["media_class"] == "original"]
     excluded_regenerated = [row for row in admin if row["analysis_role"] == "primary" and row["media_class"] != "original"]
@@ -161,12 +169,14 @@ def score_a_prime(
         and primary_b["detector_disagreement_112"]["match_rate"] >= 0.70
         and primary_b["agreement_spotcheck_30"]["decided"] - primary_b["agreement_spotcheck_30"]["matches"] <= 2
     )
-    complete_real = _real_ratings_complete(ratings)
-    status = "PASS" if complete_real and mechanical_pass else "FAIL" if complete_real else "AWAITING_RATINGS"
+    criteria_status = "PASS" if mechanical_pass else "FAIL"
+    status = "CRITERIA_MET_AWAITING_PI_GATE_CALL" if mechanical_pass else "FAIL"
     return {
         "status": status,
+        "criteria_status": criteria_status,
         "mechanical_pass": mechanical_pass,
-        "complete_real_ratings": complete_real,
+        "complete_real_ratings": True,
+        "provenance_counts": provenance_counts,
         "abstain_policy": abstain_policy,
         "excluded_regenerated_primary": len(excluded_regenerated),
         "constructs": constructs,
@@ -195,6 +205,7 @@ def score_b_prime(
     if len(pair_admin) != 80:
         raise ValueError(f"B-prime needs 80 unique pairs, got {len(pair_admin)}")
     validate_exact_ids(ordered_admin, ratings)
+    provenance_counts = validate_human_rating_rows(ratings, id_field="rating_id")
     require_unique(ordered_admin, "rating_id", "B-prime ordered admin")
     primary = [row for row in ordered_admin if row["presentation_role"] == "primary"]
     reverse = [row for row in ordered_admin if row["presentation_role"] == "reliability_reverse"]
@@ -253,12 +264,15 @@ def score_b_prime(
             agreed += int(reverse_class == first_class)
         reliability[endpoint] = {"decided": decided, "agreed": agreed, "agreement_rate": agreed / decided if decided else math.nan}
 
-    complete_real = _real_ratings_complete(ratings)
     quality_pass = bool(endpoints["quality_preference"]["primary_noninferiority_pass"])
-    status = "PASS" if complete_real and quality_pass else "FAIL" if complete_real else "AWAITING_RATINGS"
+    criteria_status = "PASS" if quality_pass else "FAIL"
+    status = "CRITERIA_MET_AWAITING_PI_GATE_CALL" if quality_pass else "FAIL"
     return {
         "status": status,
-        "complete_real_ratings": complete_real,
+        "criteria_status": criteria_status,
+        "mechanical_pass": quality_pass,
+        "complete_real_ratings": True,
+        "provenance_counts": provenance_counts,
         "abstain_policy": abstain_policy,
         "endpoints": endpoints,
         "reliability": reliability,

@@ -1,0 +1,19 @@
+{
+  "canonical_conflict_count": 0,
+  "classification": "LEGACY_NON_PRIMARY",
+  "classified_rows": 282,
+  "escalation_triggers": [
+    "spotcheck_errors_above_frozen_tolerance",
+    "legacy_method_preference_materially_below_floor"
+  ],
+  "gate_scorers_invoked": false,
+  "generated_at": "2026-07-10T23:09:47.894991+00:00",
+  "input_rows": 282,
+  "judge_gold_rows": 176,
+  "judge_heldout_rows": 37,
+  "mapping_issue_count": 0,
+  "section_7_status_changed": false,
+  "unblinding_key_content_logged": false,
+  "unblinding_key_path": "/tmp/ADSR_PI_ONLY_KEY_20260710/UNBLINDING_KEY.jsonl",
+  "unblinding_key_sha256": "8bf5ca2ca8f1dd7bc6f1ae60bbe1922dbc664580a6c1fead30101b6e39fb7975"
+}

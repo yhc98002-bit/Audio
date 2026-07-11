@@ -24,6 +24,7 @@ ROOT = find_repo_root(Path(__file__).resolve())
 PAPER = ROOT / "paper_prep"
 A_DIR = PAPER / "validation_A_prime"
 B_DIR = PAPER / "validation_B_prime"
+KEYS = PAPER / "rater_admin_keys_20260711"
 SHUFFLE_SEED = 20260709
 
 LABEL_A = (
@@ -193,7 +194,7 @@ def build_a_prime(nonce: str) -> dict:
                 "notes": "",
             }
         )
-    write_csv(package / "A_PRIME_PRIMARY_ADMIN.csv", admin)
+    write_csv(KEYS / "t2_aprime/A_PRIME_PRIMARY_ADMIN.csv", admin)
     write_csv(package / "A_PRIME_PRIMARY_RATINGS.csv", ratings)
     instructions = f"""# A-prime Original-Only Rating Instructions
 
@@ -314,8 +315,8 @@ def build_b_prime(nonce: str) -> dict:
     rng.shuffle(reverse_rows)
     for row in reverse_rows:
         add_presentation(row, "reliability_reverse", len(ordered_admin) + 1, not primary_order[row["pair_id"]])
-    write_csv(package / "B_PRIME_PAIR_ADMIN.csv", pair_admin)
-    write_csv(package / "B_PRIME_ORDERED_ADMIN.csv", ordered_admin)
+    write_csv(KEYS / "t3_t4_bprime/B_PRIME_PAIR_ADMIN.csv", pair_admin)
+    write_csv(KEYS / "t3_t4_bprime/B_PRIME_ORDERED_ADMIN.csv", ordered_admin)
     write_csv(package / "B_PRIME_PI_RATINGS.csv", ratings)
     instructions = f"""# B-prime Solo-Rater Instructions
 

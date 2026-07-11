@@ -1,0 +1,24 @@
+{
+  "status": "SCAFFOLD_ONLY_NO_EVIDENCE_RELABELED",
+  "manifest": "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion/orbit-research/adsr_phase2_20260604/paper_prep/w2_contingency_20260711/W2_RETAINED_AUDIO_MANIFEST.jsonl",
+  "rows_by_cohort": {
+    "atlas_keep": 194,
+    "candidate_spine_4096": 4096,
+    "n2_population_retry": 16384,
+    "stage3_intervention": 6144
+  },
+  "available_media_by_cohort": {
+    "atlas_keep": 194,
+    "candidate_spine_4096": 1,
+    "n2_population_retry": 16384,
+    "stage3_intervention": 6144
+  },
+  "media_classes": {
+    "frozen_retained": 22528,
+    "not_retained_on_disk": 4095,
+    "retained_keep": 194,
+    "surviving_original": 1
+  },
+  "total_rows": 26818,
+  "available_media": 22723
+}

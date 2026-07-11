@@ -4,7 +4,7 @@ from pathlib import Path
 import pytest
 
 
-SCRIPT = Path(__file__).parents[1] / "paper_prep/pi_decisive_packet_20260709/score_decisive_packet.py"
+SCRIPT = Path(__file__).parents[1] / "paper_prep/rater_admin_keys_20260711/t1_decisive/score_decisive_packet.py"
 SPEC = importlib.util.spec_from_file_location("score_decisive_packet", SCRIPT)
 MODULE = importlib.util.module_from_spec(SPEC)
 assert SPEC.loader is not None
@@ -37,7 +37,7 @@ def fixture(human_presence: int, construct_mismatch: bool = False):
                 "rating_id": rating_id,
                 "label_a_voice_presence": "yes" if label_a else "no",
                 "label_b_constraint": "violated" if presence else "satisfied",
-                "rating_source": "pi",
+                "rating_source": "pi:Test Rater",
             }
         )
     return admin, ratings
@@ -62,7 +62,17 @@ def test_blank_provenance_cannot_choose_branch():
     admin, ratings = fixture(1)
     for row in ratings:
         row["rating_source"] = ""
-    assert MODULE.score(admin, ratings)["branch_verdict"] == "AWAITING_RATINGS"
+    with pytest.raises(ValueError, match="rating_source"):
+        MODULE.score(admin, ratings)
+
+
+@pytest.mark.parametrize("source", ["qwen_unvalidated", "automatic_model", "unknown"])
+def test_unvalidated_provenance_cannot_choose_branch(source):
+    admin, ratings = fixture(1)
+    for row in ratings:
+        row["rating_source"] = source
+    with pytest.raises(ValueError, match="rating_source"):
+        MODULE.score(admin, ratings)
 
 
 def test_id_mismatch_fails_closed():

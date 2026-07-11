@@ -1,0 +1,3 @@
+t3_bprime_primary_v2 blinded rating bundle (80 pairs).
+Rate quality blind, reveal request context, then rate constraint and overall preference.
+Export both responses_<initials>.csv and the JSON backup when complete.

@@ -70,7 +70,11 @@ def select_pi_gold(admin_rows: list[dict], rating_rows: list[dict]) -> list[dict
 def main() -> int:
     parser = argparse.ArgumentParser()
     base = Path("paper_prep/pi_decisive_packet_20260709")
-    parser.add_argument("--admin", type=Path, default=base / "DECISIVE_PACKET_ADMIN.csv")
+    parser.add_argument(
+        "--admin",
+        type=Path,
+        default=Path("paper_prep/rater_admin_keys_20260711/t1_decisive/DECISIVE_PACKET_ADMIN.csv"),
+    )
     parser.add_argument("--ratings", type=Path, default=base / "DECISIVE_PACKET_RATINGS.csv")
     parser.add_argument(
         "--output",

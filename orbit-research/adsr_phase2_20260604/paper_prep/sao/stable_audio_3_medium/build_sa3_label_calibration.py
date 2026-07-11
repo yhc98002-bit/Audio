@@ -17,6 +17,8 @@ from mprm.common.thresholds import VOCAL_PRESENCE_THRESHOLD
 
 THRESHOLD = VOCAL_PRESENCE_THRESHOLD
 SELECTION_SEED = 20260709
+ROOT = Path(__file__).resolve().parents[5]
+ADMIN_DIR = ROOT / "paper_prep/rater_admin_keys_20260711/t5_sa3_calibration"
 LABEL_A = (
     "Do you hear any sound a reasonable listener would perceive as a human voice or vocalization? "
     "Includes singing, rap, speech, chant, humming, wordless vocals, choir, ooh/ah, vocal chops. "
@@ -127,7 +129,8 @@ def main() -> int:
                 "notes": "",
             }
         )
-    write_csv(args.out_dir / "SA3_LABEL_CALIBRATION_ADMIN.csv", admin_rows, list(admin_rows[0]))
+    ADMIN_DIR.mkdir(parents=True, exist_ok=True)
+    write_csv(ADMIN_DIR / "SA3_LABEL_CALIBRATION_ADMIN.csv", admin_rows, list(admin_rows[0]))
     write_csv(args.out_dir / "SA3_LABEL_CALIBRATION_RATINGS.csv", rating_rows, list(rating_rows[0]))
     instructions = f"""# SA3 Label Calibration Instructions
 
@@ -161,7 +164,7 @@ Run `score_sa3_label_calibration.py` with the completed ratings file. The
 scorer fails on missing, duplicate, or unknown IDs and reports the fixed
 0.1791 threshold plus a labeled SA3-specific threshold estimate.
 """
-    (args.out_dir / "SA3_LABEL_CALIBRATION_REPORT.md").write_text(instructions, encoding="utf-8")
+    (ADMIN_DIR / "SA3_LABEL_CALIBRATION_REPORT.md").write_text(instructions, encoding="utf-8")
     print(json.dumps({"status": "PACKAGE_READY", "rows": len(admin_rows)}, sort_keys=True))
     return 0
 

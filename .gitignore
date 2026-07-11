@@ -28,6 +28,7 @@ CLAUDE.md
 *.pem
 *.key
 paper_prep/scripts/.dashscope_key
+**/rater_admin_keys_20260711/.bundle_nonce
 
 # Generated media and binary model artifacts
 *.wav

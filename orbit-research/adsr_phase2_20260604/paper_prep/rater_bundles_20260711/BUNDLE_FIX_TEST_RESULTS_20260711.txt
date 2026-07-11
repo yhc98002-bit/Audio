@@ -1,0 +1,23 @@
+BUNDLE FIX VERIFICATION RESULTS
+Date: 2026-07-11
+Implementation commit: 7ebf6443b3a5f4d7d4907f6d4872968dfc7afb23
+
+Focused command:
+pytest -q tests/test_rater_bundles_20260711.py tests/test_bundle_response_io_20260711.py tests/test_bundle_job_report_20260711.py
+Result: PASS, 26 tests, zero failures.
+
+Implementation full-suite command:
+module load anaconda3/2023.09
+source /APP/u22/ai_x86/anaconda3/2023.09/etc/profile.d/conda.sh
+conda activate audio-prm
+pytest -q --disable-warnings
+Result: PASS, 243 collected tests reached 100%, exit code 0, zero failures.
+
+Artifact verification:
+- sha256sum -c SHA256SUMS: PASS, 5/5 active archives.
+- unzip -t: PASS, 3/3 replacement archives.
+- node --check: PASS, 3/3 replacement index.html programs.
+
+Final full-suite command (including the report-contract regression):
+pytest -q --disable-warnings
+Result: PASS, 245 collected tests reached 100%, exit code 0, zero failures.

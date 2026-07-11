@@ -6,6 +6,7 @@ from __future__ import annotations
 import csv
 import json
 import math
+import sys
 from collections import Counter, defaultdict
 from pathlib import Path
 
@@ -15,6 +16,15 @@ ROOT = Path.cwd()
 PAPER = ROOT / "paper_prep"
 APRIME = PAPER / "validation_A_prime"
 BPRIME = PAPER / "validation_B_prime"
+sys.path.insert(0, str(PAPER / "scripts"))
+from rating_provenance import parse_rating_source  # noqa: E402
+
+
+def validate_fallback_sources(rows: list[dict]) -> None:
+    """Require the shared enum even though this old protocol is non-gating."""
+
+    for row in rows:
+        parse_rating_source(str(row.get("rating_source", "")))
 
 
 def read_csv(path: Path) -> list[dict[str, str]]:
@@ -43,6 +53,7 @@ def score_aprime() -> dict[str, object]:
     manifest = read_csv(APRIME / "A_PRIME_MANIFEST.csv")
     judgeable = read_csv(APRIME / "A_PRIME_JUDGEABLE_MANIFEST.csv")
     raw = read_jsonl(APRIME / "A_PRIME_RAW_RESPONSES.jsonl")
+    validate_fallback_sources(raw)
     by_path = {r["clip_path"]: r for r in raw}
     full_by_path = {r["clip_path"]: r for r in manifest}
     matrix_rows = []
@@ -123,7 +134,7 @@ def score_aprime() -> dict[str, object]:
         and agreement_fail_count <= 2
         and len(strat_scored) >= 500
     )
-    status = "PASS" if criteria_pass else ("FALLBACK_READY" if complete else "BLOCKED_WITH_EXACT_CAUSE")
+    status = "FALLBACK_READY" if complete else "BLOCKED_WITH_EXACT_CAUSE"
     missing = [r for r in manifest if r.get("exists") != "true"]
 
     set_lines = "\n".join(
@@ -166,13 +177,13 @@ unless a scientifically acceptable replacement validation is approved.
 
 ## Interpretation
 
-Do not cite A-prime as passed unless `A_PRIME_STATUS = PASS`. If status is
+This pre-amendment fallback scorer cannot produce an A-prime PASS. If status is
 `FALLBACK_READY`, the scored package can support a PI/human adjudication or a
 reduced automatic-label caveat, but it is not a validated A-prime pass because
 the model smoke did not clear and/or required sample coverage is incomplete.
 """
     (APRIME / "A_PRIME_GATE_REPORT.md").write_text(report)
-    return {"status": status, "scored": len(raw), "manifest": len(manifest), "missing": len(missing)}
+    return {"status": status, "criteria_shape_met": criteria_pass, "scored": len(raw), "manifest": len(manifest), "missing": len(missing)}
 
 
 def chosen_arm(manifest_row: dict[str, str], order: str, answer: str) -> str:
@@ -188,6 +199,7 @@ def chosen_arm(manifest_row: dict[str, str], order: str, answer: str) -> str:
 def score_bprime() -> dict[str, object]:
     manifest = read_csv(BPRIME / "B_PRIME_MANIFEST.csv")
     raw = read_jsonl(BPRIME / "B_PRIME_RAW_RESPONSES.jsonl")
+    validate_fallback_sources(raw)
     by_pair = {r["pair_id"]: r for r in manifest}
     question_rows = []
     pair_votes: dict[str, list[str]] = defaultdict(list)
@@ -296,8 +308,8 @@ By contrast:
 
 ## Interpretation
 
-Do not claim B-prime passed unless `B_PRIME_STATUS = PASS`. This report can
-support reduced wording only after the failed-smoke judge limitation is stated.
+This pre-amendment fallback scorer cannot produce a B-prime PASS. This report
+can support reduced wording only after the failed-smoke judge limitation is stated.
 Forbidden wording remains: "proved no loss" and unqualified "no quality degradation".
 """
     (BPRIME / "B_PRIME_GATE_REPORT.md").write_text(report)
