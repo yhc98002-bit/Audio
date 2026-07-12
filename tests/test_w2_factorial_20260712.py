@@ -40,3 +40,10 @@ def test_factorial_seed_formula_is_crn_and_registered():
     assert "2034000000" in registry
     assert "2034031015" in registry
 
+
+def test_factorial_instrument_thresholds_are_sensitivity_only():
+    module = load_module()
+    assert module.OLD_THRESHOLD == 0.1791
+    assert module.CANDIDATE_DEMUCS_THRESHOLD == 0.038639528676867485
+    assert module.CANDIDATE_PANNS_THRESHOLD == 0.03181814216077328
+    assert "CANDIDATE_SENSITIVITY_ONLY_NOT_PROMOTED" in SCRIPT.read_text(encoding="utf-8")

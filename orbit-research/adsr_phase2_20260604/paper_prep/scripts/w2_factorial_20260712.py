@@ -31,6 +31,7 @@ ROOT = find_repo_root(Path(__file__).resolve())
 sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "src"))
 sys.path.insert(0, str(ROOT / "scripts"))
+sys.path.insert(0, str(ROOT / "paper_prep/w2_contingency_20260711"))
 
 PAPER = ROOT / "paper_prep"
 OUT = PAPER / "w2_execution_20260712/factorial"
@@ -41,10 +42,16 @@ AUDIO_DIR = OUT / "audio"
 AUDIT_JSON = OUT / "FACTORIAL_GENERATION_AUDIT.json"
 AUDIT_MD = OUT / "FACTORIAL_GENERATION_AUDIT.md"
 SPOT_MANIFEST = OUT / "FACTORIAL_PI_SPOTCHECK_MANIFEST.csv"
+SCORING_DIR = OUT / "scoring_ledgers"
+APPARENT_RESULTS = OUT / "FACTORIAL_APPARENT_RESULTS.csv"
+APPARENT_REPORT = OUT / "FACTORIAL_APPARENT_REPORT.md"
 SEED_BASE = 2_034_000_000
 N_PROMPTS = 32
 N_SEEDS = 16
 DURATION_SECONDS = 15.0
+OLD_THRESHOLD = 0.1791
+CANDIDATE_DEMUCS_THRESHOLD = 0.038639528676867485
+CANDIDATE_PANNS_THRESHOLD = 0.03181814216077328
 POSITIVE_TEXT = (
     "instrumental arrangement led by synthesizer, drums, bass, and melodic instruments"
 )
@@ -388,15 +395,199 @@ def audit() -> dict:
     return report
 
 
+def _latest_scoring() -> dict[str, dict]:
+    rows: dict[str, dict] = {}
+    for path in sorted(SCORING_DIR.glob("factorial_score_w*.jsonl")):
+        for row in read_jsonl(path):
+            if row.get("status") == "PASS":
+                rows[str(row["task_id"])] = row
+    return rows
+
+
+def _seed_scoring(identity: str) -> None:
+    import torch
+
+    seed = int.from_bytes(hashlib.sha256(identity.encode()).digest()[:4], "big")
+    import random
+
+    random.seed(seed)
+    np.random.seed(seed % (2**32 - 1))
+    torch.manual_seed(seed)
+    if torch.cuda.is_available():
+        torch.cuda.manual_seed_all(seed)
+
+
+def score(worker_index: int, num_workers: int, limit: int) -> int:
+    if not 0 <= worker_index < num_workers:
+        raise ValueError("worker index outside shard range")
+    visible = [value for value in os.environ.get("CUDA_VISIBLE_DEVICES", "").split(",") if value]
+    if len(visible) != 1:
+        raise RuntimeError("exactly one CUDA_VISIBLE_DEVICES entry is required")
+    from w2_instruments import CurrentDemucsInstrument, LivePannsInstrument
+
+    tasks = read_csv(MANIFEST)
+    mine = tasks[worker_index::num_workers]
+    if limit:
+        mine = mine[:limit]
+    done = _latest_scoring()
+    demucs = CurrentDemucsInstrument(device="cuda", threshold=OLD_THRESHOLD)
+    panns = LivePannsInstrument(device="cuda", threshold=CANDIDATE_PANNS_THRESHOLD)
+    ledger = SCORING_DIR / f"factorial_score_w{worker_index}.jsonl"
+    written = 0
+    for task in mine:
+        if task["task_id"] in done:
+            continue
+        started = time.time()
+        path = ROOT / task["output_path"]
+        record = {
+            "task_id": task["task_id"],
+            "prompt_id": task["prompt_id"],
+            "prompt_rank": int(task["prompt_rank"]),
+            "condition": task["condition"],
+            "seed_idx": int(task["seed_idx"]),
+            "seed": int(task["seed"]),
+            "output_path": task["output_path"],
+            "requested_vocal": 0,
+            "timestamp": dt.datetime.now(dt.timezone.utc).astimezone().isoformat(timespec="seconds"),
+            "host": socket.gethostname(),
+            "worker_index": worker_index,
+            "num_workers": num_workers,
+            "status": "FAIL",
+            "error": "",
+        }
+        try:
+            if not path.is_file():
+                raise FileNotFoundError(path)
+            _seed_scoring(task["task_id"] + "|demucs")
+            d = demucs.score(path)
+            _seed_scoring(task["task_id"] + "|panns")
+            p = panns.score(path)
+            candidate_demucs = int(
+                float(d["vocal_energy_ratio"]) >= CANDIDATE_DEMUCS_THRESHOLD
+                and not bool(d["near_silent"])
+            )
+            candidate_panns = int(float(p["panns_score"]) >= CANDIDATE_PANNS_THRESHOLD)
+            candidate = int(candidate_demucs and candidate_panns)
+            record.update(
+                {
+                    "status": "PASS",
+                    "demucs_score": float(d["vocal_energy_ratio"]),
+                    "near_silent": bool(d["near_silent"]),
+                    "old_present": int(d["present"]),
+                    "panns_score": float(p["panns_score"]),
+                    "panns_top_vocal_class": p["panns_top_vocal_class"],
+                    "candidate_demucs_present": candidate_demucs,
+                    "candidate_panns_present": candidate_panns,
+                    "candidate_present": candidate,
+                    "old_violation": int(d["present"]),
+                    "candidate_violation": candidate,
+                    "instrument_status": "CANDIDATE_SENSITIVITY_ONLY_NOT_PROMOTED",
+                }
+            )
+        except Exception as exc:  # noqa: BLE001
+            record["error"] = f"{type(exc).__name__}: {exc}"
+        record["elapsed_s"] = round(time.time() - started, 6)
+        append_jsonl(ledger, record)
+        print(json.dumps(record, sort_keys=True), flush=True)
+        written += 1
+        if record["status"] != "PASS":
+            return 1
+    return 0 if written or all(task["task_id"] in done for task in mine) else 1
+
+
+def _cluster_bootstrap(rows: list[dict], value_key: str, replicates: int = 10_000) -> tuple[float, float]:
+    by_prompt: dict[str, list[float]] = {}
+    for row in rows:
+        by_prompt.setdefault(row["prompt_id"], []).append(float(row[value_key]))
+    prompt_ids = sorted(by_prompt)
+    prompt_means = np.asarray([np.mean(by_prompt[prompt_id]) for prompt_id in prompt_ids])
+    rng = np.random.default_rng(20260712)
+    estimates = [float(np.mean(prompt_means[rng.integers(0, len(prompt_means), len(prompt_means))])) for _ in range(replicates)]
+    return float(np.quantile(estimates, 0.025)), float(np.quantile(estimates, 0.975))
+
+
+def analyze_apparent() -> dict:
+    scores = _latest_scoring()
+    if len(scores) != 3072:
+        raise ValueError(f"factorial scoring incomplete: {len(scores)}/3072")
+    tasks = {row["task_id"]: row for row in read_csv(MANIFEST)}
+    rows = []
+    for task_id, score_row in scores.items():
+        task = tasks[task_id]
+        rows.append(
+            {
+                "task_id": task_id,
+                "prompt_id": task["prompt_id"],
+                "condition": task["condition"],
+                "seed_idx": int(task["seed_idx"]),
+                "seed": int(task["seed"]),
+                "output_path": task["output_path"],
+                "demucs_score": score_row["demucs_score"],
+                "panns_score": score_row["panns_score"],
+                "apparent_violation": score_row["old_violation"],
+                "candidate_violation": score_row["candidate_violation"],
+                "instrument_status": "CANDIDATE_SENSITIVITY_ONLY_NOT_PROMOTED",
+            }
+        )
+    rows.sort(key=lambda row: (CONDITIONS.index(row["condition"]), row["prompt_id"], row["seed_idx"]))
+    write_csv(APPARENT_RESULTS, rows)
+    summaries = []
+    for condition in CONDITIONS:
+        group = [row for row in rows if row["condition"] == condition]
+        old_rate = float(np.mean([row["apparent_violation"] for row in group]))
+        candidate_rate = float(np.mean([row["candidate_violation"] for row in group]))
+        old_ci = _cluster_bootstrap(group, "apparent_violation")
+        candidate_ci = _cluster_bootstrap(group, "candidate_violation")
+        summaries.append(
+            {
+                "condition": condition,
+                "rows": len(group),
+                "apparent_violation_rate": old_rate,
+                "apparent_prompt_bootstrap_95_ci": old_ci,
+                "candidate_violation_rate": candidate_rate,
+                "candidate_prompt_bootstrap_95_ci": candidate_ci,
+            }
+        )
+    best = min(
+        (row for row in summaries if row["condition"] != "plain_baseline"),
+        key=lambda row: (row["candidate_violation_rate"], CONDITIONS.index(row["condition"])),
+    )
+    spot = build_spotcheck(APPARENT_RESULTS)
+    lines = [
+        "# W2 Factorial Apparent Readout",
+        "",
+        "`FACTORIAL_APPARENT_STATUS = COMPLETE_SENSITIVITY_ONLY`",
+        "",
+        "The current and candidate instruments are reported without promotion. No PLAN or claim status changes.",
+        "",
+        "| condition | rows | current apparent violation | candidate sensitivity violation |",
+        "|---|---:|---:|---:|",
+    ]
+    for row in summaries:
+        lines.append(
+            f"| `{row['condition']}` | {row['rows']} | {row['apparent_violation_rate']:.6f} | {row['candidate_violation_rate']:.6f} |"
+        )
+    lines.extend(
+        [
+            "",
+            f"The frozen apparent-best nonbaseline condition is `{best['condition']}`; it is used only to stage the 20-pair PI spot check.",
+            f"Spot-check rows: {spot['pairs']}.",
+        ]
+    )
+    APPARENT_REPORT.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    return {"rows": len(rows), "summaries": summaries, "apparent_best_condition": best["condition"], "spot_pairs": spot["pairs"]}
+
+
 def build_spotcheck(apparent_results: Path) -> dict:
     """Stage 20 baseline-vs-best pairs without interpreting them as promotion."""
     rows = read_csv(apparent_results)
     required = {"prompt_id", "condition", "seed_idx", "apparent_violation", "output_path"}
     if not rows or not required <= set(rows[0]):
         raise ValueError(f"apparent results need columns {sorted(required)}")
+    metric = "candidate_violation" if "candidate_violation" in rows[0] else "apparent_violation"
     by_condition: dict[str, list[int]] = {condition: [] for condition in CONDITIONS}
     for row in rows:
-        by_condition[row["condition"]].append(int(row["apparent_violation"]))
+        by_condition[row["condition"]].append(int(row[metric]))
     means = {key: sum(values) / len(values) for key, values in by_condition.items() if values}
     eligible = [condition for condition in CONDITIONS if condition != "plain_baseline"]
     best = min(eligible, key=lambda condition: (means[condition], CONDITIONS.index(condition)))
@@ -419,7 +610,7 @@ def build_spotcheck(apparent_results: Path) -> dict:
         )
     pairs = sorted(pairs, key=lambda row: hashlib.sha256(row["pair_id"].encode()).hexdigest())[:20]
     write_csv(SPOT_MANIFEST, sorted(pairs, key=lambda row: row["pair_id"]))
-    return {"pairs": len(pairs), "apparent_best_condition": best}
+    return {"pairs": len(pairs), "apparent_best_condition": best, "selection_metric": metric}
 
 
 def main() -> int:
@@ -431,6 +622,11 @@ def main() -> int:
     generate_parser.add_argument("--num-workers", type=int, required=True)
     generate_parser.add_argument("--limit", type=int, default=0)
     sub.add_parser("audit")
+    score_parser = sub.add_parser("score")
+    score_parser.add_argument("--worker-index", type=int, required=True)
+    score_parser.add_argument("--num-workers", type=int, required=True)
+    score_parser.add_argument("--limit", type=int, default=0)
+    sub.add_parser("analyze-apparent")
     spot = sub.add_parser("build-spotcheck")
     spot.add_argument("--apparent-results", type=Path, required=True)
     args = parser.parse_args()
@@ -443,6 +639,11 @@ def main() -> int:
         result = audit()
         print(json.dumps(result, indent=2, sort_keys=True))
         return 0 if result["status"] == "PASS" else 1
+    if args.command == "score":
+        return score(args.worker_index, args.num_workers, args.limit)
+    if args.command == "analyze-apparent":
+        print(json.dumps(analyze_apparent(), indent=2, sort_keys=True))
+        return 0
     if args.command == "build-spotcheck":
         print(json.dumps(build_spotcheck(args.apparent_results), indent=2, sort_keys=True))
         return 0
@@ -451,4 +652,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

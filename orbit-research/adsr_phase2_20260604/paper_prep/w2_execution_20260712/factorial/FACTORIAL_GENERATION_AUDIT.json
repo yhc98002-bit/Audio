@@ -1,0 +1,19 @@
+{
+  "condition_counts": {
+    "negative_sampler": 512,
+    "negative_text": 512,
+    "plain_baseline": 512,
+    "positive_sampler": 512,
+    "positive_text": 512,
+    "sampler_only": 512
+  },
+  "invalid_media_count": 0,
+  "invalid_media_examples": [],
+  "manifest_rows": 3072,
+  "missing_or_failed_count": 0,
+  "missing_or_failed_examples": [],
+  "parse_errors": [],
+  "status": "PASS",
+  "successful_latest_rows": 3072,
+  "unique_keys": 3072
+}

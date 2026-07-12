@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Axis-Deferred Speculative Restart</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <strong>ADSR evidence demo</strong>
+    <nav><a href="#listen">Listen</a><a href="#results">Results</a><a href="#scope">Scope</a></nav>
+  </header>
+  <main>
+    <section class="intro">
+      <p class="kicker">Flow-matching music generation</p>
+      <h1>Axis-Deferred Speculative Restart</h1>
+      <p class="lede">Detect low-promise trajectories early, then choose RESTART, DEFER, or CONTINUE under a fixed inference budget.</p>
+      <dl class="summary">
+        <div><dt>Frozen backbone</dt><dd>ACE-Step v1</dd></div>
+        <div><dt>Cross-backbone pilot</dt><dd>Stable Audio 3 Medium</dd></div>
+        <div><dt>Evidence posture</dt><dd>Instrument-qualified</dd></div>
+      </dl>
+    </section>
+
+    <section id="listen" class="band">
+      <div class="content">
+        <div class="section-heading"><p class="kicker">Blinded example</p><h2>Matched audio pair</h2></div>
+        <p>Use the A/B controls to compare two matched outputs. Method identity remains intentionally absent from this staging demo.</p>
+        <div class="audio-grid">
+          <figure><figcaption>Output A</figcaption><audio controls preload="metadata" src="assets/example_A.flac"></audio></figure>
+          <figure><figcaption>Output B</figcaption><audio controls preload="metadata" src="assets/example_B.flac"></audio></figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="results" class="content results">
+      <div class="section-heading"><p class="kicker">Retry structure</p><h2>Regimes and expected draws</h2></div>
+      <div class="figure-grid">
+        <figure><img src="assets/fig2_regime_plot.png" alt="Retry-regime plot"><figcaption>Figure 2 staging plot from deduplicated experiment ledgers.</figcaption></figure>
+        <figure><img src="assets/fig2_retry_regime_ecdf_forest.png" alt="Retry-regime ECDF and interval plot"><figcaption>Prompt-level retry distribution and uncertainty view.</figcaption></figure>
+      </div>
+      <table>
+        <thead><tr><th>Evidence lane</th><th>Current use</th><th>Constraint</th></tr></thead>
+        <tbody>
+          <tr><td>Stage 3</td><td>Intervention decomposition</td><td>Selected difficult prompts</td></tr>
+          <tr><td>N2</td><td>Retry-regime map</td><td>Not a generic population rate</td></tr>
+          <tr><td>SA3</td><td>Cross-backbone pilot</td><td>Separate model and instrument scope</td></tr>
+          <tr><td>W2</td><td>Detector sensitivity</td><td>Pending signed calibration and promotion</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="scope" class="band scope">
+      <div class="content">
+        <div class="section-heading"><p class="kicker">Claim discipline</p><h2>What this package does not claim</h2></div>
+        <ul>
+          <li>It does not call rare trajectories impossible to recover.</li>
+          <li>It does not treat difficult-set rates as population prevalence.</li>
+          <li>It does not claim a causal vocal-generation bias.</li>
+          <li>It does not claim that quality loss was proved absent.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+  <footer>Static staging artifact. Public upload remains deferred until post-gate review.</footer>
+  <script src="app.js"></script>
+</body>
+</html>
