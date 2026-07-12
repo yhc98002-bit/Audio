@@ -133,6 +133,7 @@ telemetry limitation are in `paper_prep/NODE_SATURATION_AUDIT_20260712.md`.
 | `99c88de` | exact torch-2.5.1 runtime recovery |
 | `7f63ab7` | 51/51 probe pass and full replay freeze |
 | `a2655a1` | freeze 4,096-row exact replay generation evidence |
+| `a332581` | complete exact-runtime audit, downstream rebuild, and evidence package |
 
 The login-system-Python test attempt failed at collection because that
 interpreter lacks torch; its log is preserved. The authoritative rerun used
