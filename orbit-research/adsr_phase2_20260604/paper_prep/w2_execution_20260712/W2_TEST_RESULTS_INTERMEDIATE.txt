@@ -1,0 +1,30 @@
+........................................................................ [ 25%]
+........................................................................ [ 50%]
+.......................................................................F [ 76%]
+....................................................................     [100%]
+=================================== FAILURES ===================================
+______ test_release_scripts_contain_no_machine_specific_repository_paths _______
+
+    def test_release_scripts_contain_no_machine_specific_repository_paths() -> None:
+        search_roots = [
+            ROOT / "src",
+            ROOT / "scripts",
+            ROOT / "orbit-research/adsr_phase2_20260604/paper_prep/scripts",
+            ROOT / "batch3/exploratory_auto",
+        ]
+        forbidden = ("/HOME/", "/XYFS02/", "/APP/")
+        offenders = []
+        for search_root in search_roots:
+            for path in search_root.rglob("*.py"):
+                text = path.read_text()
+                if any(token in text for token in forbidden):
+                    offenders.append(str(path.relative_to(ROOT)))
+>       assert offenders == []
+E       AssertionError: assert ['orbit-resea..._20260712.py'] == []
+E         
+E         Left contains one more item: 'orbit-research/adsr_phase2_20260604/paper_prep/scripts/w2_spine_reconstruct_20260712.py'
+E         Use -v to get more diff
+
+tests/test_t11_p1_hardening.py:161: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_t11_p1_hardening.py::test_release_scripts_contain_no_machine_specific_repository_paths

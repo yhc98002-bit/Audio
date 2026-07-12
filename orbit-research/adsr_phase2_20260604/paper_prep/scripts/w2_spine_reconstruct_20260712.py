@@ -49,7 +49,12 @@ SPINE = ROOT / "orbit-research/trajectory_candidate_dataset.jsonl"
 RETAINED = PAPER / "w2_contingency_20260711/W2_RETAINED_AUDIO_MANIFEST.jsonl"
 RAW_OLD = ROOT / "orbit-research/adsr_phase2_20260604/vocal_presence_raw.jsonl"
 CONTROLS = PAPER / "validation_A_prime/regeneration_fidelity_20260709/REGENERATION_CONTROL_MANIFEST.csv"
-MODEL_PATH = Path("/HOME/paratera_xy/pxy1289/.cache/modelscope/hub/models/ACE-Step/ACE-Step-v1-3___5B")
+MODEL_PATH = Path(
+    os.environ.get(
+        "MPRM_ACE_STEP_MODEL_PATH",
+        Path.home() / ".cache/modelscope/hub/models/ACE-Step/ACE-Step-v1-3___5B",
+    )
+)
 OLD_THRESHOLD = VOCAL_PRESENCE_THRESHOLD
 CANDIDATE_DEMUCS_THRESHOLD = 0.038639528676867485
 CANDIDATE_PANNS_THRESHOLD = 0.03181814216077328
