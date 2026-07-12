@@ -37,6 +37,7 @@ OUT = PAPER / "w2_execution_20260712/analysis"
 BATCH3_MANIFEST = OUT / "BATCH3_1342_RESCORING_MANIFEST.csv"
 BATCH3_LEDGER_DIR = OUT / "batch3_scoring_ledgers"
 TARGET_TABLE = OUT / "W2_TARGET_SCORE_TABLE.csv"
+TARGET_EXCLUSIONS = OUT / "W2_TARGET_EXCLUSIONS.csv"
 PUBLICATION_TABLE = OUT / "W2_PUBLICATION_RATES.csv"
 PROMPT_ECDF = OUT / "W2_PROMPT_LEVEL_ECDF.csv"
 RECOMPUTE_REPORT = OUT / "W2_RECOMPUTE_REPORT.md"
@@ -48,6 +49,7 @@ SPINE_SCORING_DIR = PAPER / "w2_execution_20260712/spine_reconstruction/scoring_
 OLD_THRESHOLD = VOCAL_PRESENCE_THRESHOLD
 CANDIDATE_DEMUCS_THRESHOLD = 0.038639528676867485
 CANDIDATE_PANNS_THRESHOLD = 0.03181814216077328
+DIRECTIONAL_EXISTING_COHORTS = {"n2_population_retry", "stage3_intervention"}
 
 
 def read_csv(path: Path) -> list[dict[str, str]]:
@@ -137,6 +139,14 @@ def _latest(directory: Path, pattern: str, key: str) -> dict[str, dict]:
     return rows
 
 
+def existing_exclusion_reason(cohort: str) -> str:
+    if cohort == "candidate_spine_4096":
+        return "superseded_by_reconstructed_spine"
+    if cohort not in DIRECTIONAL_EXISTING_COHORTS:
+        return "outside_direction_specific_recompute_scope"
+    return ""
+
+
 def _seed_rng(identity: str) -> None:
     import torch
 
@@ -220,15 +230,23 @@ def score_batch3(worker_index: int, num_workers: int, limit: int) -> int:
 
 def assemble_targets(require_complete: bool = True) -> dict:
     rows: list[dict] = []
+    exclusions: list[dict] = []
     retained = {row["record_id"]: row for row in read_jsonl(RETAINED)}
     existing = [row for row in read_jsonl(EXISTING_SCORES) if row.get("status") == "PASS"]
     for score in existing:
         admin = retained.get(score["record_id"])
         if admin is None:
             raise ValueError(f"missing retained metadata for {score['record_id']}")
-        if admin["cohort"] == "candidate_spine_4096":
-            # The reconstructed/scored spine below supersedes this lone inventory
-            # survivor for W2 analysis; retain its old score only in the audit trail.
+        exclusion_reason = existing_exclusion_reason(admin["cohort"])
+        if exclusion_reason:
+            exclusions.append(
+                {
+                    "record_id": score["record_id"],
+                    "cohort": admin["cohort"],
+                    "reason": exclusion_reason,
+                    "requested_vocal": admin.get("requested_vocal", ""),
+                }
+            )
             continue
         rows.append(
             {
@@ -304,12 +322,17 @@ def assemble_targets(require_complete: bool = True) -> dict:
         raise ValueError("assembled target identities are not unique")
     if rows:
         write_csv(TARGET_TABLE, rows)
+    if exclusions:
+        write_csv(TARGET_EXCLUSIONS, exclusions)
     return {
         "rows": len(rows),
         "cohort_counts": dict(Counter(row["cohort"] for row in rows)),
         "spine_scores": len(spine_scores),
         "batch3_scores": len(batch3_scores),
         "existing_scores": len(existing),
+        "existing_scores_included": len(existing) - len(exclusions),
+        "existing_exclusion_counts": dict(Counter(row["reason"] for row in exclusions)),
+        "existing_exclusion_cohort_counts": dict(Counter(row["cohort"] for row in exclusions)),
     }
 
 
@@ -388,6 +411,10 @@ def summarize() -> dict:
         "- Apparent rates use the frozen current detector.\n"
         "- Candidate rates are sensitivity-only until the signed W2 gate promotes an instrument.\n"
         "- Calibrated columns remain blank until ratings and dual-PI promotion exist.\n\n"
+        "## Scope Exclusions\n\n"
+        "The direction-specific recompute excludes atlas keeps with no frozen request direction. "
+        "The lone old spine survivor is superseded by the complete reconstructed-spine table. "
+        "All exclusions are enumerated in `W2_TARGET_EXCLUSIONS.csv`.\n\n"
         "## Batch-3 Required Disclosures\n\n"
         "1. The 1,342 files are retained/release-selected outputs, not an unselected population sample.\n"
         "2. Their retention was partly conditioned on current-detector outputs, so corrected rates are selection-conditioned.\n"

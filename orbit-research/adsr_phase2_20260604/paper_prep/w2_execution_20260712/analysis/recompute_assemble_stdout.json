@@ -1,0 +1,21 @@
+{
+  "batch3_scores": 1342,
+  "cohort_counts": {
+    "batch3_release_keep_1342": 1342,
+    "candidate_spine_4096": 4096,
+    "n2_population_retry": 16384,
+    "stage3_intervention": 6144
+  },
+  "existing_exclusion_cohort_counts": {
+    "atlas_keep": 194,
+    "candidate_spine_4096": 1
+  },
+  "existing_exclusion_counts": {
+    "outside_direction_specific_recompute_scope": 194,
+    "superseded_by_reconstructed_spine": 1
+  },
+  "existing_scores": 22723,
+  "existing_scores_included": 22528,
+  "rows": 27966,
+  "spine_scores": 4096
+}

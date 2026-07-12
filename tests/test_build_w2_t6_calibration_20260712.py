@@ -48,6 +48,8 @@ def test_t6_cardinality_constants_and_source_lock():
     assert module.REPEATS == 20
     source = SCRIPT.read_text(encoding="utf-8")
     assert 'return v==="pi:Richard"' in source
+    assert "sf.info" in source
+    assert "media_sha256" in source
     assert "READY_BLOCKED_ON_SIGNATURE" not in source  # status belongs to report, not executable gate logic
 
 
@@ -75,3 +77,15 @@ def test_sampling_frame_retains_all_cross_product_cells(tmp_path, monkeypatch):
     assert result["empty_cross_product_cells"] == 191
     assert len(rows) == 192
     assert sum(int(row["frame_eligible_count"]) for row in rows) == 1
+
+
+def test_appendix_resolver_uses_actual_admin_schema_and_checksum(tmp_path):
+    module = load_module()
+    media = tmp_path / "source.flac"
+    media.write_bytes(b"frozen-media")
+    row = {
+        "source_path": media.name,
+        "package_media_path": "missing.flac",
+        "sha256": module.sha256_file(media),
+    }
+    assert module.resolve_appendix_media(row, tmp_path) == media

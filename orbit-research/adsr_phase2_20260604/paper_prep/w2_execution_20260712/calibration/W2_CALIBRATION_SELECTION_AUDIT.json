@@ -1,0 +1,31 @@
+{
+  "cross_product_cells": 192,
+  "empty_cross_product_cells": 136,
+  "final_inclusion_probabilities_present": true,
+  "frame_rows": 27966,
+  "heldout_candidate_violation_composition": {
+    "0": 60,
+    "1": 40
+  },
+  "heldout_rows": 100,
+  "hidden_repeat_calibration_weight_zero": true,
+  "hidden_repeats": 20,
+  "inclusion_probabilities_present": true,
+  "reserve_rows": 200,
+  "selection_stage_probabilities_present": true,
+  "simple_random_anchor_rows": 40,
+  "spine_score_band_counts": {
+    "boundary": 1365,
+    "high": 1366,
+    "low": 1365
+  },
+  "status": "PASS",
+  "train_rows": 60,
+  "transport_rows": 20,
+  "transport_source_counts": {
+    "Batch3_keep": 6,
+    "N2": 7,
+    "Stage3": 7
+  },
+  "unique_calibration_rows": 180
+}

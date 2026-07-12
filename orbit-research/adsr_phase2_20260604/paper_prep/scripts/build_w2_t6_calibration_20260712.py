@@ -492,12 +492,26 @@ def _link(source: Path, destination: Path) -> None:
         shutil.copy2(source, destination)
 
 
+def resolve_appendix_media(source: dict[str, str], root: Path = ROOT) -> Path:
+    expected = source.get("sha256", "")
+    tried = []
+    for field in ("source_path", "package_media_path"):
+        value = source.get(field, "")
+        if not value:
+            continue
+        path = Path(value)
+        if not path.is_absolute():
+            path = root / path
+        tried.append(str(path))
+        if path.is_file() and (not expected or sha256_file(path) == expected):
+            return path
+    raise FileNotFoundError(f"no checksum-valid appendix media; tried={tried}")
+
+
 def _appendix_row() -> dict:
     rows = read_csv(APPENDIX_ADMIN)
     source = next(row for row in rows if row["rating_id"] == "decisive_04_a5f338f1ce29")
-    path = ROOT / source["packet_path"]
-    if not path.is_file():
-        raise FileNotFoundError(path)
+    path = resolve_appendix_media(source)
     return {
         "canonical_clip_id": source["rating_id"],
         "prompt_id": source["prompt_id"],
@@ -630,6 +644,8 @@ def build_bundle(nonce: str) -> dict:
 
 
 def audit_bundle() -> dict:
+    import soundfile as sf
+
     visible = sorted(path.name for path in BUNDLE_DIR.iterdir())
     if visible != ["README", "index.html", "media"]:
         raise ValueError(f"bundle contains unexpected files: {visible}")
@@ -645,6 +661,19 @@ def audit_bundle() -> dict:
         raise ValueError("t6 rating source is not restricted")
     if sha256_file(ZIP_PATH) not in SHA_PATH.read_text(encoding="utf-8"):
         raise ValueError("t6 zip checksum file is stale")
+    durations = []
+    sample_rates = Counter()
+    for row in admin:
+        suffix = Path(row["media_path"]).suffix.lower()
+        media = BUNDLE_DIR / "media" / f"audio_{row['rating_id']}{suffix}"
+        if not media.is_file() or sha256_file(media) != row["media_sha256"]:
+            raise ValueError(f"t6 media checksum mismatch: {row['rating_id']}")
+        info = sf.info(str(media))
+        duration = info.frames / info.samplerate if info.samplerate else 0
+        if duration <= 1:
+            raise ValueError(f"t6 media is too short or undecodable: {row['rating_id']}")
+        durations.append(duration)
+        sample_rates[int(info.samplerate)] += 1
     return {
         "status": "PASS",
         "bundle_rows": 201,
@@ -654,6 +683,10 @@ def audit_bundle() -> dict:
         "leak_test": "PASS",
         "staged_reveal": "PASS",
         "source_enum": "pi:Richard_only",
+        "checksum_valid_media": len(durations),
+        "decoded_media": len(durations),
+        "minimum_duration_s": min(durations),
+        "sample_rate_counts": dict(sample_rates),
     }
 
 

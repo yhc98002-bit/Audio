@@ -33,3 +33,10 @@ def test_recompute_contract_names_all_three_rate_columns():
     assert module.CANDIDATE_DEMUCS_THRESHOLD == 0.038639528676867485
     assert module.CANDIDATE_PANNS_THRESHOLD == 0.03181814216077328
 
+
+def test_directionless_and_superseded_cohorts_are_explicitly_excluded():
+    module = load_module()
+    assert module.existing_exclusion_reason("n2_population_retry") == ""
+    assert module.existing_exclusion_reason("stage3_intervention") == ""
+    assert module.existing_exclusion_reason("atlas_keep") == "outside_direction_specific_recompute_scope"
+    assert module.existing_exclusion_reason("candidate_spine_4096") == "superseded_by_reconstructed_spine"
