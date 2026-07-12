@@ -1,0 +1,8 @@
+{
+  "generation_rows": 1024,
+  "invalid_media_count": 0,
+  "lexical_audit_sha256": "935f6c9783fb673acdc9a4ddb4b5b9760e3783fcccc5b74bbff4a2a0ea72cb7a",
+  "manifest_rows": 1024,
+  "scoring_rows": 1024,
+  "status": "PASS"
+}

@@ -1,0 +1,83 @@
+{
+  "canonical_rows": 3072,
+  "invalid_positive": {
+    "positive_sampler": {
+      "candidate_rate": 0.40625,
+      "role": "INVALID_PREEXISTING_VOCAL_LEXEME_SENSITIVITY_ONLY",
+      "rows": 512
+    },
+    "positive_text": {
+      "candidate_rate": 0.435546875,
+      "role": "INVALID_PREEXISTING_VOCAL_LEXEME_SENSITIVITY_ONLY",
+      "rows": 512
+    }
+  },
+  "spot": {
+    "apparent_best_condition": "positive_sampler",
+    "pairs": 20,
+    "selection_metric": "candidate_violation"
+  },
+  "status": "PREREGISTERED_GENERATED",
+  "summaries": [
+    {
+      "apparent_rate": 0.396484375,
+      "candidate_95_ci": [
+        0.47265625,
+        0.662109375
+      ],
+      "candidate_rate": 0.568359375,
+      "condition": "plain_baseline",
+      "rows": 512
+    },
+    {
+      "apparent_rate": 0.4296875,
+      "candidate_95_ci": [
+        0.5390625,
+        0.69921875
+      ],
+      "candidate_rate": 0.619140625,
+      "condition": "negative_text",
+      "rows": 512
+    },
+    {
+      "apparent_rate": 0.20703125,
+      "candidate_95_ci": [
+        0.263671875,
+        0.443359375
+      ],
+      "candidate_rate": 0.353515625,
+      "condition": "positive_text",
+      "rows": 512
+    },
+    {
+      "apparent_rate": 0.390625,
+      "candidate_95_ci": [
+        0.4453125,
+        0.658203125
+      ],
+      "candidate_rate": 0.552734375,
+      "condition": "sampler_only",
+      "rows": 512
+    },
+    {
+      "apparent_rate": 0.41796875,
+      "candidate_95_ci": [
+        0.494140625,
+        0.6875
+      ],
+      "candidate_rate": 0.591796875,
+      "condition": "negative_sampler",
+      "rows": 512
+    },
+    {
+      "apparent_rate": 0.1953125,
+      "candidate_95_ci": [
+        0.23046875,
+        0.435546875
+      ],
+      "candidate_rate": 0.33203125,
+      "condition": "positive_sampler",
+      "rows": 512
+    }
+  ]
+}
