@@ -1,0 +1,74 @@
+{
+  "by_calibration_band": {
+    "far_above": {
+      "abstains": 0,
+      "balanced_accuracy": 0.5,
+      "decided": 20,
+      "fn": 0,
+      "fp": 8,
+      "human_label_counts": {
+        "no": 8,
+        "yes": 12
+      },
+      "rows": 20,
+      "sensitivity": 1.0,
+      "specificity": 0.0,
+      "tn": 0,
+      "tp": 12
+    },
+    "far_below": {
+      "abstains": 0,
+      "balanced_accuracy": null,
+      "decided": 20,
+      "fn": 0,
+      "fp": 0,
+      "human_label_counts": {
+        "no": 20
+      },
+      "rows": 20,
+      "sensitivity": null,
+      "specificity": 1.0,
+      "tn": 20,
+      "tp": 0
+    },
+    "near_threshold": {
+      "abstains": 4,
+      "balanced_accuracy": 0.5,
+      "decided": 16,
+      "fn": 5,
+      "fp": 3,
+      "human_label_counts": {
+        "no": 8,
+        "unsure": 4,
+        "yes": 8
+      },
+      "rows": 20,
+      "sensitivity": 0.375,
+      "specificity": 0.625,
+      "tn": 5,
+      "tp": 3
+    }
+  },
+  "criterion": "overall Label-A balanced accuracy >= 0.70",
+  "criterion_met": true,
+  "optional_confidence_missing": 59,
+  "overall": {
+    "abstains": 4,
+    "balanced_accuracy": 0.7222222222222222,
+    "decided": 56,
+    "fn": 5,
+    "fp": 11,
+    "human_label_counts": {
+      "no": 36,
+      "unsure": 4,
+      "yes": 20
+    },
+    "rows": 60,
+    "sensitivity": 0.75,
+    "specificity": 0.6944444444444444,
+    "tn": 25,
+    "tp": 15
+  },
+  "sa3_disposition": "PILOT_REGARDLESS_OF_CALIBRATION_STATUS",
+  "sa3_label_calibration_status": "SCORED_PASS"
+}

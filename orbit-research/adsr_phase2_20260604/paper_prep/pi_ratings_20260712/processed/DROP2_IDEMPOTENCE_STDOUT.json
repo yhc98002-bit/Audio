@@ -1,0 +1,16 @@
+{
+  "b_prime_frozen_condition_met": false,
+  "b_prime_gate": "PI_CALL_PENDING",
+  "drop2_ingestion": "PASS",
+  "outputs": {
+    "amendment_appendix": "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion/paper_prep/HUMAN_STUDY_CRITERIA_AMENDMENT_20260709_APPENDIX_20260712.md",
+    "b_report": "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion/paper_prep/validation_B_prime/B_PRIME_GATE_REPORT_20260712.md",
+    "ingest_audit": "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion/paper_prep/pi_ratings_20260712/processed/DROP2_INGEST_AUDIT.json",
+    "sa3_report": "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion/paper_prep/pi_ratings_20260712/processed/SA3_LABEL_CALIBRATION_REPORT_20260712.md",
+    "study_log": "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion/paper_prep/pi_ratings_20260712/DROP2_STUDY_LOG.jsonl",
+    "t4_report": "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion/paper_prep/pi_ratings_20260712/processed/T4_ORDER_BIAS_AND_RELIABILITY_REPORT_20260712.md"
+  },
+  "sa3_calibration": "SCORED_PASS",
+  "t4_deviation_logged": true,
+  "t4_event_id": "8ec966ebf6e921302257"
+}

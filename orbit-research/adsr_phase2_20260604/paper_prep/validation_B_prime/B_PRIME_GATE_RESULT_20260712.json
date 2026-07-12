@@ -1,0 +1,199 @@
+{
+  "b_prime_gate": "PI_CALL_PENDING",
+  "both_score_and_exact_bounds_gt_0p40": false,
+  "by_request_direction": {
+    "constraint_preference": {
+      "instrumental": {
+        "counts": {
+          "abstain": 0,
+          "baseline": 6,
+          "method": 3,
+          "tie": 20
+        },
+        "decided": 9,
+        "exact_lower_gt_0p40": false,
+        "exact_one_sided_95_lower": 0.09774681343927574,
+        "method_rate": 0.3333333333333333,
+        "original_rule_not_significantly_below_0p50": true,
+        "original_rule_p_lower_tail_under_0p5": 0.25390625,
+        "original_rule_pass": false,
+        "original_rule_rate_at_least_0p40": false,
+        "score_lower_gt_0p40": false,
+        "score_one_sided_95_lower": 0.1419709017949951,
+        "ties_against_method_rate": 0.10344827586206896,
+        "ties_as_half_rate": 0.4482758620689655
+      },
+      "vocal": {
+        "counts": {
+          "abstain": 0,
+          "baseline": 20,
+          "method": 12,
+          "tie": 19
+        },
+        "decided": 32,
+        "exact_lower_gt_0p40": false,
+        "exact_one_sided_95_lower": 0.23262207110222866,
+        "method_rate": 0.375,
+        "original_rule_not_significantly_below_0p50": true,
+        "original_rule_p_lower_tail_under_0p5": 0.10766357486136258,
+        "original_rule_pass": false,
+        "original_rule_rate_at_least_0p40": false,
+        "score_lower_gt_0p40": false,
+        "score_one_sided_95_lower": 0.24922285741369093,
+        "ties_against_method_rate": 0.23529411764705882,
+        "ties_as_half_rate": 0.4215686274509804
+      }
+    },
+    "overall_preference": {
+      "instrumental": {
+        "counts": {
+          "abstain": 0,
+          "baseline": 7,
+          "method": 6,
+          "tie": 16
+        },
+        "decided": 13,
+        "exact_lower_gt_0p40": false,
+        "exact_one_sided_95_lower": 0.22395539421131927,
+        "method_rate": 0.46153846153846156,
+        "original_rule_not_significantly_below_0p50": true,
+        "original_rule_p_lower_tail_under_0p5": 0.5,
+        "original_rule_pass": true,
+        "original_rule_rate_at_least_0p40": true,
+        "score_lower_gt_0p40": false,
+        "score_one_sided_95_lower": 0.2611477730749896,
+        "ties_against_method_rate": 0.20689655172413793,
+        "ties_as_half_rate": 0.4827586206896552
+      },
+      "vocal": {
+        "counts": {
+          "abstain": 0,
+          "baseline": 20,
+          "method": 12,
+          "tie": 19
+        },
+        "decided": 32,
+        "exact_lower_gt_0p40": false,
+        "exact_one_sided_95_lower": 0.23262207110222866,
+        "method_rate": 0.375,
+        "original_rule_not_significantly_below_0p50": true,
+        "original_rule_p_lower_tail_under_0p5": 0.10766357486136258,
+        "original_rule_pass": false,
+        "original_rule_rate_at_least_0p40": false,
+        "score_lower_gt_0p40": false,
+        "score_one_sided_95_lower": 0.24922285741369093,
+        "ties_against_method_rate": 0.23529411764705882,
+        "ties_as_half_rate": 0.4215686274509804
+      }
+    },
+    "quality_preference": {
+      "instrumental": {
+        "counts": {
+          "abstain": 0,
+          "baseline": 7,
+          "method": 5,
+          "tie": 17
+        },
+        "decided": 12,
+        "exact_lower_gt_0p40": false,
+        "exact_one_sided_95_lower": 0.18102475724232092,
+        "method_rate": 0.4166666666666667,
+        "original_rule_not_significantly_below_0p50": true,
+        "original_rule_p_lower_tail_under_0p5": 0.38720703125,
+        "original_rule_pass": true,
+        "original_rule_rate_at_least_0p40": true,
+        "score_lower_gt_0p40": false,
+        "score_one_sided_95_lower": 0.2199778806917808,
+        "ties_against_method_rate": 0.1724137931034483,
+        "ties_as_half_rate": 0.46551724137931033
+      },
+      "vocal": {
+        "counts": {
+          "abstain": 0,
+          "baseline": 21,
+          "method": 15,
+          "tie": 15
+        },
+        "decided": 36,
+        "exact_lower_gt_0p40": false,
+        "exact_one_sided_95_lower": 0.27719503174355853,
+        "method_rate": 0.4166666666666667,
+        "original_rule_not_significantly_below_0p50": true,
+        "original_rule_p_lower_tail_under_0p5": 0.20251612307038158,
+        "original_rule_pass": true,
+        "original_rule_rate_at_least_0p40": true,
+        "score_lower_gt_0p40": false,
+        "score_one_sided_95_lower": 0.2920169063440463,
+        "ties_against_method_rate": 0.29411764705882354,
+        "ties_as_half_rate": 0.4411764705882353
+      }
+    }
+  },
+  "endpoints": {
+    "constraint_preference": {
+      "counts": {
+        "abstain": 0,
+        "baseline": 26,
+        "method": 15,
+        "tie": 39
+      },
+      "decided": 41,
+      "exact_lower_gt_0p40": false,
+      "exact_one_sided_95_lower": 0.2408089597491569,
+      "method_rate": 0.36585365853658536,
+      "original_rule_not_significantly_below_0p50": true,
+      "original_rule_p_lower_tail_under_0p5": 0.05863760297870613,
+      "original_rule_pass": false,
+      "original_rule_rate_at_least_0p40": false,
+      "score_lower_gt_0p40": false,
+      "score_one_sided_95_lower": 0.25402891698141045,
+      "ties_against_method_rate": 0.1875,
+      "ties_as_half_rate": 0.43125
+    },
+    "overall_preference": {
+      "counts": {
+        "abstain": 0,
+        "baseline": 27,
+        "method": 18,
+        "tie": 35
+      },
+      "decided": 45,
+      "exact_lower_gt_0p40": false,
+      "exact_one_sided_95_lower": 0.2768263271405558,
+      "method_rate": 0.4,
+      "original_rule_not_significantly_below_0p50": true,
+      "original_rule_p_lower_tail_under_0p5": 0.11634659595415542,
+      "original_rule_pass": true,
+      "original_rule_rate_at_least_0p40": true,
+      "score_lower_gt_0p40": false,
+      "score_one_sided_95_lower": 0.2888664617763743,
+      "ties_against_method_rate": 0.225,
+      "ties_as_half_rate": 0.44375
+    },
+    "quality_preference": {
+      "counts": {
+        "abstain": 0,
+        "baseline": 28,
+        "method": 20,
+        "tie": 32
+      },
+      "decided": 48,
+      "exact_lower_gt_0p40": false,
+      "exact_one_sided_95_lower": 0.2958770027182114,
+      "method_rate": 0.4166666666666667,
+      "original_rule_not_significantly_below_0p50": true,
+      "original_rule_p_lower_tail_under_0p5": 0.15616340373663462,
+      "original_rule_pass": true,
+      "original_rule_rate_at_least_0p40": true,
+      "score_lower_gt_0p40": false,
+      "score_one_sided_95_lower": 0.30714511548631385,
+      "ties_against_method_rate": 0.25,
+      "ties_as_half_rate": 0.45
+    }
+  },
+  "exact_bound_crosscheck_met": false,
+  "frozen_signed_condition_met": false,
+  "frozen_signed_criterion": "one-sided 95% score lower bound > 0.40",
+  "gate_never_auto_passes": true,
+  "primary_endpoint": "quality_preference"
+}

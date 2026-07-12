@@ -1,0 +1,427 @@
+{
+  "bundle_id": "t5_sa3_calibration",
+  "rating_source": "pi:Richard",
+  "exported_at": "2026-07-12T17:15:35.079Z",
+  "responses": [
+    {
+      "rating_id": "r_a95dfc8731384740bf8c",
+      "label_a_voice_presence": "no",
+      "confidence_1_to_5": "5",
+      "notes": "",
+      "rating_source": "pi:Richard"
+    },
+    {
+      "rating_id": "r_dfd4eea5b90c7486efc9",
+      "label_a_voice_presence": "no",
+      "confidence_1_to_5": "",
+      "notes": "",
+      "rating_source": "pi:Richard"
+    },
+    {
+      "rating_id": "r_66eb4014e41075258af1",
+      "label_a_voice_presence": "no",
+      "confidence_1_to_5": "",
+      "notes": "",
+      "rating_source": "pi:Richard"
+    },
+    {
+      "rating_id": "r_03e185b4898969e9e8aa",
+      "label_a_voice_presence": "no",
+      "confidence_1_to_5": "",
+      "notes": "",
+      "rating_source": "pi:Richard"
+    },
+    {
+      "rating_id": "r_87bc10c6f56a672507b6",
+      "label_a_voice_presence": "yes",
+      "confidence_1_to_5": "",
+      "notes": "",
+      "rating_source": "pi:Richard"
+    },
+    {
+      "rating_id": "r_4e3d6bc1200eccede58e",
+      "label_a_voice_presence": "yes",
+      "confidence_1_to_5": "",
+      "notes": "",
+      "rating_source": "pi:Richard"
+    },
+    {
+      "rating_id": "r_94b901b66e24a345b97e",
+      "label_a_voice_presence": "yes",
+      "confidence_1_to_5": "",
+      "notes": "",
+      "rating_source": "pi:Richard"
+    },
+    {
+      "rating_id": "r_98978a84cf49a2d2d1fb",
+      "label_a_voice_presence": "no",
+      "confidence_1_to_5": "",
+      "notes": "",
+      "rating_source": "pi:Richard"
+    },
+    {
+      "rating_id": "r_7fa28ad7ca607291c80a",
+      "label_a_voice_presence": "no",
+      "confidence_1_to_5": "",
+      "notes": "",
+      "rating_source": "pi:Richard"
+    },
+    {
+      "rating_id": "r_fbe9537b4e78e10ee02b",
+      "label_a_voice_presence": "no",
+      "confidence_1_to_5": "",
+      "notes": "",
+      "rating_source": "pi:Richard"
+    },
+    {
+      "rating_id": "r_7047e3fbe474f4c03584",
+      "label_a_voice_presence": "no",
+      "confidence_1_to_5": "",
+      "notes": "",
+      "rating_source": "pi:Richard"
+    },
+    {
+      "rating_id": "r_834b0d624e9e66a4db9a",
+      "label_a_voice_presence": "no",
+      "confidence_1_to_5": "",
+      "notes": "",
+      "rating_source": "pi:Richard"
+    },
+    {
+      "rating_id": "r_b13d07e26bb6469744b9",
+      "label_a_voice_presence": "no",
+      "confidence_1_to_5": "",
+      "notes": "",
+      "rating_source": "pi:Richard"
+    },
+    {
+      "rating_id": "r_210be09dc387b7ae20f0",
+      "label_a_voice_presence": "yes",
+      "confidence_1_to_5": "",
+      "notes": "",
+      "rating_source": "pi:Richard"
+    },
+    {
+      "rating_id": "r_41069eea025068910a07",
+      "label_a_voice_presence": "yes",
+      "confidence_1_to_5": "",
+      "notes": "",
+      "rating_source": "pi:Richard"
+    },
+    {
+      "rating_id": "r_bb31677542b12177b198",
+      "label_a_voice_presence": "no",
+      "confidence_1_to_5": "",
+      "notes": "",
+      "rating_source": "pi:Richard"
+    },
+    {
+      "rating_id": "r_8ad20c737d83280bc87c",
+      "label_a_voice_presence": "no",
+      "confidence_1_to_5": "",
+      "notes": "",
+      "rating_source": "pi:Richard"
+    },
+    {
+      "rating_id": "r_3275b118f3be2b98ab12",
+      "label_a_voice_presence": "no",
+      "confidence_1_to_5": "",
+      "notes": "",
+      "rating_source": "pi:Richard"
+    },
+    {
+      "rating_id": "r_c57e6087b3b275afc91d",
+      "label_a_voice_presence": "no",
+      "confidence_1_to_5": "",
+      "notes": "",
+      "rating_source": "pi:Richard"
+    },
+    {
+      "rating_id": "r_e75dba5f2dd11a1a775b",
+      "label_a_voice_presence": "yes",
+      "confidence_1_to_5": "",
+      "notes": "",
+      "rating_source": "pi:Richard"
+    },
+    {
+      "rating_id": "r_9a34209cd9ab124c9108",
+      "label_a_voice_presence": "no",
+      "confidence_1_to_5": "",
+      "notes": "",
+      "rating_source": "pi:Richard"
+    },
+    {
+      "rating_id": "r_ae017a77bb39f6f9dc9d",
+      "label_a_voice_presence": "no",
+      "confidence_1_to_5": "",
+      "notes": "",
+      "rating_source": "pi:Richard"
+    },
+    {
+      "rating_id": "r_4c4a79c32381529e2811",
+      "label_a_voice_presence": "yes",
+      "confidence_1_to_5": "",
+      "notes": "",
+      "rating_source": "pi:Richard"
+    },
+    {
+      "rating_id": "r_e4adaa8c27b249f48fff",
+      "label_a_voice_presence": "no",
+      "confidence_1_to_5": "",
+      "notes": "",
+      "rating_source": "pi:Richard"
+    },
+    {
+      "rating_id": "r_b7d5e77e9c1a77bf5b25",
+      "label_a_voice_presence": "yes",
+      "confidence_1_to_5": "",
+      "notes": "",
+      "rating_source": "pi:Richard"
+    },
+    {
+      "rating_id": "r_be054a48404542e967cc",
+      "label_a_voice_presence": "no",
+      "confidence_1_to_5": "",
+      "notes": "",
+      "rating_source": "pi:Richard"
+    },
+    {
+      "rating_id": "r_238a17b83295f662d00f",
+      "label_a_voice_presence": "no",
+      "confidence_1_to_5": "",
+      "notes": "",
+      "rating_source": "pi:Richard"
+    },
+    {
+      "rating_id": "r_ab4388eb6a78e7a4f88c",
+      "label_a_voice_presence": "no",
+      "confidence_1_to_5": "",
+      "notes": "",
+      "rating_source": "pi:Richard"
+    },
+    {
+      "rating_id": "r_0ffe00a0a557f1a110b9",
+      "label_a_voice_presence": "unsure",
+      "confidence_1_to_5": "",
+      "notes": "",
+      "rating_source": "pi:Richard"
+    },
+    {
+      "rating_id": "r_610b1bd1fedf80032093",
+      "label_a_voice_presence": "no",
+      "confidence_1_to_5": "",
+      "notes": "",
+      "rating_source": "pi:Richard"
+    },
+    {
+      "rating_id": "r_324dbea38ca8228baa27",
+      "label_a_voice_presence": "no",
+      "confidence_1_to_5": "",
+      "notes": "",
+      "rating_source": "pi:Richard"
+    },
+    {
+      "rating_id": "r_f7663f48aa740c6612ac",
+      "label_a_voice_presence": "yes",
+      "confidence_1_to_5": "",
+      "notes": "",
+      "rating_source": "pi:Richard"
+    },
+    {
+      "rating_id": "r_38a70c74ea08deefe6c2",
+      "label_a_voice_presence": "yes",
+      "confidence_1_to_5": "",
+      "notes": "",
+      "rating_source": "pi:Richard"
+    },
+    {
+      "rating_id": "r_6a788d9ba551befe3ecd",
+      "label_a_voice_presence": "yes",
+      "confidence_1_to_5": "",
+      "notes": "",
+      "rating_source": "pi:Richard"
+    },
+    {
+      "rating_id": "r_ac9fc010141e13568d29",
+      "label_a_voice_presence": "yes",
+      "confidence_1_to_5": "",
+      "notes": "",
+      "rating_source": "pi:Richard"
+    },
+    {
+      "rating_id": "r_4cd95fedd367e3ba3d62",
+      "label_a_voice_presence": "no",
+      "confidence_1_to_5": "",
+      "notes": "",
+      "rating_source": "pi:Richard"
+    },
+    {
+      "rating_id": "r_b743c64f43a1b37042db",
+      "label_a_voice_presence": "no",
+      "confidence_1_to_5": "",
+      "notes": "",
+      "rating_source": "pi:Richard"
+    },
+    {
+      "rating_id": "r_2cbab3a39350f871b235",
+      "label_a_voice_presence": "no",
+      "confidence_1_to_5": "",
+      "notes": "",
+      "rating_source": "pi:Richard"
+    },
+    {
+      "rating_id": "r_b7216134e6a6e87d2a35",
+      "label_a_voice_presence": "yes",
+      "confidence_1_to_5": "",
+      "notes": "",
+      "rating_source": "pi:Richard"
+    },
+    {
+      "rating_id": "r_af6fd469ad3f67648637",
+      "label_a_voice_presence": "no",
+      "confidence_1_to_5": "",
+      "notes": "",
+      "rating_source": "pi:Richard"
+    },
+    {
+      "rating_id": "r_c0828adcd184f0e82bb2",
+      "label_a_voice_presence": "yes",
+      "confidence_1_to_5": "",
+      "notes": "",
+      "rating_source": "pi:Richard"
+    },
+    {
+      "rating_id": "r_882d2aa4a9dda3247c4b",
+      "label_a_voice_presence": "yes",
+      "confidence_1_to_5": "",
+      "notes": "",
+      "rating_source": "pi:Richard"
+    },
+    {
+      "rating_id": "r_8067bda574d02325e897",
+      "label_a_voice_presence": "no",
+      "confidence_1_to_5": "",
+      "notes": "",
+      "rating_source": "pi:Richard"
+    },
+    {
+      "rating_id": "r_523f55a4e8cb9dcd09d9",
+      "label_a_voice_presence": "no",
+      "confidence_1_to_5": "",
+      "notes": "",
+      "rating_source": "pi:Richard"
+    },
+    {
+      "rating_id": "r_de672713a9a3fbe5fedb",
+      "label_a_voice_presence": "yes",
+      "confidence_1_to_5": "",
+      "notes": "",
+      "rating_source": "pi:Richard"
+    },
+    {
+      "rating_id": "r_a6c30da2a12eda9acb0d",
+      "label_a_voice_presence": "unsure",
+      "confidence_1_to_5": "",
+      "notes": "",
+      "rating_source": "pi:Richard"
+    },
+    {
+      "rating_id": "r_ead94e659bf93e15efe1",
+      "label_a_voice_presence": "unsure",
+      "confidence_1_to_5": "",
+      "notes": "",
+      "rating_source": "pi:Richard"
+    },
+    {
+      "rating_id": "r_da01952babc854b96f52",
+      "label_a_voice_presence": "yes",
+      "confidence_1_to_5": "",
+      "notes": "",
+      "rating_source": "pi:Richard"
+    },
+    {
+      "rating_id": "r_a2f78c1ba14fd76729c9",
+      "label_a_voice_presence": "no",
+      "confidence_1_to_5": "",
+      "notes": "",
+      "rating_source": "pi:Richard"
+    },
+    {
+      "rating_id": "r_00b3c6ce03d837d725f4",
+      "label_a_voice_presence": "no",
+      "confidence_1_to_5": "",
+      "notes": "",
+      "rating_source": "pi:Richard"
+    },
+    {
+      "rating_id": "r_dac5635fa3bd0e06e736",
+      "label_a_voice_presence": "yes",
+      "confidence_1_to_5": "",
+      "notes": "",
+      "rating_source": "pi:Richard"
+    },
+    {
+      "rating_id": "r_c0a00fc2321c6ffb1939",
+      "label_a_voice_presence": "yes",
+      "confidence_1_to_5": "",
+      "notes": "",
+      "rating_source": "pi:Richard"
+    },
+    {
+      "rating_id": "r_41cf4806f59684881a3f",
+      "label_a_voice_presence": "no",
+      "confidence_1_to_5": "",
+      "notes": "",
+      "rating_source": "pi:Richard"
+    },
+    {
+      "rating_id": "r_31e87f1c6893bcca415a",
+      "label_a_voice_presence": "unsure",
+      "confidence_1_to_5": "",
+      "notes": "",
+      "rating_source": "pi:Richard"
+    },
+    {
+      "rating_id": "r_0e28ee256a4840be8ba5",
+      "label_a_voice_presence": "no",
+      "confidence_1_to_5": "",
+      "notes": "",
+      "rating_source": "pi:Richard"
+    },
+    {
+      "rating_id": "r_e5c98a4f40989b29ddfa",
+      "label_a_voice_presence": "no",
+      "confidence_1_to_5": "",
+      "notes": "",
+      "rating_source": "pi:Richard"
+    },
+    {
+      "rating_id": "r_fe71317bdc4df89a4949",
+      "label_a_voice_presence": "no",
+      "confidence_1_to_5": "",
+      "notes": "",
+      "rating_source": "pi:Richard"
+    },
+    {
+      "rating_id": "r_2617cbaf507680b6199f",
+      "label_a_voice_presence": "yes",
+      "confidence_1_to_5": "",
+      "notes": "",
+      "rating_source": "pi:Richard"
+    },
+    {
+      "rating_id": "r_e349c75f228564633627",
+      "label_a_voice_presence": "no",
+      "confidence_1_to_5": "",
+      "notes": "",
+      "rating_source": "pi:Richard"
+    },
+    {
+      "rating_id": "r_7b329824aebe7c89f800",
+      "label_a_voice_presence": "no",
+      "confidence_1_to_5": "",
+      "notes": "",
+      "rating_source": "pi:Richard"
+    }
+  ]
+}

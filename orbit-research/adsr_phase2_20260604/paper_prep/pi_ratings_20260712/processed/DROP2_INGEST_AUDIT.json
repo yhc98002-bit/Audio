@@ -1,0 +1,78 @@
+{
+  "all_exact_id_sets": true,
+  "all_rating_sources": "pi:Richard",
+  "all_required_answer_fields_complete": true,
+  "drop2_ingestion": "PASS",
+  "t3": {
+    "bundle_id": "t3_bprime_primary_v2",
+    "exact_id_set_match": true,
+    "input_sha256": "030d84866b1b2be015c230796fa7946f799e02997cc3da2801c2d34e9ffbb9c1",
+    "key_sha256": "1f83a9304333b52f638be7dd2f8db4a2316a37966130ea670d8616176af7ab05",
+    "rating_source": "pi:Richard",
+    "required_answer_blanks": 0,
+    "rows": 80,
+    "sequence_anomalies_constraint_after_overall": [
+      {
+        "bundle_rating_id": "r_481945d936cac57fb5dc",
+        "constraint_answer_sequence": 88,
+        "overall_answer_sequence": 87,
+        "quality_answer_sequence": 85,
+        "reveal_sequence": 86,
+        "scorer_rating_id": "bprime_0063_3a0a02941f61"
+      },
+      {
+        "bundle_rating_id": "r_18c0df05601647c7c44b",
+        "constraint_answer_sequence": 192,
+        "overall_answer_sequence": 191,
+        "quality_answer_sequence": 189,
+        "reveal_sequence": 190,
+        "scorer_rating_id": "bprime_0042_596bd045a00d"
+      },
+      {
+        "bundle_rating_id": "r_1e22aa285a7807629e54",
+        "constraint_answer_sequence": 200,
+        "overall_answer_sequence": 199,
+        "quality_answer_sequence": 197,
+        "reveal_sequence": 198,
+        "scorer_rating_id": "bprime_0019_c3c7bcf0e2f6"
+      },
+      {
+        "bundle_rating_id": "r_e48eb7dc4f0e769820ff",
+        "constraint_answer_sequence": 264,
+        "overall_answer_sequence": 263,
+        "quality_answer_sequence": 261,
+        "reveal_sequence": 262,
+        "scorer_rating_id": "bprime_0005_044855b58ce7"
+      }
+    ]
+  },
+  "t4": {
+    "bundle_id": "t4_bprime_reverse_v2",
+    "exact_id_set_match": true,
+    "input_sha256": "0b63fbb518971d23860b5c34524ae49d4c2e46435b2abe0fce7c6cf54ceb3ac5",
+    "key_sha256": "55f78df076ed9c608508075e7023d5b2b4922c2deea60bf6987f2ba089f8ead4",
+    "rating_source": "pi:Richard",
+    "required_answer_blanks": 0,
+    "rows": 24,
+    "sequence_anomalies_constraint_after_overall": [
+      {
+        "bundle_rating_id": "r_ea04ed1265668c57303f",
+        "constraint_answer_sequence": 32,
+        "overall_answer_sequence": 31,
+        "quality_answer_sequence": 29,
+        "reveal_sequence": 30,
+        "scorer_rating_id": "bprime_0094_c00387063c17"
+      }
+    ]
+  },
+  "t5": {
+    "bundle_id": "t5_sa3_calibration",
+    "exact_id_set_match": true,
+    "input_sha256": "d448588b0b1fd2c3120d7fc86a742a8a52e74a09bdcd5c9f87c72c8eb5ff79f9",
+    "key_sha256": "282b68f9e17a1e6c559d1208081f72c9885f6178c5849a3f4e16da0281aa7952",
+    "optional_confidence_missing": 59,
+    "rating_source": "pi:Richard",
+    "required_answer_blanks": 0,
+    "rows": 60
+  }
+}

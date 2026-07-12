@@ -1,0 +1,10 @@
+{
+  "command": "/HOME/paratera_xy/pxy1289/.conda/envs/audio-prm/bin/python -m pytest -q",
+  "drop2_test_count": 8,
+  "exit_code": 0,
+  "full_test_count": 306,
+  "interpreter": "/HOME/paratera_xy/pxy1289/.conda/envs/audio-prm/bin/python",
+  "output_sha256": "7fe91ad5fb746be448eeb2b9046edd2af9503c92d8a929f2a082bb52308cd497",
+  "status": "PASS",
+  "timestamp": "2026-07-13T01:44:47+08:00"
+}

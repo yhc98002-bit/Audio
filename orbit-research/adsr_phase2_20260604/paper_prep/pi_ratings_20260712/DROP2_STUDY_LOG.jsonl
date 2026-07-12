@@ -1,0 +1,1 @@
+{"elapsed_seconds": 1973.803, "event": "PROTOCOL_DEVIATION_T4_SAME_SESSION", "event_id": "8ec966ebf6e921302257", "interpretation": "t4 agreement figures are upper bounds", "status": "LOGGED", "superseded_by": "t6 hidden-repeat calibration block", "t3_exported_at": "2026-07-12T16:36:43.026Z", "t4_exported_at": "2026-07-12T17:09:36.829Z"}
