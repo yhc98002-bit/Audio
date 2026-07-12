@@ -531,6 +531,9 @@ def audit() -> dict:
         status = "FAIL"
     report = {
         "status": status,
+        "spine_regen_status": (
+            "COMPLETE_AUDIT_PASS" if status == "PASS" else "FAILED_ESCALATED"
+        ),
         "manifest_rows": len(tasks),
         "generation_roles": dict(generation_roles),
         "successful_generation_rows": len(generation),
@@ -552,6 +555,7 @@ def audit() -> dict:
     AUDIT_JSON.write_text(json.dumps(report, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     AUDIT_MD.write_text(
         "# W2 Spine Reconstruction Audit\n\n"
+        f"`SPINE_REGEN_STATUS = {report['spine_regen_status']}`\n\n"
         f"`SPINE_REGEN_AUDIT = {status}`\n\n"
         f"- Manifest rows: {len(tasks)}\n"
         f"- Missing candidates reconstructed: {generation_roles['missing_spine_reconstruction']}\n"
