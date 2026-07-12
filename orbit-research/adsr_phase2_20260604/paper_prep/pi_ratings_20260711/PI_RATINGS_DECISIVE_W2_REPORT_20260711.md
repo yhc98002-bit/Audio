@@ -212,6 +212,9 @@ the canonical `THRESHOLD` import; the targeted policy test then passed.
 Final attached suite: **256/256 tests passed**, exit code 0, approximately 155
 seconds. `git diff --check` is run again before commit.
 
+Implementation commit:
+`2a58eee0810012ea3affc150697619b16f36e6ff`.
+
 ## 10. Evidence Index
 
 - Raw PI exports: `paper_prep/pi_ratings_20260711/t1_decisive.json`, `paper_prep/pi_ratings_20260711/t2_aprime_core.json`
