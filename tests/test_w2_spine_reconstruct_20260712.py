@@ -39,3 +39,13 @@ def test_spine_replay_and_candidate_thresholds_are_frozen():
     assert "W2 spine reconstruction" in registry
     assert "ACTIVE_REPLAY" in registry
 
+
+def test_recovery_output_root_is_explicit_and_does_not_replace_default():
+    module = load_module()
+    default = module.PAPER / "w2_execution_20260712/spine_reconstruction"
+    recovery = module.resolve_output_root(
+        "paper_prep/w2_execution_20260712/spine_reconstruction_torch251_recovery"
+    )
+    assert module.resolve_output_root() == default
+    assert recovery == module.ROOT / "paper_prep/w2_execution_20260712/spine_reconstruction_torch251_recovery"
+    assert recovery != module.OUT

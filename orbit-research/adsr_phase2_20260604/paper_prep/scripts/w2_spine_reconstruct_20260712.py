@@ -36,7 +36,17 @@ sys.path.insert(0, str(ROOT / "paper_prep/w2_contingency_20260711"))
 from mprm.common.thresholds import VOCAL_PRESENCE_THRESHOLD
 
 PAPER = ROOT / "paper_prep"
-OUT = PAPER / "w2_execution_20260712/spine_reconstruction"
+
+
+def resolve_output_root(value: str | None = None) -> Path:
+    configured = value if value is not None else os.environ.get("MPRM_W2_SPINE_OUT", "")
+    if not configured:
+        return PAPER / "w2_execution_20260712/spine_reconstruction"
+    path = Path(configured)
+    return path if path.is_absolute() else ROOT / path
+
+
+OUT = resolve_output_root()
 MANIFEST = OUT / "SPINE_RECONSTRUCTION_MANIFEST.csv"
 PROMPT_SNAPSHOT = OUT / "SPINE_PROMPT_SNAPSHOT.jsonl"
 GENERATION_DIR = OUT / "generation_ledgers"
