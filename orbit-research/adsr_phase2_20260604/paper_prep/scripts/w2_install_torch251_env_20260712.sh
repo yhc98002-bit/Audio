@@ -32,6 +32,12 @@ if [ -n "${MPRM_WHEELHOUSE:-}" ]; then
     torch==2.5.1+cu121 \
     torchaudio==2.5.1+cu121 \
     torchvision==0.20.1+cu121
+  "$TARGET/bin/python" -m pip install \
+    --no-index \
+    --find-links "$MPRM_WHEELHOUSE" \
+    --force-reinstall \
+    --no-deps \
+    nvidia-nvjitlink-cu12==12.1.105
 else
   "$TARGET/bin/python" -m pip install \
     --no-cache-dir \
@@ -39,6 +45,11 @@ else
     torch==2.5.1+cu121 \
     torchaudio==2.5.1+cu121 \
     torchvision==0.20.1+cu121
+  "$TARGET/bin/python" -m pip install \
+    --force-reinstall \
+    --no-deps \
+    --index-url https://download.pytorch.org/whl/cu121 \
+    nvidia-nvjitlink-cu12==12.1.105
 fi
 
 "$TARGET/bin/python" - <<'PY'
