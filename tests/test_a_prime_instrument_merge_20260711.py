@@ -66,6 +66,11 @@ def test_merge_accepts_human_core_and_human_global():
     assert report["provenance_counts"] == {"pi": 0, "human": 690, "judge": 0}
 
 
+def test_core_can_be_registered_without_scoring_pending_global_track():
+    admin, core, _global_rows = fixtures()
+    assert MODULE.register_core_instrument(admin, core) == {"pi": 0, "human": 190}
+
+
 def test_merge_accepts_only_fully_validated_judge_on_global_rows(tmp_path):
     source, metadata, ledger = judge_metadata(tmp_path)
     admin, core, global_rows = fixtures(source)

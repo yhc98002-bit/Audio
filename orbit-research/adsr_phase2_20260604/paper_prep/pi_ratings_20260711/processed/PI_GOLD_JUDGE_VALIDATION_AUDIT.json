@@ -1,0 +1,43 @@
+{
+  "a_prime_gate_changed": false,
+  "calls_per_clip": 3,
+  "heldout": {
+    "abstained": 0,
+    "abstention_rate": 0.0,
+    "balanced_accuracy": 0.8571428571428572,
+    "calls": 315,
+    "decided": 105,
+    "embedded_audio_rows": 0,
+    "mcc": 0.8366600265340757,
+    "negatives": 7,
+    "positives": 98,
+    "raw_unique_keys": 315,
+    "rows": 105,
+    "sensitivity": 1.0,
+    "specificity": 0.7142857142857143
+  },
+  "heldout_gold_set_hash": "5472d20bc963c63497114e8ff0053f18c55c624ad37f395135d0ca840948f217",
+  "heldout_raw_sha256": "88f4fb9bb02741ef452c47ea4103971b220e6b334bb80713269e5507a2beb0d8",
+  "judge_validation_status": "PI_BLOCKED",
+  "model": "qwen3-omni-judge",
+  "smoke": {
+    "abstained": 0,
+    "abstention_rate": 0.0,
+    "accuracy": 0.8,
+    "balanced_accuracy": 0.8,
+    "calls": 30,
+    "decided": 10,
+    "embedded_audio_rows": 0,
+    "mcc": 0.6546536707079772,
+    "negatives": 5,
+    "positives": 5,
+    "raw_unique_keys": 30,
+    "rows": 10,
+    "sensitivity": 1.0,
+    "specificity": 0.6
+  },
+  "smoke_manifest_sha256": "a8bc222b59d3bd467e0b8203b0e4b78b3149133a3a858633f17188968e17f022",
+  "smoke_raw_sha256": "4bc4da6e369035c16cf839d043820c4c3af33fd2b60a8b22b90b78f517a79c97",
+  "status_reason": "PI gold supersedes the CXY-only block, but smoke is 8/10 and no signed automatic-judge promotion threshold exists",
+  "stratified_500_launched": false
+}

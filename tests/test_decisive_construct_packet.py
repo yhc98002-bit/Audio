@@ -50,7 +50,21 @@ def test_judge_overcalling_branch():
 
 def test_demucs_missing_branch():
     admin, ratings = fixture(1)
-    assert MODULE.score(admin, ratings)["branch_verdict"] == "demucs_missing"
+    result = MODULE.score(admin, ratings)
+    assert result["branch_verdict"] == "demucs_missing"
+    assert result["bucket_breakdown"]["judge_yes_demucs_no_20"] == {
+        "rows": 20,
+        "label_a_yes": 20,
+        "label_a_no": 0,
+        "label_a_unsure": 0,
+        "label_b_voice_present": 20,
+        "label_b_voice_absent": 0,
+        "label_b_unsure": 0,
+        "demucs_matches_label_b": 0,
+        "qwen_matches_label_b": 20,
+        "label_a_b_decided": 20,
+        "label_a_b_disagreements": 0,
+    }
 
 
 def test_construct_mismatch_branch():

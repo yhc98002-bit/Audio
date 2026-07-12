@@ -1,0 +1,43 @@
+rating_id,label_a_voice_presence,perceived_vocal_type,vocal_extent,label_b_constraint,confidence_1_to_5,notes,request_mode,label_a_amended,reveal_sequence,rating_source,bundle_rating_id
+decisive_33_f89abdb85619,yes,rap,sustained,satisfied,5,,vocal,True,1,pi:Richard,r_2b63d815fcd94133ad3f
+decisive_03_274ef1cb38b6,yes,ooh/ah,intermittent,satisfied,5,,vocal,False,2,pi:Richard,r_569188431f08b348df8a
+decisive_41_7a990e1f2d05,yes,singing,sustained,violated,5,,instrumental,False,3,pi:Richard,r_cc550389f6a60ccfcfb1
+decisive_28_aa1162750fbc,yes,singing,sustained,satisfied,5,,vocal,False,4,pi:Richard,r_c1fb1fedf53abe77cb16
+decisive_34_312c23ae47f7,yes,rap,intermittent,violated,5,,instrumental,False,5,pi:Richard,r_b08f9589200a99ec699d
+decisive_10_76cccbd6e601,yes,rap,intermittent,satisfied,5,,vocal,False,6,pi:Richard,r_c3c7db6df2dd5b237ce0
+decisive_06_46b6240897e0,yes,singing,sustained,satisfied,5,,vocal,False,7,pi:Richard,r_52cbe247506f918c4d40
+decisive_39_42b8a906ac1a,unsure,voice-like/ambiguous,isolated,unsure,1,,instrumental,True,8,pi:Richard,r_53db4476bc77948be293
+decisive_09_91f361499026,yes,singing,sustained,satisfied,5,,vocal,False,9,pi:Richard,r_b60a54ddbda6239c6e1b
+decisive_12_f399470c98da,no,none,none,satisfied,5,,instrumental,False,10,pi:Richard,r_124ab1b0af476e967aac
+decisive_08_bdd3c4f3fe05,yes,vocal chops,isolated,violated,3,,instrumental,True,11,pi:Richard,r_b9ac03d5a8f6346cdfc7
+decisive_18_58bcda73b66c,no,none,none,satisfied,5,,instrumental,False,12,pi:Richard,r_39df7c1fc0afa5e743fa
+decisive_42_1108911c47cd,no,none,none,satisfied,5,,instrumental,True,13,pi:Richard,r_c82c056aa2e974a9628e
+decisive_37_5fb94c546f40,yes,rap,sustained,violated,5,,instrumental,True,14,pi:Richard,r_7315322c11eafa69c34e
+decisive_25_4bcd77594bb5,yes,vocal chops,isolated,satisfied,5,,vocal,True,15,pi:Richard,r_bf0abb2104abbf846137
+decisive_26_b0bad4f5e44c,yes,singing,intermittent,satisfied,5,,vocal,False,16,pi:Richard,r_9b4084c592bda8ba014e
+decisive_13_b3a352f3258a,yes,rap,sustained,satisfied,5,,vocal,False,17,pi:Richard,r_61417afd5bb04407f4c3
+decisive_27_33595c7a116c,yes,singing,sustained,satisfied,5,,vocal,True,18,pi:Richard,r_84fc8e9b0ce1aa152385
+decisive_19_5aece195065b,yes,rap,intermittent,satisfied,5,,vocal,True,19,pi:Richard,r_b9648a14a2f64929e3bf
+decisive_04_a5f338f1ce29,no,none,none,satisfied,5,,vocal,False,20,pi:Richard,r_a12ef8afc8c096065e2b
+decisive_31_c3007809e1c6,unsure,voice-like/ambiguous,unsure,violated,1,,vocal,True,21,pi:Richard,r_9681bc90c968739e948e
+decisive_36_91578aa38188,yes,singing,isolated,satisfied,5,,vocal,True,22,pi:Richard,r_8688ab79c41019dc182b
+decisive_16_70313a930f10,yes,singing,sustained,satisfied,5,,vocal,False,23,pi:Richard,r_7fc14df2a1a159bc0411
+decisive_23_ac24af32778a,yes,singing,sustained,violated,5,,instrumental,True,24,pi:Richard,r_0cf5f45216402867efd0
+decisive_22_92b51bc2af21,yes,singing,sustained,satisfied,5,,vocal,False,25,pi:Richard,r_14e4e6905051ef68003d
+decisive_05_74e8e1d035d2,yes,rap,sustained,satisfied,5,,vocal,False,26,pi:Richard,r_46aa61e93eb6e141a42c
+decisive_35_3ab3b787b59e,yes,singing,intermittent,satisfied,5,,vocal,False,27,pi:Richard,r_a2273488b5ce98a0d86e
+decisive_30_691445ce4637,yes,rap,sustained,violated,5,,instrumental,False,28,pi:Richard,r_4223bf0304e3801d90d8
+decisive_11_a8223b360df8,yes,singing,intermittent,satisfied,5,,vocal,False,29,pi:Richard,r_a60ee9d1a88646c64042
+decisive_20_915b8df08b53,unsure,voice-like/ambiguous,isolated,violated,3,,vocal,True,30,pi:Richard,r_00c97a4ab135e155b5b6
+decisive_32_98b71b8decb6,yes,singing,intermittent,violated,5,,instrumental,False,31,pi:Richard,r_6ea61ab5d02819498d22
+decisive_17_4217d6b8e4a2,yes,choir,sustained,violated,4,,instrumental,False,32,pi:Richard,r_2957c2515289bc57b7a5
+decisive_01_6c137151640e,yes,rap,sustained,satisfied,5,,vocal,False,33,pi:Richard,r_22563bc62a77475a5f54
+decisive_14_e7a8cf805731,yes,rap,intermittent,satisfied,5,,vocal,False,34,pi:Richard,r_fa01df4f08f7dc3e96d5
+decisive_40_2fbec10d8a00,yes,singing,sustained,satisfied,5,,vocal,False,35,pi:Richard,r_aa0041b92c025abbaa48
+decisive_21_61e688012e92,yes,wordless vocals,intermittent,satisfied,5,,vocal,False,36,pi:Richard,r_6f8d0757337cc9ae8847
+decisive_02_9643022ddbf6,yes,singing,intermittent,satisfied,5,,vocal,False,37,pi:Richard,r_feb91be4963c838e350a
+decisive_29_47807785883b,yes,singing,sustained,satisfied,5,,vocal,False,38,pi:Richard,r_a8b8d67565d6fadae091
+decisive_38_217a8f3c70ce,yes,rap,isolated,satisfied,5,,vocal,False,39,pi:Richard,r_e12064a1880827203f0f
+decisive_24_5b448e7609f2,yes,singing,sustained,violated,5,,instrumental,False,40,pi:Richard,r_953c82e4500deb4bf92c
+decisive_07_df9c1a8daced,yes,rap,intermittent,satisfied,5,,vocal,False,41,pi:Richard,r_878ec28f37044b7e3af9
+decisive_15_cc2eb6bbefa7,yes,rap,intermittent,satisfied,5,"I’ve noticed that a prompt intended for instrumental music is far more likely to result in a track with vocals than a prompt intended for vocal music is to result in an instrumental track. Could this be related to the model's pre-training—specifically, the inclusion of a large amount of vocal content—and the lack of subsequent reinforcement learning or other methods to help the model distinguish between instrumental and vocal music?",vocal,False,42,pi:Richard,r_5355bb001acac1c4ad8b

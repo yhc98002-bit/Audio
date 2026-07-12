@@ -1,0 +1,22 @@
+{
+  "cohort_counts": {
+    "atlas_keep": 194,
+    "candidate_spine_4096": 1,
+    "n2_population_retry": 16384,
+    "stage3_intervention": 6144
+  },
+  "demucs_score_source_counts": {
+    "live_recomputed_initial_pass_pre_optimization": 448,
+    "precomputed_frozen_ledger": 22275
+  },
+  "expected_rows": 22723,
+  "failures": 0,
+  "instrument_counts": {
+    "w2_calibrated_and": 22723
+  },
+  "merged_rows": 22723,
+  "missing": 0,
+  "status": "PASS_COMPLETE_RETAINED_AUDIO",
+  "stored_demucs_rows_checked": 22528,
+  "stored_demucs_threshold_mismatches": 0
+}

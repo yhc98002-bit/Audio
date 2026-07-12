@@ -25,6 +25,8 @@ MANIFEST = load("build_w2_relabel_manifest")
 INSTRUMENTS = load("w2_instruments")
 RUNNER = load("run_w2_relabel")
 RECOMPUTE = load("recompute_w2_headlines")
+CALIBRATE = load("calibrate_w2_instrument")
+MERGE = load("merge_w2_shards")
 
 
 def test_frozen_ledger_inventory_is_deduplicated_and_preserves_old_label(tmp_path):
@@ -103,6 +105,16 @@ def test_runner_selects_only_available_requested_cohort():
         {"record_id": "c", "cohort": "stage3", "media_available": False, "audio_path": ""},
     ]
     assert [row["record_id"] for row in RUNNER.select_rows(rows, 0, {"stage3"})] == ["a"]
+
+
+def test_runner_sharding_is_disjoint_and_complete():
+    rows = [
+        {"record_id": str(index), "cohort": "stage3", "media_available": True, "audio_path": f"/{index}"}
+        for index in range(17)
+    ]
+    shards = [RUNNER.select_rows(rows, 0, set(), 4, index) for index in range(4)]
+    ids = [row["record_id"] for shard in shards for row in shard]
+    assert len(ids) == len(set(ids)) == 17
 
 
 def test_human_threshold_requires_calibration_artifact(tmp_path):
@@ -204,3 +216,114 @@ def test_headline_diff_uses_old_and_corrected_labels_without_mutation():
     assert rate["old_value"] == 0.5
     assert rate["corrected_value"] == 1.0
     assert manifest[1]["old_present"] == 0
+
+
+def test_n2_diff_reports_old_and_corrected_regimes_and_request_strata():
+    manifest = []
+    corrected = []
+    for index in range(16):
+        manifest.append(
+            {
+                "record_id": str(index),
+                "cohort": "n2_population_retry",
+                "condition": "baseline",
+                "prompt_id": "p",
+                "requested_vocal": 1,
+                "old_present": 0,
+            }
+        )
+        corrected.append(
+            {"record_id": str(index), "status": "PASS", "present": int(index < 8)}
+        )
+    rows = RECOMPUTE.compute_diff(manifest, corrected)
+    easy = next(
+        row
+        for row in rows
+        if row["metric"] == "n2_regime_prompt_count"
+        and row["condition"] == "easy_ge_1_in_2"
+    )
+    rare = next(
+        row
+        for row in rows
+        if row["metric"] == "n2_regime_prompt_count"
+        and row["condition"] == "rare_le_1_in_16"
+    )
+    assert (easy["old_value"], easy["corrected_value"], easy["delta"]) == (0, 1, 1)
+    assert (rare["old_value"], rare["corrected_value"], rare["delta"]) == (1, 0, -1)
+
+
+def test_calibration_selection_uses_train_and_reports_heldout():
+    rows = []
+    for split in ("calibration", "heldout"):
+        for index, (truth, demucs, panns) in enumerate(
+            [("yes", 0.05, 0.9), ("yes", 0.08, 0.8), ("no", 0.01, 0.1), ("no", 0.02, 0.2)]
+        ):
+            rows.append(
+                {
+                    "clip_id": f"{split}-{index}",
+                    "split": split,
+                    "true_label": truth,
+                    "demucs_vocal_energy_ratio": demucs,
+                    "demucs_near_silent": False,
+                    "panns_score": panns,
+                }
+            )
+    result = CALIBRATE.calibrate(rows)
+    assert result["status"] == "CALIBRATED_TRAIN_SELECTED_HELDOUT_AUDITED"
+    assert result["selected_candidate"]["heldout_metrics"]["balanced_accuracy"] == 1.0
+    assert result["plan_status_changed"] is False
+
+
+def test_w2_shard_merge_requires_every_retained_row():
+    manifest = [
+        {"record_id": "a", "cohort": "stage3", "media_available": True, "audio_path": "/a"},
+        {"record_id": "b", "cohort": "spine", "media_available": False, "audio_path": ""},
+    ]
+    rows, report = MERGE.merge(
+        manifest,
+        [[{"record_id": "a", "cohort": "stage3", "status": "PASS", "instrument_id": "test"}]],
+    )
+    assert len(rows) == 1
+    assert report["status"] == "PASS_COMPLETE_RETAINED_AUDIO"
+    assert report["demucs_score_source_counts"] == {
+        "live_recomputed_initial_pass_pre_optimization": 1
+    }
+
+
+def test_calibrated_ensemble_reuses_frozen_demucs_ratio(monkeypatch, tmp_path):
+    artifact = tmp_path / "calibration.json"
+    artifact.write_text(
+        json.dumps(
+            {
+                "status": "CALIBRATED_TRAIN_SELECTED_HELDOUT_AUDITED",
+                "selected_candidate": {
+                    "family": "and",
+                    "demucs_threshold": 0.04,
+                    "panns_threshold": 0.03,
+                },
+            }
+        ),
+        encoding="utf-8",
+    )
+    monkeypatch.setattr(
+        INSTRUMENTS.LivePannsInstrument,
+        "__init__",
+        lambda self, device, threshold: setattr(self, "threshold", threshold),
+    )
+    monkeypatch.setattr(
+        INSTRUMENTS.LivePannsInstrument,
+        "score",
+        lambda self, path: {"panns_score": 0.5, "present": 1},
+    )
+    monkeypatch.setattr(
+        INSTRUMENTS.CurrentDemucsInstrument,
+        "score",
+        lambda self, path: pytest.fail("live Demucs must not run when a frozen score exists"),
+    )
+    instrument = INSTRUMENTS.CalibratedCompositeInstrument("cuda", artifact)
+    result = instrument.score_row(
+        tmp_path / "clip.flac",
+        {"old_vocal_energy_ratio": 0.2, "old_near_silent": False},
+    )
+    assert result["present"] == 1
+    assert result["demucs_score_source"] == "precomputed_frozen_ledger"

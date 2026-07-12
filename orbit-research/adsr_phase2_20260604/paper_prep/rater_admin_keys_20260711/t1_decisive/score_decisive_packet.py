@@ -93,6 +93,44 @@ def score(admin: list[dict[str, str]], ratings: list[dict[str, str]]) -> dict:
         for row in control_decided
     )
 
+    bucket_breakdown = {}
+    for category in sorted({row["category"] for row in scored}):
+        bucket = [row for row in scored if row["category"] == category]
+        a_decided = [row for row in bucket if row["label_a_presence"] is not None]
+        b_decided = [row for row in bucket if row["label_b_presence"] is not None]
+        both_decided = [
+            row
+            for row in bucket
+            if row["label_a_presence"] is not None
+            and row["label_b_presence"] is not None
+        ]
+        bucket_breakdown[category] = {
+            "rows": len(bucket),
+            "label_a_yes": sum(row["label_a_presence"] == 1 for row in a_decided),
+            "label_a_no": sum(row["label_a_presence"] == 0 for row in a_decided),
+            "label_a_unsure": len(bucket) - len(a_decided),
+            "label_b_voice_present": sum(
+                row["label_b_presence"] == 1 for row in b_decided
+            ),
+            "label_b_voice_absent": sum(
+                row["label_b_presence"] == 0 for row in b_decided
+            ),
+            "label_b_unsure": len(bucket) - len(b_decided),
+            "demucs_matches_label_b": sum(
+                row["label_b_presence"] == int(row["demucs_label"] == "yes")
+                for row in b_decided
+            ),
+            "qwen_matches_label_b": sum(
+                row["label_b_presence"] == int(row["qwen_label"] == "yes")
+                for row in b_decided
+            ),
+            "label_a_b_decided": len(both_decided),
+            "label_a_b_disagreements": sum(
+                row["label_a_presence"] != row["label_b_presence"]
+                for row in both_decided
+            ),
+        }
+
     if len(decided_b) < 20 or len(control_decided) < 5:
         verdict = "construct_mismatch"
     elif control_matches < 5 or (not math.isnan(construct_disagreement) and construct_disagreement >= 0.25):
@@ -116,6 +154,7 @@ def score(admin: list[dict[str, str]], ratings: list[dict[str, str]]) -> dict:
         "control_decided": len(control_decided),
         "control_matches": control_matches,
         "category_counts": dict(Counter(row["category"] for row in scored)),
+        "bucket_breakdown": bucket_breakdown,
     }
 
 
@@ -140,6 +179,19 @@ def main() -> int:
         read_csv(args.admin),
         ratings,
     )
+    bucket_lines = [
+        "| Bucket | N | A yes/no/unsure | B voice/no-voice/unsure | "
+        "Demucs matches B | Qwen matches B | A/B disagreements |",
+        "|---|---:|---:|---:|---:|---:|---:|",
+    ]
+    for bucket, values in result["bucket_breakdown"].items():
+        bucket_lines.append(
+            f"| {bucket} | {values['rows']} | "
+            f"{values['label_a_yes']}/{values['label_a_no']}/{values['label_a_unsure']} | "
+            f"{values['label_b_voice_present']}/{values['label_b_voice_absent']}/{values['label_b_unsure']} | "
+            f"{values['demucs_matches_label_b']} | {values['qwen_matches_label_b']} | "
+            f"{values['label_a_b_disagreements']}/{values['label_a_b_decided']} |"
+        )
     report = f"""# Decisive Construct Branch Report
 
 `BRANCH_VERDICT = {result['branch_verdict']}`
@@ -152,6 +204,10 @@ This packet selects a diagnostic branch; it is not A-prime validation.
 - Label-A/Label-B disagreement: {result['label_a_b_disagreement_rate']}.
 - Obvious-control matches: {result['control_matches']}/{result['control_decided']}.
 - Real ratings complete: {str(result['real_ratings_complete']).lower()}.
+
+## Per-Bucket Breakdown
+
+{chr(10).join(bucket_lines)}
 
 ```json
 {json.dumps(result, indent=2, sort_keys=True)}

@@ -14,6 +14,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from w2_instruments import (
     THRESHOLD,
+    CalibratedCompositeInstrument,
     CurrentDemucsInstrument,
     DemucsPannsEnsembleInstrument,
     HumanCalibratedThresholdInstrument,
@@ -45,10 +46,20 @@ def make_instrument(args: argparse.Namespace):
         )
     if args.instrument == "validated_judge":
         return ValidatedJudgeInstrument(args.judge_labels, args.judge_metadata)
+    if args.instrument == "calibrated_auto":
+        return CalibratedCompositeInstrument(args.device, args.calibration_artifact)
     raise ValueError(args.instrument)
 
 
-def select_rows(rows: list[dict], max_rows: int, cohorts: set[str]) -> list[dict]:
+def select_rows(
+    rows: list[dict],
+    max_rows: int,
+    cohorts: set[str],
+    num_shards: int = 1,
+    shard_index: int = 0,
+) -> list[dict]:
+    if num_shards < 1 or shard_index not in range(num_shards):
+        raise ValueError("invalid W2 shard specification")
     selected = [
         row
         for row in rows
@@ -57,6 +68,7 @@ def select_rows(rows: list[dict], max_rows: int, cohorts: set[str]) -> list[dict
         and (not cohorts or row.get("cohort") in cohorts)
     ]
     selected.sort(key=lambda row: (row.get("cohort", ""), row["record_id"]))
+    selected = [row for index, row in enumerate(selected) if index % num_shards == shard_index]
     return selected[:max_rows] if max_rows else selected
 
 
@@ -66,12 +78,14 @@ def main() -> int:
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument(
         "--instrument",
-        choices=["current_demucs", "human_calibrated_threshold", "demucs_panns", "validated_judge"],
+        choices=["current_demucs", "human_calibrated_threshold", "demucs_panns", "validated_judge", "calibrated_auto"],
         required=True,
     )
     parser.add_argument("--device", default="cuda")
     parser.add_argument("--max-rows", type=int, default=0)
     parser.add_argument("--cohort", action="append", default=[])
+    parser.add_argument("--num-shards", type=int, default=1)
+    parser.add_argument("--shard-index", type=int, default=0)
     parser.add_argument("--dry-run-only", action="store_true")
     parser.add_argument("--threshold", type=float, default=THRESHOLD)
     parser.add_argument("--calibration-artifact", type=Path)
@@ -81,7 +95,13 @@ def main() -> int:
     parser.add_argument("--judge-labels", type=Path)
     parser.add_argument("--judge-metadata", type=Path)
     args = parser.parse_args()
-    rows = select_rows(read_jsonl(args.manifest), args.max_rows, set(args.cohort))
+    rows = select_rows(
+        read_jsonl(args.manifest),
+        args.max_rows,
+        set(args.cohort),
+        args.num_shards,
+        args.shard_index,
+    )
     if not rows:
         raise ValueError("no available retained media selected")
     instrument = make_instrument(args)
@@ -99,12 +119,18 @@ def main() -> int:
             "audio_path": row["audio_path"],
             "old_present": row.get("old_present", ""),
             "instrument": args.instrument,
+            "num_shards": args.num_shards,
+            "shard_index": args.shard_index,
             "dry_run_only": bool(args.dry_run_only),
             "status": "FAIL",
             "error": "",
         }
         try:
-            output.update(instrument.score(Path(row["audio_path"])))
+            score_row = getattr(instrument, "score_row", None)
+            if score_row is not None:
+                output.update(score_row(Path(row["audio_path"]), row))
+            else:
+                output.update(instrument.score(Path(row["audio_path"])))
             output["status"] = "PASS"
         except Exception as exc:  # noqa: BLE001 - exact failure belongs in ledger.
             output["error"] = f"{type(exc).__name__}: {exc}"

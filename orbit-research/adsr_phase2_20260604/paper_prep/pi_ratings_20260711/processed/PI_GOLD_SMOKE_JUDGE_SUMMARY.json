@@ -1,0 +1,114 @@
+{
+  "status": "SCORED",
+  "rows": 10,
+  "decided": 10,
+  "abstained": 0,
+  "sensitivity": 1.0,
+  "specificity": 0.6,
+  "balanced_accuracy": 0.8,
+  "mcc": 0.6546536707079772,
+  "accuracy": 0.8,
+  "abstention_rate": 0.0,
+  "results": [
+    {
+      "clip_id": "pi_gold_003c4b10dd3fa956",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_03218a661dbd0e39",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_0be1568604438fe5",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_0c83890a55f7b6af",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_15161bf19ca3ca49",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_1c685f428107106c",
+      "true_label": "no",
+      "majority_label": "no",
+      "calls": [
+        "no",
+        "no",
+        "no"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_339e5ed78b7cd9f5",
+      "true_label": "no",
+      "majority_label": "no",
+      "calls": [
+        "no",
+        "no",
+        "no"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_514c7a03f7b321d9",
+      "true_label": "no",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_70af6302a81baac7",
+      "true_label": "no",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_803db7b77532e202",
+      "true_label": "no",
+      "majority_label": "no",
+      "calls": [
+        "no",
+        "no",
+        "no"
+      ]
+    }
+  ]
+}

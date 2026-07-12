@@ -1,0 +1,44 @@
+{
+  "a_prime_gate_scored": false,
+  "ingestion_status": "PASS",
+  "pi_gold": {
+    "calibration_rows": 103,
+    "deduplicated_rows": 208,
+    "exclusions": 14,
+    "heldout_rows": 105,
+    "label_counts": {
+      "no": 13,
+      "yes": 195
+    },
+    "smoke_rows": 10
+  },
+  "raw_inputs": {
+    "t1": "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion/paper_prep/pi_ratings_20260711/t1_decisive.json",
+    "t1_exported_at": "2026-07-11T15:03:40.559Z",
+    "t1_sha256": "b5ac337364083534719cf679d3627935f505632fa76b0f56f47140f5dcd50868",
+    "t2": "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion/paper_prep/pi_ratings_20260711/t2_aprime_core.json",
+    "t2_exported_at": "2026-07-11T15:36:09.640Z",
+    "t2_sha256": "4aeffc990edaf7cbdf235aa1804c4cb44e967a3adffb5e6b5a862deacb6c16c9"
+  },
+  "t1": {
+    "amended_rows": 12,
+    "backup_candidates": [],
+    "exact_id_set": true,
+    "inconsistent_rows": 1,
+    "pre_reveal_label_a_status": "UNAVAILABLE",
+    "provenance": "pi:Richard",
+    "required_blanks": 0,
+    "rows": 42
+  },
+  "t2": {
+    "exact_id_set": true,
+    "merge_registration": "REGISTERED_HUMAN_CORE_GLOBAL_500_PENDING",
+    "provenance": "pi:Richard",
+    "provenance_counts": {
+      "human": 0,
+      "pi": 190
+    },
+    "required_blanks": 0,
+    "rows": 190
+  }
+}

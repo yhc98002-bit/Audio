@@ -1,0 +1,14 @@
+{
+  "gate_scored": false,
+  "global_bound_rows_pending": 500,
+  "merge_script": "paper_prep/rater_admin_keys_20260711/t2_aprime/merge_a_prime_instruments.py",
+  "official_core": "orbit-research/adsr_phase2_20260604/paper_prep/pi_ratings_20260711/processed/T2_A_PRIME_HUMAN_CORE_OFFICIAL.csv",
+  "official_core_sha256": "ade2fe73b1f0bec90b692f38efa9e322d61a1482b2d7453e401f9b6700530888",
+  "provenance_counts": {
+    "human": 0,
+    "pi": 190
+  },
+  "required_cli_flag": "--core-id-namespace scorer",
+  "rows": 190,
+  "status": "REGISTERED_HUMAN_CORE_GLOBAL_500_PENDING"
+}

@@ -1,0 +1,1064 @@
+{
+  "status": "SCORED",
+  "rows": 105,
+  "decided": 105,
+  "abstained": 0,
+  "sensitivity": 1.0,
+  "specificity": 0.7142857142857143,
+  "balanced_accuracy": 0.8571428571428572,
+  "mcc": 0.8366600265340757,
+  "accuracy": 0.9809523809523809,
+  "abstention_rate": 0.0,
+  "results": [
+    {
+      "clip_id": "pi_gold_00256dce79884623",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_02e4a6a3460f81e8",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_08c122e817eb4f5a",
+      "true_label": "no",
+      "majority_label": "no",
+      "calls": [
+        "no",
+        "no",
+        "no"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_0a9bae949406f181",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_0c0739c380bbc4d7",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_0d688cc6156526a8",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_166ddb24d9746004",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_17e8a988541c1e16",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_183882d1edd62895",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_18933db51229a66f",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_1cd5b61da842c9d3",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_1de2639cd4f53689",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_22c025e2c749fba2",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_24e13afd71e9f24f",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_264f00856d5f2fe0",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_29f8113398455af4",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_2ebf42a0fab934bb",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_31f8eaaffa82db65",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_32463557a0938c1e",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_337d46ad54cfe762",
+      "true_label": "no",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_34fcdfb4ec9135ac",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_36eb67fc6cef9896",
+      "true_label": "no",
+      "majority_label": "no",
+      "calls": [
+        "no",
+        "no",
+        "no"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_3891786077e4c860",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_3db21cc0632b7777",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_429dddf8d18f4ed0",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_44fdddbe26e9c2c5",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_475a345ba1e4277e",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_485882cd006575ba",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_4b7e181e337d6d10",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_4fca20c07654031c",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_5117199c8f06d54f",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_52c85995932630b0",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_536f53733d4bd724",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_55915924ce1b2850",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_59dfdda7c403cd37",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_5c53f6fb8871cbc1",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_5c9f1a817acc0e7e",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_5dda6195c073c32c",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_60acb3289a79c023",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_61aba5a6bff238af",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_65bce3cf6fe4645b",
+      "true_label": "no",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_6601ec74fc382b6b",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_694a081df9cf60d4",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_6a03282ad536d33b",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_6c3c9c3951626d28",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_6ff1e0bfb875983e",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_73693b53a269a8ab",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_749647c12564fd30",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_7a82d5d9e71899ed",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_7aed67dc3f354d1d",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_7cd363280ad5612a",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_7d5e8e65c7138771",
+      "true_label": "no",
+      "majority_label": "no",
+      "calls": [
+        "no",
+        "no",
+        "no"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_7f01f557f8ead813",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_80964c6599841192",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_838662904c5bbf55",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_83b4cb896086fa53",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_86f454232edcc51f",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_88b59a1c685c25bb",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_8cb6407587e1056c",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_8e4923c5c6ff51ad",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_8fcfdcaf1eaadede",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_91c7adc9ba23db61",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_94495528628cec5f",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_97292f5f2ef36cd1",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_9844d7fff79bef4d",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_9985cff746ff1ed5",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_9ceaccace2b08e73",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_9db98a62932d199c",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_9f45a501eca26a26",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_a28b12caec0ec9d4",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_a2e10bbf4a527a5b",
+      "true_label": "no",
+      "majority_label": "no",
+      "calls": [
+        "no",
+        "no",
+        "no"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_a4e4a1bd934cf353",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_a64d05aebadd3654",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_aadaab5587fcdddf",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_b26570fd30720553",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_b3d0d948d6815688",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_b6f5ce8193ed17be",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_b7a21651d1c559b9",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_b957ec48ce55b99b",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_ba5f8786ba3c442d",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_bd609fbb149be3a7",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_bf6121786ce71d6d",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_c3fea6e0254b4a8c",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_c6eaf88990b15af2",
+      "true_label": "no",
+      "majority_label": "no",
+      "calls": [
+        "no",
+        "no",
+        "no"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_c8c6274d1d940af6",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_cb662747964b6bc0",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_cc68f63eb4d2c1cf",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_cf9601081ba07a21",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_d28ce6bba4aae712",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_d319f977af187e6e",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_d67ce49f1b6e2a76",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_d719c9bd2b7d0665",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_dd3211f838ad3206",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_dfd09d76815af12d",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_e0e0ab925c0f2f6c",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_e7a0b6615e31c7ec",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_e9fdef9dc9986320",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_ec4edac505e3aa50",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_f0342556c54c6731",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_f3ad8709e7527e98",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_f5109797a7b17382",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_f85200d5603cc3ad",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_f954d603af275ac9",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_fb30593110642e0d",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "pi_gold_fde83eb49e9a0db1",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    }
+  ]
+}

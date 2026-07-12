@@ -1,0 +1,2 @@
+bundle_rating_id,rating_id,category,request_mode,label_a_voice_presence,label_b_constraint,label_a_amended,reason,adjudication_status
+r_a12ef8afc8c096065e2b,decisive_04_a5f338f1ce29,rare_basin_6,vocal,no,satisfied,false,Label B implies audible voice while Label A is no,PENDING_PI

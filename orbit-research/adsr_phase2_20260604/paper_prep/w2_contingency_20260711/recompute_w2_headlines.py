@@ -31,6 +31,8 @@ def regime(rate: float) -> str:
 
 def compute_diff(manifest: list[dict], corrected: list[dict]) -> list[dict]:
     manifest_index = {row["record_id"]: row for row in manifest}
+    if len(manifest_index) != len(manifest):
+        raise ValueError("duplicate record_id in W2 manifest")
     corrected_index = {}
     for row in corrected:
         if row.get("status") != "PASS":
@@ -61,25 +63,58 @@ def compute_diff(manifest: list[dict], corrected: list[dict]) -> list[dict]:
                 "delta": new - old,
             }
         )
-    n2 = defaultdict(list)
+    n2_old = defaultdict(list)
+    n2_corrected = defaultdict(list)
+    n2_strata = defaultdict(list)
     for record_id, score in corrected_index.items():
         source = manifest_index.get(record_id, {})
         if source.get("cohort") == "n2_population_retry":
-            n2[source["prompt_id"]].append(
-                clean(int(score["present"]), int(source["requested_vocal"]))
+            old_clean = clean(int(source["old_present"]), int(source["requested_vocal"]))
+            corrected_clean = clean(int(score["present"]), int(source["requested_vocal"]))
+            n2_old[source["prompt_id"]].append(old_clean)
+            n2_corrected[source["prompt_id"]].append(corrected_clean)
+            n2_strata[int(source["requested_vocal"])].append(
+                (old_clean, corrected_clean)
             )
-    if n2:
-        counts = Counter(regime(sum(values) / len(values)) for values in n2.values())
-        for name, count in sorted(counts.items()):
+    for requested_vocal, values in sorted(n2_strata.items()):
+        old = sum(row[0] for row in values) / len(values)
+        new = sum(row[1] for row in values) / len(values)
+        output.append(
+            {
+                "metric": "n2_clean_rate_by_request",
+                "cohort": "n2_population_retry",
+                "condition": "vocal" if requested_vocal else "instrumental",
+                "n": len(values),
+                "old_value": old,
+                "corrected_value": new,
+                "delta": new - old,
+            }
+        )
+    if n2_corrected:
+        if set(n2_old) != set(n2_corrected):
+            raise ValueError("old/corrected N2 prompt sets differ")
+        old_counts = Counter(regime(sum(values) / len(values)) for values in n2_old.values())
+        new_counts = Counter(
+            regime(sum(values) / len(values)) for values in n2_corrected.values()
+        )
+        names = (
+            "easy_ge_1_in_2",
+            "seed_recoverable_1_in_4_to_1_in_2",
+            "low_1_in_16_to_1_in_4",
+            "rare_le_1_in_16",
+        )
+        for name in names:
+            old = old_counts[name]
+            new = new_counts[name]
             output.append(
                 {
                     "metric": "n2_regime_prompt_count",
                     "cohort": "n2_population_retry",
                     "condition": name,
-                    "n": len(n2),
-                    "old_value": "",
-                    "corrected_value": count,
-                    "delta": "",
+                    "n": len(n2_corrected),
+                    "old_value": old,
+                    "corrected_value": new,
+                    "delta": new - old,
                 }
             )
     return output

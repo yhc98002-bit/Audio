@@ -97,6 +97,27 @@ def normalize_judge_metadata(records: list[dict]) -> dict[str, dict[str, str]]:
     return output
 
 
+def register_core_instrument(
+    admin: list[dict[str, str]], core_ratings: list[dict[str, str]]
+) -> dict[str, int]:
+    """Validate and register the exact human-only 190-row A-prime core."""
+    roles = Counter(row.get("analysis_role") for row in admin)
+    if roles != Counter({"primary": 190, "global_bound": 500}):
+        raise ValueError(f"A-prime admin must contain 190 core and 500 global rows: {roles}")
+    core_ids = {row["rating_id"] for row in admin if row["analysis_role"] == "primary"}
+    core_index = unique_index(core_ratings, "rating_id", "A-prime core ratings")
+    if set(core_index) != core_ids:
+        raise ValueError("A-prime core rating IDs must exactly match the 190 primary rows")
+    counts = {"pi": 0, "human": 0}
+    for rating_id, row in core_index.items():
+        source = require_human_source(row.get("rating_source", ""))
+        label = row.get("label_a_voice_presence", "").strip().lower()
+        if label not in {"yes", "no", "unsure"}:
+            raise ValueError(f"invalid A-prime core Label A for {rating_id}: {label!r}")
+        counts[source.kind] += 1
+    return counts
+
+
 def merge_instruments(
     admin: list[dict[str, str]],
     core_ratings: list[dict[str, str]],
@@ -115,6 +136,7 @@ def merge_instruments(
         raise ValueError("A-prime core rating IDs must exactly match the 190 primary rows")
     if set(global_index) != global_ids:
         raise ValueError("A-prime global rating IDs must exactly match the 500 global rows")
+    register_core_instrument(admin, core_ratings)
 
     merged_index: dict[str, dict[str, str]] = {}
     for rating_id, row in core_index.items():
@@ -166,14 +188,19 @@ def main() -> int:
     parser.add_argument("--admin", type=Path, default=keys / "A_PRIME_PRIMARY_ADMIN.csv")
     parser.add_argument("--core-ratings", type=Path, required=True)
     parser.add_argument("--core-bundle-key", type=Path, default=keys / "T2_BUNDLE_KEY.csv")
+    parser.add_argument(
+        "--core-id-namespace", choices=["bundle", "scorer"], default="bundle"
+    )
     parser.add_argument("--global-ratings", type=Path, required=True)
     parser.add_argument("--judge-validation-metadata", type=Path)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--report", type=Path, required=True)
     args = parser.parse_args()
-    core_ratings = remap_bundle_rows(
-        read_csv(args.core_ratings), args.core_bundle_key, scorer_id_field="rating_id"
-    )
+    core_ratings = read_csv(args.core_ratings)
+    if args.core_id_namespace == "bundle":
+        core_ratings = remap_bundle_rows(
+            core_ratings, args.core_bundle_key, scorer_id_field="rating_id"
+        )
     merged, report = merge_instruments(
         read_csv(args.admin),
         core_ratings,

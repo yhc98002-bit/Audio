@@ -1,0 +1,208 @@
+{
+  "calibration_rows": 103,
+  "candidates": [
+    {
+      "demucs_threshold": 0.1791,
+      "family": "current_demucs",
+      "heldout_metrics": {
+        "abstention_rate": 0.0,
+        "balanced_accuracy": 0.4336734693877551,
+        "fn": 69,
+        "fp": 3,
+        "mcc": -0.07188576772061893,
+        "n": 105,
+        "negatives": 7,
+        "positives": 98,
+        "sensitivity": 0.29591836734693877,
+        "specificity": 0.5714285714285714,
+        "tn": 4,
+        "tp": 29
+      },
+      "panns_threshold": 0.5,
+      "train_metrics": {
+        "abstention_rate": 0.0,
+        "balanced_accuracy": 0.436426116838488,
+        "fn": 77,
+        "fp": 2,
+        "mcc": -0.0726635108352499,
+        "n": 103,
+        "negatives": 6,
+        "positives": 97,
+        "sensitivity": 0.20618556701030927,
+        "specificity": 0.6666666666666666,
+        "tn": 4,
+        "tp": 20
+      }
+    },
+    {
+      "demucs_threshold": 0.050748348236083984,
+      "family": "demucs",
+      "heldout_metrics": {
+        "abstention_rate": 0.0,
+        "balanced_accuracy": 0.5102040816326531,
+        "fn": 12,
+        "fp": 6,
+        "mcc": 0.015456116693379658,
+        "n": 105,
+        "negatives": 7,
+        "positives": 98,
+        "sensitivity": 0.8775510204081632,
+        "specificity": 0.14285714285714285,
+        "tn": 1,
+        "tp": 86
+      },
+      "panns_threshold": 0.5,
+      "train_metrics": {
+        "abstention_rate": 0.0,
+        "balanced_accuracy": 0.6829896907216495,
+        "fn": 13,
+        "fp": 3,
+        "mcc": 0.23664563243415243,
+        "n": 103,
+        "negatives": 6,
+        "positives": 97,
+        "sensitivity": 0.865979381443299,
+        "specificity": 0.5,
+        "tn": 3,
+        "tp": 84
+      }
+    },
+    {
+      "demucs_threshold": 0.1791,
+      "family": "panns",
+      "heldout_metrics": {
+        "abstention_rate": 0.0,
+        "balanced_accuracy": 0.8214285714285714,
+        "fn": 21,
+        "fp": 1,
+        "mcc": 0.3668996928526714,
+        "n": 105,
+        "negatives": 7,
+        "positives": 98,
+        "sensitivity": 0.7857142857142857,
+        "specificity": 0.8571428571428571,
+        "tn": 6,
+        "tp": 77
+      },
+      "panns_threshold": 0.08266666904091835,
+      "train_metrics": {
+        "abstention_rate": 0.0,
+        "balanced_accuracy": 0.8496563573883162,
+        "fn": 13,
+        "fp": 1,
+        "mcc": 0.4313076900233301,
+        "n": 103,
+        "negatives": 6,
+        "positives": 97,
+        "sensitivity": 0.865979381443299,
+        "specificity": 0.8333333333333334,
+        "tn": 5,
+        "tp": 84
+      }
+    },
+    {
+      "demucs_threshold": 0.21282213181257248,
+      "family": "or",
+      "heldout_metrics": {
+        "abstention_rate": 0.0,
+        "balanced_accuracy": 0.7857142857142857,
+        "fn": 14,
+        "fp": 2,
+        "mcc": 0.3702524858860147,
+        "n": 105,
+        "negatives": 7,
+        "positives": 98,
+        "sensitivity": 0.8571428571428571,
+        "specificity": 0.7142857142857143,
+        "tn": 5,
+        "tp": 84
+      },
+      "panns_threshold": 0.08266666904091835,
+      "train_metrics": {
+        "abstention_rate": 0.0,
+        "balanced_accuracy": 0.8599656357388317,
+        "fn": 11,
+        "fp": 1,
+        "mcc": 0.4655141783563843,
+        "n": 103,
+        "negatives": 6,
+        "positives": 97,
+        "sensitivity": 0.8865979381443299,
+        "specificity": 0.8333333333333334,
+        "tn": 5,
+        "tp": 86
+      }
+    },
+    {
+      "demucs_threshold": 0.038639528676867485,
+      "family": "and",
+      "heldout_metrics": {
+        "abstention_rate": 0.0,
+        "balanced_accuracy": 0.8061224489795918,
+        "fn": 10,
+        "fp": 2,
+        "mcc": 0.4364357804719847,
+        "n": 105,
+        "negatives": 7,
+        "positives": 98,
+        "sensitivity": 0.8979591836734694,
+        "specificity": 0.7142857142857143,
+        "tn": 5,
+        "tp": 88
+      },
+      "panns_threshold": 0.03181814216077328,
+      "train_metrics": {
+        "abstention_rate": 0.0,
+        "balanced_accuracy": 0.9536082474226804,
+        "fn": 9,
+        "fp": 0,
+        "mcc": 0.6024006954993864,
+        "n": 103,
+        "negatives": 6,
+        "positives": 97,
+        "sensitivity": 0.9072164948453608,
+        "specificity": 1.0,
+        "tn": 6,
+        "tp": 88
+      }
+    }
+  ],
+  "dual_pi_adoption_required": true,
+  "heldout_rows": 105,
+  "plan_status_changed": false,
+  "selected_candidate": {
+    "demucs_threshold": 0.038639528676867485,
+    "family": "and",
+    "heldout_metrics": {
+      "abstention_rate": 0.0,
+      "balanced_accuracy": 0.8061224489795918,
+      "fn": 10,
+      "fp": 2,
+      "mcc": 0.4364357804719847,
+      "n": 105,
+      "negatives": 7,
+      "positives": 98,
+      "sensitivity": 0.8979591836734694,
+      "specificity": 0.7142857142857143,
+      "tn": 5,
+      "tp": 88
+    },
+    "panns_threshold": 0.03181814216077328,
+    "train_metrics": {
+      "abstention_rate": 0.0,
+      "balanced_accuracy": 0.9536082474226804,
+      "fn": 9,
+      "fp": 0,
+      "mcc": 0.6024006954993864,
+      "n": 103,
+      "negatives": 6,
+      "positives": 97,
+      "sensitivity": 0.9072164948453608,
+      "specificity": 1.0,
+      "tn": 6,
+      "tp": 88
+    }
+  },
+  "selection_rule": "maximize calibration balanced_accuracy, MCC, specificity, sensitivity; family tie-break demucs,panns,or,and,current",
+  "status": "CALIBRATED_TRAIN_SELECTED_HELDOUT_AUDITED"
+}
