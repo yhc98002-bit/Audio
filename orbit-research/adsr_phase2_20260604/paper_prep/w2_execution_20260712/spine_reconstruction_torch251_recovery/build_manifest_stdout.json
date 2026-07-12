@@ -1,0 +1,7 @@
+{
+  "manifest_rows": 4096,
+  "missing_reconstruction_rows": 4095,
+  "prompt_snapshot_rows": 512,
+  "surviving_original_audit_replays": 1,
+  "unique_identity_keys": 4096
+}

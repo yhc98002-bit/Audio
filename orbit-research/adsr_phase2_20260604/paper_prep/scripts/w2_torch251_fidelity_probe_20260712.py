@@ -122,6 +122,7 @@ def probe_passes(successful_rows: int, details: list[dict]) -> bool:
         successful_rows == EXPECTED_ROWS
         and len(details) == EXPECTED_ROWS
         and all(bool(row.get("exact")) for row in details)
+        and all(bool(row.get("media_valid")) for row in details)
     )
 
 
@@ -228,11 +229,42 @@ def audit() -> dict:
         if not expected.is_absolute():
             expected = ROOT / expected
         exact = False
+        generated_hash = ""
+        expected_hash = ""
+        generated_sr = 0
+        expected_sr = 0
+        generated_duration = 0.0
+        expected_duration = 0.0
+        media_valid = False
         if result and output.is_file() and expected.is_file():
             generated_samples, generated_sr = sf.read(str(output), always_2d=True, dtype="float32")
             expected_samples, expected_sr = sf.read(str(expected), always_2d=True, dtype="float32")
-            exact = spine.decoded_audio_hash(generated_samples, generated_sr) == spine.decoded_audio_hash(expected_samples, expected_sr)
-        details.append({"probe_id": task["probe_id"], "role": task["role"], "exact": exact})
+            generated_hash = spine.decoded_audio_hash(generated_samples, generated_sr)
+            expected_hash = spine.decoded_audio_hash(expected_samples, expected_sr)
+            generated_duration = len(generated_samples) / generated_sr
+            expected_duration = len(expected_samples) / expected_sr
+            exact = generated_hash == expected_hash
+            media_valid = (
+                generated_duration > 1
+                and not bool(result.get("near_silent"))
+                and generated_sr == expected_sr
+            )
+        details.append(
+            {
+                "probe_id": task["probe_id"],
+                "role": task["role"],
+                "output_path": task["output_path"],
+                "expected_path": task["expected_path"],
+                "generated_decoded_sha256": generated_hash,
+                "expected_decoded_sha256": expected_hash,
+                "generated_sample_rate": generated_sr,
+                "expected_sample_rate": expected_sr,
+                "generated_duration_s": generated_duration,
+                "expected_duration_s": expected_duration,
+                "media_valid": media_valid,
+                "exact": exact,
+            }
+        )
     controls = [row for row in details if row["role"] == "frozen_regeneration_control"]
     survivors = [row for row in details if row["role"] == "surviving_original"]
     passed = probe_passes(len(results), details)
@@ -244,6 +276,7 @@ def audit() -> dict:
         "control_rows": len(controls),
         "exact_survivors": sum(row["exact"] for row in survivors),
         "survivor_rows": len(survivors),
+        "valid_media_rows": sum(row["media_valid"] for row in details),
         "full_replay_authorized_by_probe": passed,
         "details": details,
     }
@@ -254,6 +287,7 @@ def audit() -> dict:
         f"- Successful rows: {len(results)}/{EXPECTED_ROWS}\n"
         f"- Exact frozen controls: {report['exact_controls']}/{report['control_rows']}\n"
         f"- Exact surviving originals: {report['exact_survivors']}/{report['survivor_rows']}\n"
+        f"- Valid, non-near-silent media: {report['valid_media_rows']}/{EXPECTED_ROWS}\n"
         f"- Full replay authorized by the probe: {str(passed).lower()}\n",
         encoding="utf-8",
     )

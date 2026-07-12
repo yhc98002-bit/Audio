@@ -18,11 +18,14 @@ def load_module():
 
 def test_probe_gate_requires_every_one_of_51_exact_rows():
     module = load_module()
-    exact = [{"exact": True} for _ in range(51)]
+    exact = [{"exact": True, "media_valid": True} for _ in range(51)]
     assert module.probe_passes(51, exact)
     assert not module.probe_passes(50, exact)
     assert not module.probe_passes(51, exact[:-1])
     exact[-1]["exact"] = False
+    assert not module.probe_passes(51, exact)
+    exact[-1]["exact"] = True
+    exact[-1]["media_valid"] = False
     assert not module.probe_passes(51, exact)
 
 
