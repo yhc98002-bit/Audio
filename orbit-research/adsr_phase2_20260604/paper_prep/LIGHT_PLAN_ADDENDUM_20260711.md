@@ -1,9 +1,9 @@
 # Light-Plan Addendum for the 2026-07-11 Rating Bundles
 
-`LIGHT_PLAN_ADDENDUM_STATUS = DRAFTED_AWAITING_SIGNATURE`
+`LIGHT_PLAN_ADDENDUM_STATUS = SIGNED`
 
-This addendum is a draft. It does not alter a gate, authorize a PASS, or count
-as PI approval until the signature block is completed in a committed revision.
+This signed addendum fixes the light-plan rating assignment and provenance. It
+does not itself alter a gate or authorize an A-prime or B-prime PASS.
 
 ## Rating Assignment
 
@@ -34,8 +34,10 @@ gold-set, calibration, and raw-response provenance are recorded.
 
 ## Signature
 
-PI signature:
+PI signature: Richard
 
-Date:
+Date: 2026-07-12
 
-Approval statement:
+Approval statement: "I have read and approve
+LIGHT_PLAN_ADDENDUM_20260711.md as committed at 8e7f412 as the governing
+light-plan assignment for the 2026-07-11 rating bundles."
