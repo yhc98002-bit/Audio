@@ -15,11 +15,14 @@ from typing import Iterable
 
 import numpy as np
 
+ROOT = Path(__file__).resolve().parents[4]
+sys.path.insert(0, str(ROOT / "src"))
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from mprm.common.thresholds import VOCAL_PRESENCE_THRESHOLD
 from rating_provenance import parse_rating_source
 
 
-OLD_THRESHOLD = 0.1791
+OLD_THRESHOLD = VOCAL_PRESENCE_THRESHOLD
 FIXED_AND_DEMUCS = 0.038639528676867485
 FIXED_AND_PANNS = 0.03181814216077328
 FAMILIES = ("current_demucs", "demucs", "panns", "and", "or", "fixed_20260711_and")

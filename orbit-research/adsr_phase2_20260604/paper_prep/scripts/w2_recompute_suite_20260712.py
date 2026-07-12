@@ -30,6 +30,7 @@ ROOT = find_repo_root(Path(__file__).resolve())
 sys.path.insert(0, str(ROOT / "src"))
 sys.path.insert(0, str(ROOT / "paper_prep/scripts"))
 sys.path.insert(0, str(ROOT / "paper_prep/w2_contingency_20260711"))
+from mprm.common.thresholds import VOCAL_PRESENCE_THRESHOLD
 
 PAPER = ROOT / "paper_prep"
 OUT = PAPER / "w2_execution_20260712/analysis"
@@ -44,7 +45,7 @@ RETAINED = PAPER / "w2_contingency_20260711/W2_RETAINED_AUDIO_MANIFEST.jsonl"
 EXISTING_SCORES = PAPER / "w2_contingency_20260711/activated_20260711/full_corrected/W2_CORRECTED_MERGED.jsonl"
 SPINE_MANIFEST = PAPER / "w2_execution_20260712/spine_reconstruction/SPINE_RECONSTRUCTION_MANIFEST.csv"
 SPINE_SCORING_DIR = PAPER / "w2_execution_20260712/spine_reconstruction/scoring_ledgers"
-OLD_THRESHOLD = 0.1791
+OLD_THRESHOLD = VOCAL_PRESENCE_THRESHOLD
 CANDIDATE_DEMUCS_THRESHOLD = 0.038639528676867485
 CANDIDATE_PANNS_THRESHOLD = 0.03181814216077328
 

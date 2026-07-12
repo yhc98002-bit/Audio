@@ -33,6 +33,7 @@ sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "src"))
 sys.path.insert(0, str(ROOT / "scripts"))
 sys.path.insert(0, str(ROOT / "paper_prep/w2_contingency_20260711"))
+from mprm.common.thresholds import VOCAL_PRESENCE_THRESHOLD
 
 PAPER = ROOT / "paper_prep"
 OUT = PAPER / "w2_execution_20260712/spine_reconstruction"
@@ -49,7 +50,7 @@ RETAINED = PAPER / "w2_contingency_20260711/W2_RETAINED_AUDIO_MANIFEST.jsonl"
 RAW_OLD = ROOT / "orbit-research/adsr_phase2_20260604/vocal_presence_raw.jsonl"
 CONTROLS = PAPER / "validation_A_prime/regeneration_fidelity_20260709/REGENERATION_CONTROL_MANIFEST.csv"
 MODEL_PATH = Path("/HOME/paratera_xy/pxy1289/.cache/modelscope/hub/models/ACE-Step/ACE-Step-v1-3___5B")
-OLD_THRESHOLD = 0.1791
+OLD_THRESHOLD = VOCAL_PRESENCE_THRESHOLD
 CANDIDATE_DEMUCS_THRESHOLD = 0.038639528676867485
 CANDIDATE_PANNS_THRESHOLD = 0.03181814216077328
 EXPECTED_ROWS = 4096

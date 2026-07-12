@@ -32,6 +32,7 @@ sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "src"))
 sys.path.insert(0, str(ROOT / "scripts"))
 sys.path.insert(0, str(ROOT / "paper_prep/w2_contingency_20260711"))
+from mprm.common.thresholds import VOCAL_PRESENCE_THRESHOLD
 
 PAPER = ROOT / "paper_prep"
 OUT = PAPER / "w2_execution_20260712/factorial"
@@ -49,7 +50,7 @@ SEED_BASE = 2_034_000_000
 N_PROMPTS = 32
 N_SEEDS = 16
 DURATION_SECONDS = 15.0
-OLD_THRESHOLD = 0.1791
+OLD_THRESHOLD = VOCAL_PRESENCE_THRESHOLD
 CANDIDATE_DEMUCS_THRESHOLD = 0.038639528676867485
 CANDIDATE_PANNS_THRESHOLD = 0.03181814216077328
 POSITIVE_TEXT = (

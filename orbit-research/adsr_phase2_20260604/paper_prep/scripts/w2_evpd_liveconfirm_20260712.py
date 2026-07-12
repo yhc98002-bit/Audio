@@ -22,6 +22,8 @@ def find_repo_root(start: Path) -> Path:
 
 
 ROOT = find_repo_root(Path(__file__).resolve())
+sys.path.insert(0, str(ROOT / "src"))
+from mprm.common.thresholds import VOCAL_PRESENCE_THRESHOLD
 PAPER = ROOT / "paper_prep"
 OUT = PAPER / "w2_execution_20260712/evpd_liveconfirm"
 SPINE_MANIFEST = PAPER / "w2_execution_20260712/spine_reconstruction/SPINE_RECONSTRUCTION_MANIFEST.csv"
@@ -149,7 +151,9 @@ def _promotion_candidate(record: dict) -> dict:
 
 def _present(score: dict, candidate: dict) -> int:
     family = candidate["family"]
-    demucs = float(score["recomputed_demucs_score"]) >= float(candidate.get("demucs_threshold", 0.1791))
+    demucs = float(score["recomputed_demucs_score"]) >= float(
+        candidate.get("demucs_threshold", VOCAL_PRESENCE_THRESHOLD)
+    )
     panns = float(score["panns_score"]) >= float(candidate.get("panns_threshold", 0.5))
     if family in {"current_demucs", "demucs"}:
         return int(demucs)
