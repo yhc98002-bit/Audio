@@ -1,0 +1,8 @@
+{
+  "max_seed": 2035006301,
+  "min_seed": 2035000000,
+  "policy_sha256": "c6de82920857a220ede8d9d0391b445a94af7d721c662480044de7f70acb9134",
+  "prompts": 64,
+  "unique_crn_seeds": 128,
+  "units": 512
+}

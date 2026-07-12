@@ -42,8 +42,18 @@ def test_directionless_and_superseded_cohorts_are_explicitly_excluded():
     assert module.existing_exclusion_reason("candidate_spine_4096") == "superseded_by_reconstructed_spine"
 
 
-def test_recovery_analysis_and_spine_paths_can_be_versioned():
+def test_recovery_analysis_and_spine_paths_can_be_versioned(monkeypatch):
+    monkeypatch.setenv("MPRM_W2_ANALYSIS_OUT", "paper_prep/recovery_analysis")
+    monkeypatch.setenv(
+        "MPRM_W2_BATCH3_SCORE_INPUT",
+        "paper_prep/w2_execution_20260712/analysis/batch3_scoring_ledgers",
+    )
     module = load_module()
     assert module.resolve_repo_path("paper_prep/recovery_analysis", "unused") == module.ROOT / "paper_prep/recovery_analysis"
     absolute = module.ROOT / "paper_prep/recovery_spine"
     assert module.resolve_repo_path(str(absolute), "unused") == absolute
+    assert module.OUT == module.ROOT / "paper_prep/recovery_analysis"
+    assert module.BATCH3_ASSEMBLE_LEDGER_DIR == (
+        module.ROOT / "paper_prep/w2_execution_20260712/analysis/batch3_scoring_ledgers"
+    )
+    assert module.BATCH3_ASSEMBLE_LEDGER_DIR != module.BATCH3_LEDGER_DIR

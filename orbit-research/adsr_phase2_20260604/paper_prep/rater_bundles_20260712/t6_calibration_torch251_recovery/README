@@ -1,0 +1,3 @@
+t6_calibration_torch251_recovery: 200 blinded calibration presentations plus one excluded adjudication appendix.
+Complete Label A blind, reveal the request, then complete Label B; use pi:Richard exactly.
+Do not start until both PI signatures exist and SPINE_REGEN_STATUS = COMPLETE_AUDIT_PASS.

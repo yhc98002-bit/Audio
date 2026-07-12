@@ -1,0 +1,56 @@
+
+==================================== ERRORS ====================================
+_____________ ERROR collecting tests/test_ace_lora_grpo_backend.py _____________
+ImportError while importing test module '/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion/tests/test_ace_lora_grpo_backend.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+tests/test_ace_lora_grpo_backend.py:5: in <module>
+    import torch
+E   ModuleNotFoundError: No module named 'torch'
+_________________ ERROR collecting tests/test_credit_units.py __________________
+ImportError while importing test module '/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion/tests/test_credit_units.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+tests/test_credit_units.py:20: in <module>
+    import torch
+E   ModuleNotFoundError: No module named 'torch'
+__________________ ERROR collecting tests/test_robust_lcb.py ___________________
+ImportError while importing test module '/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion/tests/test_robust_lcb.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+tests/test_robust_lcb.py:1: in <module>
+    import torch
+E   ModuleNotFoundError: No module named 'torch'
+__________________ ERROR collecting tests/test_sa3_adapter.py __________________
+ImportError while importing test module '/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion/tests/test_sa3_adapter.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+tests/test_sa3_adapter.py:2: in <module>
+    import torch
+E   ModuleNotFoundError: No module named 'torch'
+_____________ ERROR collecting tests/test_sa3_true_intermediate.py _____________
+ImportError while importing test module '/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion/tests/test_sa3_true_intermediate.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+/usr/lib/python3.10/importlib/__init__.py:126: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+tests/test_sa3_true_intermediate.py:9: in <module>
+    SPEC.loader.exec_module(MODULE)
+paper_prep/sao/stable_audio_3_medium/run_sa3_true_intermediate.py:15: in <module>
+    import torch
+E   ModuleNotFoundError: No module named 'torch'
+=========================== short test summary info ============================
+ERROR tests/test_ace_lora_grpo_backend.py
+ERROR tests/test_credit_units.py
+ERROR tests/test_robust_lcb.py
+ERROR tests/test_sa3_adapter.py
+ERROR tests/test_sa3_true_intermediate.py
+!!!!!!!!!!!!!!!!!!! Interrupted: 5 errors during collection !!!!!!!!!!!!!!!!!!!!

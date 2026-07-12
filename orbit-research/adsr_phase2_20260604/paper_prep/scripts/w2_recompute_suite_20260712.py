@@ -46,6 +46,10 @@ OUT = resolve_repo_path(
 )
 BATCH3_MANIFEST = OUT / "BATCH3_1342_RESCORING_MANIFEST.csv"
 BATCH3_LEDGER_DIR = OUT / "batch3_scoring_ledgers"
+BATCH3_ASSEMBLE_LEDGER_DIR = resolve_repo_path(
+    os.environ.get("MPRM_W2_BATCH3_SCORE_INPUT"),
+    str(BATCH3_LEDGER_DIR),
+)
 TARGET_TABLE = OUT / "W2_TARGET_SCORE_TABLE.csv"
 TARGET_EXCLUSIONS = OUT / "W2_TARGET_EXCLUSIONS.csv"
 PUBLICATION_TABLE = OUT / "W2_PUBLICATION_RATES.csv"
@@ -308,7 +312,7 @@ def assemble_targets(require_complete: bool = True) -> dict:
             }
         )
 
-    batch3_scores = _latest(BATCH3_LEDGER_DIR, "batch3_w*.jsonl", "record_id")
+    batch3_scores = _latest(BATCH3_ASSEMBLE_LEDGER_DIR, "batch3_w*.jsonl", "record_id")
     if require_complete and len(batch3_scores) != 1342:
         raise ValueError(f"Batch-3 keep scoring incomplete: {len(batch3_scores)}/1342")
     for score in batch3_scores.values():

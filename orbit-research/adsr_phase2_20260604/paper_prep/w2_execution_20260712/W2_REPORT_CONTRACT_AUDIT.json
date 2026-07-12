@@ -1,0 +1,9 @@
+{
+  "evidence_paths_exist": 25,
+  "factorial_spotcheck_checksum": "PASS",
+  "report_status_lines": 10,
+  "report_status_lines_with_immediate_evidence": 10,
+  "spine_audit_contract": "PASS",
+  "status": "PASS",
+  "t6_checksum_manifest": "PASS_3_OF_3"
+}

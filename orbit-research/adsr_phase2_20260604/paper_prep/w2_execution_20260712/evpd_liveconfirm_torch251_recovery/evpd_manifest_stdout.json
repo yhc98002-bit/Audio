@@ -1,0 +1,15 @@
+{
+  "prompt_overlap": 0,
+  "rows": 4096,
+  "scored_rows": 4096,
+  "split_candidate_counts": {
+    "test": 2048,
+    "train": 1680,
+    "val": 368
+  },
+  "split_prompt_counts": {
+    "test": 256,
+    "train": 210,
+    "val": 46
+  }
+}

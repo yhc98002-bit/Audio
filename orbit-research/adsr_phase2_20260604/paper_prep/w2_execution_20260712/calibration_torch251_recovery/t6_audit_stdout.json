@@ -1,0 +1,16 @@
+{
+  "appendix_rows": 1,
+  "bundle_rows": 201,
+  "calibration_rows": 200,
+  "checksum_valid_media": 201,
+  "decoded_media": 201,
+  "leak_test": "PASS",
+  "media_rows": 201,
+  "minimum_duration_s": 29.9073125,
+  "sample_rate_counts": {
+    "48000": 201
+  },
+  "source_enum": "pi:Richard_only",
+  "staged_reveal": "PASS",
+  "status": "PASS"
+}
