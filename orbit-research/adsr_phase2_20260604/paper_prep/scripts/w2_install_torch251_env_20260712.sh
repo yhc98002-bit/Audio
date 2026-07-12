@@ -25,12 +25,21 @@ export TMPDIR="$TMP"
 export PIP_NO_CACHE_DIR=1
 
 "$BASE_PYTHON" -m venv --system-site-packages "$TARGET"
-"$TARGET/bin/python" -m pip install \
-  --no-cache-dir \
-  --index-url https://download.pytorch.org/whl/cu121 \
-  torch==2.5.1+cu121 \
-  torchaudio==2.5.1+cu121 \
-  torchvision==0.20.1+cu121
+if [ -n "${MPRM_WHEELHOUSE:-}" ]; then
+  "$TARGET/bin/python" -m pip install \
+    --no-index \
+    --find-links "$MPRM_WHEELHOUSE" \
+    torch==2.5.1+cu121 \
+    torchaudio==2.5.1+cu121 \
+    torchvision==0.20.1+cu121
+else
+  "$TARGET/bin/python" -m pip install \
+    --no-cache-dir \
+    --index-url https://download.pytorch.org/whl/cu121 \
+    torch==2.5.1+cu121 \
+    torchaudio==2.5.1+cu121 \
+    torchvision==0.20.1+cu121
+fi
 
 "$TARGET/bin/python" - <<'PY'
 import torch
