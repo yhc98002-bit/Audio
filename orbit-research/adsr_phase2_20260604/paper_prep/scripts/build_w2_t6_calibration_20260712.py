@@ -625,7 +625,7 @@ def build_bundle(nonce: str) -> dict:
     (BUNDLE_DIR / "README").write_text(
         "t6_calibration: 200 blinded calibration presentations plus one excluded adjudication appendix.\n"
         "Complete Label A blind, reveal the request, then complete Label B; use pi:Richard exactly.\n"
-        "Do not start until W2_AMENDMENT_20260712.md carries both PI signatures.\n",
+        "Do not start until both PI signatures exist and SPINE_REGEN_STATUS = COMPLETE_AUDIT_PASS.\n",
         encoding="utf-8",
     )
     write_csv(ADMIN_MANIFEST, admin)
@@ -659,6 +659,9 @@ def audit_bundle() -> dict:
         raise ValueError("t6 staged reveal controls are missing")
     if 'return v==="pi:Richard"' not in html:
         raise ValueError("t6 rating source is not restricted")
+    readme = (BUNDLE_DIR / "README").read_text(encoding="utf-8")
+    if "SPINE_REGEN_STATUS = COMPLETE_AUDIT_PASS" not in readme:
+        raise ValueError("t6 README lacks the fail-closed spine-fidelity prerequisite")
     if sha256_file(ZIP_PATH) not in SHA_PATH.read_text(encoding="utf-8"):
         raise ValueError("t6 zip checksum file is stale")
     durations = []

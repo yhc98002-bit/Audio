@@ -1,0 +1,7 @@
+Looking in indexes: https://download.pytorch.org/whl/cu121
+Collecting torch==2.5.1+cu121
+  Downloading https://download-r2.pytorch.org/whl/cu121/torch-2.5.1%2Bcu121-cp310-cp310-linux_x86_64.whl (780.4 MB)
+ERROR: Could not install packages due to an OSError: [Errno 28] No space left on device
+
+     ━━━━━━━━━━━╸                            234.4/780.4 MB 2.1 MB/s eta 0:04:26
+WARNING: There was an error checking the latest version of pip.

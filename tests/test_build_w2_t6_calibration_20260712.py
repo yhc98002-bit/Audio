@@ -50,6 +50,7 @@ def test_t6_cardinality_constants_and_source_lock():
     assert 'return v==="pi:Richard"' in source
     assert "sf.info" in source
     assert "media_sha256" in source
+    assert "SPINE_REGEN_STATUS = COMPLETE_AUDIT_PASS" in source
     assert "READY_BLOCKED_ON_SIGNATURE" not in source  # status belongs to report, not executable gate logic
 
 

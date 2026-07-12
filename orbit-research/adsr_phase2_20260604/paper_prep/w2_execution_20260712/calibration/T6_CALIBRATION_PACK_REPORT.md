@@ -2,6 +2,8 @@
 
 `CALIBRATION_PACK_STATUS = READY_BLOCKED_ON_SIGNATURE`
 
+**Scientific applicability block:** the media were selected from the failed torch-2.7.1 spine reconstruction. Do not rate or score this package unless a replacement spine records `SPINE_REGEN_STATUS = COMPLETE_AUDIT_PASS`. If recovery changes the selected IDs, rebuild the package as a new version and preserve this one.
+
 ## Frozen Design
 
 - Initial presentations: 200 (60 train, 100 held-out, 20 transport, and 20 hidden repeats).
@@ -33,9 +35,10 @@ The first bundle attempt stopped before creating media because the legacy decisi
 
 - Bundle directory: `/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion/orbit-research/adsr_phase2_20260604/paper_prep/rater_bundles_20260712/t6_calibration/`
 - Zip: `/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion/orbit-research/adsr_phase2_20260604/paper_prep/rater_bundles_20260712/t6_calibration.zip`
-- Zip SHA256: `d033b81c7760e03f0bcec768489dd5faac2ccc2bb07359736c4e77f6a12cbfaf`
+- Zip SHA256: `0123169f060d7535dea9fb6d4300a76d23f8e17bba38d1922e8b948847c94b3f`
+- Pre-fidelity-block zip retained at `t6_calibration_pre_spine_fidelity_block.zip`, SHA256 `d033b81c7760e03f0bcec768489dd5faac2ccc2bb07359736c4e77f6a12cbfaf`.
 - Keys-side admin: `paper_prep/rater_admin_keys_20260712/t6_calibration/T6_CALIBRATION_ADMIN.csv`
 - Frozen selection: `paper_prep/w2_execution_20260712/calibration/W2_CALIBRATION_SELECTION_MANIFEST.csv`
 - Frozen frame: `paper_prep/w2_execution_20260712/calibration/W2_CALIBRATION_SAMPLING_FRAME.csv`
 
-Do not open the bundle for ratings until `W2_AMENDMENT_20260712.md` records both PI signatures. The promotion scorer remains fail-closed and exposes train/held-out labels only in the frozen order after signature and reliability checks.
+Do not open the bundle for ratings until `W2_AMENDMENT_20260712.md` records both PI signatures and the spine fidelity audit passes. The promotion scorer remains fail-closed and exposes train/held-out labels only in the frozen order after signature and reliability checks.
