@@ -10,6 +10,7 @@ import hmac
 import json
 import math
 import os
+import re
 import shutil
 import sys
 import zipfile
@@ -37,18 +38,35 @@ from build_rater_bundles_20260711 import (  # noqa: E402
 )
 
 PAPER = ROOT / "paper_prep"
-OUT = PAPER / "w2_execution_20260712/calibration"
+
+
+def resolve_repo_path(value: str | None, default: str) -> Path:
+    path = Path(value or default)
+    return path if path.is_absolute() else ROOT / path
+
+
+OUT = resolve_repo_path(
+    os.environ.get("MPRM_W2_CALIBRATION_OUT"),
+    "paper_prep/w2_execution_20260712/calibration",
+)
 SELECTION_MANIFEST = OUT / "W2_CALIBRATION_SELECTION_MANIFEST.csv"
 SELECTION_AUDIT = OUT / "W2_CALIBRATION_SELECTION_AUDIT.json"
 SAMPLING_FRAME = OUT / "W2_CALIBRATION_SAMPLING_FRAME.csv"
-ADMIN_DIR = PAPER / "rater_admin_keys_20260712/t6_calibration"
+T6_BUNDLE_ID = os.environ.get("MPRM_W2_T6_BUNDLE_ID", "t6_calibration")
+if not re.fullmatch(r"[A-Za-z0-9_.-]+", T6_BUNDLE_ID):
+    raise ValueError(f"invalid MPRM_W2_T6_BUNDLE_ID: {T6_BUNDLE_ID!r}")
+ADMIN_DIR = PAPER / "rater_admin_keys_20260712" / T6_BUNDLE_ID
 ADMIN_MANIFEST = ADMIN_DIR / "T6_CALIBRATION_ADMIN.csv"
 BUNDLE_ROOT = PAPER / "rater_bundles_20260712"
-BUNDLE_DIR = BUNDLE_ROOT / "t6_calibration"
-ZIP_PATH = BUNDLE_ROOT / "t6_calibration.zip"
+BUNDLE_DIR = BUNDLE_ROOT / T6_BUNDLE_ID
+ZIP_PATH = BUNDLE_ROOT / f"{T6_BUNDLE_ID}.zip"
 SHA_PATH = BUNDLE_ROOT / "SHA256SUMS"
-SPINE_MANIFEST = PAPER / "w2_execution_20260712/spine_reconstruction/SPINE_RECONSTRUCTION_MANIFEST.csv"
-SPINE_SCORE_DIR = PAPER / "w2_execution_20260712/spine_reconstruction/scoring_ledgers"
+SPINE_ROOT = resolve_repo_path(
+    os.environ.get("MPRM_W2_SPINE_OUT"),
+    "paper_prep/w2_execution_20260712/spine_reconstruction",
+)
+SPINE_MANIFEST = SPINE_ROOT / "SPINE_RECONSTRUCTION_MANIFEST.csv"
+SPINE_SCORE_DIR = SPINE_ROOT / "scoring_ledgers"
 RETAINED = PAPER / "w2_contingency_20260711/W2_RETAINED_AUDIO_MANIFEST.jsonl"
 EXISTING_SCORES = PAPER / "w2_contingency_20260711/activated_20260711/full_corrected/W2_CORRECTED_MERGED.jsonl"
 BATCH3_MANIFEST = PAPER / "w2_execution_20260712/analysis/BATCH3_1342_RESCORING_MANIFEST.csv"
@@ -98,6 +116,22 @@ def sha256_file(path: Path) -> str:
         for chunk in iter(lambda: handle.read(1024 * 1024), b""):
             digest.update(chunk)
     return digest.hexdigest()
+
+
+def update_checksum_manifest(path: Path, artifact: Path) -> None:
+    artifact_path = str(artifact.resolve())
+    replacement = f"{sha256_file(artifact)}  {artifact_path}"
+    existing = path.read_text(encoding="utf-8").splitlines() if path.is_file() else []
+    kept = []
+    for line in existing:
+        parts = line.split(maxsplit=1)
+        if len(parts) == 2 and parts[1].strip() == artifact_path:
+            continue
+        if line.strip():
+            kept.append(line)
+    kept.append(replacement)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text("\n".join(kept) + "\n", encoding="utf-8")
 
 
 def stable_key(value: str, purpose: str) -> str:
@@ -602,7 +636,7 @@ def build_bundle(nonce: str) -> dict:
         if parent_clip:
             row["repeat_parent_rating_id"] = id_map[parent_clip]
     payload = {
-        "bundle_id": "t6_calibration",
+        "bundle_id": T6_BUNDLE_ID,
         "title": "W2 corrected-instrument calibration",
         "mode": "decisive_staged",
         "wording_html": f"<p><strong>Label A:</strong> {LABEL_A_WORDING}</p><p>{CHOIR_RULE}</p>",
@@ -623,15 +657,14 @@ def build_bundle(nonce: str) -> dict:
         raise AssertionError("t6 source restriction was not applied")
     (BUNDLE_DIR / "index.html").write_text(html, encoding="utf-8")
     (BUNDLE_DIR / "README").write_text(
-        "t6_calibration: 200 blinded calibration presentations plus one excluded adjudication appendix.\n"
+        f"{T6_BUNDLE_ID}: 200 blinded calibration presentations plus one excluded adjudication appendix.\n"
         "Complete Label A blind, reveal the request, then complete Label B; use pi:Richard exactly.\n"
         "Do not start until both PI signatures exist and SPINE_REGEN_STATUS = COMPLETE_AUDIT_PASS.\n",
         encoding="utf-8",
     )
     write_csv(ADMIN_MANIFEST, admin)
     make_zip(BUNDLE_DIR, ZIP_PATH)
-    SHA_PATH.parent.mkdir(parents=True, exist_ok=True)
-    SHA_PATH.write_text(f"{sha256_file(ZIP_PATH)}  {ZIP_PATH.resolve()}\n", encoding="utf-8")
+    update_checksum_manifest(SHA_PATH, ZIP_PATH)
     return {
         "bundle_rows": len(public),
         "calibration_presentations": len(main),

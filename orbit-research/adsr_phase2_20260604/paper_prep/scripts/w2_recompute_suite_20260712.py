@@ -33,7 +33,17 @@ sys.path.insert(0, str(ROOT / "paper_prep/w2_contingency_20260711"))
 from mprm.common.thresholds import VOCAL_PRESENCE_THRESHOLD
 
 PAPER = ROOT / "paper_prep"
-OUT = PAPER / "w2_execution_20260712/analysis"
+
+
+def resolve_repo_path(value: str | None, default: str) -> Path:
+    path = Path(value or default)
+    return path if path.is_absolute() else ROOT / path
+
+
+OUT = resolve_repo_path(
+    os.environ.get("MPRM_W2_ANALYSIS_OUT"),
+    "paper_prep/w2_execution_20260712/analysis",
+)
 BATCH3_MANIFEST = OUT / "BATCH3_1342_RESCORING_MANIFEST.csv"
 BATCH3_LEDGER_DIR = OUT / "batch3_scoring_ledgers"
 TARGET_TABLE = OUT / "W2_TARGET_SCORE_TABLE.csv"
@@ -44,8 +54,12 @@ RECOMPUTE_REPORT = OUT / "W2_RECOMPUTE_REPORT.md"
 RELEASE_KEEP = PAPER / "storage_triage/RELEASE_KEEP_MANIFEST.csv"
 RETAINED = PAPER / "w2_contingency_20260711/W2_RETAINED_AUDIO_MANIFEST.jsonl"
 EXISTING_SCORES = PAPER / "w2_contingency_20260711/activated_20260711/full_corrected/W2_CORRECTED_MERGED.jsonl"
-SPINE_MANIFEST = PAPER / "w2_execution_20260712/spine_reconstruction/SPINE_RECONSTRUCTION_MANIFEST.csv"
-SPINE_SCORING_DIR = PAPER / "w2_execution_20260712/spine_reconstruction/scoring_ledgers"
+SPINE_ROOT = resolve_repo_path(
+    os.environ.get("MPRM_W2_SPINE_OUT"),
+    "paper_prep/w2_execution_20260712/spine_reconstruction",
+)
+SPINE_MANIFEST = SPINE_ROOT / "SPINE_RECONSTRUCTION_MANIFEST.csv"
+SPINE_SCORING_DIR = SPINE_ROOT / "scoring_ledgers"
 OLD_THRESHOLD = VOCAL_PRESENCE_THRESHOLD
 CANDIDATE_DEMUCS_THRESHOLD = 0.038639528676867485
 CANDIDATE_PANNS_THRESHOLD = 0.03181814216077328

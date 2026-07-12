@@ -44,3 +44,11 @@ def test_launch_guard_rejects_unsigned_amendment(tmp_path):
         assert "not signed" in str(exc)
     else:
         raise AssertionError("unsigned amendment passed launch guard")
+
+
+def test_recovery_evpd_and_spine_paths_can_be_versioned():
+    module = load_module()
+    relative = module.resolve_repo_path("paper_prep/recovery_evpd", "unused")
+    assert relative == module.ROOT / "paper_prep/recovery_evpd"
+    absolute = module.ROOT / "paper_prep/recovery_spine"
+    assert module.resolve_repo_path(str(absolute), "unused") == absolute

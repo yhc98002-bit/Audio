@@ -40,3 +40,10 @@ def test_directionless_and_superseded_cohorts_are_explicitly_excluded():
     assert module.existing_exclusion_reason("stage3_intervention") == ""
     assert module.existing_exclusion_reason("atlas_keep") == "outside_direction_specific_recompute_scope"
     assert module.existing_exclusion_reason("candidate_spine_4096") == "superseded_by_reconstructed_spine"
+
+
+def test_recovery_analysis_and_spine_paths_can_be_versioned():
+    module = load_module()
+    assert module.resolve_repo_path("paper_prep/recovery_analysis", "unused") == module.ROOT / "paper_prep/recovery_analysis"
+    absolute = module.ROOT / "paper_prep/recovery_spine"
+    assert module.resolve_repo_path(str(absolute), "unused") == absolute

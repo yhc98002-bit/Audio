@@ -7,6 +7,7 @@ import argparse
 import csv
 import hashlib
 import json
+import os
 import sys
 from collections import Counter
 from pathlib import Path
@@ -25,9 +26,23 @@ ROOT = find_repo_root(Path(__file__).resolve())
 sys.path.insert(0, str(ROOT / "src"))
 from mprm.common.thresholds import VOCAL_PRESENCE_THRESHOLD
 PAPER = ROOT / "paper_prep"
-OUT = PAPER / "w2_execution_20260712/evpd_liveconfirm"
-SPINE_MANIFEST = PAPER / "w2_execution_20260712/spine_reconstruction/SPINE_RECONSTRUCTION_MANIFEST.csv"
-SPINE_SCORE_DIR = PAPER / "w2_execution_20260712/spine_reconstruction/scoring_ledgers"
+
+
+def resolve_repo_path(value: str | None, default: str) -> Path:
+    path = Path(value or default)
+    return path if path.is_absolute() else ROOT / path
+
+
+OUT = resolve_repo_path(
+    os.environ.get("MPRM_W2_EVPD_OUT"),
+    "paper_prep/w2_execution_20260712/evpd_liveconfirm",
+)
+SPINE_ROOT = resolve_repo_path(
+    os.environ.get("MPRM_W2_SPINE_OUT"),
+    "paper_prep/w2_execution_20260712/spine_reconstruction",
+)
+SPINE_MANIFEST = SPINE_ROOT / "SPINE_RECONSTRUCTION_MANIFEST.csv"
+SPINE_SCORE_DIR = SPINE_ROOT / "scoring_ledgers"
 EVPD_CACHE = ROOT / "orbit-research/adsr_phase2_20260604/batch2/evpd_feature_cache.npz"
 EVPD_MANIFEST = OUT / "CORRECTED_EVPD_TRAINING_MANIFEST.csv"
 EVPD_MODEL = OUT / "corrected_evpd_sigma08.joblib"

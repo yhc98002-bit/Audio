@@ -90,3 +90,20 @@ def test_appendix_resolver_uses_actual_admin_schema_and_checksum(tmp_path):
         "sha256": module.sha256_file(media),
     }
     assert module.resolve_appendix_media(row, tmp_path) == media
+
+
+def test_versioned_paths_and_checksum_updates_preserve_other_bundles(tmp_path):
+    module = load_module()
+    assert module.resolve_repo_path("paper_prep/recovery", "unused") == module.ROOT / "paper_prep/recovery"
+    first = tmp_path / "first.zip"
+    second = tmp_path / "second.zip"
+    first.write_bytes(b"first")
+    second.write_bytes(b"second")
+    checksums = tmp_path / "SHA256SUMS"
+    module.update_checksum_manifest(checksums, first)
+    module.update_checksum_manifest(checksums, second)
+    module.update_checksum_manifest(checksums, first)
+    lines = checksums.read_text(encoding="utf-8").splitlines()
+    assert len(lines) == 2
+    assert any(str(first.resolve()) in line for line in lines)
+    assert any(str(second.resolve()) in line for line in lines)
