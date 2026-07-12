@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import copy
 import csv
 import datetime as dt
 import hashlib
@@ -65,6 +66,9 @@ ENDPOINTS = (
 PREFERENCE_VALUES = {"a", "b", "tie", "unsure"}
 PI_SOURCE = "pi:Richard"
 SCORE_Z_ONE_SIDED_95 = 1.6448536269514722
+B_PRIME_PI_GATE = "FAIL_NONINFERIORITY_NOT_ESTABLISHED"
+B_PRIME_PI_PROVENANCE = "pi:Richard"
+B_PRIME_PI_DECISION_DATE = "2026-07-12"
 
 
 def read_csv(path: Path) -> list[dict[str, str]]:
@@ -414,6 +418,110 @@ def score_b_prime(t3: list[dict]) -> tuple[dict, dict[str, dict[str, str]], dict
     return result, primary, pairs
 
 
+def build_pi_gate_decision(result: dict) -> dict:
+    """Build the frozen PI decision only after validating the scored evidence."""
+    quality = result["endpoints"]["quality_preference"]
+    overall = result["endpoints"]["overall_preference"]
+    expected_quality_counts = {
+        "baseline": 28,
+        "tie": 32,
+        "method": 20,
+        "abstain": 0,
+    }
+    if result.get("b_prime_gate") != "PI_CALL_PENDING":
+        raise ValueError("PI decision must be applied to a pending mechanical result")
+    if result.get("frozen_signed_condition_met") is not False:
+        raise ValueError("PI FAIL decision requires the frozen non-inferiority condition to fail")
+    if quality["counts"] != expected_quality_counts:
+        raise ValueError("quality counts do not match the PI-reviewed 80-pair result")
+    if quality["original_rule_pass"] is not True or overall["original_rule_pass"] is not True:
+        raise ValueError("quality and overall must meet the labeled original-rule sensitivity")
+
+    event_id = hashlib.sha256(
+        (B_PRIME_PI_GATE + B_PRIME_PI_PROVENANCE + B_PRIME_PI_DECISION_DATE).encode()
+    ).hexdigest()[:20]
+    return {
+        "event_id": event_id,
+        "event": "B_PRIME_PI_GATE_DECISION",
+        "b_prime_gate": B_PRIME_PI_GATE,
+        "provenance": B_PRIME_PI_PROVENANCE,
+        "decision_date": B_PRIME_PI_DECISION_DATE,
+        "dual_pi_notified": True,
+        "frozen_noninferiority_condition": "one-sided 95% score lower bound > 0.40",
+        "frozen_noninferiority_condition_met": False,
+        "quality_method_preference_decided_rate": quality["method_rate"],
+        "quality_score_one_sided_95_lower": quality["score_one_sided_95_lower"],
+        "quality_exact_one_sided_95_lower": quality["exact_one_sided_95_lower"],
+        "labeled_secondary": {
+            "description": "original >=40% and not-significantly-below-50% rule",
+            "quality_preference": {
+                "condition_met": quality["original_rule_pass"],
+                "method_rate": quality["method_rate"],
+                "one_sided_p": quality["original_rule_p_lower_tail_under_0p5"],
+            },
+            "overall_preference": {
+                "condition_met": overall["original_rule_pass"],
+                "method_rate": overall["method_rate"],
+                "one_sided_p": overall["original_rule_p_lower_tail_under_0p5"],
+            },
+        },
+        "limitations": [
+            "single expert rater",
+            "40% tie rate",
+            "B-prime pairs selected under the pre-W2 detector",
+            "t4 same-session protocol deviation",
+        ],
+        "no_rerating": True,
+        "no_study_enlargement": True,
+        "status": "RECORDED",
+    }
+
+
+def _read_study_log() -> list[dict]:
+    if not STUDY_LOG.exists():
+        return []
+    return [
+        json.loads(line)
+        for line in STUDY_LOG.read_text(encoding="utf-8").splitlines()
+        if line
+    ]
+
+
+def append_pi_gate_decision(result: dict) -> dict:
+    record = build_pi_gate_decision(result)
+    existing = _read_study_log()
+    prior = [row for row in existing if row.get("event") == record["event"]]
+    if prior:
+        if len(prior) != 1 or prior[0] != record:
+            raise ValueError("conflicting B-prime PI gate decision already exists")
+        return prior[0]
+    STUDY_LOG.parent.mkdir(parents=True, exist_ok=True)
+    with STUDY_LOG.open("a", encoding="utf-8") as handle:
+        handle.write(json.dumps(record, sort_keys=True) + "\n")
+    return record
+
+
+def load_pi_gate_decision() -> dict | None:
+    records = [
+        row for row in _read_study_log() if row.get("event") == "B_PRIME_PI_GATE_DECISION"
+    ]
+    if not records:
+        return None
+    if len(records) != 1:
+        raise ValueError("multiple B-prime PI gate decisions found")
+    return records[0]
+
+
+def apply_pi_gate_decision(result: dict, decision: dict) -> dict:
+    expected = build_pi_gate_decision(result)
+    if decision != expected:
+        raise ValueError("study-log PI decision does not match the scored B-prime evidence")
+    finalized = copy.deepcopy(result)
+    finalized["b_prime_gate"] = decision["b_prime_gate"]
+    finalized["pi_gate_decision"] = decision
+    return finalized
+
+
 def _fmt(value: float | None) -> str:
     if value is None or not math.isfinite(float(value)):
         return "NA"
@@ -421,19 +529,50 @@ def _fmt(value: float | None) -> str:
 
 
 def write_b_report(result: dict) -> None:
+    decision = result.get("pi_gate_decision")
     lines = [
         "# B-prime Gate Report: PI Drop 2",
         "",
-        "`B_PRIME_GATE = PI_CALL_PENDING`",
+        f"`B_PRIME_GATE = {result['b_prime_gate']}`",
         "",
         "Primary evidence uses only the 80 t3 first presentations. The 24 t4",
         "reversed presentations are excluded from every gate denominator.",
-        "",
-        "## Endpoint Results",
-        "",
-        "| Endpoint | Method | Baseline | Ties | Abstains | Rate | Score LCB | Exact LCB | Score > .40 | Exact > .40 | Ties half | Ties against |",
-        "|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|",
     ]
+    if decision:
+        lines.extend(
+            [
+                "",
+                "## PI Gate Call",
+                "",
+                f"- Provenance: `{decision['provenance']}`.",
+                f"- Decision date: `{decision['decision_date']}`.",
+                f"- Decision: `{decision['b_prime_gate']}`.",
+                "- Dual-PI notification recorded: `true`.",
+                "- The pre-registered non-inferiority bound was not met: the quality",
+                "  score LCB was 0.307145 and the exact LCB cross-check was 0.295877,",
+                "  both below the required strict threshold of 0.40.",
+                "- No re-rating or study enlargement was performed.",
+                "",
+                "Approved paper wording:",
+                "",
+                "> no statistically significant quality preference in either direction",
+                "> (method preferred in 42% of decided pairs; one-sided p = 0.156); the",
+                "> pre-registered non-inferiority bound (LCB > 0.40) was NOT met, so",
+                "> no-quality-degradation is reported as unconfirmed, not established.",
+                "",
+                "Banned phrasings: `no quality loss`, `no degradation`, and",
+                "`quality preserved`.",
+            ]
+        )
+    lines.extend(
+        [
+            "",
+            "## Endpoint Results",
+            "",
+            "| Endpoint | Method | Baseline | Ties | Abstains | Rate | Score LCB | Exact LCB | Score > .40 | Exact > .40 | Ties half | Ties against |",
+            "|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|",
+        ]
+    )
     for endpoint in ENDPOINTS:
         value = result["endpoints"][endpoint]
         counts = value["counts"]
@@ -474,6 +613,16 @@ def write_b_report(result: dict) -> None:
             f"{str(value['original_rule_not_significantly_below_0p50']).lower()} | "
             f"{str(value['original_rule_pass']).lower()} |"
         )
+    if decision:
+        lines.extend(
+            [
+                "",
+                "As a labeled secondary sensitivity, quality and overall preference",
+                "both meet the original >=40% / not-significantly-below-50% rule.",
+                "Quality has one-sided p = 0.156163; overall has p = 0.116347.",
+                "This does not override the failed pre-registered non-inferiority bound.",
+            ]
+        )
     lines.extend(
         [
             "",
@@ -494,14 +643,27 @@ def write_b_report(result: dict) -> None:
                 f"{_fmt(value['score_one_sided_95_lower'])} | "
                 f"{_fmt(value['exact_one_sided_95_lower'])} |"
             )
-    lines.extend(
-        [
-            "",
-            "The numerical scorer cannot emit PASS. Richard must make and record",
-            "the PI gate call after reviewing this report and the t4 deviation.",
-            "",
-        ]
-    )
+    lines.extend(["", "## Disclosed Limitations", ""])
+    if decision:
+        lines.extend(f"- {item}." for item in decision["limitations"])
+    else:
+        lines.append("- PI gate call and final limitations are pending.")
+    lines.append("")
+    if decision:
+        lines.extend(
+            [
+                "The numerical scorer cannot emit PASS. The final status above is a",
+                "PI decision loaded from the append-only study log, not an automatic gate.",
+            ]
+        )
+    else:
+        lines.extend(
+            [
+                "The numerical scorer cannot emit PASS. A PI decision has not yet been",
+                "loaded from the append-only study log.",
+            ]
+        )
+    lines.append("")
     B_REPORT.parent.mkdir(parents=True, exist_ok=True)
     B_REPORT.write_text("\n".join(lines), encoding="utf-8")
 
@@ -788,9 +950,7 @@ def append_deviation_log(result: dict) -> str:
             + result["t4_exported_at"]
         ).encode()
     ).hexdigest()[:20]
-    existing = []
-    if STUDY_LOG.exists():
-        existing = [json.loads(line) for line in STUDY_LOG.read_text(encoding="utf-8").splitlines() if line]
+    existing = _read_study_log()
     if event_id not in {row.get("event_id") for row in existing}:
         STUDY_LOG.parent.mkdir(parents=True, exist_ok=True)
         with STUDY_LOG.open("a", encoding="utf-8") as handle:
@@ -834,7 +994,7 @@ def write_amendment_appendix(t4: dict, event_id: str) -> None:
     )
 
 
-def run() -> dict:
+def run(record_pi_gate_decision: bool = False) -> dict:
     PROCESSED.mkdir(parents=True, exist_ok=True)
     t3_payload, t3, t3_audit = validate_and_remap_pair_export(
         T3_INPUT, T3_KEY, "t3_bprime_primary_v2", 80
@@ -858,7 +1018,16 @@ def run() -> dict:
     }
     write_json(INGEST_AUDIT, ingest)
 
-    b_result, primary, pairs = score_b_prime(t3)
+    mechanical_b_result, primary, pairs = score_b_prime(t3)
+    if record_pi_gate_decision:
+        decision = append_pi_gate_decision(mechanical_b_result)
+    else:
+        decision = load_pi_gate_decision()
+    b_result = (
+        apply_pi_gate_decision(mechanical_b_result, decision)
+        if decision is not None
+        else mechanical_b_result
+    )
     write_json(B_RESULT, b_result)
     write_b_report(b_result)
 
@@ -899,8 +1068,13 @@ def run() -> dict:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.parse_args()
-    print(json.dumps(run(), indent=2, sort_keys=True))
+    parser.add_argument(
+        "--record-pi-gate-decision",
+        action="store_true",
+        help="append and apply the frozen 2026-07-12 pi:Richard B-prime gate decision",
+    )
+    args = parser.parse_args()
+    print(json.dumps(run(record_pi_gate_decision=args.record_pi_gate_decision), indent=2, sort_keys=True))
     return 0
 
 

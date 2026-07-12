@@ -1,5 +1,5 @@
 {
-  "b_prime_gate": "PI_CALL_PENDING",
+  "b_prime_gate": "FAIL_NONINFERIORITY_NOT_ESTABLISHED",
   "both_score_and_exact_bounds_gt_0p40": false,
   "by_request_direction": {
     "constraint_preference": {
@@ -195,5 +195,40 @@
   "frozen_signed_condition_met": false,
   "frozen_signed_criterion": "one-sided 95% score lower bound > 0.40",
   "gate_never_auto_passes": true,
+  "pi_gate_decision": {
+    "b_prime_gate": "FAIL_NONINFERIORITY_NOT_ESTABLISHED",
+    "decision_date": "2026-07-12",
+    "dual_pi_notified": true,
+    "event": "B_PRIME_PI_GATE_DECISION",
+    "event_id": "288ef79f9d94fe5b8d52",
+    "frozen_noninferiority_condition": "one-sided 95% score lower bound > 0.40",
+    "frozen_noninferiority_condition_met": false,
+    "labeled_secondary": {
+      "description": "original >=40% and not-significantly-below-50% rule",
+      "overall_preference": {
+        "condition_met": true,
+        "method_rate": 0.4,
+        "one_sided_p": 0.11634659595415542
+      },
+      "quality_preference": {
+        "condition_met": true,
+        "method_rate": 0.4166666666666667,
+        "one_sided_p": 0.15616340373663462
+      }
+    },
+    "limitations": [
+      "single expert rater",
+      "40% tie rate",
+      "B-prime pairs selected under the pre-W2 detector",
+      "t4 same-session protocol deviation"
+    ],
+    "no_rerating": true,
+    "no_study_enlargement": true,
+    "provenance": "pi:Richard",
+    "quality_exact_one_sided_95_lower": 0.2958770027182114,
+    "quality_method_preference_decided_rate": 0.4166666666666667,
+    "quality_score_one_sided_95_lower": 0.30714511548631385,
+    "status": "RECORDED"
+  },
   "primary_endpoint": "quality_preference"
 }

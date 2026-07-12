@@ -1,0 +1,28 @@
+{
+  "b_prime_gate": "FAIL_NONINFERIORITY_NOT_ESTABLISHED",
+  "claims_changed_rows": [
+    4
+  ],
+  "decision_date": "2026-07-12",
+  "decision_event_count": 1,
+  "decision_provenance": "pi:Richard",
+  "dual_pi_notified": true,
+  "gate_report_sha256": "31229a44f2e628e4b059effae48d334ba79069f807a6b23fd131915c97e879fc",
+  "gate_result_sha256": "17c4bc6e631cd0dff892cc50b467713ac5668cd30a990557c78991c6c79f149d",
+  "full_tests": "311/311 PASS",
+  "no_rerating": true,
+  "no_study_enlargement": true,
+  "non_bprime_drop2_artifacts_byte_stable": true,
+  "other_claim_rows_unchanged": true,
+  "paper_backbone": "paper_prep/CLAIMS.md",
+  "plan_changed_rows": [
+    11,
+    15
+  ],
+  "rerun_idempotence": "PASS",
+  "status": "PASS",
+  "study_log_line_count": 2,
+  "study_log_sha256": "9b5a96f4cdce17c0c5588021f818fa05d74ca3d7b8975b656a6a63cab91d1325",
+  "targeted_tests": "13/13 PASS",
+  "timestamp": "2026-07-13T02:19:34+08:00"
+}

@@ -71,6 +71,52 @@ def test_b_prime_is_pi_pending_even_when_synthetic_numbers_are_strong() -> None:
     assert quality["original_rule_pass"] is True
 
 
+def test_pi_gate_decision_is_idempotent_and_evidence_locked(tmp_path: Path) -> None:
+    module = load_module()
+    module.STUDY_LOG = tmp_path / "study.jsonl"
+    _payload, t3, _audit = module.validate_and_remap_pair_export(
+        module.T3_INPUT, module.T3_KEY, "t3_bprime_primary_v2", 80
+    )
+    mechanical, _primary, _pairs = module.score_b_prime(t3)
+    first = module.append_pi_gate_decision(mechanical)
+    second = module.append_pi_gate_decision(mechanical)
+    assert first == second
+    assert len(module.STUDY_LOG.read_text(encoding="utf-8").splitlines()) == 1
+    assert first["provenance"] == "pi:Richard"
+    assert first["decision_date"] == "2026-07-12"
+    assert first["b_prime_gate"] == "FAIL_NONINFERIORITY_NOT_ESTABLISHED"
+    assert first["labeled_secondary"]["quality_preference"]["condition_met"] is True
+    assert first["labeled_secondary"]["overall_preference"]["condition_met"] is True
+
+    finalized = module.apply_pi_gate_decision(mechanical, first)
+    assert finalized["b_prime_gate"] == "FAIL_NONINFERIORITY_NOT_ESTABLISHED"
+    assert finalized["gate_never_auto_passes"] is True
+
+    tampered = dict(first)
+    tampered["provenance"] = "judge:qwen_unvalidated"
+    with pytest.raises(ValueError, match="does not match"):
+        module.apply_pi_gate_decision(mechanical, tampered)
+
+
+def test_final_b_report_records_pi_call_and_limitations(tmp_path: Path) -> None:
+    module = load_module()
+    module.STUDY_LOG = tmp_path / "study.jsonl"
+    module.B_REPORT = tmp_path / "report.md"
+    _payload, t3, _audit = module.validate_and_remap_pair_export(
+        module.T3_INPUT, module.T3_KEY, "t3_bprime_primary_v2", 80
+    )
+    mechanical, _primary, _pairs = module.score_b_prime(t3)
+    decision = module.append_pi_gate_decision(mechanical)
+    module.write_b_report(module.apply_pi_gate_decision(mechanical, decision))
+    report = module.B_REPORT.read_text(encoding="utf-8")
+    assert "B_PRIME_GATE = FAIL_NONINFERIORITY_NOT_ESTABLISHED" in report
+    assert "Quality has one-sided p = 0.156163" in report
+    assert "single expert rater" in report
+    assert "40% tie rate" in report
+    assert "pre-W2 detector" in report
+    assert "t4 same-session protocol deviation" in report
+
+
 def test_t4_same_session_deviation_and_informational_flags() -> None:
     module = load_module()
     p3, t3, _audit3 = module.validate_and_remap_pair_export(
