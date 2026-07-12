@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import csv
 import importlib.util
 from pathlib import Path
 
@@ -48,3 +49,29 @@ def test_t6_cardinality_constants_and_source_lock():
     source = SCRIPT.read_text(encoding="utf-8")
     assert 'return v==="pi:Richard"' in source
     assert "READY_BLOCKED_ON_SIGNATURE" not in source  # status belongs to report, not executable gate logic
+
+
+def test_csv_writer_preserves_fields_introduced_after_first_row(tmp_path):
+    module = load_module()
+    path = tmp_path / "heterogeneous.csv"
+    module.write_csv(path, [{"a": 1}, {"a": 2, "later_field": 3}])
+    rows = list(csv.DictReader(path.open(newline="", encoding="utf-8")))
+    assert rows[0]["later_field"] == ""
+    assert rows[1]["later_field"] == "3"
+
+
+def test_sampling_frame_retains_all_cross_product_cells(tmp_path, monkeypatch):
+    module = load_module()
+    monkeypatch.setattr(module, "SAMPLING_FRAME", tmp_path / "frame.csv")
+    frame = [
+        {
+            "calibration_stratum": "vocal|low|old0|corrected0|disagree0|spine",
+        }
+    ]
+    selection = [{**frame[0], "role": "train"}]
+    result = module._write_sampling_frame(frame, selection)
+    rows = list(csv.DictReader(module.SAMPLING_FRAME.open(newline="", encoding="utf-8")))
+    assert result["cross_product_cells"] == 192
+    assert result["empty_cross_product_cells"] == 191
+    assert len(rows) == 192
+    assert sum(int(row["frame_eligible_count"]) for row in rows) == 1

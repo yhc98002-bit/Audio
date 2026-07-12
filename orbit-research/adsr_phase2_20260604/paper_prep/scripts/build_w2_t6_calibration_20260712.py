@@ -14,6 +14,7 @@ import shutil
 import sys
 import zipfile
 from collections import Counter, defaultdict
+from itertools import product
 from pathlib import Path
 
 import numpy as np
@@ -39,6 +40,7 @@ PAPER = ROOT / "paper_prep"
 OUT = PAPER / "w2_execution_20260712/calibration"
 SELECTION_MANIFEST = OUT / "W2_CALIBRATION_SELECTION_MANIFEST.csv"
 SELECTION_AUDIT = OUT / "W2_CALIBRATION_SELECTION_AUDIT.json"
+SAMPLING_FRAME = OUT / "W2_CALIBRATION_SAMPLING_FRAME.csv"
 ADMIN_DIR = PAPER / "rater_admin_keys_20260712/t6_calibration"
 ADMIN_MANIFEST = ADMIN_DIR / "T6_CALIBRATION_ADMIN.csv"
 BUNDLE_ROOT = PAPER / "rater_bundles_20260712"
@@ -77,8 +79,15 @@ def write_csv(path: Path, rows: list[dict]) -> None:
     if not rows:
         raise ValueError(f"refusing to write empty CSV: {path}")
     path.parent.mkdir(parents=True, exist_ok=True)
+    fieldnames = list(rows[0])
+    known = set(fieldnames)
+    for row in rows[1:]:
+        for field in row:
+            if field not in known:
+                known.add(field)
+                fieldnames.append(field)
     with path.open("w", newline="", encoding="utf-8") as handle:
-        writer = csv.DictWriter(handle, fieldnames=list(rows[0]), lineterminator="\n")
+        writer = csv.DictWriter(handle, fieldnames=fieldnames, lineterminator="\n")
         writer.writeheader()
         writer.writerows(rows)
 
@@ -275,8 +284,62 @@ def _assign_probabilities(selected: list[dict], frame: list[dict], role: str) ->
     output = []
     for row in selected:
         probability = selected_counts[row["calibration_stratum"]] / eligible_counts[row["calibration_stratum"]]
-        output.append({**row, "role": role, "inclusion_probability": probability})
+        output.append(
+            {
+                **row,
+                "role": role,
+                "selection_stage_probability": probability,
+                "final_inclusion_probability": probability,
+                "inclusion_probability": probability,
+            }
+        )
     return output
+
+
+def _write_sampling_frame(frame: list[dict], selection: list[dict]) -> dict:
+    eligible = Counter(row["calibration_stratum"] for row in frame)
+    selected_by_role = {
+        role: Counter(
+            row["calibration_stratum"]
+            for row in selection
+            if row["role"] == role
+        )
+        for role in ("train", "heldout", "transport", "reserve")
+    }
+    rows = []
+    for request, band, old, corrected, disagreement, family in product(
+        ("vocal", "instrumental"),
+        ("low", "boundary", "high"),
+        (0, 1),
+        (0, 1),
+        (0, 1),
+        ("spine", "N2", "Stage3", "Batch3_keep"),
+    ):
+        stratum = "|".join(
+            [request, band, f"old{old}", f"corrected{corrected}", f"disagree{disagreement}", family]
+        )
+        rows.append(
+            {
+                "request_type": request,
+                "corrected_score_band": band,
+                "old_detector_status": old,
+                "corrected_status": corrected,
+                "old_corrected_disagreement": disagreement,
+                "source_family": family,
+                "calibration_stratum": stratum,
+                "frame_eligible_count": eligible[stratum],
+                "selected_train_count": selected_by_role["train"][stratum],
+                "selected_heldout_count": selected_by_role["heldout"][stratum],
+                "selected_transport_count": selected_by_role["transport"][stratum],
+                "selected_reserve_count": selected_by_role["reserve"][stratum],
+            }
+        )
+    write_csv(SAMPLING_FRAME, rows)
+    return {
+        "cross_product_cells": len(rows),
+        "empty_cross_product_cells": sum(row["frame_eligible_count"] == 0 for row in rows),
+        "frame_rows": sum(row["frame_eligible_count"] for row in rows),
+    }
 
 
 def select_calibration() -> dict:
@@ -291,7 +354,14 @@ def select_calibration() -> dict:
     targeted_heldout = stratified_pick(remaining, target_positive, target_negative, "heldout_targeted")
     heldout_ids = anchor_ids | {row["canonical_clip_id"] for row in targeted_heldout}
     heldout = [
-        {**row, "role": "heldout", "selection_component": "simple_random_anchor", "inclusion_probability": ANCHOR / 4096}
+        {
+            **row,
+            "role": "heldout",
+            "selection_component": "simple_random_anchor",
+            "selection_stage_probability": ANCHOR / 4096,
+            "final_inclusion_probability": ANCHOR / 4096,
+            "inclusion_probability": ANCHOR / 4096,
+        }
         for row in anchor
     ]
     heldout.extend(
@@ -350,6 +420,8 @@ def select_calibration() -> dict:
                     **row,
                     "role": "transport",
                     "selection_component": "boundary_disagreement_transport",
+                    "selection_stage_probability": selected_counts[row["calibration_stratum"]] / eligible_counts[row["calibration_stratum"]],
+                    "final_inclusion_probability": selected_counts[row["calibration_stratum"]] / eligible_counts[row["calibration_stratum"]],
                     "inclusion_probability": selected_counts[row["calibration_stratum"]] / eligible_counts[row["calibration_stratum"]],
                 }
             )
@@ -369,6 +441,8 @@ def select_calibration() -> dict:
     if len(unique) != 180 or len(repeats) != 20:
         raise AssertionError(f"calibration cardinality mismatch: unique={len(unique)}, repeats={len(repeats)}")
     selection = unique + repeats + reserve
+    for row in selection:
+        row["calibration_analysis_weight_multiplier"] = 0 if row["role"] == "repeat" else 1
     media_hash_cache: dict[str, str] = {}
     for row in selection:
         media_path = str(row["media_path"])
@@ -382,6 +456,7 @@ def select_calibration() -> dict:
     if len(set(unique_hashes)) != len(unique_hashes):
         raise ValueError("the 180 unique calibration rows contain duplicate media")
     write_csv(SELECTION_MANIFEST, selection)
+    frame_audit = _write_sampling_frame(spine + transport_pool, selection)
     audit = {
         "status": "PASS",
         "unique_calibration_rows": len(unique),
@@ -395,6 +470,13 @@ def select_calibration() -> dict:
         "transport_source_counts": dict(Counter(row["source_family"] for row in transport)),
         "spine_score_band_counts": dict(Counter(row["corrected_score_band"] for row in spine)),
         "inclusion_probabilities_present": all(float(row["inclusion_probability"]) > 0 for row in selection),
+        "selection_stage_probabilities_present": all(float(row["selection_stage_probability"]) > 0 for row in selection),
+        "final_inclusion_probabilities_present": all(float(row["final_inclusion_probability"]) > 0 for row in selection),
+        "hidden_repeat_calibration_weight_zero": all(
+            int(row["calibration_analysis_weight_multiplier"]) == 0
+            for row in repeats
+        ),
+        **frame_audit,
     }
     SELECTION_AUDIT.write_text(json.dumps(audit, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     return audit
