@@ -1,0 +1,10 @@
+{
+  "CORRECTED_INSTRUMENT_STATUS": "PROMOTED",
+  "RELIABILITY_STATUS": "PASS",
+  "outputs": {
+    "ingest": "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion/paper_prep/autochain_20260712/T6_INGEST_AUDIT.json",
+    "promotion": "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion/paper_prep/autochain_20260712/T6_PROMOTION_REPORT.md",
+    "promotion_json": "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion/paper_prep/autochain_20260712/T6_PROMOTION_RESULT.json",
+    "reliability": "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion/paper_prep/autochain_20260712/T6_RELIABILITY_REPORT.md"
+  }
+}

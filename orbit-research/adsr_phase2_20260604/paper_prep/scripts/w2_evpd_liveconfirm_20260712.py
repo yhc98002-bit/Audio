@@ -155,8 +155,11 @@ def build_evpd_manifest(allow_pending_scores: bool = False) -> dict:
     }
 
 
-def _promotion_candidate(record: dict) -> dict:
-    if record.get("CORRECTED_INSTRUMENT_STATUS") != "PASS_DUAL_PI_ADOPTED":
+def _promotion_candidate(record: dict, allow_mechanical_draft: bool = False) -> dict:
+    status = record.get("CORRECTED_INSTRUMENT_STATUS")
+    if status != "PASS_DUAL_PI_ADOPTED" and not (
+        allow_mechanical_draft and status == "PROMOTED"
+    ):
         raise ValueError("corrected instrument lacks dual-PI promotion")
     candidate = record.get("selected_candidate") or record.get("heldout", {}).get("selected_candidate")
     if not candidate:
@@ -181,14 +184,14 @@ def _present(score: dict, candidate: dict) -> int:
     raise ValueError(f"unknown promoted family {family!r}")
 
 
-def train_evpd(promotion_path: Path) -> dict:
+def train_evpd(promotion_path: Path, allow_mechanical_draft: bool = False) -> dict:
     import joblib
     from sklearn.linear_model import LogisticRegression
     from sklearn.metrics import balanced_accuracy_score, roc_auc_score
     from sklearn.preprocessing import StandardScaler
 
     promotion = json.loads(promotion_path.read_text(encoding="utf-8"))
-    candidate = _promotion_candidate(promotion)
+    candidate = _promotion_candidate(promotion, allow_mechanical_draft)
     cache = np.load(EVPD_CACHE, allow_pickle=True)
     manifest = read_csv(EVPD_MANIFEST)
     scores = latest_scores()
@@ -197,7 +200,16 @@ def train_evpd(promotion_path: Path) -> dict:
     ordered = sorted(manifest, key=lambda row: int(row["evpd_cache_index"]))
     if [int(row["evpd_cache_index"]) for row in ordered] != list(range(4096)):
         raise ValueError("EVPD manifest/cache identity is not one-to-one")
-    y = np.asarray([_present(scores[row["task_id"]], candidate) for row in ordered], dtype=int)
+    y = np.asarray(
+        [
+            int(
+                _present(scores[row["task_id"]], candidate)
+                != int(row["requested_vocal"])
+            )
+            for row in ordered
+        ],
+        dtype=int,
+    )
     x = cache["summ"][:, 1, :]
     split = cache["split"].astype(str)
     train, val, test = split == "train", split == "val", split == "test"
@@ -230,7 +242,12 @@ def train_evpd(promotion_path: Path) -> dict:
         "threshold": float(threshold),
         "sigma": "0.8",
         "feature": "per-band mean/std/max/p25/p75 of 64-bin early log-mel",
-        "target": "promoted corrected voice-presence instrument",
+        "target": "corrected Label-B constraint violation",
+        "training_status": (
+            "DRAFT_MECHANICAL_PROMOTION_AWAITING_DUAL_PI_ADOPTION"
+            if allow_mechanical_draft
+            else "DUAL_PI_ADOPTED"
+        ),
         "selected_candidate": candidate,
         "promotion_record": str(promotion_path),
         "promotion_sha256": sha256_file(promotion_path),
@@ -241,13 +258,19 @@ def train_evpd(promotion_path: Path) -> dict:
     joblib.dump(bundle, EVPD_MODEL)
     EVPD_REPORT.write_text(
         "# Corrected EVPD Retraining\n\n"
-        "`CORRECTED_EVPD_STATUS = COMPLETE`\n\n"
+        f"`CORRECTED_EVPD_STATUS = "
+        f"{'COMPLETE_DRAFT_AWAITING_ADOPTION' if allow_mechanical_draft else 'COMPLETE'}`\n\n"
         f"- Train/validation/test candidates: {metrics['train_rows']}/{metrics['val_rows']}/{metrics['test_rows']}\n"
         f"- Validation balanced accuracy: {metrics['val_balanced_accuracy']:.6f}\n"
         f"- Test balanced accuracy: {metrics['test_balanced_accuracy']:.6f}\n"
         f"- Test AUC: {metrics['test_auc']:.6f}\n"
         f"- Threshold selected on validation only: {metrics['threshold']:.6f}\n"
-        "- Prompt overlap across train/validation/test: 0\n",
+        "- Prompt overlap across train/validation/test: 0\n"
+        + (
+            "- This model is a draft fit and cannot satisfy the live launch guard until both W2 signatures are recorded.\n"
+            if allow_mechanical_draft
+            else ""
+        ),
         encoding="utf-8",
     )
     return metrics
@@ -416,6 +439,7 @@ def main() -> int:
     evpd.add_argument("--allow-pending-scores", action="store_true")
     train = sub.add_parser("train-evpd")
     train.add_argument("--promotion-record", type=Path, required=True)
+    train.add_argument("--allow-mechanical-draft", action="store_true")
     sub.add_parser("build-live-manifest")
     guard = sub.add_parser("launch-guard")
     guard.add_argument("--amendment", type=Path, required=True)
@@ -425,7 +449,7 @@ def main() -> int:
     if args.command == "build-evpd-manifest":
         print(json.dumps(build_evpd_manifest(args.allow_pending_scores), indent=2, sort_keys=True))
     elif args.command == "train-evpd":
-        print(json.dumps(train_evpd(args.promotion_record), indent=2, sort_keys=True))
+        print(json.dumps(train_evpd(args.promotion_record, args.allow_mechanical_draft), indent=2, sort_keys=True))
     elif args.command == "build-live-manifest":
         print(json.dumps(build_live_manifest(), indent=2, sort_keys=True))
     elif args.command == "launch-guard":

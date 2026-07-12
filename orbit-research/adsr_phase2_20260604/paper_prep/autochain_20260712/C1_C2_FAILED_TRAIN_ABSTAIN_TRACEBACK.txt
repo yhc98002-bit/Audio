@@ -1,0 +1,17 @@
+Traceback (most recent call last):
+  File "paper_prep/scripts/ingest_t6_promote_20260712.py", line 584, in <module>
+    raise SystemExit(main())
+  File "paper_prep/scripts/ingest_t6_promote_20260712.py", line 579, in main
+    print(json.dumps(run(), indent=2, sort_keys=True))
+  File "paper_prep/scripts/ingest_t6_promote_20260712.py", line 555, in run
+    promotion = run_promotion(ratings, admin, {...})
+  File "paper_prep/scripts/ingest_t6_promote_20260712.py", line 355, in run_promotion
+    selection = PROMOTION.select_candidate(train)
+  File "paper_prep/scripts/w2_promotion_pipeline_20260712.py", line 230, in select_candidate
+    raise ValueError("training selection requires decided labels")
+ValueError: training selection requires decided labels
+
+Diagnosis: the frozen 60-row train split contains valid Unsure abstentions. The
+amendment preserves Unsure and does not impute it. Threshold candidates remain
+defined on all 60 scores; candidate metrics use only decided training labels.
+Failure occurred before the held-out exposure record was written.

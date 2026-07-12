@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "paper_prep/scripts/autochain_factorial_score_20260712.py", line 453, in <module>
+    raise SystemExit(main())
+  File "paper_prep/scripts/autochain_factorial_score_20260712.py", line 441, in main
+    result = prepare()
+  File "paper_prep/scripts/autochain_factorial_score_20260712.py", line 141, in prepare
+    "requested_vocal": int(score["requested_vocal"]),
+KeyError: 'requested_vocal'
+
+The positive-v2 score ledger omitted the redundant requested_vocal field. The
+factorial prompt manifest independently freezes and verifies all 32 prompts as
+instrumental. No score or label was changed by this failed attempt.

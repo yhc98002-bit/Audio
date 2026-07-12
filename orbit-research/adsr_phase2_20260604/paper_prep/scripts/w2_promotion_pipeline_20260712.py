@@ -226,8 +226,11 @@ def _candidate_key(candidate: dict) -> tuple:
 def select_candidate(train_rows: list[dict]) -> dict:
     if len(train_rows) != 60 or {row["role"] for row in train_rows} != {"train"}:
         raise ValueError("candidate selection requires exactly the frozen 60 training rows")
-    if any(row["truth_violation"] is None for row in train_rows):
-        raise ValueError("training selection requires decided labels")
+    decided_truth = {
+        row["truth_violation"] for row in train_rows if row["truth_violation"] is not None
+    }
+    if decided_truth != {0, 1}:
+        raise ValueError("training selection requires decided examples from both classes")
     demucs_grid = threshold_grid(row["demucs_score"] for row in train_rows)
     panns_grid = threshold_grid(row["panns_score"] for row in train_rows)
     candidates = []
@@ -257,6 +260,12 @@ def select_candidate(train_rows: list[dict]) -> dict:
     return {
         "status": "TRAIN_SELECTED_HELDOUT_UNSEEN",
         "training_rows": len(train_rows),
+        "training_decided_rows": sum(
+            row["truth_violation"] is not None for row in train_rows
+        ),
+        "training_abstention_rows": sum(
+            row["truth_violation"] is None for row in train_rows
+        ),
         "candidate_count": len(candidates),
         "selection_rule": "weighted_BA_then_min_sens_spec_then_MCC_then_simplicity_then_deterministic_threshold",
         "selected_candidate": selected,

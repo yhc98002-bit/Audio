@@ -1,0 +1,68 @@
+{
+  "A_PRIME_GATE": "BLOCKED_JUDGE_GOLD_NEGATIVE_COUNT",
+  "JUDGE_500_STATUS": "BLOCKED_JUDGE_GOLD_NEGATIVE_COUNT",
+  "JUDGE_VALIDATION_STATUS": "BLOCKED_CLASS_COUNT_TOPUP_REQUIRED",
+  "automatic_gate_change": false,
+  "bootstrap": {
+    "balanced_accuracy": {
+      "one_sided_95_lcb": 0.900360068178202,
+      "two_sided_95_ci": [
+        0.8937421409335615,
+        0.9996692568676427
+      ],
+      "valid_replicates": 10000
+    },
+    "sensitivity": {
+      "one_sided_95_lcb": 0.9757932692933574,
+      "two_sided_95_ci": [
+        0.9746451278027642,
+        1.0
+      ],
+      "valid_replicates": 10000
+    },
+    "specificity": {
+      "one_sided_95_lcb": 0.8132561743908828,
+      "two_sided_95_ci": [
+        0.8025644122148595,
+        1.0
+      ],
+      "valid_replicates": 10000
+    }
+  },
+  "calls_per_clip": 3,
+  "checks": {
+    "abstention_at_most_0p10": true,
+    "balanced_accuracy_lcb": true,
+    "balanced_accuracy_point": true,
+    "decided_negatives_at_least_50": false,
+    "decided_positives_at_least_30": true,
+    "sensitivity_lcb": true,
+    "sensitivity_point": true,
+    "specificity_lcb": true,
+    "specificity_point": true
+  },
+  "decoding": {
+    "seeds": [
+      20260709,
+      20260710,
+      20260711
+    ],
+    "temperature": 0
+  },
+  "metrics": {
+    "abstention_rate": 0.0,
+    "abstention_rows": 0,
+    "balanced_accuracy": 0.9479822190842886,
+    "decided_rows": 176,
+    "negative_rows": 27,
+    "positive_rows": 149,
+    "sensitivity": 0.9914210137502085,
+    "specificity": 0.9045434244183687,
+    "weighted_fn": 108.0,
+    "weighted_fp": 235.1,
+    "weighted_tn": 2227.8,
+    "weighted_tp": 12480.899999999998
+  },
+  "model": "Qwen/Qwen3-Omni-30B-A3B-Instruct",
+  "served_model": "qwen3-omni-judge"
+}

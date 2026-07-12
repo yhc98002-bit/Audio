@@ -78,6 +78,18 @@ def test_reliability_failure_blocks_heldout():
         raise AssertionError("reliability failure reached held-out evaluation")
 
 
+def test_train_selection_keeps_frozen_60_and_excludes_unsure_from_metrics():
+    module = load_module()
+    rows = make_rows("train", 60)
+    rows[0]["truth_violation"] = None
+    rows[0]["label_b_constraint"] = "unsure"
+    result = module.select_candidate(rows)
+    assert result["training_rows"] == 60
+    assert result["training_decided_rows"] == 59
+    assert result["training_abstention_rows"] == 1
+    assert result["selected_candidate"]["train_metrics"]["decided_rows"] == 59
+
+
 def test_train_selection_and_mechanical_gate_have_no_plan_side_effect():
     module = load_module()
     train = make_rows("train", 60)

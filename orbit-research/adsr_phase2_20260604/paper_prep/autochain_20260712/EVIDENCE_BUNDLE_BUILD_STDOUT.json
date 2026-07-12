@@ -1,0 +1,9 @@
+{
+  "EVIDENCE_BUNDLE_STATUS": "BUILT",
+  "bundle": "paper_prep/paper_evidence_bundle_20260712",
+  "checksummed_files": 60,
+  "indexed_artifacts": 53,
+  "tarball": "paper_prep/paper_evidence_bundle_20260712.tar.gz",
+  "tarball_checksum_location": "the invoking stdout/ledger record; SHA256SUMS covers bundle contents",
+  "tarball_sha256": "5f907b43bba616132bf440653295555dea81f35d6048a6d555c494cc4ee8a30e"
+}

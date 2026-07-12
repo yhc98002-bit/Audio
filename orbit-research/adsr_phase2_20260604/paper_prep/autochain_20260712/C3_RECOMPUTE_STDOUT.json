@@ -1,0 +1,42 @@
+{
+  "RECOMPUTE_STATUS": "COMPLETE_DRAFT_AWAITING_ADOPTION",
+  "bootstrap": {
+    "calibration_resampling_unit": "row_within_frozen_calibration_stratum",
+    "failure_counts": {},
+    "model_form_refit_each_replicate": "M2",
+    "model_l2_refit_each_replicate": 0.1,
+    "requested_replicates": 2000,
+    "seed": 20260714,
+    "target_resampling_unit": "prompt_within_publication_group",
+    "valid_replicates": 2000
+  },
+  "outputs": [
+    "paper_prep/autochain_20260712/recompute/CORRECTED_TARGET_ROWS.csv",
+    "paper_prep/autochain_20260712/recompute/CORRECTED_PUBLICATION_RATES.csv",
+    "paper_prep/autochain_20260712/recompute/CORRECTED_PROMPT_RATES.csv",
+    "paper_prep/autochain_20260712/recompute/CORRECTED_PROMPT_ECDFS.csv",
+    "paper_prep/autochain_20260712/recompute/CALIBRATION_MODEL_AUDIT.json",
+    "paper_prep/autochain_20260712/recompute/CORRECTED_RECOMPUTE_REPORT.md",
+    "paper_prep/autochain_20260712/recompute/PLAN_UPDATE_DRAFT.md",
+    "paper_prep/autochain_20260712/recompute/CLAIMS_UPDATE_DRAFT.md",
+    "paper_prep/autochain_20260712/recompute/DUAL_PI_ADOPTION_PACKET.md",
+    "paper_prep/autochain_20260712/recompute/corrected_prevalence_summary.png",
+    "paper_prep/autochain_20260712/recompute/corrected_prevalence_summary.pdf"
+  ],
+  "prompt_rows": 876,
+  "publication_rows": 28,
+  "selected_model": {
+    "fold_losses": [
+      0.013081975766314502,
+      0.15418221098045112,
+      0.27246009158807183,
+      0.05059878329353143,
+      0.0037578087211039843
+    ],
+    "form": "M2",
+    "l2": 0.1,
+    "mean_log_loss": 0.09881617406989458,
+    "se_log_loss": 0.050955358152535296
+  },
+  "target_rows": 27966
+}

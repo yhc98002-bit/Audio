@@ -1,0 +1,1774 @@
+{
+  "status": "SCORED",
+  "rows": 176,
+  "decided": 176,
+  "abstained": 0,
+  "sensitivity": 0.9798657718120806,
+  "specificity": 0.9259259259259259,
+  "balanced_accuracy": 0.9528958488690032,
+  "mcc": 0.8924696963585185,
+  "accuracy": 0.9715909090909091,
+  "abstention_rate": 0.0,
+  "results": [
+    {
+      "clip_id": "t6_r_e47f53375a9b6c1ec3b9",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_ed9bc949444598a804e3",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_841abdf57a8e324d8759",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_f5e0250776f69d16d969",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_96ff5174a29b37f7cd55",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_3f4812a10d7ea37232e2",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_c85a07f7b6101fe2c935",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_bf1911ccd774450b459b",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_91327ec3c3d59ef86170",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_a55e2e67d4d889c4fc0f",
+      "true_label": "no",
+      "majority_label": "no",
+      "calls": [
+        "no",
+        "no",
+        "no"
+      ]
+    },
+    {
+      "clip_id": "t6_r_d35b26d21e659415a6fa",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_09e92121ec323a1e1e4b",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_6afe55d634d1ef90171c",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_2f4fce54b4068da154ff",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_a1f0ae46d90a072590d6",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_9a9d3310eafe607a6004",
+      "true_label": "no",
+      "majority_label": "no",
+      "calls": [
+        "no",
+        "no",
+        "no"
+      ]
+    },
+    {
+      "clip_id": "t6_r_72ddf26677bafd8b4d8b",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_a0118f84c0d68f06ecda",
+      "true_label": "no",
+      "majority_label": "no",
+      "calls": [
+        "no",
+        "no",
+        "no"
+      ]
+    },
+    {
+      "clip_id": "t6_r_cdfcf2e87ed7e2d43162",
+      "true_label": "no",
+      "majority_label": "no",
+      "calls": [
+        "no",
+        "no",
+        "no"
+      ]
+    },
+    {
+      "clip_id": "t6_r_81491b7ba5186b6be032",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_4c548e45d4f5b76aacb5",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_6db9f55db2a40f306e88",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_36cd38a9cb9920995018",
+      "true_label": "no",
+      "majority_label": "no",
+      "calls": [
+        "no",
+        "no",
+        "no"
+      ]
+    },
+    {
+      "clip_id": "t6_r_060cfe2060a1ca4ac58c",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_95be1fa6953873245feb",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_ab24ade73bc55b0bd60a",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_4232db182cccfaf10996",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_e3a40c0a9840d6148e47",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_9042e344ca14e3d8af54",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_e479ec9344b963874510",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_f2b60ecf62cd801d5db4",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_39da1819785886cac0d9",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_f6688212e68fd081cdea",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_e78af08f009614bb6281",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_1ae39fe39cbabc0bace5",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_5a1991cca9bcef96ac22",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_5f30abd90079c8344645",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_f9c8ab5b14caa4040148",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_b8d60986f6641c6bcbe5",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_6c6bd0b36499dcf2df4d",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_0dfe388c1b0c91c60589",
+      "true_label": "no",
+      "majority_label": "no",
+      "calls": [
+        "no",
+        "no",
+        "no"
+      ]
+    },
+    {
+      "clip_id": "t6_r_cf53ce5e191e60f9b304",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_3efe93e2d235eb4bfc4d",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_35052864c60ff5f54ab6",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_c6f573130f54ff23b4d1",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_1da7c127f1372a25ac40",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_5bdefe863792271fe593",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_abfdd69b8fab06d31631",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_1f477ed2b0c77ee3089e",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_a209b12bdf1338b56113",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_a9afc0456dc6ca6f4a41",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_29d6c6603435d5a52845",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_923a4d23e229f3b73722",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_a54711f02907df17eb7f",
+      "true_label": "no",
+      "majority_label": "no",
+      "calls": [
+        "no",
+        "no",
+        "no"
+      ]
+    },
+    {
+      "clip_id": "t6_r_4ea8390054d4706e8c0d",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_6d0bfa9c182f70010208",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_480dd5c7100cb1677011",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_26d217272208be0fcbd0",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_6657446acc769a701217",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_81c491003202b9a3c6a3",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_05c67a5f285581ed2d7d",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_9c5f285ee4e9ae302c36",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_ae7e5293260fee6840d0",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_6919e310e391c8af5d94",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_08fcad85343c7bd48371",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_a0d12f81f288b6bba11a",
+      "true_label": "no",
+      "majority_label": "no",
+      "calls": [
+        "no",
+        "no",
+        "no"
+      ]
+    },
+    {
+      "clip_id": "t6_r_d0f42132b896aa81393e",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_f2aae4c73897391384a6",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_0c9c178a9205294b2cdd",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_8f4b2c21074940b7f05c",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_f1824c816672fbe52a25",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_fb4037b99db465e3288d",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_a978589e079046177be2",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_5f00dcaad9257e09a004",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_941ca5431a05fb7900c7",
+      "true_label": "no",
+      "majority_label": "no",
+      "calls": [
+        "no",
+        "no",
+        "no"
+      ]
+    },
+    {
+      "clip_id": "t6_r_543cc0733bc601a286e3",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_4169870d2b32fa54382a",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_eea1a341e5f03d28cb77",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_1eaee5ff4bf37395cdb2",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_8b70e5a9e9a1dfa62f8c",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_ecf7f5857ce0e7bac4ca",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_b4a4e330267447983751",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_4d2232c5e32ed4ef72e6",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_5ee6a4312199e4e3aac0",
+      "true_label": "no",
+      "majority_label": "no",
+      "calls": [
+        "no",
+        "no",
+        "no"
+      ]
+    },
+    {
+      "clip_id": "t6_r_24dc074aabc134e4689f",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_57e27dd8359c8453b1bc",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_9bddd38dcc219c3d998c",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_cc825f0c464a704a5549",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_45307fba956c8437f444",
+      "true_label": "no",
+      "majority_label": "no",
+      "calls": [
+        "no",
+        "no",
+        "no"
+      ]
+    },
+    {
+      "clip_id": "t6_r_3a5b68b0ff2d971ee22e",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_8bcaf7bebc17f89f7443",
+      "true_label": "yes",
+      "majority_label": "no",
+      "calls": [
+        "no",
+        "no",
+        "no"
+      ]
+    },
+    {
+      "clip_id": "t6_r_4a9a7ccc87edb08a71ae",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_60cff306b6c114898d5f",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_b4e777efe43e94bc99a5",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_454411de6cdff1645ea7",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_5282c15390240d8cf323",
+      "true_label": "yes",
+      "majority_label": "no",
+      "calls": [
+        "no",
+        "no",
+        "no"
+      ]
+    },
+    {
+      "clip_id": "t6_r_8d808aec4dd957ace260",
+      "true_label": "no",
+      "majority_label": "no",
+      "calls": [
+        "no",
+        "no",
+        "no"
+      ]
+    },
+    {
+      "clip_id": "t6_r_7f170bdd9213a27742e9",
+      "true_label": "no",
+      "majority_label": "no",
+      "calls": [
+        "no",
+        "no",
+        "no"
+      ]
+    },
+    {
+      "clip_id": "t6_r_2366941dbc8c4eed97e8",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_7028b687697b155df40d",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_9ba3578fe75e14365160",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_c3450532219fb04e1c67",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_1e841ff0cbc70dba50f1",
+      "true_label": "no",
+      "majority_label": "no",
+      "calls": [
+        "no",
+        "no",
+        "no"
+      ]
+    },
+    {
+      "clip_id": "t6_r_44ec489e152f39b1c41b",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_86647ce63aae21559b76",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_602af20eeca2ef2bae74",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_028ed15f71626d073de9",
+      "true_label": "no",
+      "majority_label": "no",
+      "calls": [
+        "no",
+        "no",
+        "no"
+      ]
+    },
+    {
+      "clip_id": "t6_r_728dbf97b9ee8d017631",
+      "true_label": "no",
+      "majority_label": "no",
+      "calls": [
+        "no",
+        "no",
+        "no"
+      ]
+    },
+    {
+      "clip_id": "t6_r_b17ea7402e090047ded3",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_13bd89a2092ada3caa15",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_dea6f67abcaf6a1970a3",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_2b71c34507dfc58e9e52",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_31dea0334e4e99d7c5cb",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_fbbe7c29788c864e0d23",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_5f8356037c59c3261020",
+      "true_label": "no",
+      "majority_label": "no",
+      "calls": [
+        "no",
+        "no",
+        "no"
+      ]
+    },
+    {
+      "clip_id": "t6_r_891651d91765efe214d9",
+      "true_label": "no",
+      "majority_label": "no",
+      "calls": [
+        "no",
+        "no",
+        "no"
+      ]
+    },
+    {
+      "clip_id": "t6_r_60dd3f5d2691e591cc92",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_b0288ba8519e2baa9bd6",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_08ad3e417f9cac6395fb",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_c33285dfd89f6a932ef8",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_9da133bd66bf95816828",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_fbbfb61eb13f12ea7f11",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_844f3673e6dcec090f97",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_db00f7b77f10b16adfb1",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_27ecd2019f1ff938861c",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_d99fd5e0b83312fb9314",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_8199b18f011ac7ca6c26",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_6bc9cf6bc2f82cde7c6d",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_7c7270f132d9afb3945d",
+      "true_label": "no",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_22fd573142af9c854283",
+      "true_label": "no",
+      "majority_label": "no",
+      "calls": [
+        "no",
+        "no",
+        "no"
+      ]
+    },
+    {
+      "clip_id": "t6_r_858b0c2ddf1d0659bcad",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_86f11b0ecd07bbfaa3a6",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_75bbc8ba37123ac235ee",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_5c2c2df1ce2cb7cc9e31",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_946cf8861bc2e0694956",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_30bd45fe6ff276dfba5c",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_72981d3430ae674fd6c4",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_2fe87fdbd2169615a772",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_8e9f3412da084cd0dc63",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_59144083857d482133d8",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_2c68e8fc8d308a93d5a1",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_80caf8e876811659ab8f",
+      "true_label": "no",
+      "majority_label": "no",
+      "calls": [
+        "no",
+        "no",
+        "no"
+      ]
+    },
+    {
+      "clip_id": "t6_r_71ba9532f75f703b7054",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_f86d4893dee3686caa1f",
+      "true_label": "no",
+      "majority_label": "no",
+      "calls": [
+        "no",
+        "no",
+        "no"
+      ]
+    },
+    {
+      "clip_id": "t6_r_c740825d27dc187f8070",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_c334eab6521bc6cfe4f4",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_0924ee6c7f50b1922fed",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_4af1151bbb9bbafafead",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_72a852748e5d1f26c61b",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_0f98dc06fd0c2ff05d6f",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_d8620fa88b14e385383d",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_7dca9748293d58ff4093",
+      "true_label": "yes",
+      "majority_label": "no",
+      "calls": [
+        "no",
+        "no",
+        "no"
+      ]
+    },
+    {
+      "clip_id": "t6_r_629f1a43ff680162eb19",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_053a495e577ff6ec1b6a",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_5a54d70fd79952e259c4",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_757717a93f1185d088f3",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_bdd7579f51f256bb61ea",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_e0780fdf5cda5f3a183b",
+      "true_label": "no",
+      "majority_label": "no",
+      "calls": [
+        "no",
+        "no",
+        "no"
+      ]
+    },
+    {
+      "clip_id": "t6_r_1feb57ab997bd7d4d0b4",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_53446011be01a4bb61c5",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_f3db7f83509d915617fd",
+      "true_label": "no",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_0eef0f7e628a60438493",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_cb657d2691a7f28e103c",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_9bd615f01972ce5f9d9f",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_992c8b45a4265278e024",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_021a909e537cecc9d302",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_039caca5cf0daad2949d",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_4bc43d2644314d1fc574",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_cded0eb7e2bd57e541e4",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_b0b3465b04e609696e7a",
+      "true_label": "no",
+      "majority_label": "no",
+      "calls": [
+        "no",
+        "no",
+        "no"
+      ]
+    },
+    {
+      "clip_id": "t6_r_eb7c99effd6efebffa3c",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_8b22fb47f288334f9c3e",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_18e3ec8d12ed481f71ee",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_174c5584f06532869610",
+      "true_label": "yes",
+      "majority_label": "yes",
+      "calls": [
+        "yes",
+        "yes",
+        "yes"
+      ]
+    },
+    {
+      "clip_id": "t6_r_c2a537e0079aae3c78f4",
+      "true_label": "no",
+      "majority_label": "no",
+      "calls": [
+        "no",
+        "no",
+        "no"
+      ]
+    },
+    {
+      "clip_id": "t6_r_d3c8b4085c6c35b7e777",
+      "true_label": "no",
+      "majority_label": "no",
+      "calls": [
+        "no",
+        "no",
+        "no"
+      ]
+    }
+  ]
+}

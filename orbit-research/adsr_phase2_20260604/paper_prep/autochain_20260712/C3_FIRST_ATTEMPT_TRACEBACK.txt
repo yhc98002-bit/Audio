@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "paper_prep/scripts/autochain_corrected_recompute_20260712.py", line 541, in <module>
+    print(json.dumps(run(), indent=2, sort_keys=True))
+  File "paper_prep/scripts/autochain_corrected_recompute_20260712.py", line 496, in run
+    operating = calibration_operating_characteristics(promotion["heldout"]["selected_candidate"])
+  File "paper_prep/scripts/autochain_corrected_recompute_20260712.py", line 293, in calibration_operating_characteristics
+    "sensitivity": tp / (tp + fn),
+ZeroDivisionError: division by zero
+
+The nested bootstrap completed before this reporting-only failure. One request-
+direction held-out stratum had no positive violations, so direction-specific
+sensitivity was not estimable. No frozen artifact, PLAN row, or claim changed.

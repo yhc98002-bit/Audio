@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "paper_prep/scripts/ingest_t6_promote_20260712.py", line 584, in <module>
+    raise SystemExit(main())
+  File "paper_prep/scripts/ingest_t6_promote_20260712.py", line 579, in main
+    print(json.dumps(run(), indent=2, sort_keys=True))
+  File "paper_prep/scripts/ingest_t6_promote_20260712.py", line 538, in run
+    _payload, ratings, admin, ingest = validate_export()
+  File "paper_prep/scripts/ingest_t6_promote_20260712.py", line 171, in validate_export
+    raise ValueError("t6 staged-reveal UI invariants are missing")
+ValueError: t6 staged-reveal UI invariants are missing
+
+Diagnosis: checker expected r.label_a_amended=true, while the audited bundle's
+setLabelAEditing function correctly uses response.label_a_amended=true. Failure
+occurred before train selection or held-out exposure.

@@ -1,0 +1,45 @@
+{
+  "condition_counts": {
+    "negative_sampler": 512,
+    "negative_text": 512,
+    "plain_baseline": 512,
+    "positive_sampler": 512,
+    "positive_text": 512,
+    "sampler_only": 512
+  },
+  "rows": 3072,
+  "selected_candidate": {
+    "demucs_threshold": 0.03161777090281248,
+    "family": "or",
+    "panns_threshold": 0.04403413645923138,
+    "train_metrics": {
+      "abstention_rate": 0.03333333333333333,
+      "abstention_rows": 2,
+      "balanced_accuracy": 0.9937608104768965,
+      "decided_rows": 58,
+      "mcc": 0.9604698175484918,
+      "negative_rows": 34,
+      "positive_rows": 24,
+      "sensitivity": 1.0,
+      "specificity": 0.9875216209537929,
+      "weighted_fn": 0.0,
+      "weighted_fp": 40.4,
+      "weighted_tn": 3197.2000000000003,
+      "weighted_tp": 573.2
+    }
+  },
+  "selected_model": {
+    "fold_losses": [
+      0.013081975766314502,
+      0.15418221098045112,
+      0.27246009158807183,
+      0.05059878329353143,
+      0.0037578087211039843
+    ],
+    "form": "M2",
+    "l2": 0.1,
+    "mean_log_loss": 0.09881617406989458,
+    "se_log_loss": 0.050955358152535296
+  },
+  "status": "PREPARED"
+}

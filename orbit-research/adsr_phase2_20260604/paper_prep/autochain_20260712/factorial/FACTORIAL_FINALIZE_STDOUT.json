@@ -1,0 +1,9 @@
+{
+  "FACTORIAL_SCORING_STATUS": "COMPLETE_PROMOTED_INSTRUMENT_DRAFT",
+  "best_calibrated_satisfaction": 0.6797944306655583,
+  "best_condition": "positive_sampler",
+  "condition_table": "paper_prep/autochain_20260712/factorial/FACTORIAL_CONDITION_RESULTS.csv",
+  "interaction_table": "paper_prep/autochain_20260712/factorial/FACTORIAL_INTERACTION_CONTRASTS.csv",
+  "report": "paper_prep/autochain_20260712/factorial/FACTORIAL_SCORING_REPORT.md",
+  "rows": 3072
+}

@@ -1,0 +1,3 @@
+wording_factor,interaction_contrast,definition,status
+negative,-0.007492979557324531,(negative_sampler - sampler_only) - (negative_text - plain_baseline),DRAFT_AWAITING_DUAL_PI_ADOPTION
+positive,-0.0010441408100381189,(positive_sampler - sampler_only) - (positive_text - plain_baseline),DRAFT_AWAITING_DUAL_PI_ADOPTION
