@@ -1,0 +1,11 @@
+{
+  "evidence_path_count": 14,
+  "evidence_paths_exist": true,
+  "evidence_paths_tracked": true,
+  "expected_status_line_count": 5,
+  "report": "paper_prep/pi_ratings_20260712/DROP2_REPORT.md",
+  "status": "PASS",
+  "status_evidence_adjacency": true,
+  "timestamp": "2026-07-13T01:48:03+08:00",
+  "unique_evidence_path_count": 14
+}
