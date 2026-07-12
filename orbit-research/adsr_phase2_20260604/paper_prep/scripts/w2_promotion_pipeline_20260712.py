@@ -80,12 +80,16 @@ def join_rows(admin: list[dict[str, str]], ratings: list[dict[str, str]]) -> lis
         probability = float(row["inclusion_probability"])
         if not 0 < probability <= 1:
             raise ValueError(f"invalid inclusion probability for {row['rating_id']}")
+        demucs_value = row.get("demucs_score", "")
+        panns_value = row.get("panns_score", "")
+        if row.get("role") != "appendix" and (demucs_value == "" or panns_value == ""):
+            raise ValueError(f"missing instrument score for {row['rating_id']}")
         joined.append(
             {
                 **row,
                 "requested_vocal": requested,
-                "demucs_score": float(row["demucs_score"]),
-                "panns_score": float(row["panns_score"]),
+                "demucs_score": float(demucs_value) if demucs_value != "" else math.nan,
+                "panns_score": float(panns_value) if panns_value != "" else math.nan,
                 "inclusion_probability": probability,
                 "design_weight": 1.0 / probability,
                 "label_b_constraint": label,
@@ -314,6 +318,21 @@ def evaluate_heldout(
         raise ValueError("held-out evaluation is blocked until reliability passes")
     if len(heldout) < 100 or {row["role"] for row in heldout} != {"heldout"}:
         raise ValueError("held-out evaluation requires the frozen held-out rows only")
+    decided_truth = [row["truth_violation"] for row in heldout if row["truth_violation"] is not None]
+    positive_rows = sum(int(value) for value in decided_truth)
+    negative_rows = len(decided_truth) - positive_rows
+    if positive_rows < MIN_POSITIVES or negative_rows < MIN_NEGATIVES:
+        return {
+            "mechanical_promotion_gate": "NOT_RUN_TOPUP_REQUIRED",
+            "corrected_instrument_status": "AWAITING_CLASS_COUNT_TOPUP",
+            "plan_or_claim_status_changed": False,
+            "heldout_decided_positive_rows": positive_rows,
+            "heldout_decided_negative_rows": negative_rows,
+            "topup_needed_positive": max(0, MIN_POSITIVES - positive_rows),
+            "topup_needed_negative": max(0, MIN_NEGATIVES - negative_rows),
+            "topup_rule": "rate frozen reserve in committed order until each deficient class minimum is reached",
+            "heldout_metrics_exposed": False,
+        }
     selected = selection["selected_candidate"]
     predicted = predictions(
         heldout,

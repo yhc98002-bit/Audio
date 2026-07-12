@@ -101,3 +101,21 @@ def test_train_selection_and_mechanical_gate_have_no_plan_side_effect():
     assert result["corrected_instrument_status"] == "AWAITING_DUAL_PI_PROMOTION_RECORD"
     assert result["plan_or_claim_status_changed"] is False
 
+
+def test_class_count_topup_happens_before_heldout_metrics_are_exposed():
+    module = load_module()
+    train = make_rows("train", 60)
+    selection = module.select_candidate(train)
+    heldout = make_rows("heldout", 100, start=200)
+    for index, row in enumerate(heldout):
+        row["truth_violation"] = 1 if index < 80 else 0
+        row["label_b_constraint"] = "violated" if index < 80 else "satisfied"
+    result = module.evaluate_heldout(
+        heldout,
+        selection,
+        {"status": "PASS"},
+        bootstrap_replicates=10,
+    )
+    assert result["mechanical_promotion_gate"] == "NOT_RUN_TOPUP_REQUIRED"
+    assert result["topup_needed_negative"] == 30
+    assert result["heldout_metrics_exposed"] is False

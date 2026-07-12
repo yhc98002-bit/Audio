@@ -1,0 +1,335 @@
+{
+  "corrected_prompts_with_forbidden_lexemes": 0,
+  "prompt_details": [
+    {
+      "corrected_forbidden_lexemes": [],
+      "corrected_text_sha256": "88097aed639bd945231dd6dcc379c85b2bbcd09c8f101629a21fd66bafa1ccc1",
+      "prompt_id": "held_out_0238",
+      "source_forbidden_lexemes": [
+        "vocals"
+      ],
+      "source_had_forbidden_lexeme": true,
+      "source_text_sha256": "42d213d268ee2cd4b0653da5c0a74f34d94698604cabefd945cc760cb6be6d52"
+    },
+    {
+      "corrected_forbidden_lexemes": [],
+      "corrected_text_sha256": "6afbae25a446f7366e98f55ad878400df664ffcf6877b3ea4f7b191ffd43f225",
+      "prompt_id": "held_out_0094",
+      "source_forbidden_lexemes": [
+        "vocals"
+      ],
+      "source_had_forbidden_lexeme": true,
+      "source_text_sha256": "ffdf070269c8e15bf3dc3d84e0a0e4d07aa02f61b8ee2c4ae5b7bf9848fd02bf"
+    },
+    {
+      "corrected_forbidden_lexemes": [],
+      "corrected_text_sha256": "a4a0caeece953c88196d60f95892704cf8c86250090356abe9357de88ac1c793",
+      "prompt_id": "held_out_0117",
+      "source_forbidden_lexemes": [
+        "vocals"
+      ],
+      "source_had_forbidden_lexeme": true,
+      "source_text_sha256": "ed61d18781a0139e9809f7a63c7e579b700668aded40917b8bdbf7924d636a8a"
+    },
+    {
+      "corrected_forbidden_lexemes": [],
+      "corrected_text_sha256": "131f84f4427ab42e4895452648f8da94b872db7dbaf2ea3f2b962c0b8a103d38",
+      "prompt_id": "held_out_0190",
+      "source_forbidden_lexemes": [
+        "lyrics"
+      ],
+      "source_had_forbidden_lexeme": true,
+      "source_text_sha256": "7ee43a4487c39e016dd4340160c34665835047cae690976ae215ac2ccd08e5ae"
+    },
+    {
+      "corrected_forbidden_lexemes": [],
+      "corrected_text_sha256": "8c140dbb5e8adbe51fa8bf2c02f343a499273a554b58d6fbfcf77498bcb0da74",
+      "prompt_id": "held_out_0041",
+      "source_forbidden_lexemes": [
+        "vocals"
+      ],
+      "source_had_forbidden_lexeme": true,
+      "source_text_sha256": "3f6845e6b60c5286925a53856098dc28226497195d08eb32ec51a8adf714b88b"
+    },
+    {
+      "corrected_forbidden_lexemes": [],
+      "corrected_text_sha256": "c013a5c31cb2a5c98c4f4482a4428803a6c67f50d6af14b25a0098fe816ac12c",
+      "prompt_id": "held_out_0156",
+      "source_forbidden_lexemes": [
+        "lyrics"
+      ],
+      "source_had_forbidden_lexeme": true,
+      "source_text_sha256": "25519b14b2e59b126e440ecf52e38a3158293dbd74840113f07a96f7055f0771"
+    },
+    {
+      "corrected_forbidden_lexemes": [],
+      "corrected_text_sha256": "b54da45c5651691df05980ce47b944bbabc1f9c35b3a35cb09912148324f204c",
+      "prompt_id": "held_out_0253",
+      "source_forbidden_lexemes": [
+        "vocals"
+      ],
+      "source_had_forbidden_lexeme": true,
+      "source_text_sha256": "85d83442f4a9b16b6d6dde322557170dc922d552e4f277d7412524fd1e483573"
+    },
+    {
+      "corrected_forbidden_lexemes": [],
+      "corrected_text_sha256": "373e09263020244b09e9925218aae1135e44666e0ee429632b9332adfd73881f",
+      "prompt_id": "held_out_0088",
+      "source_forbidden_lexemes": [
+        "vocals"
+      ],
+      "source_had_forbidden_lexeme": true,
+      "source_text_sha256": "b8a0e75253fbc3db44eb4c219fa26d8a5abd1323733067e1abd06d354a3b92a7"
+    },
+    {
+      "corrected_forbidden_lexemes": [],
+      "corrected_text_sha256": "2bb8f101e05d0b70b95cdc1dca537d9c3c06b65d59eae580dfd0c057ffb305ca",
+      "prompt_id": "held_out_0040",
+      "source_forbidden_lexemes": [
+        "vocals"
+      ],
+      "source_had_forbidden_lexeme": true,
+      "source_text_sha256": "2ec23347b1e6f543ef603288388358f9cc68228087a9b2cc514f8e30869a8264"
+    },
+    {
+      "corrected_forbidden_lexemes": [],
+      "corrected_text_sha256": "5fb751e643206e514f8ef993ceb0073c957670eedb23520c9c9e6fd4fd127b45",
+      "prompt_id": "held_out_0059",
+      "source_forbidden_lexemes": [
+        "lyrics"
+      ],
+      "source_had_forbidden_lexeme": true,
+      "source_text_sha256": "13ff6923a2c138f73119b6f3a6306889eaae575d5466d47b7e84b903e309878b"
+    },
+    {
+      "corrected_forbidden_lexemes": [],
+      "corrected_text_sha256": "50de11e672a80b0a86d705cab42bcde9002fd912000162f645bd1bfdfbe156cc",
+      "prompt_id": "held_out_0046",
+      "source_forbidden_lexemes": [
+        "vocals"
+      ],
+      "source_had_forbidden_lexeme": true,
+      "source_text_sha256": "ce69ad22f98e7be7b609bb3c9833b8f994e3af022abd98191b59ac6e3238240e"
+    },
+    {
+      "corrected_forbidden_lexemes": [],
+      "corrected_text_sha256": "bb9b5d6a4f76691d8caf92a29f8a926d5de212b0694c39b7926d436424be3c2c",
+      "prompt_id": "held_out_0222",
+      "source_forbidden_lexemes": [
+        "lyrics",
+        "vocal"
+      ],
+      "source_had_forbidden_lexeme": true,
+      "source_text_sha256": "b9651bab08a4de1ab3260c05f5813020bb5595c157b010f1fb14d2ce5d1d9295"
+    },
+    {
+      "corrected_forbidden_lexemes": [],
+      "corrected_text_sha256": "3ae4de324c04cb0d38105eba178dc522ada106d564e15642b133c7c58af2ae5f",
+      "prompt_id": "held_out_0173",
+      "source_forbidden_lexemes": [
+        "lyrics",
+        "vocal"
+      ],
+      "source_had_forbidden_lexeme": true,
+      "source_text_sha256": "e424b0dc78ceee113d3abcede122e45715349fac0517306e67a369a6c5c4cb1c"
+    },
+    {
+      "corrected_forbidden_lexemes": [],
+      "corrected_text_sha256": "19340ee67aaf6331b3fc3ec1c6df94cf38bdfc147f648ef490d402fe16272f79",
+      "prompt_id": "held_out_0236",
+      "source_forbidden_lexemes": [
+        "vocals"
+      ],
+      "source_had_forbidden_lexeme": true,
+      "source_text_sha256": "3f8774ae49b436c9fc630c9b132ea05d18db4c7deb6f514bffb9a65a8f28ce78"
+    },
+    {
+      "corrected_forbidden_lexemes": [],
+      "corrected_text_sha256": "dea53a05086266e11e4289706b3ff07b5350bc0e719119265c9fd2488fa43659",
+      "prompt_id": "held_out_0207",
+      "source_forbidden_lexemes": [
+        "vocals"
+      ],
+      "source_had_forbidden_lexeme": true,
+      "source_text_sha256": "a4e520dedb52bf5f264d8cf3df6e6d1af41d544610a400ca34e33ba111592831"
+    },
+    {
+      "corrected_forbidden_lexemes": [],
+      "corrected_text_sha256": "3056b966064110d9412a64f07bb649e867d19649c820ea9b285acb99f21017bc",
+      "prompt_id": "held_out_0192",
+      "source_forbidden_lexemes": [
+        "vocals"
+      ],
+      "source_had_forbidden_lexeme": true,
+      "source_text_sha256": "d9652fc8e276fa2c010d96afdfb4e657f3996d1e741803b482b40820c773da68"
+    },
+    {
+      "corrected_forbidden_lexemes": [],
+      "corrected_text_sha256": "f7911f10255e58ea94af4d14ffe9ec3dd373ffbd0afcf95c9d06846be66fdfc4",
+      "prompt_id": "held_out_0130",
+      "source_forbidden_lexemes": [
+        "vocals"
+      ],
+      "source_had_forbidden_lexeme": true,
+      "source_text_sha256": "a30dce345381581d990bd8323327a8d9b67b8cdf7f6b3ec1ba4c9f678c88bad6"
+    },
+    {
+      "corrected_forbidden_lexemes": [],
+      "corrected_text_sha256": "99674047d407fb969a861e136ce8f0d876c0bcf26d66ad3833850363d66a95a2",
+      "prompt_id": "held_out_0161",
+      "source_forbidden_lexemes": [
+        "lyrics",
+        "vocal"
+      ],
+      "source_had_forbidden_lexeme": true,
+      "source_text_sha256": "90e7cf589062a4f8f783c0d4c5d15f88fc94490703fc0ca2ab56d21b88e28368"
+    },
+    {
+      "corrected_forbidden_lexemes": [],
+      "corrected_text_sha256": "1f0d81e40dc35a60808ca7a2d2b7db28159efb80c8ac73cdec4b25ebedbfd7b1",
+      "prompt_id": "held_out_0140",
+      "source_forbidden_lexemes": [
+        "lyrics"
+      ],
+      "source_had_forbidden_lexeme": true,
+      "source_text_sha256": "78259383f2e7f913a8104dee3e2158cabecb9b2defdceccd451003349b27197b"
+    },
+    {
+      "corrected_forbidden_lexemes": [],
+      "corrected_text_sha256": "d7e5dd9d86bd49ba8a122360e72a35b3b11bccf9bec5f879dc92f8191159651e",
+      "prompt_id": "held_out_0124",
+      "source_forbidden_lexemes": [
+        "vocals"
+      ],
+      "source_had_forbidden_lexeme": true,
+      "source_text_sha256": "f9a7b92de052128c4967f67436673b5c94b7f367a1af88ab2a2bc044df3b332e"
+    },
+    {
+      "corrected_forbidden_lexemes": [],
+      "corrected_text_sha256": "412d335f6cdb958f68d9b3e1d966d3de97fa7172f1be689fac83f8347ffea369",
+      "prompt_id": "held_out_0009",
+      "source_forbidden_lexemes": [
+        "vocals"
+      ],
+      "source_had_forbidden_lexeme": true,
+      "source_text_sha256": "16e7baec144ee0f207fab6d53f6ff9c4ab1a4f26eddf8aebbb242e8017fb71e4"
+    },
+    {
+      "corrected_forbidden_lexemes": [],
+      "corrected_text_sha256": "5c6987df26a88d1866a13f40454aa411ec3e6558a76ec9112af6b1062c13d88e",
+      "prompt_id": "held_out_0178",
+      "source_forbidden_lexemes": [
+        "vocals"
+      ],
+      "source_had_forbidden_lexeme": true,
+      "source_text_sha256": "80ddd62d577b5cbd00f06b968218a3dc3985ee4da364b7c915e093e2a472b4eb"
+    },
+    {
+      "corrected_forbidden_lexemes": [],
+      "corrected_text_sha256": "5e2a7b6951f95756911f856a8c0402d72d5e27f7a18e01914c19cd2ab20fc161",
+      "prompt_id": "held_out_0206",
+      "source_forbidden_lexemes": [
+        "vocals"
+      ],
+      "source_had_forbidden_lexeme": true,
+      "source_text_sha256": "7116217070df21a06b7eafa7d66990175f4da08d0fa04cf84394be9f9e8cdc98"
+    },
+    {
+      "corrected_forbidden_lexemes": [],
+      "corrected_text_sha256": "4ca0485c5c1b6af01573276af983a1d63bff014b1a7551a5cc2d3e505e15e2b4",
+      "prompt_id": "held_out_0105",
+      "source_forbidden_lexemes": [
+        "lyrics"
+      ],
+      "source_had_forbidden_lexeme": true,
+      "source_text_sha256": "2ed4c3253e3b1d48fa34030ff1143b4cc2b913b2647c6c5256c8e73a05f9a392"
+    },
+    {
+      "corrected_forbidden_lexemes": [],
+      "corrected_text_sha256": "1f0db1781209802e2028e6e6243da6dc0e8112902625fba653d0dcf66125620b",
+      "prompt_id": "held_out_0109",
+      "source_forbidden_lexemes": [
+        "vocals"
+      ],
+      "source_had_forbidden_lexeme": true,
+      "source_text_sha256": "7347ae0ed12e3f1e4ad4ee8bca8f1bee9caebee471df8cb54fc2e628576fca0d"
+    },
+    {
+      "corrected_forbidden_lexemes": [],
+      "corrected_text_sha256": "3840477abf0d5973003b93de51c440979a5a5115152f9e3c2fa994e1a96c96da",
+      "prompt_id": "held_out_0146",
+      "source_forbidden_lexemes": [
+        "lyrics"
+      ],
+      "source_had_forbidden_lexeme": true,
+      "source_text_sha256": "55ba391d5f0179f62bd8a413d9599778a60145369bfc5f951b09b863a7685d31"
+    },
+    {
+      "corrected_forbidden_lexemes": [],
+      "corrected_text_sha256": "21ae61503eba7abcac338d625b4f626d59314960b668a62fe14c38026c5f986e",
+      "prompt_id": "held_out_0031",
+      "source_forbidden_lexemes": [
+        "lyrics",
+        "vocal"
+      ],
+      "source_had_forbidden_lexeme": true,
+      "source_text_sha256": "9ffc68cd892971ff413929a583237f23d0d0b0ae44da7aa33450563679555f5c"
+    },
+    {
+      "corrected_forbidden_lexemes": [],
+      "corrected_text_sha256": "3d7c1a406aa44a57c8eff77b645a08f134d07665f10d7aa7d4ec1c813f680560",
+      "prompt_id": "held_out_0098",
+      "source_forbidden_lexemes": [
+        "lyrics"
+      ],
+      "source_had_forbidden_lexeme": true,
+      "source_text_sha256": "4ca3a504cf686fbfb1d573b52ccb2f759bc219d5af30e44c52fa3e76f4ffe7fd"
+    },
+    {
+      "corrected_forbidden_lexemes": [],
+      "corrected_text_sha256": "98b1b1ee6cff23b7a2ec6dd1d8c050b6372c5993ea6e673a3ee6ad64bce987a1",
+      "prompt_id": "held_out_0235",
+      "source_forbidden_lexemes": [
+        "vocals"
+      ],
+      "source_had_forbidden_lexeme": true,
+      "source_text_sha256": "bc6258d3dcd95af4d84f577f4d8878d475e6c4cdb6c64d15defc660feaae58d7"
+    },
+    {
+      "corrected_forbidden_lexemes": [],
+      "corrected_text_sha256": "a524c2516922726c16e45167d63b68890455651924b3b5817c249a6be1188746",
+      "prompt_id": "held_out_0252",
+      "source_forbidden_lexemes": [
+        "lyrics",
+        "vocal"
+      ],
+      "source_had_forbidden_lexeme": true,
+      "source_text_sha256": "b04c3c42fb128ad22c92b5c67fb7fa526607116d7de16838d4c0f626640a9993"
+    },
+    {
+      "corrected_forbidden_lexemes": [],
+      "corrected_text_sha256": "b9c1f1c89aec0f25be2ef96c8f9df009462a0a109a2266517841e2fb01f8b6b4",
+      "prompt_id": "held_out_0061",
+      "source_forbidden_lexemes": [
+        "vocals"
+      ],
+      "source_had_forbidden_lexeme": true,
+      "source_text_sha256": "b868864272dccaa3df6faee07cf9f72150e3184a96d1de225f1d544a122be878"
+    },
+    {
+      "corrected_forbidden_lexemes": [],
+      "corrected_text_sha256": "a8d331893b01c6bc8ff3896b89c5e280166aa7305078e802d14fe3b6f783b91e",
+      "prompt_id": "held_out_0201",
+      "source_forbidden_lexemes": [
+        "vocals"
+      ],
+      "source_had_forbidden_lexeme": true,
+      "source_text_sha256": "078274b415651748107bf72079eb5134f77856f86b4bc7dccadf695f2b6d03c5"
+    }
+  ],
+  "prompts": 32,
+  "replacement_tasks": 1024,
+  "same_seed_as_invalid_predecessor": true,
+  "source_prompts_with_forbidden_lexemes": 32,
+  "status": "PASS_ZERO_VOCAL_OR_LYRICS_LEXEMES"
+}

@@ -225,6 +225,10 @@ def assemble_targets(require_complete: bool = True) -> dict:
         admin = retained.get(score["record_id"])
         if admin is None:
             raise ValueError(f"missing retained metadata for {score['record_id']}")
+        if admin["cohort"] == "candidate_spine_4096":
+            # The reconstructed/scored spine below supersedes this lone inventory
+            # survivor for W2 analysis; retain its old score only in the audit trail.
+            continue
         rows.append(
             {
                 "record_id": score["record_id"],
@@ -421,4 +425,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

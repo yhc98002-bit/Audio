@@ -177,7 +177,7 @@ def spine_frame() -> list[dict]:
                 "canonical_clip_id": task_id,
                 "prompt_id": task["prompt_id"],
                 "media_path": str(media),
-                "media_sha256": sha256_file(media),
+                "media_sha256": "",
                 "requested_vocal": int(task["requested_vocal"]),
                 "demucs_score": float(score["recomputed_demucs_score"]),
                 "panns_score": float(score["panns_score"]),
@@ -211,7 +211,7 @@ def transport_frame(spine: list[dict]) -> list[dict]:
                 "canonical_clip_id": score["record_id"],
                 "prompt_id": admin["prompt_id"],
                 "media_path": str(path),
-                "media_sha256": sha256_file(path),
+                "media_sha256": "",
                 "requested_vocal": int(admin["requested_vocal"]),
                 "demucs_score": float(score["vocal_energy_ratio"]),
                 "panns_score": float(score["panns_score"]),
@@ -330,7 +330,16 @@ def select_calibration() -> dict:
                 stable_key(row["canonical_clip_id"], "transport"),
             ),
         )
-        chosen = ranked[:count]
+        chosen = []
+        seen_media = set()
+        for row in ranked:
+            media_identity = row.get("media_sha256") or row["media_path"]
+            if media_identity in seen_media:
+                continue
+            seen_media.add(media_identity)
+            chosen.append(row)
+            if len(chosen) == count:
+                break
         if len(chosen) != count:
             raise ValueError(f"transport family {family} has only {len(chosen)} rows")
         selected_counts = Counter(row["calibration_stratum"] for row in chosen)
@@ -360,6 +369,18 @@ def select_calibration() -> dict:
     if len(unique) != 180 or len(repeats) != 20:
         raise AssertionError(f"calibration cardinality mismatch: unique={len(unique)}, repeats={len(repeats)}")
     selection = unique + repeats + reserve
+    media_hash_cache: dict[str, str] = {}
+    for row in selection:
+        media_path = str(row["media_path"])
+        if media_path not in media_hash_cache:
+            path = Path(media_path)
+            if not path.is_absolute():
+                path = ROOT / path
+            media_hash_cache[media_path] = sha256_file(path)
+        row["media_sha256"] = media_hash_cache[media_path]
+    unique_hashes = [row["media_sha256"] for row in unique]
+    if len(set(unique_hashes)) != len(unique_hashes):
+        raise ValueError("the 180 unique calibration rows contain duplicate media")
     write_csv(SELECTION_MANIFEST, selection)
     audit = {
         "status": "PASS",
