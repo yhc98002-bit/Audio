@@ -5,12 +5,17 @@ NODE=${1:?usage: w2_postgen_dispatch_20260712.sh an12|an29}
 ROOT=${MPRM_REPO_ROOT:-/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion}
 PAPER="$ROOT/paper_prep/w2_execution_20260712"
 LOG="$PAPER/postgen_dispatch_${NODE}.log"
+PYTHON=${AUDIO_PRM_PYTHON:-/HOME/paratera_xy/pxy1289/.conda/envs/audio-prm/bin/python}
+if [ ! -x "$PYTHON" ]; then
+  echo "audio-prm Python is unavailable: $PYTHON" >&2
+  exit 3
+fi
 
 count_unique_pass() {
   local directory=$1
   local pattern=$2
   local key=$3
-  python - "$directory" "$pattern" "$key" <<'PY'
+  "$PYTHON" - "$directory" "$pattern" "$key" <<'PY'
 import glob,json,sys
 directory,pattern,key=sys.argv[1:]
 values=set()
