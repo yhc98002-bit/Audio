@@ -471,6 +471,18 @@ def _decoded_from_path(path: Path) -> tuple[str, float, int]:
 
 def audit() -> dict:
     tasks = read_csv(MANIFEST)
+    generation_raw = [
+        row
+        for path in sorted(GENERATION_DIR.glob("generation_w*.jsonl"))
+        for row in read_jsonl(path)
+        if row.get("status") == "PASS"
+    ]
+    scoring_raw = [
+        row
+        for path in sorted(SCORING_DIR.glob("scoring_w*.jsonl"))
+        for row in read_jsonl(path)
+        if row.get("status") == "PASS"
+    ]
     generation = _latest_success(GENERATION_DIR, "generation_w*.jsonl", "task_id")
     scoring = _latest_success(SCORING_DIR, "scoring_w*.jsonl", "task_id")
     missing_generation = []
@@ -522,6 +534,38 @@ def audit() -> dict:
         )
 
     generation_roles = Counter(row["generation_role"] for row in tasks)
+    invalid_generation_metadata = [
+        row["task_id"]
+        for row in generation.values()
+        if float(row.get("duration_s", 0)) <= 1 or int(row.get("sample_rate", 0)) <= 0
+    ]
+    generation_near_silent = [
+        row["task_id"] for row in generation.values() if bool(row.get("near_silent"))
+    ]
+    scoring_near_silent = [
+        row["task_id"] for row in scoring.values() if bool(row.get("recomputed_near_silent"))
+    ]
+    historical_label_flips = [
+        row["task_id"]
+        for row in scoring.values()
+        if int(row["historical_old_present_0p1791"]) != int(row["recomputed_old_present_0p1791"])
+    ]
+    duplicate_scores: dict[str, list[dict]] = {}
+    for row in scoring_raw:
+        duplicate_scores.setdefault(row["task_id"], []).append(row)
+    duplicate_scores = {key: value for key, value in duplicate_scores.items() if len(value) > 1}
+    duplicate_score_conflicts = []
+    score_fields = (
+        "recomputed_demucs_score",
+        "recomputed_old_present_0p1791",
+        "recomputed_near_silent",
+        "panns_score",
+        "candidate_and_present",
+    )
+    for task_id, rows in duplicate_scores.items():
+        signatures = {tuple(row[field] for field in score_fields) for row in rows}
+        if len(signatures) != 1:
+            duplicate_score_conflicts.append(task_id)
     status = "PASS"
     if (
         len(tasks) != EXPECTED_ROWS
@@ -530,6 +574,9 @@ def audit() -> dict:
         or missing_generation
         or invalid_media
         or missing_scoring
+        or invalid_generation_metadata
+        or generation_near_silent
+        or duplicate_score_conflicts
         or not all(row["exact"] for row in survivor_matches)
         or len(control_matches) != 50
         or not all(row["exact"] for row in control_matches)
@@ -543,10 +590,23 @@ def audit() -> dict:
         "manifest_rows": len(tasks),
         "generation_roles": dict(generation_roles),
         "successful_generation_rows": len(generation),
+        "raw_successful_generation_rows": len(generation_raw),
         "successful_scoring_rows": len(scoring),
+        "raw_successful_scoring_rows": len(scoring_raw),
+        "deduplicated_scoring_rows": len(scoring),
+        "duplicate_scoring_rows": len(scoring_raw) - len(scoring),
+        "duplicate_scoring_task_count": len(duplicate_scores),
+        "duplicate_score_conflict_count": len(duplicate_score_conflicts),
         "missing_generation_count": len(missing_generation),
         "invalid_media_count": len(invalid_media),
         "missing_scoring_count": len(missing_scoring),
+        "invalid_generation_metadata_count": len(invalid_generation_metadata),
+        "generation_near_silent_count": len(generation_near_silent),
+        "scoring_near_silent_count": len(scoring_near_silent),
+        "sample_rate_counts": dict(Counter(int(row["sample_rate"]) for row in generation.values())),
+        "duration_s_min": min(float(row["duration_s"]) for row in generation.values()),
+        "duration_s_max": max(float(row["duration_s"]) for row in generation.values()),
+        "historical_vs_recomputed_old_label_flip_count": len(historical_label_flips),
         "surviving_original_exact_matches": sum(row["exact"] for row in survivor_matches),
         "surviving_original_comparisons": len(survivor_matches),
         "control_exact_matches": sum(row["exact"] for row in control_matches),
@@ -556,6 +616,12 @@ def audit() -> dict:
         "missing_generation_examples": missing_generation[:20],
         "invalid_media_examples": invalid_media[:20],
         "missing_scoring_examples": missing_scoring[:20],
+        "invalid_generation_metadata_examples": invalid_generation_metadata[:20],
+        "generation_near_silent_examples": generation_near_silent[:20],
+        "scoring_near_silent_examples": scoring_near_silent[:20],
+        "historical_old_label_flip_examples": historical_label_flips[:20],
+        "duplicate_scoring_task_examples": sorted(duplicate_scores)[:20],
+        "duplicate_score_conflict_examples": duplicate_score_conflicts[:20],
         "instrument_scope": "candidate Demucs AND PANNs is sensitivity-only pending signed W2 promotion",
     }
     AUDIT_JSON.write_text(json.dumps(report, indent=2, sort_keys=True) + "\n", encoding="utf-8")
@@ -567,10 +633,16 @@ def audit() -> dict:
         f"- Missing candidates reconstructed: {generation_roles['missing_spine_reconstruction']}\n"
         f"- Surviving-original audit replays: {generation_roles['surviving_original_audit_replay']}\n"
         f"- Successful generation rows: {len(generation)}\n"
-        f"- Successful old/candidate instrument scoring rows: {len(scoring)}\n"
+        f"- Successful old/candidate instrument scoring rows after task-ID deduplication: {len(scoring)}\n"
+        f"- Raw successful scoring rows: {len(scoring_raw)}; deterministic handoff duplicates: {len(scoring_raw) - len(scoring)}; conflicting duplicates: {len(duplicate_score_conflicts)}\n"
         f"- Missing generation rows: {len(missing_generation)}\n"
         f"- Invalid or checksum-mismatched media: {len(invalid_media)}\n"
         f"- Missing scoring rows: {len(missing_scoring)}\n"
+        f"- Invalid duration/sample-rate rows: {len(invalid_generation_metadata)}\n"
+        f"- Near-silent generation/scoring rows: {len(generation_near_silent)}/{len(scoring_near_silent)}\n"
+        f"- Sample-rate counts: {dict(Counter(int(row['sample_rate']) for row in generation.values()))}\n"
+        f"- Duration range: {min(float(row['duration_s']) for row in generation.values()):.6f}-{max(float(row['duration_s']) for row in generation.values()):.6f} s\n"
+        f"- Historical-versus-recomputed current-detector label flips: {len(historical_label_flips)}/{len(scoring)}\n"
         f"- Surviving originals exact by decoded hash: {sum(row['exact'] for row in survivor_matches)}/{len(survivor_matches)}\n"
         f"- Independent regeneration controls exact by decoded hash: {sum(row['exact'] for row in control_matches)}/{len(control_matches)}\n\n"
         "The Demucs-and-PANNs instrument is a candidate sensitivity instrument only. "
