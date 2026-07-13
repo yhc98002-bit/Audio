@@ -47,6 +47,7 @@ evidence: `paper_prep/t7_judge_gold_20260713/FULL_TEST_RESULT_SUMMARY_20260713.j
 - Live launch predicate: both W2 amendment/adoption signatures plus four genuinely idle GPUs on one of `an12` or `an29` for 20 consecutive minutes. The prepared four-worker launcher does not split across nodes.
 - Poll interval: 10 minutes. Queue timeout: 24 hours. No running process is killed, suspended, or preempted.
 - The live-confirm 48-hour hard-stop clock begins only at the launcher's recorded actual-launch timestamp.
+- At the 2026-07-13 22:57:56 Asia/Shanghai poll, another PI workload occupied `an29` GPUs 4-7 before the idle window completed. The timer reset and no ADSR process launched.
 
 ## Signature-Gated Branch
 
@@ -55,3 +56,8 @@ PI 1 (`pi:Richard`) is signed. PI 2 name/date/commit/decision remain blank in bo
 ## Judge Branch
 
 If pooled validation passes, the chain scores 493 unique stratified clips, maps results to all 500 frozen IDs, enforces the 190-human + 500-validated-judge provenance contract, and emits `A_PRIME_GATE = PI_CALL_PENDING`. If validation fails, the judge remains exploratory and the same gate status is emitted from the official 190-row human core alone. Neither branch auto-passes A-prime.
+
+## Commit
+
+- CPU-complete recovery implementation and queued evidence snapshot: `cd626ba7c5cc7b11eba13ec0e8db96301f0fbbfc` on `main`.
+- GitHub remote: `origin/main` contains the commit.
