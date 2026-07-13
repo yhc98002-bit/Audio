@@ -1,0 +1,11 @@
+{
+  "T7_PACKAGE_STATUS": "READY",
+  "admin": "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion/paper_prep/rater_admin_keys_20260712/t7_judge_gold_negatives/T7_JUDGE_GOLD_NEGATIVES_ADMIN.csv",
+  "bundle_dir": "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion/paper_prep/rater_bundles_20260712/t7_judge_gold_negatives",
+  "expected_negatives_conservative": 31.387567890494566,
+  "expected_negatives_point": 40.0,
+  "report": "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion/paper_prep/t7_judge_gold_20260713/T7_JUDGE_GOLD_NEGATIVES_REPORT.md",
+  "selection_audit": "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion/paper_prep/t7_judge_gold_20260713/T7_SELECTION_AUDIT.json",
+  "zip_path": "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion/paper_prep/rater_bundles_20260712/t7_judge_gold_negatives.zip",
+  "zip_sha256": "d88c679d427baf0c021038b4b5d4f484968348e6f480a1e5b4235ff4a5d1a750"
+}

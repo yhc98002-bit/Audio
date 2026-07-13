@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>T7 judge-gold negative top-up</title>
+<style>
+:root{color-scheme:light;--ink:#17202a;--muted:#5b6672;--line:#d5dbe1;--accent:#176b5b;--paper:#fff;--wash:#f3f5f6}
+*{box-sizing:border-box}body{margin:0;background:var(--wash);color:var(--ink);font:15px/1.45 system-ui,sans-serif;letter-spacing:0}
+header{position:sticky;top:0;z-index:2;background:#fff;border-bottom:1px solid var(--line);padding:12px 20px;display:flex;gap:16px;align-items:center}
+h1{font-size:18px;margin:0;flex:1}main{max-width:920px;margin:0 auto;padding:20px}.panel{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:18px}
+.meta{display:flex;gap:16px;color:var(--muted);margin-bottom:12px}.prompt{white-space:pre-wrap;padding:10px 12px;background:var(--wash);border-left:3px solid var(--accent);margin:12px 0}
+.request-context{border:2px solid var(--ink);padding:14px;margin:16px 0}.request-mode{font-size:24px;font-weight:800;text-align:center}.rule{margin-top:12px;font-weight:600}
+.wording{font-size:14px;margin:14px 0}.question{border-top:1px solid var(--line);padding-top:14px;margin-top:14px}.question h2{font-size:15px;margin:0 0 8px}
+.choices{display:flex;flex-wrap:wrap;gap:8px}.choices label{display:flex;align-items:center;gap:5px;border:1px solid var(--line);border-radius:4px;padding:7px 10px;background:#fff}
+audio{width:100%;margin:8px 0}.pair{display:grid;grid-template-columns:1fr 1fr;gap:16px}.pair strong{display:block}.field{margin-top:14px}.field label{display:block;font-weight:600;margin-bottom:5px}
+select,input,textarea{font:inherit;border:1px solid #9da7b1;border-radius:4px;padding:7px;background:#fff}textarea{width:100%;min-height:74px}.confidence{width:90px}
+.stage-controls{display:flex;align-items:center;gap:16px;margin:16px 0}.stage-controls button,.nav button,.export button{border:0;border-radius:4px;padding:9px 13px;background:#263746;color:#fff;font:inherit;cursor:pointer}.stage-controls button:disabled,.nav button:disabled{opacity:.35;cursor:not-allowed}.amend{font-weight:600}
+.nav{display:flex;justify-content:space-between;gap:12px;margin-top:18px}
+.export{display:flex;gap:8px}.export button{background:var(--accent)}#sourceGate{max-width:520px;margin:80px auto}.error{color:#9d1c24;font-weight:600}.hint{color:var(--muted);font-size:13px}.hidden{display:none!important}
+@media(max-width:680px){header{align-items:flex-start;flex-wrap:wrap}.pair{grid-template-columns:1fr}main{padding:10px}.panel{padding:13px}}
+</style>
+</head>
+<body>
+<script id="bundle-data" type="application/json">{"bundle_id":"t7_judge_gold_negatives","title":"T7 judge-gold negative top-up","mode":"decisive_staged","wording_html":"<p><strong>Label A:<\/strong> Do you hear any sound a reasonable listener would perceive as a human voice or vocalization? Includes singing, rap, speech, chant, humming, wordless vocals, choir, ooh/ah, vocal chops. Answer Yes / No / Unsure; then select perceived vocal type and whether it is isolated, intermittent, or sustained.<\/p><p>Choir-pad rule: perceived as human choir → A=Yes and instrumental request normally violated; perceived as synth timbre → A=No; ambiguous → Unsure.<\/p>","rows":[{"rating_id":"t7_f3a061c3bc6172fbc6cc","media":"media/audio_t7_f3a061c3bc6172fbc6cc.wav","request_mode":"instrumental"},{"rating_id":"t7_ca3a823f8ed63fc36239","media":"media/audio_t7_ca3a823f8ed63fc36239.wav","request_mode":"instrumental"},{"rating_id":"t7_331020a0a38111fd70d3","media":"media/audio_t7_331020a0a38111fd70d3.wav","request_mode":"instrumental"},{"rating_id":"t7_6a8a49572edeb326f9ec","media":"media/audio_t7_6a8a49572edeb326f9ec.wav","request_mode":"instrumental"},{"rating_id":"t7_2c9f7104c12aef0e1d10","media":"media/audio_t7_2c9f7104c12aef0e1d10.wav","request_mode":"instrumental"},{"rating_id":"t7_1911f9b2bc4b36eab3e4","media":"media/audio_t7_1911f9b2bc4b36eab3e4.wav","request_mode":"instrumental"},{"rating_id":"t7_e5acf9d669aab1ba1868","media":"media/audio_t7_e5acf9d669aab1ba1868.wav","request_mode":"instrumental"},{"rating_id":"t7_0993158670e49773f1ce","media":"media/audio_t7_0993158670e49773f1ce.wav","request_mode":"instrumental"},{"rating_id":"t7_da8dc5d8cdbfc3899458","media":"media/audio_t7_da8dc5d8cdbfc3899458.wav","request_mode":"instrumental"},{"rating_id":"t7_c8146f6bbf376a27650e","media":"media/audio_t7_c8146f6bbf376a27650e.wav","request_mode":"instrumental"},{"rating_id":"t7_d98caee6d45cb6b5e8e2","media":"media/audio_t7_d98caee6d45cb6b5e8e2.wav","request_mode":"instrumental"},{"rating_id":"t7_2c020b49d191d6ab3ea0","media":"media/audio_t7_2c020b49d191d6ab3ea0.wav","request_mode":"instrumental"},{"rating_id":"t7_480df9a366dc09d2ebd1","media":"media/audio_t7_480df9a366dc09d2ebd1.wav","request_mode":"instrumental"},{"rating_id":"t7_a6db0494caede4185ab2","media":"media/audio_t7_a6db0494caede4185ab2.wav","request_mode":"instrumental"},{"rating_id":"t7_389589194b362ba9a9a6","media":"media/audio_t7_389589194b362ba9a9a6.wav","request_mode":"instrumental"},{"rating_id":"t7_331a4c74bc8e534c17c2","media":"media/audio_t7_331a4c74bc8e534c17c2.wav","request_mode":"instrumental"},{"rating_id":"t7_636036ccdd4435ab37e7","media":"media/audio_t7_636036ccdd4435ab37e7.wav","request_mode":"instrumental"},{"rating_id":"t7_414f684a5f42a44c42e0","media":"media/audio_t7_414f684a5f42a44c42e0.wav","request_mode":"instrumental"},{"rating_id":"t7_7c431c2bcaeeb0c43527","media":"media/audio_t7_7c431c2bcaeeb0c43527.wav","request_mode":"instrumental"},{"rating_id":"t7_ac88a7bef972454115c3","media":"media/audio_t7_ac88a7bef972454115c3.wav","request_mode":"instrumental"},{"rating_id":"t7_7f78e2412a4887606a58","media":"media/audio_t7_7f78e2412a4887606a58.wav","request_mode":"instrumental"},{"rating_id":"t7_01aeb27e9c16a7615903","media":"media/audio_t7_01aeb27e9c16a7615903.wav","request_mode":"instrumental"},{"rating_id":"t7_60640f0013d92a28ac54","media":"media/audio_t7_60640f0013d92a28ac54.wav","request_mode":"instrumental"},{"rating_id":"t7_8c60ee1951be347d2c95","media":"media/audio_t7_8c60ee1951be347d2c95.wav","request_mode":"instrumental"},{"rating_id":"t7_579e822d29b0065c1029","media":"media/audio_t7_579e822d29b0065c1029.wav","request_mode":"instrumental"},{"rating_id":"t7_0fb0d5481f981069734a","media":"media/audio_t7_0fb0d5481f981069734a.wav","request_mode":"instrumental"},{"rating_id":"t7_c75a4810ad7d428e9267","media":"media/audio_t7_c75a4810ad7d428e9267.wav","request_mode":"instrumental"},{"rating_id":"t7_fa639cbdf5cd7126d8ab","media":"media/audio_t7_fa639cbdf5cd7126d8ab.wav","request_mode":"instrumental"},{"rating_id":"t7_a476c9c582267a2fbf95","media":"media/audio_t7_a476c9c582267a2fbf95.wav","request_mode":"instrumental"},{"rating_id":"t7_02ab46be2c7d15080e0a","media":"media/audio_t7_02ab46be2c7d15080e0a.wav","request_mode":"instrumental"},{"rating_id":"t7_d31924a2a7f4171c3052","media":"media/audio_t7_d31924a2a7f4171c3052.wav","request_mode":"instrumental"},{"rating_id":"t7_56d6000d833332fdd163","media":"media/audio_t7_56d6000d833332fdd163.wav","request_mode":"instrumental"},{"rating_id":"t7_d26301f8f460ae05bbe5","media":"media/audio_t7_d26301f8f460ae05bbe5.wav","request_mode":"instrumental"},{"rating_id":"t7_f772d6c89c4618dd0d0d","media":"media/audio_t7_f772d6c89c4618dd0d0d.wav","request_mode":"instrumental"},{"rating_id":"t7_630d667e83c98c758ba0","media":"media/audio_t7_630d667e83c98c758ba0.wav","request_mode":"instrumental"},{"rating_id":"t7_2d90305ed364b471bfaf","media":"media/audio_t7_2d90305ed364b471bfaf.wav","request_mode":"instrumental"},{"rating_id":"t7_55a63731c01c6badd477","media":"media/audio_t7_55a63731c01c6badd477.wav","request_mode":"instrumental"},{"rating_id":"t7_5620399ecf19f40c61b6","media":"media/audio_t7_5620399ecf19f40c61b6.wav","request_mode":"instrumental"},{"rating_id":"t7_4e3fa7896a911655bd2e","media":"media/audio_t7_4e3fa7896a911655bd2e.wav","request_mode":"instrumental"},{"rating_id":"t7_cfd9ccdb34553959e28e","media":"media/audio_t7_cfd9ccdb34553959e28e.wav","request_mode":"instrumental"}]}</script>
+<section id="sourceGate" class="panel">
+  <h1>Rater identity</h1>
+  <p>This bundle accepts only <code>pi:Richard</code>.</p>
+  <input id="sourceInput" autocomplete="off" placeholder="pi:Richard Ye">
+  <button id="sourceSave">Begin</button>
+  <p id="sourceError" class="error"></p>
+</section>
+<div id="app" class="hidden">
+<header><h1 id="title"></h1><span id="progress"></span><div class="export"><button id="csvExport">CSV</button><button id="jsonExport">JSON</button></div></header>
+<main><section class="panel">
+  <div class="meta"><span id="position"></span><span id="sourceDisplay"></span></div>
+  <div id="audio"></div><div id="wording" class="wording"></div><div id="questions"></div>
+  <div id="stageControls" class="stage-controls hidden"><button id="revealRequest" disabled>Reveal request</button><label id="amendControl" class="amend hidden"><input id="amendLabelA" type="checkbox"> amend Label A</label></div>
+  <div id="requestContext" class="request-context hidden"><div id="requestMode" class="request-mode"></div><div id="prompt" class="prompt hidden"></div><div id="labelBRule" class="rule hidden"></div></div>
+  <div class="field"><label for="confidence">Confidence (1–5)</label><select id="confidence" class="confidence"><option value=""></option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></div>
+  <div class="field"><label for="notes">Comment / notes</label><textarea id="notes"></textarea></div>
+  <div class="nav"><button id="previous">← Previous</button><span class="hint">1/2/3: primary answer · Space: play · ←/→: navigate</span><button id="next">Next →</button></div>
+</section></main></div>
+<script>
+"use strict";
+
+function hasValue(value){return String(value??"").length>0}
+function labelAComplete(response){return ["label_a_voice_presence","perceived_vocal_type","vocal_extent"].every(field=>hasValue(response[field]))}
+function stagePolicy(mode,response){
+ const revealed=Boolean(response.request_revealed);
+ if(mode==="decisive_staged")return {
+  reveal_enabled:labelAComplete(response)&&!revealed,
+  context_visible:revealed,
+  label_a_enabled:!revealed||Boolean(response.label_a_editing),
+  label_b_enabled:revealed,
+  secondary_enabled:revealed
+ };
+ if(mode==="pair_staged")return {
+  reveal_enabled:hasValue(response.quality_preference)&&!revealed,
+  context_visible:revealed,
+  quality_enabled:!revealed,
+  secondary_enabled:revealed
+ };
+ return {reveal_enabled:false,context_visible:mode==="pair",label_a_enabled:true,label_b_enabled:true,quality_enabled:true,secondary_enabled:true};
+}
+function setLabelAEditing(response,enabled){response.label_a_editing=Boolean(enabled);if(enabled)response.label_a_amended=true;return response}
+function matchingLabelBRule(mode){if(mode==="vocal")return "Vocal request → Satisfied only when clearly audible vocals function as an intentional musical element; a fleeting isolated chop, ambiguous voice-like texture, or background artifact is not sufficient.";if(mode==="instrumental")return "Instrumental request → Violated when perceived vocal content is salient, recurrent, or functions as a musical element, or when any phrase is clearly sung, spoken, or rapped; a single isolated non-linguistic one-shot shorter than ~2 s is normally not a violation unless unusually prominent.";throw new Error("invalid request mode")}
+function exportFieldNames(mode){
+ if(mode==="decisive_staged")return ["label_a_voice_presence","perceived_vocal_type","vocal_extent","label_b_constraint","confidence_1_to_5","notes","request_mode","label_a_amended","reveal_sequence"];
+ if(mode==="decisive")return ["label_a_voice_presence","perceived_vocal_type","vocal_extent","label_b_constraint","confidence_1_to_5","notes"];
+ if(mode==="pair_staged")return ["quality_preference","constraint_preference","overall_preference","confidence_1_to_5","notes","prompt_text","request_mode","request_revealed","quality_answer_sequence","reveal_sequence","constraint_answer_sequence","overall_answer_sequence"];
+ if(mode==="pair")return ["quality_preference","overall_preference","constraint_preference","confidence_1_to_5","notes"];
+ return ["label_a_voice_presence","confidence_1_to_5","notes"];
+}
+
+const bundle=JSON.parse(document.getElementById("bundle-data").textContent);
+const storageKey="adsr-rater-v2:"+bundle.bundle_id;
+let state=JSON.parse(localStorage.getItem(storageKey)||'{"rating_source":"","responses":{},"event_counter":0}');
+state.responses=state.responses||{};state.event_counter=Number(state.event_counter||0);
+let cursor=0;
+const $=id=>document.getElementById(id);
+function validSource(v){return v==="pi:Richard"}
+function persist(){localStorage.setItem(storageKey,JSON.stringify(state))}
+function begin(){if(!validSource(state.rating_source))return;$("sourceGate").classList.add("hidden");$("app").classList.remove("hidden");render()}
+$("sourceSave").onclick=()=>{const v=$("sourceInput").value.trim();if(!validSource(v)){ $("sourceError").textContent="Use pi:<name> or human:CXY exactly.";return}state.rating_source=v;persist();begin()};
+function radio(name,label,choices){return '<div class="question" data-question="'+name+'"><h2>'+label+'</h2><div class="choices">'+choices.map(v=>'<label><input type="radio" name="'+name+'" value="'+v+'">'+v+'</label>').join("")+'</div></div>'}
+function selectField(name,label,choices){return '<div class="field"><label for="'+name+'">'+label+'</label><select id="'+name+'"><option value=""></option>'+choices.map(v=>'<option>'+v+'</option>').join("")+'</select></div>'}
+function questionMarkup(){
+ if(bundle.mode==="decisive"||bundle.mode==="decisive_staged")return radio("label_a_voice_presence","Label A: voice presence",["yes","no","unsure"])+selectField("perceived_vocal_type","Perceived vocal type",["singing","rap","speech","chant","humming","wordless vocals","choir","ooh/ah","vocal chops","voice-like/ambiguous","none"])+selectField("vocal_extent","Vocal extent",["isolated","intermittent","sustained","none","unsure"])+radio("label_b_constraint","Label B: constraint",["satisfied","violated","unsure"]);
+ if(bundle.mode==="pair"||bundle.mode==="pair_staged")return radio("quality_preference","Quality preference (PRIMARY)",["A","B","tie"])+radio("constraint_preference","Constraint preference",["A","B","tie"])+radio("overall_preference","Overall preference",["A","B","tie"]);
+ return radio("label_a_voice_presence","Voice presence",["yes","no","unsure"]);
+}
+function responseFields(){return exportFieldNames(bundle.mode).filter(field=>!["request_mode","prompt_text","request_revealed","label_a_amended","reveal_sequence","quality_answer_sequence","constraint_answer_sequence","overall_answer_sequence"].includes(field))}
+function fieldElement(field){if(field==="confidence_1_to_5")return $("confidence");if(field==="notes")return $("notes");return document.querySelector('[name="'+field+'"]:checked')||$(field)}
+function setFieldDisabled(field,disabled){document.querySelectorAll('[name="'+field+'"]' ).forEach(el=>el.disabled=disabled);const byId=$(field);if(byId)byId.disabled=disabled}
+function showQuestion(field,show){const el=document.querySelector('[data-question="'+field+'"]');if(el)el.classList.toggle("hidden",!show)}
+function markSequence(response,field){const key={quality_preference:"quality_answer_sequence",constraint_preference:"constraint_answer_sequence",overall_preference:"overall_answer_sequence"}[field];if(key&&!response[key]){state.event_counter+=1;response[key]=state.event_counter}}
+function refreshStageAvailability(){const row=bundle.rows[cursor],r=state.responses[row.rating_id]||{},policy=stagePolicy(bundle.mode,r);if(bundle.mode==="decisive_staged"||bundle.mode==="pair_staged")$("revealRequest").disabled=!policy.reveal_enabled}
+function saveCurrent(changedField=""){const row=bundle.rows[cursor],r=state.responses[row.rating_id]||{};for(const field of responseFields()){const el=fieldElement(field);r[field]=el?el.value:""}if(changedField)markSequence(r,changedField);state.responses[row.rating_id]=r;persist();refreshStageAvailability();updateProgress()}
+function render(){const row=bundle.rows[cursor],r=state.responses[row.rating_id]||{},policy=stagePolicy(bundle.mode,r);$("title").textContent=bundle.title;$("position").textContent=(cursor+1)+" / "+bundle.rows.length;$("sourceDisplay").textContent=state.rating_source;
+ $("audio").innerHTML=(bundle.mode==="pair"||bundle.mode==="pair_staged")?'<div class="pair"><div><strong>A</strong><audio controls preload="metadata" src="'+row.media_a+'"></audio></div><div><strong>B</strong><audio controls preload="metadata" src="'+row.media_b+'"></audio></div></div>':'<audio controls preload="metadata" src="'+row.media+'"></audio>';
+ $("wording").innerHTML=bundle.wording_html;$("questions").innerHTML=questionMarkup();for(const field of responseFields()){const value=r[field]||"";if(field==="confidence_1_to_5")$("confidence").value=value;else if(field==="notes")$("notes").value=value;else{const el=document.querySelector('[name="'+field+'"][value="'+value+'"]')||$(field);if(el){if(el.type==="radio")el.checked=true;else el.value=value}}}
+ const staged=bundle.mode==="decisive_staged"||bundle.mode==="pair_staged";$("stageControls").classList.toggle("hidden",!staged);$("revealRequest").classList.toggle("hidden",!staged||policy.context_visible);$("revealRequest").disabled=!policy.reveal_enabled;$("requestContext").classList.toggle("hidden",!policy.context_visible);
+ $("requestMode").textContent=policy.context_visible?"REQUEST: "+String(row.request_mode||"").toUpperCase():"";const promptText=row.prompt_text||row.request_text||"";$("prompt").textContent=promptText;$("prompt").classList.toggle("hidden",!policy.context_visible||!promptText);$("labelBRule").textContent=bundle.mode==="decisive_staged"&&policy.context_visible?matchingLabelBRule(row.request_mode):"";$("labelBRule").classList.toggle("hidden",bundle.mode!=="decisive_staged"||!policy.context_visible);
+ if(bundle.mode==="decisive_staged"){["label_a_voice_presence","perceived_vocal_type","vocal_extent"].forEach(field=>setFieldDisabled(field,!policy.label_a_enabled));showQuestion("label_b_constraint",policy.label_b_enabled);setFieldDisabled("label_b_constraint",!policy.label_b_enabled);$("amendControl").classList.toggle("hidden",!policy.context_visible);$("amendLabelA").checked=Boolean(r.label_a_editing)}else{$("amendControl").classList.add("hidden")}
+ if(bundle.mode==="pair_staged"){setFieldDisabled("quality_preference",!policy.quality_enabled);for(const field of ["constraint_preference","overall_preference"]){showQuestion(field,policy.secondary_enabled);setFieldDisabled(field,!policy.secondary_enabled)}}
+ const secondaryLocked=(bundle.mode==="decisive_staged"||bundle.mode==="pair_staged")&&!policy.secondary_enabled;$("confidence").disabled=secondaryLocked;$("notes").disabled=secondaryLocked;
+ document.querySelectorAll("#app input[type=radio],#app select").forEach(el=>el.addEventListener("change",()=>saveCurrent(el.name||el.id)));$("notes").addEventListener("input",()=>saveCurrent("notes"));$("amendLabelA").onchange=()=>{setLabelAEditing(r,$("amendLabelA").checked);state.responses[row.rating_id]=r;persist();render()};$("previous").disabled=cursor===0;$("next").disabled=cursor===bundle.rows.length-1;updateProgress()}
+function rowComplete(row){const response=state.responses[row.rating_id]||{};if((bundle.mode==="decisive_staged"||bundle.mode==="pair_staged")&&!response.request_revealed)return false;return responseFields().filter(field=>field!=="notes").every(field=>hasValue(response[field]))}
+function updateProgress(){const done=bundle.rows.filter(rowComplete).length;$("progress").textContent=done+" / "+bundle.rows.length+" complete"}
+$("revealRequest").onclick=()=>{saveCurrent();const row=bundle.rows[cursor],r=state.responses[row.rating_id]||{},policy=stagePolicy(bundle.mode,r);if(!policy.reveal_enabled)return;r.request_revealed=true;state.event_counter+=1;r.reveal_sequence=state.event_counter;state.responses[row.rating_id]=r;persist();render()};
+$("previous").onclick=()=>{saveCurrent();if(cursor>0){cursor--;render()}};$("next").onclick=()=>{saveCurrent();if(cursor<bundle.rows.length-1){cursor++;render()}};
+function csvCell(v){return '"'+String(v??"").replaceAll('"','""')+'"'}
+function exportRows(){saveCurrent();return bundle.rows.map(row=>{const r=state.responses[row.rating_id]||{},out={rating_id:row.rating_id};for(const field of exportFieldNames(bundle.mode)){if(field==="request_mode"||field==="prompt_text")out[field]=row[field]||"";else if(field==="request_revealed"||field==="label_a_amended")out[field]=Boolean(r[field]);else out[field]=r[field]??""}out.rating_source=state.rating_source;return out})}
+function download(name,text,type){const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([text],{type}));a.download=name;document.body.appendChild(a);a.click();URL.revokeObjectURL(a.href);a.remove()}
+function initials(){return state.rating_source.split(":",2)[1].replace(/[^A-Za-z0-9]+/g,"_")}
+$("csvExport").onclick=()=>{const rows=exportRows(),heads=Object.keys(rows[0]);download("responses_"+initials()+".csv",heads.join(",")+"\n"+rows.map(r=>heads.map(h=>csvCell(r[h])).join(",")).join("\n")+"\n","text/csv")};
+$("jsonExport").onclick=()=>download("responses_"+initials()+".json",JSON.stringify({bundle_id:bundle.bundle_id,rating_source:state.rating_source,exported_at:new Date().toISOString(),responses:exportRows()},null,2)+"\n","application/json");
+document.addEventListener("keydown",e=>{if(e.target.matches("input,textarea,select"))return;if(e.key==="ArrowLeft")$("previous").click();if(e.key==="ArrowRight")$("next").click();if(e.key===" "){e.preventDefault();const a=document.querySelectorAll("audio")[e.shiftKey?1:0];if(a)a.paused?a.play():a.pause()}if(["1","2","3"].includes(e.key)){const q=(bundle.mode==="pair"||bundle.mode==="pair_staged")?"quality_preference":"label_a_voice_presence",opts=[...document.querySelectorAll('[name="'+q+'"]')].filter(el=>!el.disabled);if(opts[Number(e.key)-1]){opts[Number(e.key)-1].checked=true;saveCurrent(q)}}});
+if(state.rating_source){if(validSource(state.rating_source))begin();else{state={rating_source:"",responses:{}};persist()}}
+</script>
+</body></html>
