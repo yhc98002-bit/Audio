@@ -24,7 +24,7 @@ Name: Richard Ye
 
 Date: 2026-07-13
 
-Signing commit: PENDING_SIGNING_COMMIT
+Signing commit: cf805a3dd88067931c1483d2bbe595d19f839b18
 
 Decision: I have reviewed the completed T6 reliability and frozen held-out
 promotion evidence and approve the mechanically promoted corrected instrument

@@ -1,6 +1,6 @@
 # T7 And W2 Chain Status
 
-`W2_AMENDMENT_STATUS = UNSIGNED_BLOCKED`
+`W2_AMENDMENT_STATUS = PI1_SIGNED_PI2_PENDING`
 evidence: `paper_prep/t7_judge_gold_20260713/W2_SIGNATURE_VERIFICATION_REPORT.md`, `paper_prep/W2_AMENDMENT_20260712.md`
 
 `LIVE_CONFIRM_STATUS = BLOCKED_UNSIGNED_W2_AMENDMENT`
@@ -21,8 +21,8 @@ evidence: `paper_prep/autochain_20260712/judge_aprime/JUDGE_LABEL_A_VALIDATION_R
 `A_PRIME_GATE = BLOCKED_T7_RATINGS`
 evidence: `paper_prep/validation_A_prime/A_PRIME_GATE_REPORT_20260712.md`, `paper_prep/t7_judge_gold_20260713/T7_CONTINUATION_COMMANDS.md`
 
-`W2_ADOPTION = BLOCKED_BOTH_SIGNATURES`
-evidence: `paper_prep/autochain_20260712/recompute/DUAL_PI_ADOPTION_PACKET.md`, `paper_prep/t7_judge_gold_20260713/W2_SIGNATURE_VERIFICATION_REPORT.md`
+`W2_ADOPTION = PI1_SIGNED_PI2_PENDING`
+evidence: `paper_prep/t7_judge_gold_20260713/W2_ADOPTION_SIGNATURE_REQUEST.md`, `paper_prep/t7_judge_gold_20260713/W2_SIGNATURE_VERIFICATION_REPORT.md`
 
 `PLAN_CLAIMS_SUPERSESSION = NOT_APPLIED`
 evidence: `paper_prep/autochain_20260712/recompute/PLAN_UPDATE_DRAFT.md`, `paper_prep/autochain_20260712/recompute/CLAIMS_UPDATE_DRAFT.md`

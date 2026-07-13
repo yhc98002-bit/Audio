@@ -123,14 +123,18 @@ def test_t7_ingest_rejects_shortfall(tmp_path):
     assert result["consumed_t7_presentations"] == 40
 
 
-def test_w2_signature_verification_remains_fail_closed():
+def test_w2_signature_verification_records_pi1_and_remains_fail_closed():
     amendment = (PAPER / "W2_AMENDMENT_20260712.md").read_text(encoding="utf-8")
     report = (
         PAPER / "t7_judge_gold_20260713/W2_SIGNATURE_VERIFICATION_REPORT.md"
     ).read_text(encoding="utf-8")
-    assert "Name: ______________________________" in amendment
+    assert "Name: Richard Ye" in amendment
+    assert "Date: 2026-07-13" in amendment
+    assert "Commit SHA: cf805a3dd88067931c1483d2bbe595d19f839b18" in amendment
     assert "PI 2 provenance: `pi:________________`" in amendment
-    assert "W2_AMENDMENT_STATUS = UNSIGNED_BLOCKED" in report
+    assert "Name: ______________________________" in amendment
+    assert "W2_AMENDMENT_STATUS = PI1_SIGNED_PI2_PENDING" in report
+    assert "LIVE_CONFIRM_STATUS = BLOCKED_UNSIGNED_W2_AMENDMENT" in report
     assert "prospective pre-rating signature" in report
 
 
@@ -149,14 +153,14 @@ def test_t7_chain_report_has_terminal_statuses_and_evidence():
         PAPER / "t7_judge_gold_20260713/T7_CHAIN_STATUS_REPORT.md"
     ).read_text(encoding="utf-8").splitlines()
     expected = {
-        "W2_AMENDMENT_STATUS": "UNSIGNED_BLOCKED",
+        "W2_AMENDMENT_STATUS": "PI1_SIGNED_PI2_PENDING",
         "LIVE_CONFIRM_STATUS": "BLOCKED_UNSIGNED_W2_AMENDMENT",
         "T7_PACKAGE_STATUS": "READY",
         "T7_RATINGS_STATUS": "AWAITING_PI",
         "JUDGE_VALIDATION_STATUS": "BLOCKED_T7_RATINGS",
         "JUDGE_500_STATUS": "BLOCKED_T7_RATINGS",
         "A_PRIME_GATE": "BLOCKED_T7_RATINGS",
-        "W2_ADOPTION": "BLOCKED_BOTH_SIGNATURES",
+        "W2_ADOPTION": "PI1_SIGNED_PI2_PENDING",
         "PLAN_CLAIMS_SUPERSESSION": "NOT_APPLIED",
         "EVIDENCE_BUNDLE_REFRESH": "BLOCKED_W2_ADOPTION",
         "TEST_SUITE_STATUS": "PASS",

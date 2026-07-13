@@ -1,10 +1,10 @@
 # W2 Corrected-Instrument Amendment
 
 Date drafted: 2026-07-12  
-Governing status: dual-PI decision draft; no human ratings, promotion, PLAN edit,
-or claim-status change is authorized by this unsigned document.
+Governing status: PI 1 signed, PI 2 pending; no PLAN edit or claim-status change
+is authorized until the required independent signatures are complete.
 
-`W2_AMENDMENT_STATUS = DRAFTED_AWAITING_SIGNATURE`
+`W2_AMENDMENT_STATUS = PI1_SIGNED_PI2_PENDING`
 
 ## 1. Scope And Failure Rule
 
@@ -239,7 +239,7 @@ any PLAN or claim-status change.
 PI 1 provenance: `pi:Richard`  
 Name: Richard Ye
 Date: 2026-07-13
-Commit SHA: PENDING_SIGNING_COMMIT
+Commit SHA: cf805a3dd88067931c1483d2bbe595d19f839b18
 Decision: I have read and approve W2_AMENDMENT_20260712.md as the governing W2
 calibration, promotion, correction, factorial, and live-confirm design.
 
