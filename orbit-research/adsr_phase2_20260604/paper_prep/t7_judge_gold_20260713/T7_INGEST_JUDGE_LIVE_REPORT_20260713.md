@@ -30,6 +30,10 @@ evidence: `paper_prep/paper_evidence_bundle_20260713_queued/INDEX.md`, `paper_pr
 `TEST_SUITE_STATUS = PASS`
 evidence: `paper_prep/t7_judge_gold_20260713/FULL_TEST_RESULT_SUMMARY_20260713.json`, `tests/test_t7_judge_gold_20260713.py`
 
+- Full repository suite: 336 passed, 0 failed.
+- Focused T7 recovery suite after the final launcher-clock fix: 14 passed, 0 failed.
+- Python compile checks and both shell syntax checks passed.
+
 ## Validated Input
 
 - T7 response IDs: 40/40 exact; provenance: `pi:Richard`.
