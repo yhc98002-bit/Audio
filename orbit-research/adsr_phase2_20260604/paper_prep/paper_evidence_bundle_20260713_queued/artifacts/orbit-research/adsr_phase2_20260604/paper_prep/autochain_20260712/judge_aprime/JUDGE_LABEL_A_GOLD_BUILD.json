@@ -1,0 +1,21 @@
+{
+  "all_available_negative_shortfall": 7,
+  "all_t1_t2_t6_available_counts": {
+    "no": 43,
+    "unsure": 8,
+    "yes": 361
+  },
+  "evaluation_counts": {
+    "no": 27,
+    "unsure": 4,
+    "yes": 149
+  },
+  "evaluation_negative_topup_needed": 23,
+  "evaluation_rows_decided": 176,
+  "evaluation_rows_total": 180,
+  "frozen_negative_minimum": 50,
+  "split_disjoint_by_media_sha256": true,
+  "status": "GOLD_SPLIT_READY",
+  "tuning_rows_after_hash_exclusion": 232,
+  "tuning_rows_excluded_hash_overlap": 0
+}

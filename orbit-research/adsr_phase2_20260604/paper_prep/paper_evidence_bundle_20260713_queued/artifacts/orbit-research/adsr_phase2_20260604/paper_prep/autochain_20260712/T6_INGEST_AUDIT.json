@@ -1,0 +1,24 @@
+{
+  "admin_sha256": "843129ec08697853f53b1c645f78281c758edcd32b5ccf48193b19807ef4f43e",
+  "bundle_id": "t6_calibration_torch251_recovery",
+  "exact_id_set_match": true,
+  "input_sha256": "8109136b096d25b7711f11e72541979529e75882f5fefc7c5ef6e58f4a5802dc",
+  "optional_confidence_missing": 181,
+  "optional_notes_missing": 201,
+  "rating_source": "pi:Richard",
+  "request_mode_matches_admin": true,
+  "required_answer_blanks": 0,
+  "reveal_sequences_unique_positive": true,
+  "role_counts": {
+    "appendix": 1,
+    "heldout": 100,
+    "repeat": 20,
+    "train": 60,
+    "transport": 20
+  },
+  "rows": 201,
+  "staged_reveal_export_limitation": "Label-A/B answer timestamps are not exported; order is verified from fail-closed UI invariants plus per-row reveal_sequence",
+  "staged_reveal_verification": "PASS_UI_INVARIANT_PLUS_REVEAL_SEQUENCE",
+  "status": "PASS",
+  "unique_ids": 201
+}

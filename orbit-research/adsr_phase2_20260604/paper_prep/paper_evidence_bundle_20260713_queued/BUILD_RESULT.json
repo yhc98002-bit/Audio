@@ -1,0 +1,18 @@
+{
+  "EVIDENCE_BUNDLE_STATUS": "BUILT",
+  "bundle": "paper_prep/paper_evidence_bundle_20260713_queued",
+  "indexed_artifacts": 83,
+  "statuses": {
+    "A_PRIME_GATE": "QUEUED_AFTER_JUDGE",
+    "EVIDENCE_BUNDLE_STATUS": "BUILT",
+    "JUDGE_500_STATUS": "QUEUED_AFTER_VALIDATION",
+    "JUDGE_VALIDATION_STATUS": "QUEUED_AWAITING_GPUS",
+    "LIVE_CONFIRM_STATUS": "QUEUED_AWAITING_GPUS",
+    "PLAN_CLAIMS_SUPERSESSION": "NOT_APPLIED",
+    "T7_INGESTION_STATUS": "PASS",
+    "TEST_SUITE_STATUS": "PASS",
+    "W2_ADOPTION": "PI1_SIGNED_PI2_PENDING",
+    "W2_AMENDMENT_STATUS": "PI1_SIGNED_PI2_PENDING"
+  },
+  "tarball": "paper_prep/paper_evidence_bundle_20260713_queued.tar.gz"
+}
