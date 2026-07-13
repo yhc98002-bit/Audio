@@ -1,6 +1,6 @@
 # W2 Corrected-Instrument Adoption Signature Request
 
-`W2_ADOPTION = AWAITING_AUTHENTIC_DUAL_PI_SIGNATURES`
+`W2_ADOPTION = PI1_SIGNED_PI2_PENDING`
 
 This request ratifies adoption after T6 ratings; it must not be described as a
 prospective pre-rating signature.
@@ -20,11 +20,11 @@ Evidence presented for adoption:
 
 Provenance: `pi:Richard`
 
-Name: ______________________________
+Name: Richard Ye
 
-Date: ______________________________
+Date: 2026-07-13
 
-Signing commit: ____________________
+Signing commit: PENDING_SIGNING_COMMIT
 
 Decision: I have reviewed the completed T6 reliability and frozen held-out
 promotion evidence and approve the mechanically promoted corrected instrument

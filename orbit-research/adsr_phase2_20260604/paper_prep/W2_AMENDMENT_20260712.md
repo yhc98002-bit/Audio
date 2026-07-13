@@ -237,11 +237,14 @@ paper claim. Both signatures are required before human ratings begin and before
 any PLAN or claim-status change.
 
 PI 1 provenance: `pi:Richard`  
-Name: ______________________________  
-Date: ______________________________  
-Commit SHA: ________________________  
+Name: Richard Ye
+Date: 2026-07-13
+Commit SHA: PENDING_SIGNING_COMMIT
 Decision: I have read and approve W2_AMENDMENT_20260712.md as the governing W2
 calibration, promotion, correction, factorial, and live-confirm design.
+
+Timing disclosure: this PI 1 signature is retrospective ratification because
+the T6 ratings existed before this signature was committed.
 
 PI 2 provenance: `pi:________________`  
 Name: ______________________________  
@@ -249,4 +252,3 @@ Date: ______________________________
 Commit SHA: ________________________  
 Decision: I have read and approve W2_AMENDMENT_20260712.md as the governing W2
 calibration, promotion, correction, factorial, and live-confirm design.
-
