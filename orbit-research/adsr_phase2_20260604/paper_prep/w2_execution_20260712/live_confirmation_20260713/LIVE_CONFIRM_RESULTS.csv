@@ -1,0 +1,13 @@
+policy,stratum,n,final_violation_rate,no_completed_output_rate,mean_actual_steps,mean_nominal_steps
+no_probe_reseed,all,128,0.265625,0.0,60.0,60.0
+no_probe_reseed,instrumental_risk,96,0.3541666666666667,0.0,60.0,60.0
+no_probe_reseed,vocal_sanity,32,0.0,0.0,60.0,60.0
+corrected_probe_abort_reseed,all,128,0.4921875,0.390625,38.90625,60.0
+corrected_probe_abort_reseed,instrumental_risk,96,0.6458333333333334,0.5104166666666666,35.0625,60.0
+corrected_probe_abort_reseed,vocal_sanity,32,0.03125,0.03125,50.4375,60.0
+always_direction_condition,all,128,0.1640625,0.0,60.0,60.0
+always_direction_condition,instrumental_risk,96,0.21875,0.0,60.0,60.0
+always_direction_condition,vocal_sanity,32,0.0,0.0,60.0,60.0
+corrected_probe_direction_action,all,128,0.3125,0.0,45.9375,60.0
+corrected_probe_direction_action,instrumental_risk,96,0.4166666666666667,0.0,44.25,60.0
+corrected_probe_direction_action,vocal_sanity,32,0.0,0.0,51.0,60.0

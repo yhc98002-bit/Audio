@@ -1,0 +1,79 @@
+{
+  "JUDGE_VALIDATION_STATUS": "PASS",
+  "bootstrap": {
+    "balanced_accuracy": {
+      "one_sided_95_lcb": 0.9411129929699182,
+      "two_sided_95_ci": [
+        0.9390758991937093,
+        0.9602832030325827
+      ],
+      "valid_replicates": 10000
+    },
+    "sensitivity": {
+      "one_sided_95_lcb": 0.9827425651131632,
+      "two_sided_95_ci": [
+        0.9824364056373961,
+        1.0
+      ],
+      "valid_replicates": 10000
+    },
+    "specificity": {
+      "one_sided_95_lcb": 0.8931217893349092,
+      "two_sided_95_ci": [
+        0.8891985777197848,
+        0.925542237144162
+      ],
+      "valid_replicates": 10000
+    }
+  },
+  "calls_per_clip": 3,
+  "checks": {
+    "abstention_at_most_0p10": true,
+    "balanced_accuracy_lcb": true,
+    "balanced_accuracy_point": true,
+    "negative_rows_at_least_50": true,
+    "positive_rows_at_least_30": true,
+    "sensitivity_lcb": true,
+    "sensitivity_point": true,
+    "specificity_lcb": true,
+    "specificity_point": true
+  },
+  "class_composition": {
+    "negative_no": 67,
+    "positive_yes": 149
+  },
+  "decoding": {
+    "seeds": [
+      20260709,
+      20260710,
+      20260711
+    ],
+    "temperature": 0
+  },
+  "gold_set_hash": "2b2008a63ff4a9e95c20384062baa510575c292bfa3809fc33abac128d380594",
+  "metrics": {
+    "abstention_rate": 0.0,
+    "abstentions": 0,
+    "balanced_accuracy": 0.9507049553608808,
+    "mcc": 0.9461842088410681,
+    "sensitivity": 0.9914210137502085,
+    "specificity": 0.9099888969715532,
+    "unweighted_confusion": {
+      "fn": 3,
+      "fp": 2,
+      "tn": 65,
+      "tp": 146
+    },
+    "weighted_fn": 108.0,
+    "weighted_fp": 235.1,
+    "weighted_tn": 2376.7999999999965,
+    "weighted_tp": 12480.899999999998
+  },
+  "model_id": "Qwen3-Omni-30B-A3B-Instruct",
+  "served_model": "qwen3-omni-judge",
+  "source_composition": {
+    "t6_fresh_pi": 176,
+    "t7_all_hash_disjoint_pi_gold": 40
+  },
+  "tuning_and_evaluation_overlap": 0
+}

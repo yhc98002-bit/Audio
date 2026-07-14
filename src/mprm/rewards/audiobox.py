@@ -11,7 +11,7 @@ top-level `AudioboxAestheticsModel` class. The actual public entry point is
 The HF Python lib was unreliable on this box for the bert/roberta cases
 (STOP-B-8 Phase-1 tokenizer shim issue), so we pre-download the checkpoint via
 the public S3 URL `https://dl.fbaipublicfiles.com/audiobox-aesthetics/checkpoint.pt`
-to `$AUDIOBOX_AES_CKPT` (default `/home/yehaocun23s/source/audiobox_aesthetics/checkpoint.pt`)
+to `$AUDIOBOX_AES_CKPT` (default `~/source/audiobox_aesthetics/checkpoint.pt`)
 and pass the local path to `AesPredictor`. If the env var path doesn't exist,
 we fall back to `initialize_predictor(ckpt=None)` which will re-attempt the
 HF download.
@@ -25,7 +25,9 @@ from mprm.data.prompts import Prompt
 from mprm.rewards.interface import RewardModel, RewardScore
 
 
-_DEFAULT_LOCAL_CKPT = "/home/yehaocun23s/source/audiobox_aesthetics/checkpoint.pt"
+_DEFAULT_LOCAL_CKPT = os.path.join(
+    os.path.expanduser("~"), "source", "audiobox_aesthetics", "checkpoint.pt"
+)
 
 
 class AudioboxReward(RewardModel):

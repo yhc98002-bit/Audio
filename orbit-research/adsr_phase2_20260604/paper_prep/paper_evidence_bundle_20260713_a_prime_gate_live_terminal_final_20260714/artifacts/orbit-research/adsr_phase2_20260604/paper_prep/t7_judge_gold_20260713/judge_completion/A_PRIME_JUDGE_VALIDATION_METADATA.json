@@ -1,0 +1,16 @@
+{
+  "calibration_metrics": {
+    "abstention_rate": 0.0,
+    "balanced_accuracy": 0.9507049553608808,
+    "mcc": 0.9461842088410681,
+    "sensitivity": 0.9914210137502085,
+    "specificity": 0.9099888969715532
+  },
+  "global_raw_ledger_sha256": "11d950729ff98281c93b011340b3225e914e8ed62dbbcb42ccdd38aa821e0ef5",
+  "gold_set_hash": "2b2008a63ff4a9e95c20384062baa510575c292bfa3809fc33abac128d380594",
+  "model_id": "Qwen3-Omni-30B-A3B-Instruct",
+  "raw_response_ledger": "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion/orbit-research/adsr_phase2_20260604/paper_prep/t7_judge_gold_20260713/judge_completion/A_PRIME_ALL_JUDGE_RAW_RESPONSES.jsonl",
+  "validation_raw_ledger_sha256": "52627d3a800f936cb69cc204ac0980454ebbcc7e2fc75f6787838cb59bb96e21",
+  "validation_report": "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion/orbit-research/adsr_phase2_20260604/paper_prep/t7_judge_gold_20260713/judge_completion/POOLED_JUDGE_VALIDATION_REPORT.md",
+  "validation_status": "PASS"
+}

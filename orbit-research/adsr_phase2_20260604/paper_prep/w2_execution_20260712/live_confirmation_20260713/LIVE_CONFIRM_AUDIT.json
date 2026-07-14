@@ -1,0 +1,36 @@
+{
+  "LIVE_CONFIRM_RESULT": "CRITERIA_NOT_ALL_MET",
+  "all_mechanical_conditions_met": false,
+  "bootstrap": {
+    "policy4_vs_policy1_reduction_lcb_95_one_sided": -0.109375,
+    "policy4_vs_policy1_reduction_median": -0.046875,
+    "policy4_vs_policy3_excess_median": 0.1484375,
+    "policy4_vs_policy3_excess_ucb_95_one_sided": 0.203125
+  },
+  "bootstrap_reps": 20000,
+  "bootstrap_seed": 2026071406,
+  "conditions": {
+    "nominal_compute_within_one_percent": true,
+    "policy4_noninferior_to_policy3": false,
+    "primary_reduction_lcb_positive": false,
+    "runtime_cap_met": true,
+    "vocal_sanity_excess_within_005": true
+  },
+  "deduplicated_ledger_rows": 1536,
+  "exact_duplicate_rows_removed": 0,
+  "extra_unit_ids": [],
+  "manifest_rows": 512,
+  "manifest_sha256": "f054c12c9d3d2717f0f01375757c99badf961a2187d812b81f83a22531df08f3",
+  "missing_unit_ids": [],
+  "nominal_compute_relative_difference": 0.0,
+  "policy_sha256": "c6de82920857a220ede8d9d0391b445a94af7d721c662480044de7f70acb9134",
+  "raw_ledger_rows": 1536,
+  "record_status_counts": {
+    "ABORTED": 250,
+    "COMPLETE": 1236,
+    "NO_COMPLETED_SLOT": 50
+  },
+  "recovered_orphan_rows": 4,
+  "terminal_input_status": "GENERATION_COMPLETE_ANALYSIS_PENDING",
+  "unit_selection_rows": 512
+}

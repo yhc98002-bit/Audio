@@ -1,0 +1,27 @@
+{
+  "accounting": "each slot is charged 30 nominal steps; an early abort leaves the unspent 18 steps unused",
+  "attempt_slots": 2,
+  "cap_miss_rule": "remove online headline",
+  "direction_actions": {
+    "instrumental": "positive-only instrumental wording plus frozen best sampler setting",
+    "vocal": "vocal guidance scales plus structure hint when absent"
+  },
+  "nominal_steps_per_slot": 30,
+  "pass_criteria": {
+    "nominal_compute_difference": "<=1%",
+    "policy4_vs_policy1_violation_reduction_one_sided_95_lcb": ">0",
+    "policy4_vs_policy3_excess_violation_one_sided_95_ucb": "<=0.05",
+    "runtime_hard_stop_hours": 48,
+    "vocal_sanity_excess_violation_vs_policy1": "<=0.05"
+  },
+  "policies": [
+    "no_probe_reseed",
+    "corrected_probe_abort_reseed",
+    "always_direction_condition",
+    "corrected_probe_direction_action"
+  ],
+  "probe_abort_actual_steps": 12,
+  "probe_decision_sigma": 0.8,
+  "selection": "among completed slots, prefer promoted-instrument Label-B satisfaction then frozen final-common score",
+  "status": "FROZEN_PRELAUNCH"
+}

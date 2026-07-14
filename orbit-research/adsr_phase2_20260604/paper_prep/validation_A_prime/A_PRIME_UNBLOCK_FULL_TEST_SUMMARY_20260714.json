@@ -1,0 +1,10 @@
+{
+  "command": "pytest -q",
+  "completed_at": "2026-07-14T18:40:00+08:00",
+  "environment": "audio-prm; torch 2.7.1+cu126",
+  "failed": 0,
+  "output": "paper_prep/validation_A_prime/A_PRIME_UNBLOCK_FULL_TEST_RESULTS_20260714.txt",
+  "passed": 355,
+  "status": "PASS",
+  "verified_collected_tests": 355
+}

@@ -1,0 +1,20 @@
+{
+  "imports": {
+    "bart_target": "/HOME/paratera_xy/pxy1289/source/laion_clap_tokenizers/facebook--bart-base",
+    "mert_target": "/HOME/paratera_xy/pxy1289/source/mert/MERT-v1-95M"
+  },
+  "offline_flags": {
+    "HF_HUB_OFFLINE": "1",
+    "TRANSFORMERS_OFFLINE": "1"
+  },
+  "paths": {
+    "AUDIOBOX_AES_CKPT": "/HOME/paratera_xy/pxy1289/source/audiobox_aesthetics/checkpoint.pt",
+    "CLAP_630K_AUDIOSET": "/HOME/paratera_xy/pxy1289/.cache/clap/630k-audioset-best.pt",
+    "LAION_CLAP_BART_DIR": "/HOME/paratera_xy/pxy1289/source/laion_clap_tokenizers/facebook--bart-base",
+    "LAION_CLAP_BERT_DIR": "/HOME/paratera_xy/pxy1289/source/laion_clap_tokenizers/bert-base-uncased",
+    "LAION_CLAP_ROBERTA_DIR": "/HOME/paratera_xy/pxy1289/source/laion_clap_tokenizers/roberta-base",
+    "MERT_LOCAL_PATH": "/HOME/paratera_xy/pxy1289/source/mert/MERT-v1-95M",
+    "WHISPER_LARGE_V3": "/HOME/paratera_xy/pxy1289/.cache/whisper/large-v3.pt"
+  },
+  "status": "PASS_OFFLINE_REWARD_PREFLIGHT"
+}

@@ -95,14 +95,14 @@ def test_plan_and_claims_separate_legacy_failure_from_t6_validity():
     assert "0 amendment-compliant primary ratings" not in plan
 
 
-def test_signature_gates_remain_closed_and_live_did_not_launch():
+def test_amendment_unlocks_live_while_adoption_supersession_remains_closed():
     builder = load_script("build_t7_evidence_bundle_20260713")
     statuses = builder.current_statuses()
     assert statuses["A_PRIME_GATE"] == "FAIL_LEGACY_INSTRUMENT_NOT_VALIDATED"
-    assert statuses["W2_AMENDMENT_STATUS"] == "PI1_SIGNED_PI2_PENDING"
-    assert statuses["W2_ADOPTION"] == "PI1_SIGNED_PI2_PENDING"
+    assert statuses["W2_AMENDMENT_STATUS"] == "SIGNED_BY_BOTH_PIS"
+    assert statuses["W2_ADOPTION"] == "PI1_SIGNED_PI2_INCOMPLETE"
     assert statuses["PLAN_CLAIMS_SUPERSESSION"] == "NOT_APPLIED"
-    assert statuses["LIVE_CONFIRM_STATUS"] == "BLOCKED_UNSIGNED_W2_AMENDMENT"
+    assert statuses["LIVE_CONFIRM_STATUS"] == "COMPLETE_CRITERIA_NOT_ALL_MET"
 
 
 def test_mechanical_scorer_cannot_overwrite_terminal_pi_gate_call():
@@ -122,11 +122,12 @@ def test_unblock_report_has_terminal_statuses_and_existing_evidence():
         "A_PRIME_GATE": "FAIL_LEGACY_INSTRUMENT_NOT_VALIDATED",
         "T6_LABEL_VALIDITY_STATUS": "PROMOTED",
         "PLAN_CLAIMS_LABEL_VALIDITY": "UPDATED",
-        "W2_AMENDMENT_STATUS": "PI1_SIGNED_PI2_PENDING",
-        "W2_ADOPTION": "PI1_SIGNED_PI2_PENDING",
+        "W2_AMENDMENT_STATUS": "SIGNED_BY_BOTH_PIS",
+        "W2_ADOPTION": "PI1_SIGNED_PI2_INCOMPLETE",
         "PLAN_CLAIMS_SUPERSESSION": "NOT_APPLIED",
-        "LIVE_CONFIRM_STATUS": "BLOCKED_UNSIGNED_W2_AMENDMENT",
-        "EVIDENCE_BUNDLE_REFRESH": "BLOCKED_W2_ADOPTION",
+        "LIVE_CONFIRM_STATUS": "COMPLETE_CRITERIA_NOT_ALL_MET",
+        "EVIDENCE_BUNDLE_CURRENT": "BUILT_PRE_ADOPTION",
+        "EVIDENCE_BUNDLE_POST_ADOPTION": "BLOCKED_W2_ADOPTION",
         "TEST_SUITE_STATUS": "PASS",
     }
     for key, value in expected.items():

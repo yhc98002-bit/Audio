@@ -1,0 +1,8 @@
+{
+  "amendment_sha256": "37dfec4cedbd6cb74a3f8cf78211c61631dd3a07618e88a9e3840542a3895439",
+  "evpd_model_sha256": "33e42c4f298761032e7693aeaf7cf0e0e69108dd1b0a90a30bf65d9112bddd2d",
+  "manifest_sha256": "f054c12c9d3d2717f0f01375757c99badf961a2187d812b81f83a22531df08f3",
+  "policy_sha256": "c6de82920857a220ede8d9d0391b445a94af7d721c662480044de7f70acb9134",
+  "promotion_sha256": "2ec9f12fd9008dae0e32675fcdaaf9e7a22fe0ed7006dd310b665b1e82be2ff2",
+  "status": "PASS_LAUNCH_AUTHORIZED"
+}

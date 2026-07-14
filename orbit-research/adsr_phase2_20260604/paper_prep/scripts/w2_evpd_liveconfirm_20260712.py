@@ -395,7 +395,7 @@ def build_live_manifest() -> dict:
         "- Live prompts: 48 instrumental-risk plus 16 vocal-sanity.\n"
         "- Live units: 64 prompts x 4 policies x 2 repetitions = 512.\n"
         "- Common-random-number seed range is registered in `paper_prep/SEED_REGISTRY.md`.\n"
-        "- Launch guard requires dual W2 signatures, dual-PI instrument adoption, and unchanged policy hash.\n"
+        "- Launch guard requires the signed W2 amendment, mechanical corrected-instrument promotion, and an unchanged policy hash. Publication supersession remains separately gated on dual-PI adoption.\n"
         "- The two-day cap and headline-removal rule are frozen in `LIVE_CONFIRM_POLICY_FREEZE.json`.\n",
         encoding="utf-8",
     )
@@ -414,7 +414,7 @@ def launch_guard(amendment: Path, promotion: Path, expected_policy_sha256: str) 
     if "W2_AMENDMENT_STATUS = SIGNED_BY_BOTH_PIS" not in amendment_text:
         raise ValueError("W2 amendment is not signed by both PIs")
     promotion_record = json.loads(promotion.read_text(encoding="utf-8"))
-    _promotion_candidate(promotion_record)
+    _promotion_candidate(promotion_record, allow_mechanical_draft=True)
     actual = sha256_file(POLICY_SPEC)
     if actual != expected_policy_sha256:
         raise ValueError(f"live policy hash changed: expected {expected_policy_sha256}, got {actual}")

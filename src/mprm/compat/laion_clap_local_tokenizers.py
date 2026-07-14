@@ -17,9 +17,9 @@ STOP-B-8 Phase-1 follow-up (2026-05-17):
   Original behavior is preserved for any other model_name_or_path.
 
 Env var defaults (override at launch time if you've staged elsewhere):
-  LAION_CLAP_BERT_DIR     = /home/yehaocun23s/source/laion_clap_tokenizers/bert-base-uncased
-  LAION_CLAP_ROBERTA_DIR  = /home/yehaocun23s/source/laion_clap_tokenizers/roberta-base
-  LAION_CLAP_BART_DIR     = /home/yehaocun23s/source/laion_clap_tokenizers/facebook--bart-base
+  LAION_CLAP_BERT_DIR     = ~/source/laion_clap_tokenizers/bert-base-uncased
+  LAION_CLAP_ROBERTA_DIR  = ~/source/laion_clap_tokenizers/roberta-base
+  LAION_CLAP_BART_DIR     = ~/source/laion_clap_tokenizers/facebook--bart-base
 
 If a target dir does not exist, the shim falls back to the original (network)
 behavior so a future env where huggingface.co is reachable Just Works.
@@ -28,15 +28,17 @@ from __future__ import annotations
 
 import os
 import warnings
+from pathlib import Path
 
 
+_SOURCE_ROOT = Path.home() / "source" / "laion_clap_tokenizers"
 _DEFAULTS = {
-    "bert-base-uncased": ("LAION_CLAP_BERT_DIR",
-                           "/home/yehaocun23s/source/laion_clap_tokenizers/bert-base-uncased"),
-    "roberta-base": ("LAION_CLAP_ROBERTA_DIR",
-                       "/home/yehaocun23s/source/laion_clap_tokenizers/roberta-base"),
-    "facebook/bart-base": ("LAION_CLAP_BART_DIR",
-                             "/home/yehaocun23s/source/laion_clap_tokenizers/facebook--bart-base"),
+    "bert-base-uncased": ("LAION_CLAP_BERT_DIR", str(_SOURCE_ROOT / "bert-base-uncased")),
+    "roberta-base": ("LAION_CLAP_ROBERTA_DIR", str(_SOURCE_ROOT / "roberta-base")),
+    "facebook/bart-base": (
+        "LAION_CLAP_BART_DIR",
+        str(_SOURCE_ROOT / "facebook--bart-base"),
+    ),
 }
 
 _installed = False

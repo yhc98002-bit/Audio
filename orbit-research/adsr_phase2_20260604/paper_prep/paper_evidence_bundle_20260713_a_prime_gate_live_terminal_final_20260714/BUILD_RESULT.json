@@ -1,0 +1,18 @@
+{
+  "EVIDENCE_BUNDLE_STATUS": "BUILT",
+  "bundle": "paper_prep/paper_evidence_bundle_20260713_a_prime_gate_live_terminal_final_20260714",
+  "indexed_artifacts": 135,
+  "statuses": {
+    "A_PRIME_GATE": "FAIL_LEGACY_INSTRUMENT_NOT_VALIDATED",
+    "EVIDENCE_BUNDLE_STATUS": "BUILT",
+    "JUDGE_500_STATUS": "COMPLETE",
+    "JUDGE_VALIDATION_STATUS": "PASS",
+    "LIVE_CONFIRM_STATUS": "COMPLETE_CRITERIA_NOT_ALL_MET",
+    "PLAN_CLAIMS_SUPERSESSION": "NOT_APPLIED",
+    "T7_INGESTION_STATUS": "PASS",
+    "TEST_SUITE_STATUS": "PASS",
+    "W2_ADOPTION": "PI1_SIGNED_PI2_INCOMPLETE",
+    "W2_AMENDMENT_STATUS": "SIGNED_BY_BOTH_PIS"
+  },
+  "tarball": "paper_prep/paper_evidence_bundle_20260713_a_prime_gate_live_terminal_final_20260714.tar.gz"
+}

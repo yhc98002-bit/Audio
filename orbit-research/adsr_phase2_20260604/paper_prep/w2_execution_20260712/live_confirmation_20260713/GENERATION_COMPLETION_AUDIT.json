@@ -1,0 +1,31 @@
+{
+  "amendment_sha256": "37dfec4cedbd6cb74a3f8cf78211c61631dd3a07618e88a9e3840542a3895439",
+  "audio_checksum_mismatches": [],
+  "audio_files_decoded": 774,
+  "audio_metadata_mismatches": [],
+  "completed_audio_rows": 774,
+  "completion_observed_at": "2026-07-14T10:22:21Z",
+  "latest_ledger_timestamp": "2026-07-14T10:15:44Z",
+  "launcher_exit_codes_captured": false,
+  "launcher_limitation": "launcher source was edited while its shell was waiting; terminal status recovered from complete ledgers, exited-process evidence, worker logs, and full audio audit",
+  "ledger_rows": 1536,
+  "manifest_rows": 512,
+  "manifest_sha256": "f054c12c9d3d2717f0f01375757c99badf961a2187d812b81f83a22531df08f3",
+  "near_silent_audio": 0,
+  "record_status_counts": {
+    "ABORTED": 250,
+    "COMPLETE": 1236,
+    "NO_COMPLETED_SLOT": 50
+  },
+  "recovered_orphan_rows": 4,
+  "slot_rows": 1024,
+  "status": "COMPLETE_AUDIT_PASS",
+  "unique_record_keys": 1536,
+  "unit_selection_rows": 512,
+  "worker_unit_counts": {
+    "0": 128,
+    "1": 128,
+    "2": 128,
+    "3": 128
+  }
+}

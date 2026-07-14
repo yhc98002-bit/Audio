@@ -8,7 +8,7 @@ box (the same pathology the laion_clap shim mitigates). The fix mirrors
 to the network hub name only if the local dir is absent.
 
 Default local path: `$MERT_LOCAL_PATH` (env), else
-`/home/yehaocun23s/source/mert/MERT-v1-95M/`. Place the following files
+`~/source/mert/MERT-v1-95M/`. Place the following files
 there (curl-able via `https://hf-mirror.com/m-a-p/MERT-v1-95M/resolve/main/<file>`):
   - config.json
   - configuration_MERT.py        (custom auto_map module)
@@ -25,7 +25,7 @@ from mprm.data.prompts import Prompt
 from mprm.rewards.interface import RewardModel, RewardScore
 
 
-_DEFAULT_LOCAL_DIR = "/home/yehaocun23s/source/mert/MERT-v1-95M"
+_DEFAULT_LOCAL_DIR = os.path.join(os.path.expanduser("~"), "source", "mert", "MERT-v1-95M")
 
 
 class MertReward(RewardModel):
