@@ -28,6 +28,7 @@ REPORT = T7 / "T7_INGEST_JUDGE_LIVE_REPORT_20260713.md"
 VALIDATION = T7 / "judge_completion/POOLED_JUDGE_VALIDATION.json"
 GLOBAL_REPORT = T7 / "judge_completion/A_PRIME_STRATIFIED_500_REPORT.md"
 A_GATE = PAPER / "validation_A_prime/A_PRIME_GATE_REPORT_20260713.md"
+A_GATE_JSON = PAPER / "validation_A_prime/A_PRIME_GATE_RESULT_20260713.json"
 
 
 def sha256(path: Path) -> str:
@@ -98,9 +99,14 @@ def current_statuses() -> dict[str, str]:
         judge_500 = "NOT_RUN_VALIDATION_FAIL"
     else:
         judge_500 = "QUEUED_AFTER_VALIDATION"
-    a_prime = "PI_CALL_PENDING" if A_GATE.is_file() else "QUEUED_AFTER_JUDGE"
+    if A_GATE_JSON.is_file():
+        a_prime = json.loads(A_GATE_JSON.read_text(encoding="utf-8"))["A_PRIME_GATE"]
+    else:
+        a_prime = "QUEUED_AFTER_JUDGE"
     if live_watch.get("status") == "LAUNCHED":
         live = "RUNNING"
+    elif amendment != "SIGNED" or adoption != "SIGNED":
+        live = "BLOCKED_UNSIGNED_W2_AMENDMENT"
     else:
         live = "QUEUED_AWAITING_GPUS"
     return {
@@ -151,7 +157,7 @@ def write_report(bundle_name: str, tarball_name: str) -> dict[str, str]:
         + (", `paper_prep/t7_judge_gold_20260713/judge_completion/A_PRIME_STRATIFIED_500_REPORT.md`" if GLOBAL_REPORT.is_file() else ""),
         "",
         f"`A_PRIME_GATE = {statuses['A_PRIME_GATE']}`",
-        "evidence: `paper_prep/pi_ratings_20260711/processed/T2_A_PRIME_HUMAN_CORE_OFFICIAL.csv`, `paper_prep/scripts/complete_t7_judge_aprime_20260713.py`"
+        "evidence: `paper_prep/pi_ratings_20260711/processed/T2_A_PRIME_HUMAN_CORE_OFFICIAL.csv`, `paper_prep/scripts/complete_t7_judge_aprime_20260713.py`, `paper_prep/scripts/record_a_prime_gate_call_20260714.py`"
         + (", `paper_prep/validation_A_prime/A_PRIME_GATE_REPORT_20260713.md`" if A_GATE.is_file() else ""),
         "",
         f"`W2_AMENDMENT_STATUS = {statuses['W2_AMENDMENT_STATUS']}`",
@@ -203,7 +209,7 @@ def write_report(bundle_name: str, tarball_name: str) -> dict[str, str]:
         *(
             [
                 f"- Provenance merge: {gate_result['instrument_merge_rows']} rows = {gate_result['instrument_merge_provenance']['pi']} PI core + {gate_result['instrument_merge_provenance']['judge']} validated-judge supplement.",
-                f"- Frozen Label-A criteria all met: `{str(gate_result['all_frozen_label_a_criteria_met']).lower()}`. The gate remains `PI_CALL_PENDING` and cannot auto-pass.",
+                f"- Frozen Label-A criteria all met: `{str(gate_result['all_frozen_label_a_criteria_met']).lower()}`. PI decision: `{gate_result['A_PRIME_GATE']}`; the legacy instrument is not validated.",
                 f"- Core results: disagreement {gate_result['label_a_bucket_results']['detector_disagreement_112']['matches']}/{gate_result['label_a_bucket_results']['detector_disagreement_112']['decided']}; rare basin {gate_result['label_a_bucket_results']['rare_basin_48']['matches']}/{gate_result['label_a_bucket_results']['rare_basin_48']['decided']} decided; controls {gate_result['label_a_bucket_results']['agreement_spotcheck_30']['matches']}/{gate_result['label_a_bucket_results']['agreement_spotcheck_30']['decided']}.",
             ]
             if gate_result
@@ -222,11 +228,11 @@ def write_report(bundle_name: str, tarball_name: str) -> dict[str, str]:
         "",
         "## Signature-Gated Branch",
         "",
-        "PI 1 (`pi:Richard`) is signed. PI 2 name/date/commit/decision remain blank in both the W2 amendment/adoption chain, and the Claude attestation remains absent. Therefore PLAN/CLAIMS supersession was not applied and the live launcher remains fail-closed even if GPUs are idle.",
+        "PI 1 (`pi:Richard`) is signed. PI 2 name/date/commit/decision remain blank in both the W2 amendment/adoption chain, and the Claude attestation remains absent. Therefore broad W2 corrected-number supersession was not applied and the live launcher remains fail-closed even if GPUs are idle. The targeted A-prime PI gate-call and instrument-scope wording update are separately authorized by the 2026-07-13 PI decision.",
         "",
         "## Judge Branch",
         "",
-        "Pooled validation passed. The chain scored 493 unique stratified clips with three deterministic calls each, mapped results to all 500 frozen IDs, enforced the 190-human + 500-validated-judge provenance contract, and emitted `A_PRIME_GATE = PI_CALL_PENDING`. The frozen human-core Label-A conditions are not all met, so this report does not characterize A-prime as passed.",
+        "Pooled validation passed. The chain scored 493 unique stratified clips with three deterministic calls each and mapped results to all 500 frozen IDs. The 690-row provenance contract is complete. The PI recorded `A_PRIME_GATE = FAIL_LEGACY_INSTRUMENT_NOT_VALIDATED`; A-prime is the falsification study for the legacy instrument, not a PASS. Positive label-validity evidence is instrument-scoped to the separate T6 corrected-instrument held-out evaluation.",
     ]
     REPORT.write_text("\n".join(lines) + "\n", encoding="utf-8")
     return statuses
@@ -264,6 +270,7 @@ def t7_paths() -> list[Path]:
         T7 / "gpu_queue/live_gpu_watch.jsonl",
         PAPER / "scripts/ingest_t7_judge_gold_20260713.py",
         PAPER / "scripts/complete_t7_judge_aprime_20260713.py",
+        PAPER / "scripts/record_a_prime_gate_call_20260714.py",
         PAPER / "scripts/watch_gpu_queue_20260713.py",
         PAPER / "scripts/run_t7_judge_chain_on_an29.sh",
         PAPER / "scripts/run_w2_liveconfirm_20260713.sh",
@@ -299,7 +306,16 @@ def t7_paths() -> list[Path]:
         "judge_completion/JUDGE_CHAIN_COMPLETED_AT.txt",
     ]
     explicit.extend(T7 / name for name in optional_names if (T7 / name).is_file())
-    explicit.extend(path for path in (A_GATE, PAPER / "validation_A_prime/A_PRIME_GATE_RESULT_20260713.json") if path.is_file())
+    explicit.extend(
+        path
+        for path in (
+            A_GATE,
+            A_GATE_JSON,
+            PAPER / "validation_A_prime/A_PRIME_STUDY_LOG.jsonl",
+            PAPER / "validation_A_prime/A_PRIME_GATE_CALL_AUDIT_20260713.json",
+        )
+        if path.is_file()
+    )
     missing = [path for path in explicit if not path.is_file()]
     if missing:
         raise FileNotFoundError("T7 evidence bundle missing required inputs: " + ", ".join(str(path) for path in missing))

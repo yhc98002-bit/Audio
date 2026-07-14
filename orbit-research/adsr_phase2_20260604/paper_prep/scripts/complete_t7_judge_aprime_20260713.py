@@ -480,7 +480,20 @@ def _human_core_buckets() -> tuple[dict, dict]:
     return buckets, provenance
 
 
+def _refuse_finalized_gate_overwrite() -> None:
+    """Keep a committed PI call terminal under later scorer reruns."""
+    if not A_GATE_JSON.is_file():
+        return
+    current = json.loads(A_GATE_JSON.read_text(encoding="utf-8"))
+    if current.get("pi_gate_decision"):
+        raise RuntimeError(
+            "A-prime PI gate call is already recorded; refusing to overwrite it "
+            "with a mechanical PI_CALL_PENDING result"
+        )
+
+
 def finalize_core_only() -> dict:
+    _refuse_finalized_gate_overwrite()
     validation = json.loads(VALIDATION_JSON.read_text(encoding="utf-8"))
     if validation["JUDGE_VALIDATION_STATUS"] != "FAIL":
         raise ValueError("human-core-only finalization is reserved for failed judge validation")
@@ -525,6 +538,7 @@ def finalize_core_only() -> dict:
 
 
 def finalize_500() -> dict:
+    _refuse_finalized_gate_overwrite()
     validation = json.loads(VALIDATION_JSON.read_text(encoding="utf-8"))
     if validation["JUDGE_VALIDATION_STATUS"] != "PASS":
         raise ValueError("stratified-500 requires JUDGE_VALIDATION_STATUS = PASS")

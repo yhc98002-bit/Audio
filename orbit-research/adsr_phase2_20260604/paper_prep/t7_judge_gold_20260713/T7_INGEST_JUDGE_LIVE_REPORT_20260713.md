@@ -9,8 +9,8 @@ evidence: `paper_prep/t7_judge_gold_20260713/judge_completion/POOLED_DISJOINT_GO
 `JUDGE_500_STATUS = COMPLETE`
 evidence: `paper_prep/t7_judge_gold_20260713/judge_completion/A_PRIME_STRATIFIED_500_JUDGE_MANIFEST.csv`, `paper_prep/scripts/complete_t7_judge_aprime_20260713.py`, `paper_prep/t7_judge_gold_20260713/judge_completion/A_PRIME_STRATIFIED_500_REPORT.md`
 
-`A_PRIME_GATE = PI_CALL_PENDING`
-evidence: `paper_prep/pi_ratings_20260711/processed/T2_A_PRIME_HUMAN_CORE_OFFICIAL.csv`, `paper_prep/scripts/complete_t7_judge_aprime_20260713.py`, `paper_prep/validation_A_prime/A_PRIME_GATE_REPORT_20260713.md`
+`A_PRIME_GATE = FAIL_LEGACY_INSTRUMENT_NOT_VALIDATED`
+evidence: `paper_prep/pi_ratings_20260711/processed/T2_A_PRIME_HUMAN_CORE_OFFICIAL.csv`, `paper_prep/scripts/complete_t7_judge_aprime_20260713.py`, `paper_prep/scripts/record_a_prime_gate_call_20260714.py`, `paper_prep/validation_A_prime/A_PRIME_GATE_REPORT_20260713.md`, `paper_prep/validation_A_prime/A_PRIME_STUDY_LOG.jsonl`
 
 `W2_AMENDMENT_STATUS = PI1_SIGNED_PI2_PENDING`
 evidence: `paper_prep/W2_AMENDMENT_20260712.md`, `paper_prep/t7_judge_gold_20260713/W2_SIGNATURE_VERIFICATION_REPORT.md`
@@ -21,7 +21,7 @@ evidence: `paper_prep/t7_judge_gold_20260713/W2_ADOPTION_SIGNATURE_REQUEST.md`, 
 `PLAN_CLAIMS_SUPERSESSION = NOT_APPLIED`
 evidence: `paper_prep/autochain_20260712/recompute/PLAN_UPDATE_DRAFT.md`, `paper_prep/autochain_20260712/recompute/CLAIMS_UPDATE_DRAFT.md`, `paper_prep/PLAN.md`, `paper_prep/CLAIMS.md`
 
-`LIVE_CONFIRM_STATUS = QUEUED_AWAITING_GPUS`
+`LIVE_CONFIRM_STATUS = BLOCKED_UNSIGNED_W2_AMENDMENT`
 evidence: `paper_prep/t7_judge_gold_20260713/gpu_queue/live_gpu_watch.jsonl`, `paper_prep/scripts/run_w2_liveconfirm_20260713.sh`, `paper_prep/scripts/w2_liveconfirm_worker_20260713.py`
 
 `EVIDENCE_BUNDLE_STATUS = BUILT`
@@ -47,8 +47,10 @@ evidence: `paper_prep/t7_judge_gold_20260713/FULL_TEST_RESULT_SUMMARY_20260714.j
 - Stratified judge result, all unique clips: apparent voice rate 0.916836; calibrated voice rate 0.917257.
 - Requested-instrumental clips: apparent Label-A violation 0.719178; calibrated violation 0.697981.
 - Provenance merge: 690 rows = 190 PI core + 500 validated-judge supplement.
-- Frozen Label-A criteria all met: `false`. The gate remains `PI_CALL_PENDING` and cannot auto-pass.
+- Frozen Label-A criteria all met: `false`. PI decision: `FAIL_LEGACY_INSTRUMENT_NOT_VALIDATED`; the legacy 0.1791 instrument is not validated.
 - Core results: disagreement 7/112; rare basin 16/47 decided; controls 28/30.
+- Stratified global disagreement: 124/493. The completed provenance merge is 690 rows: 190 `pi:Richard` core + 500 held-out-validated-judge rows.
+- A-prime measures Label A. The paper-primary endpoint under the signed amendment is Label B; positive corrected-instrument label-validity evidence is the separate T6 result (balanced accuracy 0.987308, sensitivity 1.000000, specificity 0.974616, with 20/20 repeat agreement on both labels).
 
 ## Queue Contract
 
@@ -62,17 +64,21 @@ evidence: `paper_prep/t7_judge_gold_20260713/FULL_TEST_RESULT_SUMMARY_20260714.j
 
 ## Signature-Gated Branch
 
-PI 1 (`pi:Richard`) is signed. PI 2 name/date/commit/decision remain blank in both the W2 amendment/adoption chain, and the Claude attestation remains absent. Therefore PLAN/CLAIMS supersession was not applied and the live launcher remains fail-closed even if GPUs are idle.
+PI 1 (`pi:Richard`) is signed. PI 2 name/date/commit/decision remain blank in both the W2 amendment/adoption chain, and the Claude attestation remains absent. Therefore broad W2 corrected-number supersession was not applied and the live launcher remains fail-closed even if GPUs are idle. The targeted A-prime gate-call and instrument-scope updates in `PLAN.md`/`CLAIMS.md` are separately authorized by the PI decision dated 2026-07-13.
 
 ## Judge Branch
 
-Pooled validation passed. The chain scored 493 unique stratified clips with three deterministic calls each, mapped results to all 500 frozen IDs, enforced the 190-human + 500-validated-judge provenance contract, and emitted `A_PRIME_GATE = PI_CALL_PENDING`. The frozen human-core Label-A conditions are not all met, so this report does not characterize A-prime as passed.
+Pooled validation passed. The chain scored 493 unique stratified clips with three deterministic calls each, mapped results to all 500 frozen IDs, and enforced the 190-human + 500-validated-judge provenance contract. The PI recorded `A_PRIME_GATE = FAIL_LEGACY_INSTRUMENT_NOT_VALIDATED`. A-prime is reported as the falsification study for the legacy instrument, never as a PASS; the separate T6 held-out promotion evaluation carries the corrected-instrument label-validity claim.
 
 ## Verification
 
-- Full repository suite: 336 passed, zero failed.
-- Focused T7 suite after the launcher and report fixes: 14 passed, zero failed.
+- Full repository suite after the A-prime gate call: 344 passed, zero failed in
+  the required `audio-prm` environment.
+- Focused A-prime gate-call suite: 8 passed, zero failed; the prior focused T7
+  suite remains 14/14.
 - Python compile checks, launcher shell syntax, and `git diff --check` passed.
-- Final evidence snapshot: 104 indexed artifacts and 111 checksummed files; every checksum passed.
-- Final tarball SHA-256: `1e459c49014b7899ff78dd7be12054d066f36e78618e62e4c2c90717f9f2de3b`.
-- Terminal implementation and evidence commit: `65094d43d0e19777caa0626c31a266a2869b5911`.
+- The 104-artifact evidence snapshot and tarball SHA-256
+  `1e459c49014b7899ff78dd7be12054d066f36e78618e62e4c2c90717f9f2de3b`
+  are preserved as pre-gate-call historical evidence and are not presented as
+  the current decision snapshot.
+- Prior T7 implementation commit: `65094d43d0e19777caa0626c31a266a2869b5911`.

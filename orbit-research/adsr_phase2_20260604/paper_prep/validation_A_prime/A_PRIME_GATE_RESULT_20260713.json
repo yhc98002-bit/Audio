@@ -1,7 +1,8 @@
 {
-  "A_PRIME_GATE": "PI_CALL_PENDING",
+  "A_PRIME_GATE": "FAIL_LEGACY_INSTRUMENT_NOT_VALIDATED",
   "all_frozen_label_a_criteria_met": false,
   "automatic_gate_pass_forbidden": true,
+  "demucs_missing_finding_quantified": true,
   "frozen_label_a_criteria": {
     "agreement_failures_at_most_2_of_30": true,
     "demucs_disagreement_match_at_least_0p70": false,
@@ -44,5 +45,67 @@
       "rows": 493
     }
   },
-  "label_b_scope_note": "T2 human core and the judge supplement are Label-A instruments; they do not establish the signed amendment's paper-primary Label-B endpoint."
+  "label_b_scope_note": "T2 human core and the judge supplement are Label-A instruments; they do not establish the signed amendment's paper-primary Label-B endpoint.",
+  "label_validity_carried_by": "T6 corrected-instrument prospective held-out promotion",
+  "legacy_instrument_validated": false,
+  "pi_gate_decision": {
+    "A_PRIME_GATE": "FAIL_LEGACY_INSTRUMENT_NOT_VALIDATED",
+    "automatic_pass_forbidden": true,
+    "decision_date": "2026-07-13",
+    "demucs_missing_finding_quantified": true,
+    "event": "A_PRIME_PI_GATE_DECISION",
+    "event_id": "1f201087e0422f22855a",
+    "instrument_merge_provenance": {
+      "human": 0,
+      "judge": 500,
+      "pi": 190
+    },
+    "instrument_merge_rows": 690,
+    "label_a_results": {
+      "agreement_spotcheck_30": {
+        "decided": 30,
+        "match_rate": 0.9333333333333333,
+        "matches": 28,
+        "rows": 30
+      },
+      "detector_disagreement_112": {
+        "decided": 112,
+        "match_rate": 0.0625,
+        "matches": 7,
+        "rows": 112
+      },
+      "rare_basin_48": {
+        "decided": 47,
+        "match_rate": 0.3404255319148936,
+        "matches": 16,
+        "rows": 48
+      },
+      "stratified_random_500": {
+        "decided": 493,
+        "match_rate": 0.2515212981744422,
+        "matches": 124,
+        "rows": 493
+      }
+    },
+    "legacy_instrument": "Demucs-energy threshold 0.1791",
+    "legacy_instrument_validated": false,
+    "provenance": "pi:Richard",
+    "rationale": "The frozen A-prime criteria test the legacy 0.1791 Demucs-energy instrument against human gold. The disagreement and rare-basin criteria fail, quantifying the demucs_missing finding; A-prime is therefore a falsification study for the legacy instrument, not validation of it.",
+    "scope": "A-prime tests Label A; the signed amendment's paper-primary endpoint is Label B",
+    "status": "RECORDED"
+  },
+  "t6_corrected_instrument_evidence": {
+    "balanced_accuracy": 0.9873081908896325,
+    "label_a_repeat_agreement": [
+      20,
+      20
+    ],
+    "label_b_repeat_agreement": [
+      20,
+      20
+    ],
+    "sensitivity": 1.0,
+    "specificity": 0.974616381779265,
+    "status": "PROMOTED"
+  }
 }

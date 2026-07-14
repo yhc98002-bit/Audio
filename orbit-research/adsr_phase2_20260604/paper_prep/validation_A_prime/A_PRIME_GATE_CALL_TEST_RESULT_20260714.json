@@ -1,0 +1,23 @@
+{
+  "focused": {
+    "command": "pytest -q tests/test_a_prime_gate_call_20260714.py",
+    "failed": 0,
+    "passed": 8,
+    "status": "PASS"
+  },
+  "full_repository": {
+    "command": "module load anaconda3/2023.09 && conda activate audio-prm && python -m pytest -q",
+    "environment": "/HOME/paratera_xy/pxy1289/.conda/envs/audio-prm/bin/python; torch 2.7.1+cu126",
+    "failed": 0,
+    "passed": 344,
+    "status": "PASS"
+  },
+  "noncanonical_system_python_probe": {
+    "collection_errors": 5,
+    "cause": "system interpreter lacks torch; canonical audio-prm rerun passed",
+    "status": "ENVIRONMENT_MISMATCH_REPLACED_BY_CANONICAL_RUN"
+  },
+  "git_diff_check": "PASS",
+  "python_compile": "PASS",
+  "status": "PASS"
+}

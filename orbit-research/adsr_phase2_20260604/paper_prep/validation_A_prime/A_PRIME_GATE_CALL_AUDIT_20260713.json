@@ -1,0 +1,26 @@
+{
+  "A_PRIME_GATE": "FAIL_LEGACY_INSTRUMENT_NOT_VALIDATED",
+  "decision_date": "2026-07-13",
+  "decision_event_count": 1,
+  "decision_event_id": "1f201087e0422f22855a",
+  "decision_provenance": "pi:Richard",
+  "demucs_missing_finding_quantified": true,
+  "gate_report_sha256": "e7d0120d9b1d2cc51fae63723884b01bec62747e1f8276380ac04306bd871158",
+  "gate_result_sha256": "93c21d2fc9ed0d2cb9598cf8c0829ea7fa5428d95ddafbef816ec1518b9609ea",
+  "input_hashes": {
+    "paper_prep/autochain_20260712/T6_PROMOTION_RESULT.json": "2ec9f12fd9008dae0e32675fcdaaf9e7a22fe0ed7006dd310b665b1e82be2ff2",
+    "paper_prep/autochain_20260712/T6_RELIABILITY_RESULT.json": "3ec7a3b7e953b0206c0547cb321fcc0b6ef3c141f172f7b0710c99c1c44e6486",
+    "paper_prep/t7_judge_gold_20260713/judge_completion/A_PRIME_INSTRUMENT_MERGE_REPORT.json": "452310a5d6f841b2f240fec6d51e708e0a681e6f5d2944331932450ca22b26e6",
+    "paper_prep/t7_judge_gold_20260713/judge_completion/POOLED_JUDGE_VALIDATION_REPORT.md": "cf918a585499793b7de1d3ba2ea3ba0c8b2ee6f6cbd41438eea38dcf1f51f545"
+  },
+  "instrument_merge_provenance": {
+    "human": 0,
+    "judge": 500,
+    "pi": 190
+  },
+  "instrument_merge_rows": 690,
+  "legacy_instrument_validated": false,
+  "status": "PASS",
+  "study_log_sha256": "4d0330db94faf3a3e10983738e2d5c64dbce104542cd1d755948eceb755c31f2",
+  "t6_corrected_instrument_status": "PROMOTED"
+}
