@@ -81,3 +81,4 @@ Therefore:
 - A first system-Python collection probe lacked `torch` and produced five
   import errors; it was replaced by the canonical environment run above.
 - Python compile checks and `git diff --check` passed.
+- Implementation commit: `9723bcf869987e55024dc7081f511146c9f88852`.
