@@ -1,0 +1,48 @@
+{
+  "A_PRIME_GATE": "PI_CALL_PENDING",
+  "all_frozen_label_a_criteria_met": false,
+  "automatic_gate_pass_forbidden": true,
+  "frozen_label_a_criteria": {
+    "agreement_failures_at_most_2_of_30": true,
+    "demucs_disagreement_match_at_least_0p70": false,
+    "rare_basin_confirmation_at_least_0p90": false
+  },
+  "instrument_merge_provenance": {
+    "human": 0,
+    "judge": 500,
+    "pi": 190
+  },
+  "instrument_merge_rows": 690,
+  "judge_validation_status": "PASS",
+  "label_a_bucket_results": {
+    "agreement_spotcheck_30": {
+      "abstains": 0,
+      "decided": 30,
+      "match_rate": 0.9333333333333333,
+      "matches": 28,
+      "rows": 30
+    },
+    "detector_disagreement_112": {
+      "abstains": 0,
+      "decided": 112,
+      "match_rate": 0.0625,
+      "matches": 7,
+      "rows": 112
+    },
+    "rare_basin_48": {
+      "abstains": 1,
+      "decided": 47,
+      "match_rate": 0.3404255319148936,
+      "matches": 16,
+      "rows": 48
+    },
+    "stratified_random_500": {
+      "abstains": 0,
+      "decided": 493,
+      "match_rate": 0.2515212981744422,
+      "matches": 124,
+      "rows": 493
+    }
+  },
+  "label_b_scope_note": "T2 human core and the judge supplement are Label-A instruments; they do not establish the signed amendment's paper-primary Label-B endpoint."
+}

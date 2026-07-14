@@ -1,0 +1,44 @@
+[1;36m(APIServer pid=4065491)[0;0m Unrecognized keys in `rope_scaling` for 'rope_type'='default': {'mrope_section', 'interleaved', 'mrope_interleaved'}
+[1;36m(APIServer pid=4065491)[0;0m Unrecognized keys in `rope_scaling` for 'rope_type'='default': {'mrope_section', 'interleaved'}
+The image processor of type `Qwen2VLImageProcessor` is now loaded as a fast processor by default, even if the model checkpoint was saved with a slow processor. This is a breaking change and may produce slightly different outputs. To continue using the slow processor, instantiate this class with `use_fast=False`. Note that this behavior will be extended to all models in a future release.
+The image processor of type `Qwen2VLImageProcessor` is now loaded as a fast processor by default, even if the model checkpoint was saved with a slow processor. This is a breaking change and may produce slightly different outputs. To continue using the slow processor, instantiate this class with `use_fast=False`. Note that this behavior will be extended to all models in a future release.
+The image processor of type `Qwen2VLImageProcessor` is now loaded as a fast processor by default, even if the model checkpoint was saved with a slow processor. This is a breaking change and may produce slightly different outputs. To continue using the slow processor, instantiate this class with `use_fast=False`. Note that this behavior will be extended to all models in a future release.
+The image processor of type `Qwen2VLImageProcessor` is now loaded as a fast processor by default, even if the model checkpoint was saved with a slow processor. This is a breaking change and may produce slightly different outputs. To continue using the slow processor, instantiate this class with `use_fast=False`. Note that this behavior will be extended to all models in a future release.
+[1;36m(Worker_TP0 pid=4066413)[0;0m /dev/shm/adsr_qwen_omni_env/lib/python3.10/site-packages/tvm_ffi/_optional_torch_c_dlpack.py:181: UserWarning: Failed to JIT torch c dlpack extension, EnvTensorAllocator will not be enabled.
+[1;36m(Worker_TP0 pid=4066413)[0;0m We recommend installing via `pip install torch-c-dlpack-ext`
+[1;36m(Worker_TP0 pid=4066413)[0;0m   warnings.warn(
+[1;36m(Worker_TP2 pid=4066415)[0;0m /dev/shm/adsr_qwen_omni_env/lib/python3.10/site-packages/tvm_ffi/_optional_torch_c_dlpack.py:181: UserWarning: Failed to JIT torch c dlpack extension, EnvTensorAllocator will not be enabled.
+[1;36m(Worker_TP2 pid=4066415)[0;0m We recommend installing via `pip install torch-c-dlpack-ext`
+[1;36m(Worker_TP2 pid=4066415)[0;0m   warnings.warn(
+[1;36m(Worker_TP0 pid=4066413)[0;0m Loading safetensors checkpoint shards:   0% Completed | 0/15 [00:00<?, ?it/s]
+[1;36m(Worker_TP1 pid=4066414)[0;0m /dev/shm/adsr_qwen_omni_env/lib/python3.10/site-packages/tvm_ffi/_optional_torch_c_dlpack.py:181: UserWarning: Failed to JIT torch c dlpack extension, EnvTensorAllocator will not be enabled.
+[1;36m(Worker_TP1 pid=4066414)[0;0m We recommend installing via `pip install torch-c-dlpack-ext`
+[1;36m(Worker_TP1 pid=4066414)[0;0m   warnings.warn(
+[1;36m(Worker_TP0 pid=4066413)[0;0m Loading safetensors checkpoint shards:  13% Completed | 2/15 [00:00<00:00, 13.60it/s]
+[1;36m(Worker_TP3 pid=4066416)[0;0m /dev/shm/adsr_qwen_omni_env/lib/python3.10/site-packages/tvm_ffi/_optional_torch_c_dlpack.py:181: UserWarning: Failed to JIT torch c dlpack extension, EnvTensorAllocator will not be enabled.
+[1;36m(Worker_TP3 pid=4066416)[0;0m We recommend installing via `pip install torch-c-dlpack-ext`
+[1;36m(Worker_TP3 pid=4066416)[0;0m   warnings.warn(
+[1;36m(Worker_TP0 pid=4066413)[0;0m Loading safetensors checkpoint shards:  27% Completed | 4/15 [00:01<00:03,  3.19it/s]
+[1;36m(Worker_TP0 pid=4066413)[0;0m Loading safetensors checkpoint shards:  33% Completed | 5/15 [00:01<00:03,  2.50it/s]
+[1;36m(Worker_TP0 pid=4066413)[0;0m Loading safetensors checkpoint shards:  40% Completed | 6/15 [00:02<00:04,  2.15it/s]
+[1;36m(Worker_TP0 pid=4066413)[0;0m Loading safetensors checkpoint shards:  47% Completed | 7/15 [00:02<00:04,  1.96it/s]
+[1;36m(Worker_TP0 pid=4066413)[0;0m Loading safetensors checkpoint shards:  53% Completed | 8/15 [00:03<00:03,  1.86it/s]
+[1;36m(Worker_TP0 pid=4066413)[0;0m Loading safetensors checkpoint shards:  60% Completed | 9/15 [00:04<00:03,  1.77it/s]
+[1;36m(Worker_TP0 pid=4066413)[0;0m Loading safetensors checkpoint shards:  67% Completed | 10/15 [00:04<00:02,  1.73it/s]
+[1;36m(Worker_TP0 pid=4066413)[0;0m Loading safetensors checkpoint shards:  73% Completed | 11/15 [00:05<00:02,  1.70it/s]
+[1;36m(Worker_TP0 pid=4066413)[0;0m Loading safetensors checkpoint shards:  80% Completed | 12/15 [00:06<00:01,  1.66it/s]
+[1;36m(Worker_TP0 pid=4066413)[0;0m Loading safetensors checkpoint shards:  87% Completed | 13/15 [00:06<00:01,  1.62it/s]
+[1;36m(Worker_TP0 pid=4066413)[0;0m Loading safetensors checkpoint shards:  93% Completed | 14/15 [00:07<00:00,  1.56it/s]
+[1;36m(Worker_TP0 pid=4066413)[0;0m Loading safetensors checkpoint shards: 100% Completed | 15/15 [00:08<00:00,  1.49it/s]
+[1;36m(Worker_TP0 pid=4066413)[0;0m Loading safetensors checkpoint shards: 100% Completed | 15/15 [00:08<00:00,  1.85it/s]
+[1;36m(Worker_TP0 pid=4066413)[0;0m 
+[1;36m(Worker_TP0 pid=4066413)[0;0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   0%|          | 0/2 [00:00<?, ?it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  50%|█████     | 1/2 [00:00<00:00,  1.81it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 2/2 [00:01<00:00,  1.87it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 2/2 [00:01<00:00,  1.86it/s]
+[1;36m(Worker_TP0 pid=4066413)[0;0m Capturing CUDA graphs (decode, FULL):   0%|          | 0/1 [00:00<?, ?it/s]Capturing CUDA graphs (decode, FULL): 100%|██████████| 1/1 [00:00<00:00,  8.94it/s]Capturing CUDA graphs (decode, FULL): 100%|██████████| 1/1 [00:00<00:00,  8.92it/s]
+[1;36m(EngineCore_DP0 pid=4066070)[0;0m The image processor of type `Qwen2VLImageProcessor` is now loaded as a fast processor by default, even if the model checkpoint was saved with a slow processor. This is a breaking change and may produce slightly different outputs. To continue using the slow processor, instantiate this class with `use_fast=False`. Note that this behavior will be extended to all models in a future release.
+[1;36m(APIServer pid=4065491)[0;0m INFO:     Started server process [4065491]
+[1;36m(APIServer pid=4065491)[0;0m INFO:     Waiting for application startup.
+[1;36m(APIServer pid=4065491)[0;0m INFO:     Application startup complete.
+[1;36m(APIServer pid=4065491)[0;0m The image processor of type `Qwen2VLImageProcessor` is now loaded as a fast processor by default, even if the model checkpoint was saved with a slow processor. This is a breaking change and may produce slightly different outputs. To continue using the slow processor, instantiate this class with `use_fast=False`. Note that this behavior will be extended to all models in a future release.
+[1;36m(APIServer pid=4065491)[0;0m INFO:     Shutting down
+[1;36m(APIServer pid=4065491)[0;0m INFO:     Waiting for application shutdown.
+[1;36m(APIServer pid=4065491)[0;0m INFO:     Application shutdown complete.

@@ -1,0 +1,8 @@
+{
+  "admin_sha256": "843129ec08697853f53b1c645f78281c758edcd32b5ccf48193b19807ef4f43e",
+  "evaluation_count": 1,
+  "heldout_rating_ids_sha256": "33959002035684be165d4eb6ad0e5304b7b196b4ee20e8ee63516a886b44c806",
+  "heldout_rows": 100,
+  "ratings_sha256": "8109136b096d25b7711f11e72541979529e75882f5fefc7c5ef6e58f4a5802dc",
+  "status": "EXPOSED_ONCE"
+}

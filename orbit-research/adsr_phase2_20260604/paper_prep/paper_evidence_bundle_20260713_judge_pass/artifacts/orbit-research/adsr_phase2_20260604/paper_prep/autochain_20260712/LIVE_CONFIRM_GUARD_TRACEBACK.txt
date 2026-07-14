@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion/paper_prep/scripts/w2_evpd_liveconfirm_20260712.py", line 439, in <module>
+    raise SystemExit(main())
+  File "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion/paper_prep/scripts/w2_evpd_liveconfirm_20260712.py", line 432, in main
+    print(json.dumps(launch_guard(args.amendment, args.promotion_record, args.policy_sha256), indent=2, sort_keys=True))
+  File "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion/paper_prep/scripts/w2_evpd_liveconfirm_20260712.py", line 392, in launch_guard
+    raise ValueError("W2 amendment is not signed by both PIs")
+ValueError: W2 amendment is not signed by both PIs

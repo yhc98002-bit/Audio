@@ -1,0 +1,18 @@
+{
+  "pooled_gold_counts": {
+    "no": 67,
+    "yes": 149
+  },
+  "pooled_gold_rows": 216,
+  "pooled_gold_sha256": "2b2008a63ff4a9e95c20384062baa510575c292bfa3809fc33abac128d380594",
+  "pooled_unique_hashes": 216,
+  "status": "PREPARED",
+  "stratified_500_duplicate_rows": 7,
+  "stratified_500_nominal_rows": 500,
+  "stratified_500_unique_hashes": 493,
+  "stratified_500_unique_inference_rows": 493,
+  "t7_counts": {
+    "no": 40
+  },
+  "t7_rows": 40
+}

@@ -1,0 +1,2 @@
+{"abstained": 0, "abstention_rate": 0.0, "accuracy": 1.0, "balanced_accuracy": NaN, "decided": 40, "mcc": NaN, "rows": 40, "sensitivity": NaN, "specificity": 1.0, "status": "SCORED"}
+{"parsed_calls": 1479, "rows": 493, "status": "INFRASTRUCTURE_PASS", "total_calls": 1479}

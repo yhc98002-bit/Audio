@@ -1,0 +1,9 @@
+{
+  "command": "pytest -q",
+  "completed_at": "2026-07-14T14:52:20+08:00",
+  "environment": "audio-prm",
+  "failed": 0,
+  "output": "paper_prep/t7_judge_gold_20260713/FULL_TEST_RESULTS_20260714.txt",
+  "passed": 336,
+  "status": "PASS"
+}

@@ -1,0 +1,47 @@
+{
+  "T7_RATINGS_INGESTION": "PASS",
+  "T7_RATINGS_STATUS": "PASS_TOPUP_READY",
+  "additional_decided_negatives": 23,
+  "all_disjoint_gold_manifest": "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion/paper_prep/t7_judge_gold_20260713/ratings_ingest/T7_ALL_DISJOINT_GOLD_MANIFEST.csv",
+  "all_t7_decided_gold_counts": {
+    "no": 40
+  },
+  "all_t7_decided_gold_rows": 40,
+  "baseline_negatives": 27,
+  "baseline_rows": 176,
+  "combined_decided_negatives": 50,
+  "consumed_t7_decided_rows": 23,
+  "consumed_t7_human_unsure": 0,
+  "consumed_t7_presentations": 23,
+  "exact_id_set_match": true,
+  "exported_at": "2026-07-13T14:08:05.543Z",
+  "hash_disjointness": {
+    "detector_selection_promotion_hashes": 380,
+    "detector_selection_promotion_overlap": 0,
+    "prior_judge_gold_hashes": 400,
+    "prior_judge_gold_overlap": 0,
+    "selected_unique_hashes": 40,
+    "source_media_checksums_verified": 40
+  },
+  "input_path": "paper_prep/pi_ratings_20260713/t7_judge_gold_negatives.json",
+  "label_a_counts": {
+    "no": 40
+  },
+  "label_b_counts": {
+    "": 2,
+    "satisfied": 38
+  },
+  "optional_confidence_blanks": 40,
+  "optional_label_b_blank_ids": [
+    "t7_6a8a49572edeb326f9ec",
+    "t7_7c431c2bcaeeb0c43527"
+  ],
+  "optional_label_b_blanks": 2,
+  "rating_source": "pi:Richard",
+  "required_combined_negatives": 50,
+  "required_label_a_blanks": 0,
+  "rows": 40,
+  "selection_rule": "ascending frozen topup_order until 23 additional human no labels",
+  "topup_manifest": "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion/paper_prep/t7_judge_gold_20260713/ratings_ingest/T7_TOPUP_GOLD_MANIFEST.csv",
+  "unused_t7_presentations": 17
+}

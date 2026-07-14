@@ -1,0 +1,9 @@
+{
+  "A_PRIME_GATE": "PI_CALL_PENDING",
+  "JUDGE_500_STATUS": "COMPLETE",
+  "all_frozen_label_a_criteria_met": false,
+  "merge_rows": 690,
+  "nominal_rows": 500,
+  "rating_source": "judge:Qwen3-Omni-30B-A3B-Instruct:validated:2b2008a63ff4a9e95c20384062baa510575c292bfa3809fc33abac128d380594",
+  "unique_inference_rows": 493
+}
