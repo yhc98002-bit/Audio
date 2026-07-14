@@ -75,3 +75,4 @@ Pooled validation passed. The chain scored 493 unique stratified clips with thre
 - Python compile checks, launcher shell syntax, and `git diff --check` passed.
 - Final evidence snapshot: 104 indexed artifacts and 111 checksummed files; every checksum passed.
 - Final tarball SHA-256: `1e459c49014b7899ff78dd7be12054d066f36e78618e62e4c2c90717f9f2de3b`.
+- Terminal implementation and evidence commit: `65094d43d0e19777caa0626c31a266a2869b5911`.
