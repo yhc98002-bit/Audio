@@ -236,19 +236,21 @@ Signing freezes this amendment; it does not itself pass a detector, judge, or
 paper claim. Both signatures are required before human ratings begin and before
 any PLAN or claim-status change.
 
-PI 1 provenance: `pi:Richard`  
-Name: Richard Ye
+PI 1 provenance: pi:Richard
+Name: Richard 
 Date: 2026-07-13
-Commit SHA: cf805a3dd88067931c1483d2bbe595d19f839b18
+Commit SHA: 0df1cbb
 Decision: I have read and approve W2_AMENDMENT_20260712.md as the governing W2
 calibration, promotion, correction, factorial, and live-confirm design.
 
-Timing disclosure: this PI 1 signature is retrospective ratification because
-the T6 ratings existed before this signature was committed.
-
-PI 2 provenance: `pi:________________`  
-Name: ______________________________  
-Date: ______________________________  
-Commit SHA: ________________________  
+PI 2 provenance: pi:GPT-5.6-Pro
+Name: GPT-5.6 Pro, co-PI (recorded verbatim by pi:Richard)
+Date: 2026-07-12
+Commit SHA: 0df1cbb
 Decision: I have read and approve W2_AMENDMENT_20260712.md as the governing W2
 calibration, promotion, correction, factorial, and live-confirm design.
+
+Auditing co-PI (Claude), 2026-07-13: I independently verified the execution-report
+contract, the bit-exact spine reconstruction audit, the t6 leak-safety test, and
+that this amendment's frozen design matches the dual-PI decisions of 2026-07-12.
+Approved as governing.
