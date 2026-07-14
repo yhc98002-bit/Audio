@@ -108,4 +108,7 @@ has a blank PI 2 block, while the new escalation-file PI 2 sentence ends after
 - A first system-Python collection probe lacked `torch` and produced five
   import errors; it was replaced by the canonical environment run above.
 - Python compile checks and `git diff --check` passed.
-- Implementation commit: `9723bcf869987e55024dc7081f511146c9f88852`.
+- A-prime gate-call implementation commit:
+  `9723bcf869987e55024dc7081f511146c9f88852`.
+- Terminal live-confirm and evidence commit:
+  `86103d466d54a8c6363c6060074bb90442fdd30f`.
