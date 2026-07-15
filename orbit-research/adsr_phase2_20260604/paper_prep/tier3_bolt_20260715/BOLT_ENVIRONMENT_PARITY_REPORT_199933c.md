@@ -18,9 +18,9 @@ The source checkout is a content-only copy without `.git`; its frozen W2 upstrea
 | Instrument implementation | `3aa68674b9ce919d407f25070a93ca73f14ed39af36f41090a4db000b5df1524` | `3aa68674b9ce919d407f25070a93ca73f14ed39af36f41090a4db000b5df1524` | YES |
 | Quality policy | `34db933b67d06f3acc3780e70b2f492a20d685ef710777fc81eaffba1d2806e9` | `34db933b67d06f3acc3780e70b2f492a20d685ef710777fc81eaffba1d2806e9` | YES |
 | Quality artifact manifest | `18834c4755d3afabcccb4709887fe238b0834bf084be203a6103ae4e75483037` | `18834c4755d3afabcccb4709887fe238b0834bf084be203a6103ae4e75483037` | YES |
-| BOLT code manifest | `6125c3f6b11dedefcb2728ed9c61f5f7d0fe1d63f5e881ecdecfddfd4e1ee48d` | `6125c3f6b11dedefcb2728ed9c61f5f7d0fe1d63f5e881ecdecfddfd4e1ee48d` | YES |
-| BOLT git SHA | `9ffc191266dcf24dd8f76d39e4f0c734656dee75` | `9ffc191266dcf24dd8f76d39e4f0c734656dee75` | YES |
-| Environment | `d1c44cb0fec1fa4347ba3b0908cab561ebbbbba648026c57c0b79aeffb0df542` | `d1c44cb0fec1fa4347ba3b0908cab561ebbbbba648026c57c0b79aeffb0df542` | YES |
+| BOLT code manifest | `ce9cb3c300751b3420c66bb0d9f2643461644a7ecd600750c676c905923c35a3` | `ce9cb3c300751b3420c66bb0d9f2643461644a7ecd600750c676c905923c35a3` | YES |
+| BOLT git SHA | `199933c84960c9cf2980574c1f549bafaaefa055` | `199933c84960c9cf2980574c1f549bafaaefa055` | YES |
+| Environment | `bd37bf4d6a22d29e0d72ebabd3b6ba53ac9ea7b8fb58cffab6daeb32671158b7` | `bd37bf4d6a22d29e0d72ebabd3b6ba53ac9ea7b8fb58cffab6daeb32671158b7` | YES |
 
 ## Differences
 

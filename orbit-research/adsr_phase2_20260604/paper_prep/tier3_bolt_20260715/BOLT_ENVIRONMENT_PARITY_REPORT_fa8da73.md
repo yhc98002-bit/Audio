@@ -17,10 +17,10 @@ The source checkout is a content-only copy without `.git`; its frozen W2 upstrea
 | Promoted instrument record | `2ec9f12fd9008dae0e32675fcdaaf9e7a22fe0ed7006dd310b665b1e82be2ff2` | `2ec9f12fd9008dae0e32675fcdaaf9e7a22fe0ed7006dd310b665b1e82be2ff2` | YES |
 | Instrument implementation | `3aa68674b9ce919d407f25070a93ca73f14ed39af36f41090a4db000b5df1524` | `3aa68674b9ce919d407f25070a93ca73f14ed39af36f41090a4db000b5df1524` | YES |
 | Quality policy | `34db933b67d06f3acc3780e70b2f492a20d685ef710777fc81eaffba1d2806e9` | `34db933b67d06f3acc3780e70b2f492a20d685ef710777fc81eaffba1d2806e9` | YES |
-| Quality artifact manifest | `18834c4755d3afabcccb4709887fe238b0834bf084be203a6103ae4e75483037` | `18834c4755d3afabcccb4709887fe238b0834bf084be203a6103ae4e75483037` | YES |
-| BOLT code manifest | `6125c3f6b11dedefcb2728ed9c61f5f7d0fe1d63f5e881ecdecfddfd4e1ee48d` | `6125c3f6b11dedefcb2728ed9c61f5f7d0fe1d63f5e881ecdecfddfd4e1ee48d` | YES |
-| BOLT git SHA | `9ffc191266dcf24dd8f76d39e4f0c734656dee75` | `9ffc191266dcf24dd8f76d39e4f0c734656dee75` | YES |
-| Environment | `d1c44cb0fec1fa4347ba3b0908cab561ebbbbba648026c57c0b79aeffb0df542` | `d1c44cb0fec1fa4347ba3b0908cab561ebbbbba648026c57c0b79aeffb0df542` | YES |
+| Quality artifact manifest | `dd541ede824b48ca0fc65cc32d1d8c1a832e4cf1fe132517adfb5f0ac9aae205` | `dd541ede824b48ca0fc65cc32d1d8c1a832e4cf1fe132517adfb5f0ac9aae205` | YES |
+| BOLT code manifest | `915ea683ac290c00608e7be269a3e4066e6676873640b2d31d24e210d61f74fb` | `915ea683ac290c00608e7be269a3e4066e6676873640b2d31d24e210d61f74fb` | YES |
+| BOLT git SHA | `fa8da736a3ba99d2e44b75479591e5c0d5a13dd9` | `fa8da736a3ba99d2e44b75479591e5c0d5a13dd9` | YES |
+| Environment | `31be4116f6c01510c6a65ee10c5946af7fd05545d6109d8367e0cb317d168b01` | `31be4116f6c01510c6a65ee10c5946af7fd05545d6109d8367e0cb317d168b01` | YES |
 
 ## Differences
 

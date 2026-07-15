@@ -1,0 +1,836 @@
+{
+  "bolt_files": [
+    {
+      "path": "bolt_ace_step.py",
+      "sha256": "adfcbaa29d98126bbcc6870057d33f6ad8e683a717ab077e1b5f4e36ea9aaf6e",
+      "size": 19927
+    },
+    {
+      "path": "bolt_core.py",
+      "sha256": "08d36c68bc07ca8e48d99971dfeeba0ab39f2ed0ae777bfb1e196db6ac1ef44d",
+      "size": 11821
+    },
+    {
+      "path": "bolt_environment.py",
+      "sha256": "f588cd11ef95dd1d1da2a0c2999cd04fecd039d705331b235138324b9fff9351",
+      "size": 10276
+    },
+    {
+      "path": "bolt_gate0.py",
+      "sha256": "38d29cba312771162006f4d77bfa0ac5e12131fb738ce4dcc9273f39c7044953",
+      "size": 29375
+    },
+    {
+      "path": "bolt_heartbeat.py",
+      "sha256": "5b3cbfe56dd8a46dd479e94a6fe6c45bd92c242e5f354b78c50dcd46d85c99ad",
+      "size": 2577
+    },
+    {
+      "path": "bolt_ledger.py",
+      "sha256": "19ecbe63da6fcdd343795c4960438b6ef1818cfde7658ff739d937a3f18524aa",
+      "size": 2224
+    },
+    {
+      "path": "bolt_oracle_headroom.py",
+      "sha256": "12bf16647d1af2d3999c338cf32bd672991111f983d460a9fda770e5620852ed",
+      "size": 25038
+    },
+    {
+      "path": "bolt_pilot_audit.py",
+      "sha256": "7d84c832e8c5c75835b602fc5911dad5eeaee50fea224cd286bec86015283cb0",
+      "size": 9440
+    },
+    {
+      "path": "bolt_pilot_worker.py",
+      "sha256": "a144b4b585e493987020892d6ed01efaa8e5e5d89908703e2ef728c5970a7543",
+      "size": 20835
+    },
+    {
+      "path": "bolt_prepare.py",
+      "sha256": "8aef42eb7e18c97a3038e9502bf309d9069fe82ca0c0aeb2a638826a03704479",
+      "size": 21167
+    },
+    {
+      "path": "bolt_scoring.py",
+      "sha256": "031374a121952223e91982b16e004f8970a4a0a0b12cec39d4f0bf66e0d8d0ec",
+      "size": 12828
+    },
+    {
+      "path": "bolt_state.py",
+      "sha256": "b0e0b0db6d70e8a96f6bd3dac253fb34cd8480ab4b707c20813fa9ff32d11680",
+      "size": 8256
+    }
+  ],
+  "checkpoint_files": [
+    {
+      "path": ".mdl",
+      "sha256": "2b9b2ca3ba663534353a912d7d0b0a8cf2bb447c51ad545e27616a2dd295668e",
+      "size": 50
+    },
+    {
+      "path": ".msc",
+      "sha256": "b1a31a97432919b1e6f89f362f9cadb13b9ab27852b1f610d8510d37fa7ba02d",
+      "size": 1214
+    },
+    {
+      "path": ".mv",
+      "sha256": "c504a8a1776d9725c5eea3f5a848b83691ed66ed0d02ad06f27934bcaddcf6a4",
+      "size": 36
+    },
+    {
+      "path": "README.md",
+      "sha256": "b5674b0c01f5b8e6e38291f1d36baa749a60f5cd5c450b70d23e247a772d930f",
+      "size": 3513
+    },
+    {
+      "path": "ace_step_transformer/config.json",
+      "sha256": "4d78beb6afb4c7f3705256b44faaf60f3e1e2d78f4015ca87740f3695d7f5447",
+      "size": 639
+    },
+    {
+      "path": "ace_step_transformer/diffusion_pytorch_model.safetensors",
+      "sha256": "e810f16728d8a2e0d1b9c3a907aac8c9a427ce38edbd890cb3dce5ff92da5aad",
+      "size": 6611422728
+    },
+    {
+      "path": "config.json",
+      "sha256": "4d78beb6afb4c7f3705256b44faaf60f3e1e2d78f4015ca87740f3695d7f5447",
+      "size": 639
+    },
+    {
+      "path": "configuration.json",
+      "sha256": "3eefed50f26939655a89fcb85efb21acbe4b0fe470f9f61146092fdd83c8d894",
+      "size": 71
+    },
+    {
+      "path": "music_dcae_f8c8/config.json",
+      "sha256": "b14a49a8c52a52c2c8050098af1a946810a8a1a0b6e50abc75ba81371383cf04",
+      "size": 1034
+    },
+    {
+      "path": "music_dcae_f8c8/diffusion_pytorch_model.safetensors",
+      "sha256": "2b0cb469307ac50659d1880db2a99bae47d0df335cbb36853964662d4b80e8ee",
+      "size": 313646516
+    },
+    {
+      "path": "music_vocoder/config.json",
+      "sha256": "39ddc4c417e01dc3be1862fcf315887358dd61b7f91c3cc8227f65072984bb55",
+      "size": 940
+    },
+    {
+      "path": "music_vocoder/diffusion_pytorch_model.safetensors",
+      "sha256": "c92c9b46e28ab7b37b777780cf4308ad7ddac869636bb77aa61599358c4bc1c0",
+      "size": 206350988
+    },
+    {
+      "path": "umt5-base/config.json",
+      "sha256": "afae5da9a35e2b293cee66536f03fc2581cfc3f3d5707d3a262b552748de1572",
+      "size": 848
+    },
+    {
+      "path": "umt5-base/model.safetensors",
+      "sha256": "779cec0d210b2123e21d0a9cd8128f02b4d412627355028965a8be0b241cc3b6",
+      "size": 1127460248
+    },
+    {
+      "path": "umt5-base/special_tokens_map.json",
+      "sha256": "456b58fd240a06c743a7c2cf8008bec501240d68ebd1fc4018ea569505fea270",
+      "size": 7079
+    },
+    {
+      "path": "umt5-base/tokenizer.json",
+      "sha256": "20a46ac256746594ed7e1e3ef733b83fbc5a6f0922aa7480eda961743de080ef",
+      "size": 16837459
+    },
+    {
+      "path": "umt5-base/tokenizer_config.json",
+      "sha256": "ed9a3a8b0faa71a70a32847e0435fe036e6e112d4df4edb7bb48a921e344dc05",
+      "size": 61728
+    }
+  ],
+  "environment_hash": "bd37bf4d6a22d29e0d72ebabd3b6ba53ac9ea7b8fb58cffab6daeb32671158b7",
+  "executable": "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion_envs/w2-torch251/bin/python",
+  "host": "an29",
+  "parity": {
+    "ace_step_checkpoint_manifest_sha256": "2058d6c10bd348da51669ff3886c6b4080405fe4c23bb3de183c293cb5f0bef9",
+    "ace_step_declared_commit": "1bee4c9f5b43e30995f8d4d33b3919197ce1bd68",
+    "ace_step_source_manifest_sha256": "203e623b252592794e667015ca51cab23d9bfdf74ad56c98efca5d4c2cf179ab",
+    "bolt_code_manifest_sha256": "ce9cb3c300751b3420c66bb0d9f2643461644a7ecd600750c676c905923c35a3",
+    "bolt_git_sha": "199933c84960c9cf2980574c1f549bafaaefa055",
+    "cudnn_version": 90100,
+    "gpu_inventory": [
+      "0, NVIDIA A800 80GB PCIe, 535.104.12, 81920",
+      "1, NVIDIA A800 80GB PCIe, 535.104.12, 81920",
+      "2, NVIDIA A800 80GB PCIe, 535.104.12, 81920",
+      "3, NVIDIA A800 80GB PCIe, 535.104.12, 81920",
+      "4, NVIDIA A800 80GB PCIe, 535.104.12, 81920",
+      "5, NVIDIA A800 80GB PCIe, 535.104.12, 81920",
+      "6, NVIDIA A800 80GB PCIe, 535.104.12, 81920",
+      "7, NVIDIA A800 80GB PCIe, 535.104.12, 81920"
+    ],
+    "instrument_sha256": "3aa68674b9ce919d407f25070a93ca73f14ed39af36f41090a4db000b5df1524",
+    "pip_freeze_sha256": "c0ec6770d0e428652ce18a658d54470205f56ef5e8132ed1af1c7ed1a9870399",
+    "promotion_sha256": "2ec9f12fd9008dae0e32675fcdaaf9e7a22fe0ed7006dd310b665b1e82be2ff2",
+    "python_version": "3.10.20",
+    "quality_artifact_files": [
+      {
+        "path": "/HOME/paratera_xy/pxy1289/.cache/clap/630k-audioset-best.pt",
+        "sha256": "8053c9775516af2f4902e1e8281e356cc1bf7a85e8b761908170767b77c3f037",
+        "size": 1863587645
+      },
+      {
+        "path": "/HOME/paratera_xy/pxy1289/.cache/whisper/large-v3.pt",
+        "sha256": "e5b1a55b89c1367dacf97e3e19bfd829a01529dbfdeefa8caeb59b3f1b81dadb",
+        "size": 3087371615
+      },
+      {
+        "path": "/HOME/paratera_xy/pxy1289/source/audiobox_aesthetics/checkpoint.pt",
+        "sha256": "a4931a7a01c3e6733352e9d85371835f03bf9135f8b31e1583c23538811d4a32",
+        "size": 415520834
+      },
+      {
+        "path": "/HOME/paratera_xy/pxy1289/source/laion_clap_tokenizers/bert-base-uncased/config.json",
+        "sha256": "7160e1553ad2ca51d8c1cb066be533db31826e12d173824c1bb0cb1a4f187d20",
+        "size": 570
+      },
+      {
+        "path": "/HOME/paratera_xy/pxy1289/source/laion_clap_tokenizers/bert-base-uncased/model.safetensors",
+        "sha256": "68d45e234eb4a928074dfd868cead0219ab85354cc53d20e772753c6bb9169d3",
+        "size": 440449768
+      },
+      {
+        "path": "/HOME/paratera_xy/pxy1289/source/laion_clap_tokenizers/bert-base-uncased/pytorch_model.bin",
+        "sha256": "097417381d6c7230bd9e3557456d726de6e83245ec8b24f529f60198a67b203a",
+        "size": 440473133
+      },
+      {
+        "path": "/HOME/paratera_xy/pxy1289/source/laion_clap_tokenizers/bert-base-uncased/tokenizer.json",
+        "sha256": "ce64fce797c24f68df90b40a3f74f579b336a493db14bd583fd520ea0d8c9a98",
+        "size": 466062
+      },
+      {
+        "path": "/HOME/paratera_xy/pxy1289/source/laion_clap_tokenizers/bert-base-uncased/tokenizer_config.json",
+        "sha256": "53b6f42b8b8daddbdc6d3532c324187a92b46c1602bd6e8d4ad5a413b4fc90e1",
+        "size": 28
+      },
+      {
+        "path": "/HOME/paratera_xy/pxy1289/source/laion_clap_tokenizers/bert-base-uncased/vocab.txt",
+        "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+        "size": 231508
+      },
+      {
+        "path": "/HOME/paratera_xy/pxy1289/source/laion_clap_tokenizers/facebook--bart-base/config.json",
+        "sha256": "c4022c931216afcb778991477332e5312aca8be478027ee3a8bf34b7004c44e2",
+        "size": 1716
+      },
+      {
+        "path": "/HOME/paratera_xy/pxy1289/source/laion_clap_tokenizers/facebook--bart-base/merges.txt",
+        "sha256": "1ce1664773c50f3e0cc8842619a93edc4624525b728b188a9e0be33b7726adc5",
+        "size": 456318
+      },
+      {
+        "path": "/HOME/paratera_xy/pxy1289/source/laion_clap_tokenizers/facebook--bart-base/tokenizer.json",
+        "sha256": "847bbeab6174d66a88898f729d52fa8d355fafe1bea101cf960dd404581df70e",
+        "size": 1355863
+      },
+      {
+        "path": "/HOME/paratera_xy/pxy1289/source/laion_clap_tokenizers/facebook--bart-base/vocab.json",
+        "sha256": "9e7f63c2d15d666b52e21d250d2e513b87c9b713cfa6987a82ed89e5e6e50655",
+        "size": 898823
+      },
+      {
+        "path": "/HOME/paratera_xy/pxy1289/source/laion_clap_tokenizers/roberta-base/config.json",
+        "sha256": "ef0185e2aae6e06c5f105a285006952c340e20c7dbf43c86ec82601b13fc45e9",
+        "size": 481
+      },
+      {
+        "path": "/HOME/paratera_xy/pxy1289/source/laion_clap_tokenizers/roberta-base/merges.txt",
+        "sha256": "1ce1664773c50f3e0cc8842619a93edc4624525b728b188a9e0be33b7726adc5",
+        "size": 456318
+      },
+      {
+        "path": "/HOME/paratera_xy/pxy1289/source/laion_clap_tokenizers/roberta-base/model.safetensors",
+        "sha256": "5bde1d28afb363d0103324efeb5afc8b2b397fe5e04beabb9b1ef355255ade81",
+        "size": 498818054
+      },
+      {
+        "path": "/HOME/paratera_xy/pxy1289/source/laion_clap_tokenizers/roberta-base/tokenizer.json",
+        "sha256": "847bbeab6174d66a88898f729d52fa8d355fafe1bea101cf960dd404581df70e",
+        "size": 1355863
+      },
+      {
+        "path": "/HOME/paratera_xy/pxy1289/source/laion_clap_tokenizers/roberta-base/tokenizer_config.json",
+        "sha256": "994f46754c5bf4014f1aa92d34b1374319c3a6b3f702105cd5b742beaecd18ce",
+        "size": 25
+      },
+      {
+        "path": "/HOME/paratera_xy/pxy1289/source/laion_clap_tokenizers/roberta-base/vocab.json",
+        "sha256": "9e7f63c2d15d666b52e21d250d2e513b87c9b713cfa6987a82ed89e5e6e50655",
+        "size": 898823
+      },
+      {
+        "path": "/HOME/paratera_xy/pxy1289/source/mert/MERT-v1-95M/config.json",
+        "sha256": "ea2627c4c7825cd66f3c944b6b966331604c35928174e0100cd4a82829424e32",
+        "size": 1817
+      },
+      {
+        "path": "/HOME/paratera_xy/pxy1289/source/mert/MERT-v1-95M/configuration_MERT.py",
+        "sha256": "ae0ec2bab8f59c724ba9878a7c20b67210189536ea62d34a56775968e9decb03",
+        "size": 5340
+      },
+      {
+        "path": "/HOME/paratera_xy/pxy1289/source/mert/MERT-v1-95M/modeling_MERT.py",
+        "sha256": "6c3ee73cef6f0c30ef494f88d96f891fa6925ffe663fa391b512f4b57abecc6c",
+        "size": 18033
+      },
+      {
+        "path": "/HOME/paratera_xy/pxy1289/source/mert/MERT-v1-95M/preprocessor_config.json",
+        "sha256": "cc5a5e4a5d3b1a758a5ed984b2eaa15bb0522d811d44a9eed82bfca4baa0dc8f",
+        "size": 211
+      },
+      {
+        "path": "/HOME/paratera_xy/pxy1289/source/mert/MERT-v1-95M/pytorch_model.bin",
+        "sha256": "a2b8b747f72c06e0595aeae41ae5473f4364938c6b39b2c58be38c48e6bd3fcd",
+        "size": 377552987
+      }
+    ],
+    "quality_artifact_manifest_sha256": "18834c4755d3afabcccb4709887fe238b0834bf084be203a6103ae4e75483037",
+    "quality_gate_policy_sha256": "34db933b67d06f3acc3780e70b2f492a20d685ef710777fc81eaffba1d2806e9",
+    "scheduler_sha256": "d3d724dec32d4f2d3df62d4dc9de30c1b74c0d2602e19063ec00031e2f7ebe8d",
+    "torch_cuda_version": "12.1",
+    "torch_version": "2.5.1+cu121",
+    "torchaudio_version": "2.5.1+cu121"
+  },
+  "pip_freeze": [
+    "absl-py==2.4.0",
+    "accelerate==1.6.0",
+    "-e git+https://github.com/ace-step/ACE-Step.git@1bee4c9f5b43e30995f8d4d33b3919197ce1bd68#egg=ace_step",
+    "aiohappyeyeballs==2.6.1",
+    "aiohttp==3.13.5",
+    "aiosignal==1.4.0",
+    "annotated-doc==0.0.4",
+    "annotated-types==0.7.0",
+    "antlr4-python3-runtime==4.9.3",
+    "anyio==4.13.0",
+    "async-timeout==5.0.1",
+    "attrs==26.1.0",
+    "audiobox_aesthetics==0.0.4",
+    "audioread==3.1.0",
+    "blis==1.3.3",
+    "braceexpand==0.1.7",
+    "brotli==1.2.0",
+    "catalogue==2.0.10",
+    "certifi==2026.4.22",
+    "cffi==2.0.0",
+    "charset-normalizer==3.4.7",
+    "click==8.4.2",
+    "cloudpathlib==0.24.0",
+    "cloudpickle==3.1.2",
+    "confection==0.1.5",
+    "contourpy==1.3.2",
+    "cutlet==0.5.0",
+    "cycler==0.12.1",
+    "cymem==2.0.13",
+    "datasets==3.4.1",
+    "decorator==5.3.1",
+    "demucs==4.0.1",
+    "diffusers==0.38.0",
+    "dill==0.3.8",
+    "distlib==0.4.3",
+    "docopt==0.6.2",
+    "dora_search==0.1.12",
+    "einops==0.8.2",
+    "einops-exts==0.0.4",
+    "exceptiongroup==1.3.1",
+    "fastapi==0.136.1",
+    "filelock==3.29.1",
+    "fonttools==4.63.0",
+    "frozenlist==1.8.0",
+    "fsspec==2026.4.0",
+    "ftfy==6.3.1",
+    "fugashi==1.5.2",
+    "gitdb==4.0.12",
+    "GitPython==3.1.50",
+    "gradio==6.14.0",
+    "gradio_client==2.5.0",
+    "groovy==0.1.2",
+    "grpcio==1.80.0",
+    "h11==0.16.0",
+    "h5py==3.16.0",
+    "hangul-romanize==0.1.0",
+    "hf-gradio==0.4.1",
+    "hf-xet==1.5.1",
+    "httpcore==1.0.9",
+    "httpx==0.28.1",
+    "huggingface_hub==1.22.0",
+    "idna==3.15",
+    "imageio-ffmpeg==0.6.0",
+    "importlib_metadata==9.0.0",
+    "iniconfig==2.3.0",
+    "jaconv==0.5.0",
+    "Jinja2==3.1.6",
+    "joblib==1.5.3",
+    "jsonlines==4.0.0",
+    "julius==0.2.7",
+    "kiwisolver==1.5.0",
+    "laion_clap==1.1.7",
+    "lameenc==1.8.2",
+    "langcodes==3.5.1",
+    "lazy-loader==0.5",
+    "librosa==0.11.0",
+    "lightgbm==4.6.0",
+    "lightning-utilities==0.15.3",
+    "llvmlite==0.47.0",
+    "loguru==0.7.3",
+    "Markdown==3.10.2",
+    "markdown-it-py==4.2.0",
+    "MarkupSafe==3.0.3",
+    "matplotlib==3.10.1",
+    "mdurl==0.1.2",
+    "mir_eval==0.8.2",
+    "modelscope==1.38.1",
+    "modelscope-hub==0.1.7",
+    "mojimoji==0.0.13",
+    "more-itertools==11.0.2",
+    "mpmath==1.3.0",
+    "-e git+https://github.com/yhc98002-bit/Audio.git@199933c84960c9cf2980574c1f549bafaaefa055#egg=mprm",
+    "msgpack==1.1.2",
+    "multidict==6.7.1",
+    "multiprocess==0.70.16",
+    "murmurhash==1.0.15",
+    "networkx==3.4.2",
+    "num2words==0.5.14",
+    "numba==0.65.1",
+    "numpy==2.2.6",
+    "nvidia-cublas-cu12==12.1.3.1",
+    "nvidia-cuda-cupti-cu12==12.1.105",
+    "nvidia-cuda-nvrtc-cu12==12.1.105",
+    "nvidia-cuda-runtime-cu12==12.1.105",
+    "nvidia-cudnn-cu12==9.1.0.70",
+    "nvidia-cufft-cu12==11.0.2.54",
+    "nvidia-cufile-cu12==1.11.1.6",
+    "nvidia-curand-cu12==10.3.2.106",
+    "nvidia-cusolver-cu12==11.4.5.107",
+    "nvidia-cusparse-cu12==12.1.0.106",
+    "nvidia-cusparselt-cu12==0.6.3",
+    "nvidia-nccl-cu12==2.21.5",
+    "nvidia-nvjitlink-cu12==12.1.105",
+    "nvidia-nvtx-cu12==12.1.105",
+    "omegaconf==2.3.0",
+    "openai-whisper==20250625",
+    "openunmix==1.3.0",
+    "orjson==3.11.9",
+    "packaging==26.2",
+    "pandas==2.3.3",
+    "panns-inference==0.1.1",
+    "peft==0.19.1",
+    "pillow==12.2.0",
+    "platformdirs==4.10.0",
+    "pluggy==1.6.0",
+    "pooch==1.9.0",
+    "preshed==3.0.13",
+    "progressbar==2.5",
+    "propcache==0.5.2",
+    "protobuf==7.34.1",
+    "psutil==7.2.2",
+    "py3langid==0.3.0",
+    "pyarrow==24.0.0",
+    "pycparser==3.0",
+    "pydantic==2.13.4",
+    "pydantic_core==2.46.4",
+    "pydub==0.25.1",
+    "Pygments==2.20.0",
+    "pyparsing==3.3.2",
+    "pypinyin==0.53.0",
+    "pytest==9.0.3",
+    "python-dateutil==2.9.0.post0",
+    "python-discovery==1.4.3",
+    "python-multipart==0.0.29",
+    "pytorch-lightning==2.5.1",
+    "pytz==2026.2",
+    "PyYAML==6.0.3",
+    "regex==2026.5.9",
+    "requests==2.34.2",
+    "retrying==1.4.2",
+    "rich==15.0.0",
+    "safehttpx==0.1.7",
+    "safetensors==0.8.0",
+    "scikit-learn==1.7.2",
+    "scipy==1.15.3",
+    "semantic-version==2.10.0",
+    "sentry-sdk==2.60.0",
+    "shellingham==1.5.4",
+    "six==1.17.0",
+    "smart_open==7.6.1",
+    "smmap==5.0.3",
+    "soundfile==0.13.1",
+    "soxr==1.1.0",
+    "spacy==3.8.4",
+    "spacy-legacy==3.0.12",
+    "spacy-loggers==1.0.5",
+    "srsly==2.5.3",
+    "stable-audio-3 @ git+https://github.com/Stability-AI/stable-audio-3.git@8a3ded325ec6082113dbce11620b7b25b31ce6b0",
+    "stable-audio-tools==0.0.20",
+    "starlette==1.0.0",
+    "submitit==1.5.4",
+    "sympy==1.13.1",
+    "tensorboard==2.20.0",
+    "tensorboard-data-server==0.7.2",
+    "tensorboardX==2.6.5",
+    "thinc==8.3.11",
+    "threadpoolctl==3.6.0",
+    "tiktoken==0.13.0",
+    "tokenizers==0.22.2",
+    "tomli==2.4.1",
+    "tomlkit==0.14.0",
+    "torch==2.5.1+cu121",
+    "torchaudio==2.5.1+cu121",
+    "torchlibrosa==0.1.0",
+    "torchmetrics==1.9.0",
+    "torchvision==0.20.1+cu121",
+    "tqdm==4.68.2",
+    "transformers==5.13.0",
+    "treetable==0.2.6",
+    "triton==3.1.0",
+    "typer==0.25.1",
+    "typer-slim==0.24.0",
+    "typing-inspection==0.4.2",
+    "typing_extensions==4.15.0",
+    "tzdata==2026.2",
+    "unidic-lite==1.0.8",
+    "urllib3==2.7.0",
+    "uvicorn==0.47.0",
+    "virtualenv==21.6.0",
+    "wandb==0.27.0",
+    "wasabi==1.1.3",
+    "wcwidth==0.7.0",
+    "weasel==0.4.3",
+    "webdataset==1.0.2",
+    "Werkzeug==3.1.8",
+    "wget==3.2",
+    "wrapt==2.1.2",
+    "xxhash==3.7.0",
+    "yarl==1.23.0",
+    "zipp==4.1.0"
+  ],
+  "quality_files": [
+    {
+      "path": "/HOME/paratera_xy/pxy1289/.cache/clap/630k-audioset-best.pt",
+      "sha256": "8053c9775516af2f4902e1e8281e356cc1bf7a85e8b761908170767b77c3f037",
+      "size": 1863587645
+    },
+    {
+      "path": "/HOME/paratera_xy/pxy1289/.cache/whisper/large-v3.pt",
+      "sha256": "e5b1a55b89c1367dacf97e3e19bfd829a01529dbfdeefa8caeb59b3f1b81dadb",
+      "size": 3087371615
+    },
+    {
+      "path": "/HOME/paratera_xy/pxy1289/source/audiobox_aesthetics/checkpoint.pt",
+      "sha256": "a4931a7a01c3e6733352e9d85371835f03bf9135f8b31e1583c23538811d4a32",
+      "size": 415520834
+    },
+    {
+      "path": "/HOME/paratera_xy/pxy1289/source/laion_clap_tokenizers/bert-base-uncased/config.json",
+      "sha256": "7160e1553ad2ca51d8c1cb066be533db31826e12d173824c1bb0cb1a4f187d20",
+      "size": 570
+    },
+    {
+      "path": "/HOME/paratera_xy/pxy1289/source/laion_clap_tokenizers/bert-base-uncased/model.safetensors",
+      "sha256": "68d45e234eb4a928074dfd868cead0219ab85354cc53d20e772753c6bb9169d3",
+      "size": 440449768
+    },
+    {
+      "path": "/HOME/paratera_xy/pxy1289/source/laion_clap_tokenizers/bert-base-uncased/pytorch_model.bin",
+      "sha256": "097417381d6c7230bd9e3557456d726de6e83245ec8b24f529f60198a67b203a",
+      "size": 440473133
+    },
+    {
+      "path": "/HOME/paratera_xy/pxy1289/source/laion_clap_tokenizers/bert-base-uncased/tokenizer.json",
+      "sha256": "ce64fce797c24f68df90b40a3f74f579b336a493db14bd583fd520ea0d8c9a98",
+      "size": 466062
+    },
+    {
+      "path": "/HOME/paratera_xy/pxy1289/source/laion_clap_tokenizers/bert-base-uncased/tokenizer_config.json",
+      "sha256": "53b6f42b8b8daddbdc6d3532c324187a92b46c1602bd6e8d4ad5a413b4fc90e1",
+      "size": 28
+    },
+    {
+      "path": "/HOME/paratera_xy/pxy1289/source/laion_clap_tokenizers/bert-base-uncased/vocab.txt",
+      "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+      "size": 231508
+    },
+    {
+      "path": "/HOME/paratera_xy/pxy1289/source/laion_clap_tokenizers/facebook--bart-base/config.json",
+      "sha256": "c4022c931216afcb778991477332e5312aca8be478027ee3a8bf34b7004c44e2",
+      "size": 1716
+    },
+    {
+      "path": "/HOME/paratera_xy/pxy1289/source/laion_clap_tokenizers/facebook--bart-base/merges.txt",
+      "sha256": "1ce1664773c50f3e0cc8842619a93edc4624525b728b188a9e0be33b7726adc5",
+      "size": 456318
+    },
+    {
+      "path": "/HOME/paratera_xy/pxy1289/source/laion_clap_tokenizers/facebook--bart-base/tokenizer.json",
+      "sha256": "847bbeab6174d66a88898f729d52fa8d355fafe1bea101cf960dd404581df70e",
+      "size": 1355863
+    },
+    {
+      "path": "/HOME/paratera_xy/pxy1289/source/laion_clap_tokenizers/facebook--bart-base/vocab.json",
+      "sha256": "9e7f63c2d15d666b52e21d250d2e513b87c9b713cfa6987a82ed89e5e6e50655",
+      "size": 898823
+    },
+    {
+      "path": "/HOME/paratera_xy/pxy1289/source/laion_clap_tokenizers/roberta-base/config.json",
+      "sha256": "ef0185e2aae6e06c5f105a285006952c340e20c7dbf43c86ec82601b13fc45e9",
+      "size": 481
+    },
+    {
+      "path": "/HOME/paratera_xy/pxy1289/source/laion_clap_tokenizers/roberta-base/merges.txt",
+      "sha256": "1ce1664773c50f3e0cc8842619a93edc4624525b728b188a9e0be33b7726adc5",
+      "size": 456318
+    },
+    {
+      "path": "/HOME/paratera_xy/pxy1289/source/laion_clap_tokenizers/roberta-base/model.safetensors",
+      "sha256": "5bde1d28afb363d0103324efeb5afc8b2b397fe5e04beabb9b1ef355255ade81",
+      "size": 498818054
+    },
+    {
+      "path": "/HOME/paratera_xy/pxy1289/source/laion_clap_tokenizers/roberta-base/tokenizer.json",
+      "sha256": "847bbeab6174d66a88898f729d52fa8d355fafe1bea101cf960dd404581df70e",
+      "size": 1355863
+    },
+    {
+      "path": "/HOME/paratera_xy/pxy1289/source/laion_clap_tokenizers/roberta-base/tokenizer_config.json",
+      "sha256": "994f46754c5bf4014f1aa92d34b1374319c3a6b3f702105cd5b742beaecd18ce",
+      "size": 25
+    },
+    {
+      "path": "/HOME/paratera_xy/pxy1289/source/laion_clap_tokenizers/roberta-base/vocab.json",
+      "sha256": "9e7f63c2d15d666b52e21d250d2e513b87c9b713cfa6987a82ed89e5e6e50655",
+      "size": 898823
+    },
+    {
+      "path": "/HOME/paratera_xy/pxy1289/source/mert/MERT-v1-95M/config.json",
+      "sha256": "ea2627c4c7825cd66f3c944b6b966331604c35928174e0100cd4a82829424e32",
+      "size": 1817
+    },
+    {
+      "path": "/HOME/paratera_xy/pxy1289/source/mert/MERT-v1-95M/configuration_MERT.py",
+      "sha256": "ae0ec2bab8f59c724ba9878a7c20b67210189536ea62d34a56775968e9decb03",
+      "size": 5340
+    },
+    {
+      "path": "/HOME/paratera_xy/pxy1289/source/mert/MERT-v1-95M/modeling_MERT.py",
+      "sha256": "6c3ee73cef6f0c30ef494f88d96f891fa6925ffe663fa391b512f4b57abecc6c",
+      "size": 18033
+    },
+    {
+      "path": "/HOME/paratera_xy/pxy1289/source/mert/MERT-v1-95M/preprocessor_config.json",
+      "sha256": "cc5a5e4a5d3b1a758a5ed984b2eaa15bb0522d811d44a9eed82bfca4baa0dc8f",
+      "size": 211
+    },
+    {
+      "path": "/HOME/paratera_xy/pxy1289/source/mert/MERT-v1-95M/pytorch_model.bin",
+      "sha256": "a2b8b747f72c06e0595aeae41ae5473f4364938c6b39b2c58be38c48e6bd3fcd",
+      "size": 377552987
+    }
+  ],
+  "source_files": [
+    {
+      "path": "acestep/__init__.py",
+      "sha256": "53e7839b5d44445c61cbac0e12bc018a2a2d135a447cbea7a74e3dc41fdc634b",
+      "size": 125
+    },
+    {
+      "path": "acestep/apg_guidance.py",
+      "sha256": "562c942240c408aa333dbfac99c48a37784835d131b03cd9738a8a52d0953202",
+      "size": 3231
+    },
+    {
+      "path": "acestep/cpu_offload.py",
+      "sha256": "46faea0454bb41e769e4ab9315ec216e102b136758bef24adff5eda5300d628f",
+      "size": 1344
+    },
+    {
+      "path": "acestep/data_sampler.py",
+      "sha256": "bedca4c47dba3d6787969ba6812f3d7c360eaffe226a6985b746eb3eb9c9341d",
+      "size": 1167
+    },
+    {
+      "path": "acestep/gui.py",
+      "sha256": "b19fb60cb3a66d2f87afe0ce7d5c6b693dbe3885e1cf7e6cb2bf748180f83f43",
+      "size": 2315
+    },
+    {
+      "path": "acestep/language_segmentation/LangSegment.py",
+      "sha256": "b89aa89648401fc814f64aa473f4a64b7393139bacd9d3a7b92f54a4ff21de01",
+      "size": 50956
+    },
+    {
+      "path": "acestep/language_segmentation/__init__.py",
+      "sha256": "2028bc12b7ffbd48dbe28c9ba0445b3ac482f94932b83af1817bf3dedc66508b",
+      "size": 147
+    },
+    {
+      "path": "acestep/language_segmentation/language_filters.py",
+      "sha256": "11dc312bf3a305d56cd1332ddbd8cd323194cd2e019ab2f19701dc1715577b70",
+      "size": 983
+    },
+    {
+      "path": "acestep/language_segmentation/utils/__init__.py",
+      "sha256": "edab5bc85fc86e030fb6c22229bf0b1019a53c171ec0d0f5cbed0894c2453515",
+      "size": 89
+    },
+    {
+      "path": "acestep/language_segmentation/utils/num.py",
+      "sha256": "3aabd1f3c1bba79cff93bb66e1668e0943709aba9577b2d52fbd629c4410b541",
+      "size": 9563
+    },
+    {
+      "path": "acestep/models/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    {
+      "path": "acestep/models/ace_step_transformer.py",
+      "sha256": "4dcc6846cb21bcc5c73fe7b2cf46897665c323a48b2b60fd7cf30af187874845",
+      "size": 20685
+    },
+    {
+      "path": "acestep/models/attention.py",
+      "sha256": "3d96526855f1cdf725d99d26bf16699b3881b486bd34c8bd7d6013a1309300da",
+      "size": 10246
+    },
+    {
+      "path": "acestep/models/customer_attention_processor.py",
+      "sha256": "e3fbe7f5541cd1751e3118b943d66d6fd73b7ef13b8c0e59732e9c9f537ace41",
+      "size": 16580
+    },
+    {
+      "path": "acestep/models/lyrics_utils/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    {
+      "path": "acestep/models/lyrics_utils/lyric_encoder.py",
+      "sha256": "8ec6e6ca6eca564945fb7d5c83c895a36b863612400b245c62b44fc05e26230c",
+      "size": 41183
+    },
+    {
+      "path": "acestep/models/lyrics_utils/lyric_normalizer.py",
+      "sha256": "d4dc3c699bc992ecfb4810d95eb71fb98a0ca24f5b0bab3b1ca33f3527ab2c1a",
+      "size": 1644
+    },
+    {
+      "path": "acestep/models/lyrics_utils/lyric_tokenizer.py",
+      "sha256": "1256c18e18dc4f45defc8d6c468e63f24a9f31a5c412861187ef8d67a30a3b4e",
+      "size": 33510
+    },
+    {
+      "path": "acestep/models/lyrics_utils/zh_num2words.py",
+      "sha256": "9ca4f5b9aa3932a4768b428e854ceca82eabf4e76a7162e5f2a736620abdfce5",
+      "size": 59478
+    },
+    {
+      "path": "acestep/music_dcae/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    {
+      "path": "acestep/music_dcae/music_dcae_pipeline.py",
+      "sha256": "1d57cfed52e94264e407d8715d966661806f34fbbdc2ef90f12b95ee85278f9a",
+      "size": 18804
+    },
+    {
+      "path": "acestep/music_dcae/music_log_mel.py",
+      "sha256": "55fdba5c8b55ed9436511cb4fecf964988b81da8697451d28b103a8ade763be2",
+      "size": 2924
+    },
+    {
+      "path": "acestep/music_dcae/music_vocoder.py",
+      "sha256": "dac829cf8c9968f70b35c77189bdbdc01689db05fd29945a113a8865e3965723",
+      "size": 18859
+    },
+    {
+      "path": "acestep/pipeline_ace_step.py",
+      "sha256": "2f6982dcf331bbe92bdb51d2bb9e657dc76cfca4437335d4388a992ec0652ba2",
+      "size": 70207
+    },
+    {
+      "path": "acestep/schedulers/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    {
+      "path": "acestep/schedulers/scheduling_flow_match_euler_discrete.py",
+      "sha256": "d3d724dec32d4f2d3df62d4dc9de30c1b74c0d2602e19063ec00031e2f7ebe8d",
+      "size": 15242
+    },
+    {
+      "path": "acestep/schedulers/scheduling_flow_match_heun_discrete.py",
+      "sha256": "57b3431080d7b523ed7504be24336b860bdad09a24df269e3143fbbee0717149",
+      "size": 13246
+    },
+    {
+      "path": "acestep/schedulers/scheduling_flow_match_pingpong.py",
+      "sha256": "b372f8c696415607ce818092c5bb11d95ec7dd97c7266de82a6bbf2236b72e4d",
+      "size": 13172
+    },
+    {
+      "path": "acestep/text2music_dataset.py",
+      "sha256": "ea96531b1879bf4f6324b69e5030aeb456a25d635decbb52f73d926cb03d7a69",
+      "size": 20711
+    },
+    {
+      "path": "acestep/ui/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    {
+      "path": "acestep/ui/components.py",
+      "sha256": "0724db08535ad073df3a88cfa48761497ac84b7dea771c6a8b0e2acc5dba8f8d",
+      "size": 41006
+    },
+    {
+      "path": "convert2hf_dataset.py",
+      "sha256": "f8d823a084035573645860cc3e3b5c130686993f6a2ffbc009e1fc8d4e4bf4f0",
+      "size": 1970
+    },
+    {
+      "path": "infer-api.py",
+      "sha256": "5e7d2f4df2e3b4e889bc120212013b3f075d953b242ad422263c9aaad16fa68e",
+      "size": 3159
+    },
+    {
+      "path": "infer.py",
+      "sha256": "984765265a4bb21bf96495f385c4efe40c8ad03876d310ec97d6891c793b35d5",
+      "size": 3562
+    },
+    {
+      "path": "requirements.txt",
+      "sha256": "d3ef6b4c6d6ce3a0213310f685054132882015cccf07b2cea265f036b9db55cf",
+      "size": 363
+    },
+    {
+      "path": "setup.py",
+      "sha256": "e8ac2bb250a743540734ba5764808fa43db49cc9a824886e07e0b640b65057f6",
+      "size": 1089
+    },
+    {
+      "path": "setup.py",
+      "sha256": "e8ac2bb250a743540734ba5764808fa43db49cc9a824886e07e0b640b65057f6",
+      "size": 1089
+    },
+    {
+      "path": "trainer-api.py",
+      "sha256": "5bcd46e980e085ce13be57afcb817787cc884ad575a5d66d446265231107fbed",
+      "size": 9289
+    },
+    {
+      "path": "trainer.py",
+      "sha256": "2aa4a5ec21379000aa88fd10511506fc481ed4ffa3d6e0891b1c3da59507ca0b",
+      "size": 33582
+    }
+  ],
+  "status": "PROBE_PASS"
+}

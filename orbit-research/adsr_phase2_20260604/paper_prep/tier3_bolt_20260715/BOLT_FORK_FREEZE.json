@@ -1,0 +1,27 @@
+{
+  "calibration": [
+    {
+      "eta": 0.025,
+      "mean_audio_audio_clap_cosine": 0.9672211541229337,
+      "nonidentical_share": 1.0,
+      "rows": 8,
+      "status": "PASS"
+    },
+    {
+      "eta": 0.05,
+      "mean_audio_audio_clap_cosine": 0.9725605135964307,
+      "nonidentical_share": 1.0,
+      "rows": 8,
+      "status": "PASS"
+    },
+    {
+      "eta": 0.1,
+      "mean_audio_audio_clap_cosine": 0.9629362791132186,
+      "nonidentical_share": 1.0,
+      "rows": 8,
+      "status": "PASS"
+    }
+  ],
+  "selected_eta": 0.025,
+  "status": "FROZEN"
+}
