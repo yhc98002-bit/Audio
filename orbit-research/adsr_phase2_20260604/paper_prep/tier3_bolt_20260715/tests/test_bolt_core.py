@@ -115,3 +115,10 @@ def test_crash_resume_contract_is_key_driven_and_nonoverwriting():
     assert "verify_media(existing)" in source
     assert "continue" in source
     assert "allow_existing=True" in source
+
+
+def test_trusted_load_recovery_is_hash_scoped():
+    source = (ROOT / "bolt_scoring.py").read_text(encoding="utf-8")
+    assert "expected = allowed.get(str(path))" in source
+    assert "sha256_file(path) != expected" in source
+    assert 'kwargs["weights_only"] = False' in source

@@ -79,8 +79,14 @@ def command_probe(args: argparse.Namespace) -> int:
         Path("/HOME/paratera_xy/pxy1289/.cache/clap/630k-audioset-best.pt"),
         Path("/HOME/paratera_xy/pxy1289/source/audiobox_aesthetics/checkpoint.pt"),
         Path("/HOME/paratera_xy/pxy1289/.cache/whisper/large-v3.pt"),
-        Path("/HOME/paratera_xy/pxy1289/source/mert/MERT-v1-95M/pytorch_model.bin"),
     ]
+    for artifact_root in (
+        Path("/HOME/paratera_xy/pxy1289/source/mert/MERT-v1-95M"),
+        Path("/HOME/paratera_xy/pxy1289/source/laion_clap_tokenizers/bert-base-uncased"),
+        Path("/HOME/paratera_xy/pxy1289/source/laion_clap_tokenizers/roberta-base"),
+        Path("/HOME/paratera_xy/pxy1289/source/laion_clap_tokenizers/facebook--bart-base"),
+    ):
+        quality_paths.extend(path for path in artifact_root.rglob("*") if path.is_file())
     quality_hash, quality_rows = manifest(Path("/"), quality_paths)
     scheduler = ACE_SOURCE / "acestep/schedulers/scheduling_flow_match_euler_discrete.py"
     repository_sha = subprocess.check_output(["git", "-C", str(ROOT), "rev-parse", "HEAD"], text=True).strip()
@@ -103,6 +109,7 @@ def command_probe(args: argparse.Namespace) -> int:
         "instrument_sha256": sha256_file(INSTRUMENT),
         "quality_gate_policy_sha256": sha256_file(GATE_POLICY),
         "quality_artifact_manifest_sha256": quality_hash,
+        "quality_artifact_files": quality_rows,
         "bolt_code_manifest_sha256": bolt_hash,
         "bolt_git_sha": repository_sha,
         "pip_freeze_sha256": hashlib.sha256(pip_freeze.encode("utf-8")).hexdigest(),
@@ -140,6 +147,7 @@ def command_compare(args: argparse.Namespace) -> int:
         "cudnn_version", "ace_step_declared_commit", "ace_step_source_manifest_sha256",
         "ace_step_checkpoint_manifest_sha256", "scheduler_sha256", "promotion_sha256",
         "instrument_sha256", "quality_gate_policy_sha256", "quality_artifact_manifest_sha256",
+        "quality_artifact_files",
         "bolt_code_manifest_sha256", "bolt_git_sha", "pip_freeze_sha256", "gpu_inventory",
     )
     differences = {

@@ -39,6 +39,38 @@ EVPD_MODEL = ROOT / (
     "paper_prep/w2_execution_20260712/evpd_liveconfirm_torch251_recovery/"
     "corrected_evpd_sigma08.joblib"
 )
+RUNTIME = HERE / "BOLT_RUNTIME_FREEZE.json"
+
+
+def enable_hash_frozen_local_transformers_load() -> str:
+    """Bypass torch<2.6 rejection only for parity-hashed local quality files."""
+    runtime = json.loads(RUNTIME.read_text(encoding="utf-8"))
+    if runtime.get("status") != "FROZEN_PARITY_PASS":
+        raise RuntimeError("trusted local load requires a passed runtime freeze")
+    allowed = {
+        str(Path(row["path"]).resolve()): row["sha256"]
+        for row in runtime.get("quality_artifact_files", [])
+    }
+    if not allowed:
+        raise RuntimeError("runtime freeze lacks per-file quality hashes")
+    import transformers.modeling_utils as modeling_utils
+
+    original = modeling_utils.load_state_dict
+    if getattr(original, "_bolt_hash_scoped", False):
+        return canonical_json_hash(allowed)
+
+    def hash_scoped_load(checkpoint_file, *args, **kwargs):
+        path = Path(checkpoint_file).resolve()
+        expected = allowed.get(str(path))
+        if expected is not None:
+            if sha256_file(path) != expected:
+                raise RuntimeError(f"hash-frozen quality artifact changed: {path}")
+            kwargs["weights_only"] = False
+        return original(checkpoint_file, *args, **kwargs)
+
+    hash_scoped_load._bolt_hash_scoped = True  # type: ignore[attr-defined]
+    modeling_utils.load_state_dict = hash_scoped_load
+    return canonical_json_hash(allowed)
 
 
 def _load_module(path: Path, name: str):
@@ -92,6 +124,7 @@ def save_audio_once(path: Path, waveform: torch.Tensor, sample_rate: int) -> dic
 
 class BoltScorer:
     def __init__(self, *, device: str = "cuda"):
+        self.trusted_load_policy_hash = enable_hash_frozen_local_transformers_load()
         from mprm.common.config import load_config
         from scripts.collect_early_tweedie_validation import _score_common_metrics
         from scripts.launch_baseline import (
@@ -205,6 +238,7 @@ class BoltScorer:
             "cqs": cqs,
             "gate_policy_hash": self.gate_policy_hash,
             "common_scores": common,
+            "trusted_local_load_policy_hash": self.trusted_load_policy_hash,
         }
 
     def audio_embedding(self, waveform: torch.Tensor, sample_rate: int) -> np.ndarray:
