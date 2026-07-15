@@ -46,9 +46,13 @@ candidate violation rate + 0.5 * mean corrected-EVPD violation probability`
 over each prompt's eight pre-existing spine candidates. Instrumental prompts
 are rank-tertiled by this score with prompt-hash tie breaking. The frozen sample is 48 prompts: 12 high-risk
 instrumental, 12 medium-risk instrumental, 12 low-risk instrumental, and 12
-vocal. Within strata, deterministic balanced sampling covers genre, tempo,
-prompt specificity, structure complexity, and language as far as the frame
-permits. Frame size, inclusion probability, and design weight are retained.
+vocal. Within strata, genre balance uses one mandatory seat per available
+genre and Webster proportional allocation of remaining seats. Selection inside
+each `(risk stratum, genre)` cell is fixed-seed simple random sampling, giving
+exact first-order inclusion probability `cell allocation / eligible cell size`
+and its inverse design weight. Tempo, prompt specificity, structure complexity,
+and language are secondary realized-balance audits. Frame size, cell size,
+allocation, inclusion probability, and design weight are retained.
 
 The atlas has 48 prompts, two root seeds, three checkpoints, and five actions,
 for exactly 96 roots, 288 checkpoint states, and 1,440 action outcomes. Root

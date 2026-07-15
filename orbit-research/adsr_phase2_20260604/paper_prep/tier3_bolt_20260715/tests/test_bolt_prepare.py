@@ -32,3 +32,12 @@ def test_prompt_leakage_filter_is_explicit():
     source = Path(prepare.__file__).read_text(encoding="utf-8")
     assert 'row["prompt_id"].startswith("dev_")' in source
     assert 'row["prompt_split"] not in {"train", "val"}' in source
+
+
+def test_genre_allocation_represents_every_available_genre_and_fills_slots():
+    pool = [{"genre": "a"}] * 20 + [{"genre": "b"}] * 8 + [{"genre": "c"}] * 2
+    allocation = prepare.genre_allocations(pool, 12)
+    assert set(allocation) == {"a", "b", "c"}
+    assert all(value >= 1 for value in allocation.values())
+    assert sum(allocation.values()) == 12
+    assert allocation["a"] > allocation["b"] > allocation["c"]

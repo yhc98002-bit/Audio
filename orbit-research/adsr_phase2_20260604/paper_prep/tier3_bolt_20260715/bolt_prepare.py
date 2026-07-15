@@ -363,6 +363,27 @@ def assign_instrumental_risk_strata(rows: list[dict]) -> None:
             row["pilot_stratum"] = "vocal_request"
 
 
+def genre_allocations(pool: list[dict], slots: int = 12) -> dict[str, int]:
+    """Proportional genre allocation with one mandatory seat per available genre."""
+    counts = Counter(str(row["genre"]) for row in pool)
+    if len(counts) > slots:
+        raise RuntimeError(f"cannot represent {len(counts)} genres in {slots} slots")
+    allocation = {genre: 1 for genre in counts}
+    while sum(allocation.values()) < slots:
+        eligible = [genre for genre in counts if allocation[genre] < counts[genre]]
+        if not eligible:
+            raise RuntimeError("genre allocation exhausted before filling pilot stratum")
+        chosen = max(
+            eligible,
+            key=lambda genre: (
+                counts[genre] / (2 * allocation[genre] + 1),
+                canonical_json_hash(genre),
+            ),
+        )
+        allocation[chosen] += 1
+    return allocation
+
+
 def command_pilot_manifest(args: argparse.Namespace) -> int:
     frame_csv = OUT / "BOLT_PILOT_PROMPT_FRAME.csv"
     manifest = OUT / "BOLT_PILOT_PROMPT_MANIFEST.jsonl"
@@ -378,6 +399,8 @@ def command_pilot_manifest(args: argparse.Namespace) -> int:
     rng = random.Random(args.selection_seed)
     selected = []
     frame_counts = Counter(row["pilot_stratum"] for row in eligible)
+    allocation_by_stratum: dict[str, dict[str, int]] = {}
+    genre_frame_counts: dict[tuple[str, str], int] = {}
     for stratum in (
         "high_risk_instrumental", "medium_risk_instrumental",
         "low_risk_instrumental", "vocal_request",
@@ -385,7 +408,12 @@ def command_pilot_manifest(args: argparse.Namespace) -> int:
         pool = [row for row in eligible if row["pilot_stratum"] == stratum]
         if len(pool) < 12:
             raise RuntimeError(f"too few prompts in {stratum}: {len(pool)}")
-        selected.extend(rng.sample(pool, 12))
+        allocation = genre_allocations(pool, 12)
+        allocation_by_stratum[stratum] = allocation
+        for genre, count in Counter(str(row["genre"]) for row in pool).items():
+            genre_frame_counts[(stratum, genre)] = count
+            genre_pool = [row for row in pool if str(row["genre"]) == genre]
+            selected.extend(rng.sample(genre_pool, allocation[genre]))
     selected = sorted(selected, key=lambda row: (
         ("high_risk_instrumental", "medium_risk_instrumental", "low_risk_instrumental", "vocal_request").index(row["pilot_stratum"]),
         row["prompt_id"],
@@ -393,7 +421,10 @@ def command_pilot_manifest(args: argparse.Namespace) -> int:
     namespace = SeedNamespace(args.seed_base)
     manifest_rows = []
     for slot, row in enumerate(selected):
-        probability = 12.0 / frame_counts[row["pilot_stratum"]]
+        genre = str(row["genre"])
+        allocation = allocation_by_stratum[row["pilot_stratum"]][genre]
+        genre_frame_size = genre_frame_counts[(row["pilot_stratum"], genre)]
+        probability = allocation / genre_frame_size
         manifest_rows.append(
             {
                 "prompt_slot": slot,
@@ -405,6 +436,8 @@ def command_pilot_manifest(args: argparse.Namespace) -> int:
                 "promoted_violation_rate": row["promoted_violation_rate"],
                 "corrected_evpd_mean_risk": row["corrected_evpd_mean_risk"],
                 "sampling_frame_size": frame_counts[row["pilot_stratum"]],
+                "genre_frame_size": genre_frame_size,
+                "genre_allocation": allocation,
                 "inclusion_probability": probability,
                 "design_weight": 1.0 / probability,
                 "root_seeds": [namespace.root_seed(slot, index) for index in (0, 1)],
@@ -418,14 +451,28 @@ def command_pilot_manifest(args: argparse.Namespace) -> int:
         )
     frame_rows = []
     for row in frame:
-        frame_rows.append({
+        cell = (row["pilot_stratum"], str(row["genre"]))
+        design = (
+            {
+                "genre_frame_size": genre_frame_counts[cell],
+                "genre_allocation": allocation_by_stratum[row["pilot_stratum"]][str(row["genre"])],
+                "inclusion_probability": (
+                    allocation_by_stratum[row["pilot_stratum"]][str(row["genre"])]
+                    / genre_frame_counts[cell]
+                ),
+            }
+            if not row["gate0_excluded"] else
+            {"genre_frame_size": "", "genre_allocation": "", "inclusion_probability": ""}
+        )
+        base_frame_row = {
             key: row[key] for key in (
                 "prompt_id", "requested_vocal", "prompt_split", "promoted_violation_rate",
                 "corrected_evpd_mean_risk", "risk_score", "genre", "tempo_bin",
                 "prompt_specificity", "structure_complexity", "language", "pilot_stratum",
                 "gate0_excluded",
             )
-        })
+        }
+        frame_rows.append({**base_frame_row, **design})
     write_csv(frame_csv, frame_rows)
     write_jsonl(manifest, manifest_rows)
     selected_counts = Counter(row["stratum"] for row in manifest_rows)
@@ -447,10 +494,14 @@ def command_pilot_manifest(args: argparse.Namespace) -> int:
         "Risk is frozen as `0.5 * promoted-instrument candidate violation rate + "
         "0.5 * mean corrected-EVPD violation probability` over the eight pre-existing "
         "spine candidates. Instrumental prompts are rank-tertiled before sampling.\n\n"
-        "Each stratum uses a fixed-seed simple random sample of 12, so every eligible "
-        "prompt in a stratum has inclusion probability `12 / frame_size` and design "
-        "weight `frame_size / 12`. Balance variables were not used to tune outcomes; "
-        "their realized distributions are audited below.\n\n"
+        "Each stratum allocates 12 seats across genres with one mandatory seat per "
+        "available genre and deterministic Webster proportional priorities for the "
+        "remaining seats. Within each `(risk stratum, genre)` cell, selection is "
+        "fixed-seed simple random sampling. Every row therefore has exact inclusion "
+        "probability `cell allocation / eligible cell size` and inverse-probability "
+        "design weight. Tempo, specificity, structure, and language are audited as "
+        "secondary realized-balance dimensions.\n\n"
+        f"Frozen genre allocations: `{json.dumps(allocation_by_stratum, sort_keys=True)}`.\n\n"
         f"Frame SHA256: `{sha256_file(frame_csv)}`. Manifest SHA256: `{sha256_file(manifest)}`.\n\n"
         "## Realized balance\n\n" + "\n".join(balance_lines) + "\n",
         encoding="utf-8",
