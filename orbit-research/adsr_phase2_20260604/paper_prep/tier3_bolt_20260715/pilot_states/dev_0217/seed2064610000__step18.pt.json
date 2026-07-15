@@ -1,0 +1,62 @@
+{
+  "checkpoint_hash": "2058d6c10bd348da51669ff3886c6b4080405fe4c23bb3de183c293cb5f0bef9",
+  "completed_steps": 18,
+  "condition_hash": "c7e8c60f10a8bf89ea836cdb7a3ac862525f628243d525f025a172de6ede1c28",
+  "cpu_rng_sha256": "a0e847f1af42b1a6ee93331040ee5cf851509a090c04d3885ef468933bcb87ee",
+  "cuda_rng_sha256": "13b908140da4b36f8e56d578dce9d8979b9545e7c5c96f39471c1ecdaee9892c",
+  "extras": {
+    "condition_payload": {
+      "cache_tensor_sha256": {
+        "encoder_hidden_cond": "90e8a2702dbf5c54cedfa6050fe720e48113aaf1462bda482d6538f1f4d4d8cf",
+        "encoder_hidden_null": "66d698ceb7d7f4e7ebfc792947ed47d06904e49b8a35a681bdf32f630070973f",
+        "encoder_mask_cond": "2b0e57bd964ed4df16a3b11f89969ec0d5e2d3a933090c7f4c70238c8bedaf9e",
+        "encoder_mask_null": "2b0e57bd964ed4df16a3b11f89969ec0d5e2d3a933090c7f4c70238c8bedaf9e"
+      },
+      "cfg_scale": 5.0,
+      "cfg_type": "cfg",
+      "guidance_interval": 0.5,
+      "guidance_scale_lyric": 0.0,
+      "guidance_scale_text": 0.0,
+      "lyrics": "on a pris le long chemin\npour que la chanson ne finisse pas",
+      "only_text_cache_tensor_sha256": {},
+      "prompt_id": "dev_0217",
+      "requested_vocal": 1,
+      "structure_hint": "",
+      "switched": false,
+      "text": "Make me a short rock piece \u2014 stomping feel, slow. Lyrics in French."
+    },
+    "guidance_interval": 0.5,
+    "inference_steps": 30,
+    "next_timestep_index": 18,
+    "omega_scale": 10.0
+  },
+  "generator_rng_sha256": "eb9639695eb72aeee58e7c273d48e2dff5d967eae1d23fe3f11c18a1e0b9beb8",
+  "latent_dtype": "torch.bfloat16",
+  "latent_sha256": "0c525d5efea8410d72a36437ed7be88c5ea674b64f751269172a953e16df112a",
+  "latent_shape": [
+    1,
+    8,
+    16,
+    654
+  ],
+  "model_hash": "203e623b252592794e667015ca51cab23d9bfdf74ad56c98efca5d4c2cf179ab",
+  "model_output_dtype": "torch.bfloat16",
+  "model_output_sha256": "6e5294c06d3702e58034981045de61994474d84ee639d402dda8e79abadfa8cb",
+  "model_output_shape": [
+    1,
+    8,
+    16,
+    654
+  ],
+  "next_sigma": 0.6143013834953308,
+  "nfe_count": 29,
+  "prompt_id": "dev_0217",
+  "root_seed": 2064610000,
+  "scheduler_hash": "d3d724dec32d4f2d3df62d4dc9de30c1b74c0d2602e19063ec00031e2f7ebe8d",
+  "scheduler_index": 18,
+  "scheduler_step_count": 18,
+  "sigma": 0.6488576531410217,
+  "state_file_sha256": "afbc5731cc1716e144d9bf0f82591e353a1a43a0712b6db7b5432dfab80d733b",
+  "state_id": "dev_0217__seed2064610000__step18",
+  "timestep": 648.857666015625
+}

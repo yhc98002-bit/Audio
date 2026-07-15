@@ -1,0 +1,62 @@
+{
+  "checkpoint_hash": "2058d6c10bd348da51669ff3886c6b4080405fe4c23bb3de183c293cb5f0bef9",
+  "completed_steps": 6,
+  "condition_hash": "81b73c85192eaee449eeb8e3fd756249719501fa6aeed211e4d5776538fa1775",
+  "cpu_rng_sha256": "7d5460c53bfeaabef3c67809927f9eeea2e3de243a3a28420681240944343775",
+  "cuda_rng_sha256": "db2e771e451e587cbd24bfb89e8e1688840c0aa8a86aaf8bb32fa7020fe91c33",
+  "extras": {
+    "condition_payload": {
+      "cache_tensor_sha256": {
+        "encoder_hidden_cond": "2117d403a3e077d9a985ee7821521dc67939c29b6508f7df021eee357f80ff76",
+        "encoder_hidden_null": "6e1f23d818d88341d9f26e71f46b9c1493dc6475270453abe07e32d054a2cee1",
+        "encoder_mask_cond": "ffc601778831b99ca5cf7ae56a473cda8663798588f955739ee18f458cd1fa53",
+        "encoder_mask_null": "ffc601778831b99ca5cf7ae56a473cda8663798588f955739ee18f458cd1fa53"
+      },
+      "cfg_scale": 5.0,
+      "cfg_type": "cfg",
+      "guidance_interval": 0.5,
+      "guidance_scale_lyric": 0.0,
+      "guidance_scale_text": 0.0,
+      "lyrics": "",
+      "only_text_cache_tensor_sha256": {},
+      "prompt_id": "dev_0041",
+      "requested_vocal": 0,
+      "structure_hint": "AABA",
+      "switched": false,
+      "text": "A sun-soaked pop piece driving at 140 bpm, featuring bright synth pads with a punchy 808, in 32-bar AABA form, with a half-time bridge, (instrumental piece, no lyrics, no vocal stem)."
+    },
+    "guidance_interval": 0.5,
+    "inference_steps": 30,
+    "next_timestep_index": 6,
+    "omega_scale": 10.0
+  },
+  "generator_rng_sha256": "2caaa377721e4b8417b73c6489560bcce1e27a541a44cf3c0ec5bdba7b494ac7",
+  "latent_dtype": "torch.bfloat16",
+  "latent_sha256": "846da21f03f1a80ce54169893d50bdb520732f3121febc20db419ba6b2c172f9",
+  "latent_shape": [
+    1,
+    8,
+    16,
+    361
+  ],
+  "model_hash": "203e623b252592794e667015ca51cab23d9bfdf74ad56c98efca5d4c2cf179ab",
+  "model_output_dtype": "torch.bfloat16",
+  "model_output_sha256": "9efbbc7b2feec101e362108bddc57a4acf1248b526a3344846472e12535d147f",
+  "model_output_shape": [
+    1,
+    8,
+    16,
+    361
+  ],
+  "next_sigma": 0.9044515490531921,
+  "nfe_count": 6,
+  "prompt_id": "dev_0041",
+  "root_seed": 2061310000,
+  "scheduler_hash": "d3d724dec32d4f2d3df62d4dc9de30c1b74c0d2602e19063ec00031e2f7ebe8d",
+  "scheduler_index": 6,
+  "scheduler_step_count": 6,
+  "sigma": 0.9202777147293091,
+  "state_file_sha256": "a53d421d7853b7bf9f1f9b47326a65d1a014b3aca63773511d6bf2c493b8b2b6",
+  "state_id": "dev_0041__seed2061310000__step06",
+  "timestep": 920.2777099609375
+}

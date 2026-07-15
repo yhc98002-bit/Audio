@@ -1,0 +1,19 @@
+...................F.......                                              [100%]
+=================================== FAILURES ===================================
+______________ test_full_tree_oracle_never_selects_empty_program _______________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x14c903e49030>
+
+    def test_full_tree_oracle_never_selects_empty_program(monkeypatch):
+        failed = leaf("base", 30, "CONTINUE", 45, 0, 0)
+        monkeypatch.setattr(oracle, "root_leaves", lambda *args, **kwargs: [failed])
+        result = oracle.full_tree_oracle("p", {("p", 0): {}, ("p", 1): {}}, {}, 45)
+        assert result["selected"]
+>       assert result["cost"] == 45
+E       assert 90 == 45
+
+paper_prep/tier3_bolt_20260715/tests/test_bolt_oracle.py:61: AssertionError
+=========================== short test summary info ============================
+FAILED paper_prep/tier3_bolt_20260715/tests/test_bolt_oracle.py::test_full_tree_oracle_never_selects_empty_program
+Command exited with non-zero status 1
+RUNTIME_SECONDS=85.80

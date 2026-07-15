@@ -1,0 +1,62 @@
+{
+  "checkpoint_hash": "2058d6c10bd348da51669ff3886c6b4080405fe4c23bb3de183c293cb5f0bef9",
+  "completed_steps": 18,
+  "condition_hash": "53c98720897e296d071d9a312f0fedd0b08814a8a758de2c0be2740016f1b4fe",
+  "cpu_rng_sha256": "0758433586542aeb85210743dce95d3313f375793bd2f1d9a31d43b2cd4fae16",
+  "cuda_rng_sha256": "eeb58b5363fcdb271bf9492d3dec5799fb5d94739a191a6c6820833ae97d752f",
+  "extras": {
+    "condition_payload": {
+      "cache_tensor_sha256": {
+        "encoder_hidden_cond": "6127584fcc0e1ef2eefb9bb6c90ef37ea7bbdeafd9c581f3a0371bee33c18a38",
+        "encoder_hidden_null": "2e44da5d5d2af8a834eb8b07c43168b0a8a3e23bd0ca9f6aecf25195d74f20f2",
+        "encoder_mask_cond": "fc9fd1641e64e2d8354b55afeddd71053ceadf1874a9e0ac60015ee3400a2d62",
+        "encoder_mask_null": "fc9fd1641e64e2d8354b55afeddd71053ceadf1874a9e0ac60015ee3400a2d62"
+      },
+      "cfg_scale": 5.0,
+      "cfg_type": "cfg",
+      "guidance_interval": 0.5,
+      "guidance_scale_lyric": 0.0,
+      "guidance_scale_text": 0.0,
+      "lyrics": "",
+      "only_text_cache_tensor_sha256": {},
+      "prompt_id": "dev_0221",
+      "requested_vocal": 0,
+      "structure_hint": "",
+      "switched": false,
+      "text": "I want a pastoral classical thing around 170 bpm. Instrumental \u2014 no vocals."
+    },
+    "guidance_interval": 0.5,
+    "inference_steps": 30,
+    "next_timestep_index": 18,
+    "omega_scale": 10.0
+  },
+  "generator_rng_sha256": "4dc17e18dd45dddf86d995c343151252f1a23ecb7d48328ece4ef29c7142e722",
+  "latent_dtype": "torch.bfloat16",
+  "latent_sha256": "f35cd559dcf110a84a9f2709ef9461c6632a3ca86e6f76b781b3250ced05027a",
+  "latent_shape": [
+    1,
+    8,
+    16,
+    475
+  ],
+  "model_hash": "203e623b252592794e667015ca51cab23d9bfdf74ad56c98efca5d4c2cf179ab",
+  "model_output_dtype": "torch.bfloat16",
+  "model_output_sha256": "0f797eef8a8724a7bc7e5ab5c316afc343fd0c032821c10ec15e560449c003c5",
+  "model_output_shape": [
+    1,
+    8,
+    16,
+    475
+  ],
+  "next_sigma": 0.6143013834953308,
+  "nfe_count": 29,
+  "prompt_id": "dev_0221",
+  "root_seed": 2061010000,
+  "scheduler_hash": "d3d724dec32d4f2d3df62d4dc9de30c1b74c0d2602e19063ec00031e2f7ebe8d",
+  "scheduler_index": 18,
+  "scheduler_step_count": 18,
+  "sigma": 0.6488576531410217,
+  "state_file_sha256": "8dda43b9bdd3965b00026b7ff4fd778dbd6883ed7c8ea21d6e95f2cde5667535",
+  "state_id": "dev_0221__seed2061010000__step18",
+  "timestep": 648.857666015625
+}

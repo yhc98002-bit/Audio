@@ -1,0 +1,62 @@
+{
+  "checkpoint_hash": "2058d6c10bd348da51669ff3886c6b4080405fe4c23bb3de183c293cb5f0bef9",
+  "completed_steps": 18,
+  "condition_hash": "0d36d32f6ba7c8b5e5da900416cfbf648ad705723c82d23abe3fecba3a8e50e2",
+  "cpu_rng_sha256": "a2a3713d9805f1be0ef626498b18983e36919018ff71ff2630604da093ccf971",
+  "cuda_rng_sha256": "8ae7b2e9dab4b46b1d7be74f0b8abb1cf7c7ec399e9a19733c02f48f59de29b8",
+  "extras": {
+    "condition_payload": {
+      "cache_tensor_sha256": {
+        "encoder_hidden_cond": "c5320ab70ea3fd0652ca993a1f546ecde297e228bcc1c82b8147ad266dd75ee8",
+        "encoder_hidden_null": "e5fd16fc0f0894df5138e679722d44a34cb4a5a28c7a65b6daa0375d95729a10",
+        "encoder_mask_cond": "c69b3b55a78bacd7d7bff62530936c9bb94bae924ae283298825705fbbdb399f",
+        "encoder_mask_null": "c69b3b55a78bacd7d7bff62530936c9bb94bae924ae283298825705fbbdb399f"
+      },
+      "cfg_scale": 5.0,
+      "cfg_type": "cfg",
+      "guidance_interval": 0.5,
+      "guidance_scale_lyric": 0.0,
+      "guidance_scale_text": 0.0,
+      "lyrics": "",
+      "only_text_cache_tensor_sha256": {},
+      "prompt_id": "dev_0010",
+      "requested_vocal": 0,
+      "structure_hint": "AABA",
+      "switched": false,
+      "text": "A stomping rock number with a steady beat near 100 bpm, featuring single-coil guitar tone, brushed snare, a soft Hammond pad, in 32-bar AABA form, with a quiet-loud-quiet arc, (no vocals; the lead is the instrument named below)."
+    },
+    "guidance_interval": 0.5,
+    "inference_steps": 30,
+    "next_timestep_index": 18,
+    "omega_scale": 10.0
+  },
+  "generator_rng_sha256": "431e7c34b1033f8ab474b49eee57ba09bd487dbe665816d522e98bd66b5cf5f6",
+  "latent_dtype": "torch.bfloat16",
+  "latent_sha256": "1d8d71f9cc76250b871346985f6d952fd053ce18faa8f6683f72fc1ffdeb2243",
+  "latent_shape": [
+    1,
+    8,
+    16,
+    387
+  ],
+  "model_hash": "203e623b252592794e667015ca51cab23d9bfdf74ad56c98efca5d4c2cf179ab",
+  "model_output_dtype": "torch.bfloat16",
+  "model_output_sha256": "ffc7195b924cea79a0aeed529ad74b60b0409908bf9b999d29ed26bdca2318a0",
+  "model_output_shape": [
+    1,
+    8,
+    16,
+    387
+  ],
+  "next_sigma": 0.6143013834953308,
+  "nfe_count": 29,
+  "prompt_id": "dev_0010",
+  "root_seed": 2061200000,
+  "scheduler_hash": "d3d724dec32d4f2d3df62d4dc9de30c1b74c0d2602e19063ec00031e2f7ebe8d",
+  "scheduler_index": 18,
+  "scheduler_step_count": 18,
+  "sigma": 0.6488576531410217,
+  "state_file_sha256": "46b8906f4fd9604d3e95e2457c5f310965296f4fdd8ef7714012cddf585f348d",
+  "state_id": "dev_0010__seed2061200000__step18",
+  "timestep": 648.857666015625
+}

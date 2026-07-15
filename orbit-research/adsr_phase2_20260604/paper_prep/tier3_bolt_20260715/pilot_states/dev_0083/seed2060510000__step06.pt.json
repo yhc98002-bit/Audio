@@ -1,0 +1,62 @@
+{
+  "checkpoint_hash": "2058d6c10bd348da51669ff3886c6b4080405fe4c23bb3de183c293cb5f0bef9",
+  "completed_steps": 6,
+  "condition_hash": "1f3cd6d9517333cbd1eb6a0a5f65023c2bf785b784a7541375b11055f818eae4",
+  "cpu_rng_sha256": "afc52a9ac72557d6a2a7a1ae8d73914521160f8fa9662a6b0cd9fbd7d51916b6",
+  "cuda_rng_sha256": "405308e0747e176bdb44c7d43477945ad4ea7330fd4a98ea934f7b3c3bdc29eb",
+  "extras": {
+    "condition_payload": {
+      "cache_tensor_sha256": {
+        "encoder_hidden_cond": "e0074e786e682ee8501e02ef12aaf26a9a30bfd09e7c3dd08463a27881b716e8",
+        "encoder_hidden_null": "a22ac755bac3d6dbd1c2cd8e0d4943b87122e87eca19f951836de6f580ef1925",
+        "encoder_mask_cond": "88f3f20f4100651cd9c21b2c0a8bcdade3d24dbea210171de8764a1cda4a0c41",
+        "encoder_mask_null": "88f3f20f4100651cd9c21b2c0a8bcdade3d24dbea210171de8764a1cda4a0c41"
+      },
+      "cfg_scale": 5.0,
+      "cfg_type": "cfg",
+      "guidance_interval": 0.5,
+      "guidance_scale_lyric": 0.0,
+      "guidance_scale_text": 0.0,
+      "lyrics": "",
+      "only_text_cache_tensor_sha256": {},
+      "prompt_id": "dev_0083",
+      "requested_vocal": 0,
+      "structure_hint": "",
+      "switched": false,
+      "text": "Could we try a gritty rock piece around 140 bpm? Nothing fancy. Instrumental \u2014 no vocals."
+    },
+    "guidance_interval": 0.5,
+    "inference_steps": 30,
+    "next_timestep_index": 6,
+    "omega_scale": 10.0
+  },
+  "generator_rng_sha256": "dcd839b65c04d90cf561860545b0a1b17f0dec8831d6729a085c31bd96a53f37",
+  "latent_dtype": "torch.bfloat16",
+  "latent_sha256": "ef8188d0d7b9a2527f9cae5abd3b477f98cfd74bc6cb90810d73c82ac0f2c7a5",
+  "latent_shape": [
+    1,
+    8,
+    16,
+    396
+  ],
+  "model_hash": "203e623b252592794e667015ca51cab23d9bfdf74ad56c98efca5d4c2cf179ab",
+  "model_output_dtype": "torch.bfloat16",
+  "model_output_sha256": "b23c0fc4d82a3ee02497cf380da68bfdd853b57bcd74582c4d942062daa1e692",
+  "model_output_shape": [
+    1,
+    8,
+    16,
+    396
+  ],
+  "next_sigma": 0.9044515490531921,
+  "nfe_count": 6,
+  "prompt_id": "dev_0083",
+  "root_seed": 2060510000,
+  "scheduler_hash": "d3d724dec32d4f2d3df62d4dc9de30c1b74c0d2602e19063ec00031e2f7ebe8d",
+  "scheduler_index": 6,
+  "scheduler_step_count": 6,
+  "sigma": 0.9202777147293091,
+  "state_file_sha256": "f97e22501c5678975b4adce0f4ff21dbabf9aafdbfbe638afcbb49cf454f7ce5",
+  "state_id": "dev_0083__seed2060510000__step06",
+  "timestep": 920.2777099609375
+}

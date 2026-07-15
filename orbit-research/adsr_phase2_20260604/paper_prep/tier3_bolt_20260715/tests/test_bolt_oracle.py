@@ -41,3 +41,21 @@ def test_oracle_can_separate_from_static_failure():
     options = oracle.root_options([failed_base, successful_switch], 45, 90)
     assert any(row["any_success"] for row in options.values())
     assert min(cost for cost, row in options.items() if row["any_success"]) == 45
+
+
+def test_nonstatic_program_compares_physical_leaf_sets():
+    assert not oracle.oracle_program_differs(["root0_base", "root1_base"], ["root1_base", "root0_base"])
+    assert oracle.oracle_program_differs(["root0_base", "root1_base"], ["root0_base", "root0_step12_FORK_LATENT"])
+
+
+def test_matched_cqs_compute_saving_is_conservative_on_static_failures():
+    assert oracle.matched_cqs_compute_saving(1, 90, 45) == 0.5
+    assert oracle.matched_cqs_compute_saving(0, 90, 45) == 0.0
+
+
+def test_full_tree_oracle_never_selects_empty_program(monkeypatch):
+    failed = leaf("base", 30, "CONTINUE", 45, 0, 0)
+    monkeypatch.setattr(oracle, "root_leaves", lambda *args, **kwargs: [failed])
+    result = oracle.full_tree_oracle("p", {("p", 0): {}, ("p", 1): {}}, {}, 45)
+    assert result["selected"]
+    assert 45 <= result["cost"] <= 90

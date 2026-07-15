@@ -1,0 +1,62 @@
+{
+  "checkpoint_hash": "2058d6c10bd348da51669ff3886c6b4080405fe4c23bb3de183c293cb5f0bef9",
+  "completed_steps": 6,
+  "condition_hash": "6d492306d8007ce52d0a3cc5d2149e6eb50bb3535a9106b9c06350b5541ff177",
+  "cpu_rng_sha256": "273d1c331685a4496b6a76d8ad758c44ffc7e988e42f6ccb50311b0d940f1104",
+  "cuda_rng_sha256": "6168c01d5b475c7f580764000bed29aaa7251bdfb399bebcea5cc8fc882389e4",
+  "extras": {
+    "condition_payload": {
+      "cache_tensor_sha256": {
+        "encoder_hidden_cond": "d878db814fc3a9b840de119abc1f87c4be514a8ad9250ca26c4fe5f36f05740b",
+        "encoder_hidden_null": "5458a19731e4fc6784c535fcf19e9d6782364688cda38e1ca4a9e414eec68c99",
+        "encoder_mask_cond": "a7c5dc2ed13c6258e2647f20f0b8a789b4bc376daf9d97a9135c63e0a021439c",
+        "encoder_mask_null": "a7c5dc2ed13c6258e2647f20f0b8a789b4bc376daf9d97a9135c63e0a021439c"
+      },
+      "cfg_scale": 5.0,
+      "cfg_type": "cfg",
+      "guidance_interval": 0.5,
+      "guidance_scale_lyric": 0.0,
+      "guidance_scale_text": 0.0,
+      "lyrics": "I keep my receipts\nin the same drawer\nas your handwriting",
+      "only_text_cache_tensor_sha256": {},
+      "prompt_id": "dev_0042",
+      "requested_vocal": 1,
+      "structure_hint": "intro-A-B-A'-bridge-A''",
+      "switched": false,
+      "text": "A doom-doom-doom metal composition at mid-tempo around 105 bpm, featuring fuzzed-out doom riff, slow kick, room reverb. Lyrics in English."
+    },
+    "guidance_interval": 0.5,
+    "inference_steps": 30,
+    "next_timestep_index": 6,
+    "omega_scale": 10.0
+  },
+  "generator_rng_sha256": "39e1b2f5c6e44d075bfd32c5219bdfdec7e522c82e37d98869cc226329c7a4d7",
+  "latent_dtype": "torch.bfloat16",
+  "latent_sha256": "77bdc0432d964ca7dd9f52ff79eb8e4531ba6260ab13e430b5578464d8d69a73",
+  "latent_shape": [
+    1,
+    8,
+    16,
+    479
+  ],
+  "model_hash": "203e623b252592794e667015ca51cab23d9bfdf74ad56c98efca5d4c2cf179ab",
+  "model_output_dtype": "torch.bfloat16",
+  "model_output_sha256": "13c029cc3d64165cb182404552a23cbcc86b326584c58a4665a48650cf1e4631",
+  "model_output_shape": [
+    1,
+    8,
+    16,
+    479
+  ],
+  "next_sigma": 0.9044515490531921,
+  "nfe_count": 6,
+  "prompt_id": "dev_0042",
+  "root_seed": 2069002001,
+  "scheduler_hash": "d3d724dec32d4f2d3df62d4dc9de30c1b74c0d2602e19063ec00031e2f7ebe8d",
+  "scheduler_index": 6,
+  "scheduler_step_count": 6,
+  "sigma": 0.9202777147293091,
+  "state_file_sha256": "bc8253ef75c9b8ae5cb8a0d2966a6e4895689bcdf9fc8c3e507aa74861554567",
+  "state_id": "dev_0042__seed2069002001__step06",
+  "timestep": 920.2777099609375
+}

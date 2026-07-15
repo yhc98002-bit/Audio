@@ -1,0 +1,62 @@
+{
+  "checkpoint_hash": "2058d6c10bd348da51669ff3886c6b4080405fe4c23bb3de183c293cb5f0bef9",
+  "completed_steps": 6,
+  "condition_hash": "77bdec1ddf0ecc14ce03baef7ad57feb6ad50a8c35e4730140ed25b24a4c0be6",
+  "cpu_rng_sha256": "b52c2db62fe63f976945ae8a38b94c7f6ef2956e56a2ada5bfa5c8b4bd980c91",
+  "cuda_rng_sha256": "48f682221f960edff62260d7c1ebf34a2e9922bd5562857ed83ec784b582a81e",
+  "extras": {
+    "condition_payload": {
+      "cache_tensor_sha256": {
+        "encoder_hidden_cond": "325b75f36f4e317c54eb2364eb3e803b4e895ad198a8fe9e9f36ecd327d434e1",
+        "encoder_hidden_null": "bd4ebdbade9f658f496967c6128d6a3448debb3f5b99ba98206baaad343bb4e1",
+        "encoder_mask_cond": "7a05834a6212a499b7c96a18b817ca3bda478cd6d812a963163010f548c6d31a",
+        "encoder_mask_null": "7a05834a6212a499b7c96a18b817ca3bda478cd6d812a963163010f548c6d31a"
+      },
+      "cfg_scale": 5.0,
+      "cfg_type": "cfg",
+      "guidance_interval": 0.5,
+      "guidance_scale_lyric": 0.0,
+      "guidance_scale_text": 0.0,
+      "lyrics": "I will not unpack tonight\nthe bags can sit by the door\nthe bus pulled away\nwith my better answer in it",
+      "only_text_cache_tensor_sha256": {},
+      "prompt_id": "dev_0152",
+      "requested_vocal": 1,
+      "structure_hint": "verse-chorus-verse",
+      "switched": false,
+      "text": "A lonesome folk track at mid-tempo around 105 bpm, featuring fingerpicked steel-string guitar with a single voice, in verse-chorus form, with a wordless harmony bridge, in English."
+    },
+    "guidance_interval": 0.5,
+    "inference_steps": 30,
+    "next_timestep_index": 6,
+    "omega_scale": 10.0
+  },
+  "generator_rng_sha256": "6e12cc554cc7601d9829426f055aaabf90132555b6d7ac7997fcd1b5b93013cb",
+  "latent_dtype": "torch.bfloat16",
+  "latent_sha256": "35ee717def9a05c05e72b5988a3bd4931b22c2ab0f62fdc626a240b5f9afee9b",
+  "latent_shape": [
+    1,
+    8,
+    16,
+    439
+  ],
+  "model_hash": "203e623b252592794e667015ca51cab23d9bfdf74ad56c98efca5d4c2cf179ab",
+  "model_output_dtype": "torch.bfloat16",
+  "model_output_sha256": "013a8962b0ac9b5259b90e816c96afdc45a970f6cfcc95317b680a81851eac46",
+  "model_output_shape": [
+    1,
+    8,
+    16,
+    439
+  ],
+  "next_sigma": 0.9044515490531921,
+  "nfe_count": 6,
+  "prompt_id": "dev_0152",
+  "root_seed": 2064400000,
+  "scheduler_hash": "d3d724dec32d4f2d3df62d4dc9de30c1b74c0d2602e19063ec00031e2f7ebe8d",
+  "scheduler_index": 6,
+  "scheduler_step_count": 6,
+  "sigma": 0.9202777147293091,
+  "state_file_sha256": "c329f9b9c392e8e005add7c0774c4dd931b2d93d1d113bbae25adb7a83d71bd7",
+  "state_id": "dev_0152__seed2064400000__step06",
+  "timestep": 920.2777099609375
+}

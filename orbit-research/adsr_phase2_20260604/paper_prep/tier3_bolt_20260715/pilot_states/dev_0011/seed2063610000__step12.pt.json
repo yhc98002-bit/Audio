@@ -1,0 +1,62 @@
+{
+  "checkpoint_hash": "2058d6c10bd348da51669ff3886c6b4080405fe4c23bb3de183c293cb5f0bef9",
+  "completed_steps": 12,
+  "condition_hash": "09eb9916f9ede944d789b4ba983bd40d89dac0b7063ecef0b7c9edaed3f683aa",
+  "cpu_rng_sha256": "d20a210f9c22fcb2f5a1da683aa22be10d9c6eacfe7210d1ee9ca83ef4a91bd7",
+  "cuda_rng_sha256": "242c74b2e5be6a6d8e36d6ad31ec39deb4a4222f676e77737e42713275c01de6",
+  "extras": {
+    "condition_payload": {
+      "cache_tensor_sha256": {
+        "encoder_hidden_cond": "67bfe429f8065d2111003784922d5d9c05ac073a47953f4aa374ba558ea8c5ea",
+        "encoder_hidden_null": "83aaac8551184c983a550e8d1976e3299c1a2318580a3937ca50b722965119d7",
+        "encoder_mask_cond": "1df30f88949ce062f8df149ddc1216affebd8de400adfb23628622c0da74f9d7",
+        "encoder_mask_null": "1df30f88949ce062f8df149ddc1216affebd8de400adfb23628622c0da74f9d7"
+      },
+      "cfg_scale": 5.0,
+      "cfg_type": "cfg",
+      "guidance_interval": 0.5,
+      "guidance_scale_lyric": 0.0,
+      "guidance_scale_text": 0.0,
+      "lyrics": "winter is generous with silence\nwe took what it offered\nwe slept past noon and pretended",
+      "only_text_cache_tensor_sha256": {},
+      "prompt_id": "dev_0011",
+      "requested_vocal": 1,
+      "structure_hint": "",
+      "switched": false,
+      "text": "Generate a ambient-techno, electronic-style piece very fast."
+    },
+    "guidance_interval": 0.5,
+    "inference_steps": 30,
+    "next_timestep_index": 12,
+    "omega_scale": 10.0
+  },
+  "generator_rng_sha256": "bc8ef5f58826d38170b95643c890015408d25dddcc9da79f0940f479971fdda6",
+  "latent_dtype": "torch.bfloat16",
+  "latent_sha256": "9687e6694ac3fe0ebc6735df31c22e26bb17eb9862ef4c4bf5bac9a4957826f5",
+  "latent_shape": [
+    1,
+    8,
+    16,
+    437
+  ],
+  "model_hash": "203e623b252592794e667015ca51cab23d9bfdf74ad56c98efca5d4c2cf179ab",
+  "model_output_dtype": "torch.bfloat16",
+  "model_output_sha256": "e828f37336a225ebf4aec9b539c3dffc8c61faa85d75298fb1f3bfcb0c9ffd79",
+  "model_output_shape": [
+    1,
+    8,
+    16,
+    437
+  ],
+  "next_sigma": 0.7877941131591797,
+  "nfe_count": 17,
+  "prompt_id": "dev_0011",
+  "root_seed": 2063610000,
+  "scheduler_hash": "d3d724dec32d4f2d3df62d4dc9de30c1b74c0d2602e19063ec00031e2f7ebe8d",
+  "scheduler_index": 12,
+  "scheduler_step_count": 12,
+  "sigma": 0.810310423374176,
+  "state_file_sha256": "f637e22022070305bf1fb56c96d14378cc4cfbe7cc3f21caf9ceb97ab6b85f70",
+  "state_id": "dev_0011__seed2063610000__step12",
+  "timestep": 810.3104248046875
+}

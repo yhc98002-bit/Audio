@@ -1,0 +1,62 @@
+{
+  "checkpoint_hash": "2058d6c10bd348da51669ff3886c6b4080405fe4c23bb3de183c293cb5f0bef9",
+  "completed_steps": 12,
+  "condition_hash": "95633bc708fec43a0323fd8189eca832257918532b1a08f1eb67209729bc7582",
+  "cpu_rng_sha256": "0d1f2f30d3cb067ce8d137d7c7d221c7f3702daa8455ce47813ef04b7f8637c0",
+  "cuda_rng_sha256": "8cb74bc7f1e17890c42dec387991a7fa28407d055ad900427d0f203f8bd24cf0",
+  "extras": {
+    "condition_payload": {
+      "cache_tensor_sha256": {
+        "encoder_hidden_cond": "af337a9a993b45e6d40fbe35278a856d700d2a54331a2234bbf09e0ae06e5321",
+        "encoder_hidden_null": "fa9143176b802ffbf88d8629750e81b22196489e7ef624114eff8619e8d0b3ac",
+        "encoder_mask_cond": "21bed78eb74dcb008edd9e4e4fc2c00a6203e0175ba4881fb1ab8ac3c0be0497",
+        "encoder_mask_null": "21bed78eb74dcb008edd9e4e4fc2c00a6203e0175ba4881fb1ab8ac3c0be0497"
+      },
+      "cfg_scale": 5.0,
+      "cfg_type": "cfg",
+      "guidance_interval": 0.5,
+      "guidance_scale_lyric": 0.0,
+      "guidance_scale_text": 0.0,
+      "lyrics": "",
+      "only_text_cache_tensor_sha256": {},
+      "prompt_id": "dev_0144",
+      "requested_vocal": 0,
+      "structure_hint": "AABA",
+      "switched": false,
+      "text": "An after-hours jazz song around 110 bpm, featuring muted trumpet over a sustained Rhodes chord, in 32-bar AABA form, with an extended solo section over the changes, (fully instrumental, no vocals)."
+    },
+    "guidance_interval": 0.5,
+    "inference_steps": 30,
+    "next_timestep_index": 12,
+    "omega_scale": 10.0
+  },
+  "generator_rng_sha256": "c5e352162d863416d7c9600038c6528185d7596514a38cd2f9e9ad0e80ca1f2b",
+  "latent_dtype": "torch.bfloat16",
+  "latent_sha256": "930d8be0bfaa9a1cc704e79a30a63a596d1b5015543872acc3334756f868f1f1",
+  "latent_shape": [
+    1,
+    8,
+    16,
+    676
+  ],
+  "model_hash": "203e623b252592794e667015ca51cab23d9bfdf74ad56c98efca5d4c2cf179ab",
+  "model_output_dtype": "torch.bfloat16",
+  "model_output_sha256": "2cef6bafa002ae453d1db5f5f13236d1baf897de314b4989e2a4e634cde59679",
+  "model_output_shape": [
+    1,
+    8,
+    16,
+    676
+  ],
+  "next_sigma": 0.7877941131591797,
+  "nfe_count": 17,
+  "prompt_id": "dev_0144",
+  "root_seed": 2062000000,
+  "scheduler_hash": "d3d724dec32d4f2d3df62d4dc9de30c1b74c0d2602e19063ec00031e2f7ebe8d",
+  "scheduler_index": 12,
+  "scheduler_step_count": 12,
+  "sigma": 0.810310423374176,
+  "state_file_sha256": "5f6735d02eddb1bc473470edf05d87d9dbda0d4656aa646cc1c2dcfaed64ff0b",
+  "state_id": "dev_0144__seed2062000000__step12",
+  "timestep": 810.3104248046875
+}

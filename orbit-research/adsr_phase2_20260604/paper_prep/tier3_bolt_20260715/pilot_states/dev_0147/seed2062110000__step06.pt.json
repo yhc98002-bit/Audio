@@ -1,0 +1,62 @@
+{
+  "checkpoint_hash": "2058d6c10bd348da51669ff3886c6b4080405fe4c23bb3de183c293cb5f0bef9",
+  "completed_steps": 6,
+  "condition_hash": "d86344867c84d59c1b19c16c33826655d6b6760f4661d5c5d323a5ff4f993f1b",
+  "cpu_rng_sha256": "c9faf3690f2f4f0178493109152e6efd2bcdfe0a53760c1d524a854f840a5480",
+  "cuda_rng_sha256": "94931442edf0390379799f29e1baf3c331104842e2d8b732b2e74dca9e10c66a",
+  "extras": {
+    "condition_payload": {
+      "cache_tensor_sha256": {
+        "encoder_hidden_cond": "bf5dcc2185a15f734df7da04ab301746c941c319e2a54518c9bffbb29f533a9c",
+        "encoder_hidden_null": "fb36a6335c12e2344060f742ba71cef595af579c7108b9d390b51bb7078ff183",
+        "encoder_mask_cond": "9f34e4fd7bad368804b3b2e80c10e4565aec85fe0d8efeacff51877bc05064ea",
+        "encoder_mask_null": "9f34e4fd7bad368804b3b2e80c10e4565aec85fe0d8efeacff51877bc05064ea"
+      },
+      "cfg_scale": 5.0,
+      "cfg_type": "cfg",
+      "guidance_interval": 0.5,
+      "guidance_scale_lyric": 0.0,
+      "guidance_scale_text": 0.0,
+      "lyrics": "",
+      "only_text_cache_tensor_sha256": {},
+      "prompt_id": "dev_0147",
+      "requested_vocal": 0,
+      "structure_hint": "AABA",
+      "switched": false,
+      "text": "A stormy classical composition double-time at 168 bpm, featuring string orchestra plus solo violin. (instrumental piece, no lyrics, no vocal stem)."
+    },
+    "guidance_interval": 0.5,
+    "inference_steps": 30,
+    "next_timestep_index": 6,
+    "omega_scale": 10.0
+  },
+  "generator_rng_sha256": "42802132b11c2f06235a86393e52103f10a83f88bea5ee3d8d7019139e261d2f",
+  "latent_dtype": "torch.bfloat16",
+  "latent_sha256": "53e399ac00a4d7478edc98256ba2756e24f5a7b18f88e180e2410d4c45b39cc9",
+  "latent_shape": [
+    1,
+    8,
+    16,
+    445
+  ],
+  "model_hash": "203e623b252592794e667015ca51cab23d9bfdf74ad56c98efca5d4c2cf179ab",
+  "model_output_dtype": "torch.bfloat16",
+  "model_output_sha256": "75f0526e8fc3855fe3390a55e7f3e31fdd301dc00120870522113547b71290fa",
+  "model_output_shape": [
+    1,
+    8,
+    16,
+    445
+  ],
+  "next_sigma": 0.9044515490531921,
+  "nfe_count": 6,
+  "prompt_id": "dev_0147",
+  "root_seed": 2062110000,
+  "scheduler_hash": "d3d724dec32d4f2d3df62d4dc9de30c1b74c0d2602e19063ec00031e2f7ebe8d",
+  "scheduler_index": 6,
+  "scheduler_step_count": 6,
+  "sigma": 0.9202777147293091,
+  "state_file_sha256": "64fd77fa73e7dbb54653e3c69cfcb2fba7ef30d85dba03991813c287fe2ed10e",
+  "state_id": "dev_0147__seed2062110000__step06",
+  "timestep": 920.2777099609375
+}

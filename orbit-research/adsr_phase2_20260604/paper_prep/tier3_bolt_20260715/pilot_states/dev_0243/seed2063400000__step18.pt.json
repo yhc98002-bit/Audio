@@ -1,0 +1,62 @@
+{
+  "checkpoint_hash": "2058d6c10bd348da51669ff3886c6b4080405fe4c23bb3de183c293cb5f0bef9",
+  "completed_steps": 18,
+  "condition_hash": "3e78ce200577d1384756b8cc50a0854e84f9f9bd50c898eef44bcead9bbb8780",
+  "cpu_rng_sha256": "150f4580c74332572a0b64fab132104fa3f23725df8791a99edfc4344f0765e1",
+  "cuda_rng_sha256": "a20bde314684f8364013e099fdc623a60152df8093116400f66afb7f473f4a0e",
+  "extras": {
+    "condition_payload": {
+      "cache_tensor_sha256": {
+        "encoder_hidden_cond": "b9065f2ac397ae2d56a5f7789d3fdd0b8db7000d837ca8ecfd3325f8667c37b4",
+        "encoder_hidden_null": "e5fd16fc0f0894df5138e679722d44a34cb4a5a28c7a65b6daa0375d95729a10",
+        "encoder_mask_cond": "c69b3b55a78bacd7d7bff62530936c9bb94bae924ae283298825705fbbdb399f",
+        "encoder_mask_null": "c69b3b55a78bacd7d7bff62530936c9bb94bae924ae283298825705fbbdb399f"
+      },
+      "cfg_scale": 5.0,
+      "cfg_type": "cfg",
+      "guidance_interval": 0.5,
+      "guidance_scale_lyric": 0.0,
+      "guidance_scale_text": 0.0,
+      "lyrics": "",
+      "only_text_cache_tensor_sha256": {},
+      "prompt_id": "dev_0243",
+      "requested_vocal": 0,
+      "structure_hint": "verse-chorus-verse",
+      "switched": false,
+      "text": "A playful classical \u00d7 folk fusion (Celtic-tinged touches) tune double-time at 168 bpm, featuring woodwind ensemble: flute, clarinet, bassoon, in alternating-section form, with a contrasting middle section in the relative minor, (fully instrumental, no vocals)."
+    },
+    "guidance_interval": 0.5,
+    "inference_steps": 30,
+    "next_timestep_index": 18,
+    "omega_scale": 10.0
+  },
+  "generator_rng_sha256": "1cf616490b10c6cca44492a41e88792577960fc8e6e37f3c6ac3f934bc912ef6",
+  "latent_dtype": "torch.bfloat16",
+  "latent_sha256": "9efc09821abc41286b3cf9aabec0b899e37fa176a5389bce6dd3a08221b0f7e5",
+  "latent_shape": [
+    1,
+    8,
+    16,
+    416
+  ],
+  "model_hash": "203e623b252592794e667015ca51cab23d9bfdf74ad56c98efca5d4c2cf179ab",
+  "model_output_dtype": "torch.bfloat16",
+  "model_output_sha256": "2cb57b46d7425733847ebfa56344cacad7973e2c46b03088d2b68b1fec0cbf85",
+  "model_output_shape": [
+    1,
+    8,
+    16,
+    416
+  ],
+  "next_sigma": 0.6143013834953308,
+  "nfe_count": 29,
+  "prompt_id": "dev_0243",
+  "root_seed": 2063400000,
+  "scheduler_hash": "d3d724dec32d4f2d3df62d4dc9de30c1b74c0d2602e19063ec00031e2f7ebe8d",
+  "scheduler_index": 18,
+  "scheduler_step_count": 18,
+  "sigma": 0.6488576531410217,
+  "state_file_sha256": "588b6cf55e7ba51062045fcf7b990e976ed6d681c5667d194270926ff4eaf401",
+  "state_id": "dev_0243__seed2063400000__step18",
+  "timestep": 648.857666015625
+}

@@ -1,0 +1,62 @@
+{
+  "checkpoint_hash": "2058d6c10bd348da51669ff3886c6b4080405fe4c23bb3de183c293cb5f0bef9",
+  "completed_steps": 12,
+  "condition_hash": "afa98c06e4fbe4985dddaa3f5d2b882cdb59ab1c9f3ee73e28398843df6a4b6a",
+  "cpu_rng_sha256": "6f5cde6f24c73bacf6b54209d091c53f07c82a9782c426005e4bd21a3fd5cd21",
+  "cuda_rng_sha256": "5a69d1e8460b6e09489d9e37584ef3fcad7fcdcd95a50e78fcea5d94131cceff",
+  "extras": {
+    "condition_payload": {
+      "cache_tensor_sha256": {
+        "encoder_hidden_cond": "28a6d5a676409534484c7e01dce241206807502d2566c6398cacafc52d53515b",
+        "encoder_hidden_null": "b7ade2f669f3ed620af0f426a519fcf4e3d9cf3150a0f680ea5c13590bf6a29e",
+        "encoder_mask_cond": "4bbc1061b024d32b2baff4e6b9a16ca3c90dddd8909f08c4d9e4dbea78bd7a72",
+        "encoder_mask_null": "4bbc1061b024d32b2baff4e6b9a16ca3c90dddd8909f08c4d9e4dbea78bd7a72"
+      },
+      "cfg_scale": 5.0,
+      "cfg_type": "cfg",
+      "guidance_interval": 0.5,
+      "guidance_scale_lyric": 0.0,
+      "guidance_scale_text": 0.0,
+      "lyrics": "tomorrow is a list of small things\nthat I will not do\nthat I have not learned to mind",
+      "only_text_cache_tensor_sha256": {},
+      "prompt_id": "dev_0107",
+      "requested_vocal": 1,
+      "structure_hint": "",
+      "switched": false,
+      "text": "I'm in the mood for progressive metal \u2014 very fast, if you can."
+    },
+    "guidance_interval": 0.5,
+    "inference_steps": 30,
+    "next_timestep_index": 12,
+    "omega_scale": 10.0
+  },
+  "generator_rng_sha256": "8b198ea59d70b21dc8c4e72a127c83020111f8d6673c6524bb771bfb0c5ae766",
+  "latent_dtype": "torch.bfloat16",
+  "latent_sha256": "f7dde3d24168de7161ec741d1154a54d9e4b4fda8ec828b278be06384739c6d5",
+  "latent_shape": [
+    1,
+    8,
+    16,
+    369
+  ],
+  "model_hash": "203e623b252592794e667015ca51cab23d9bfdf74ad56c98efca5d4c2cf179ab",
+  "model_output_dtype": "torch.bfloat16",
+  "model_output_sha256": "97c9716a8e4c7af67bd9bc0982b93c30d659858bc4271cd2519725ca2cbaf034",
+  "model_output_shape": [
+    1,
+    8,
+    16,
+    369
+  ],
+  "next_sigma": 0.7877941131591797,
+  "nfe_count": 17,
+  "prompt_id": "dev_0107",
+  "root_seed": 2064300000,
+  "scheduler_hash": "d3d724dec32d4f2d3df62d4dc9de30c1b74c0d2602e19063ec00031e2f7ebe8d",
+  "scheduler_index": 12,
+  "scheduler_step_count": 12,
+  "sigma": 0.810310423374176,
+  "state_file_sha256": "bd128786d9345f4243a169c88539015770d1b86e634c5c1239b3aca1d0b09840",
+  "state_id": "dev_0107__seed2064300000__step12",
+  "timestep": 810.3104248046875
+}

@@ -67,6 +67,17 @@ def weighted_mean(values: Iterable[float], weights: Iterable[float]) -> float:
     return float(np.average(value, weights=weight))
 
 
+def oracle_program_differs(static_leaf_ids: Iterable[str], oracle_leaf_ids: Iterable[str]) -> bool:
+    """Apply the frozen prompt-level nonstatic-program definition exactly."""
+    return frozenset(static_leaf_ids) != frozenset(oracle_leaf_ids)
+
+
+def matched_cqs_compute_saving(static_cqs: int, static_cost: int, oracle_success_cost: int) -> float:
+    """Conservative paired saving while preserving each static program success."""
+    matched_cost = oracle_success_cost if static_cqs else static_cost
+    return (static_cost - matched_cost) / static_cost
+
+
 def option_probability(row: dict) -> float:
     if row.get("quality_floor_status") != "PASS" or not row.get("valid", True):
         return 0.0
@@ -235,10 +246,15 @@ def full_tree_oracle(prompt_id: str, roots: dict, actions: dict, standard_nfe: i
             cost = cost0 + cost1
             if cost > budget:
                 continue
+            selected = left["selected"] + right["selected"]
+            if not selected:
+                # A feasible BOLT program must honor the completion reserve by
+                # producing at least one completed candidate.
+                continue
             candidates.append(
                 {
                     "cost": cost,
-                    "selected": left["selected"] + right["selected"],
+                    "selected": selected,
                     "any_success": int(left["any_success"] or right["any_success"]),
                     "success_count": left["success_count"] + right["success_count"],
                     "option": left["option"] + right["option"],
@@ -255,7 +271,35 @@ def full_tree_oracle(prompt_id: str, roots: dict, actions: dict, standard_nfe: i
         key=lambda row: (-row["success_count"], -row["option"]),
         default=best,
     )
-    return {**best, "minimum_success_cost": minimum_success, "cheapest_successful": cheapest["selected"]}
+    per_root = {}
+    for root_index, root_options_by_cost in options.items():
+        nonempty = [
+            {"cost": cost, **value}
+            for cost, value in root_options_by_cost.items()
+            if value["selected"]
+        ]
+        root_best = max(
+            nonempty,
+            key=lambda row: (
+                row["any_success"], row["success_count"], row["option"], -row["cost"]
+            ),
+        )
+        per_root[root_index] = root_best
+    leaf_index = {
+        leaf.leaf_id: leaf
+        for root_index in (0, 1)
+        for leaf in leaves_by_root[root_index]
+    }
+    return {
+        **best,
+        "minimum_success_cost": minimum_success,
+        "cheapest_successful": cheapest["selected"],
+        "per_root": per_root,
+        "quality_floor_failures": sum(
+            leaf_index[leaf_id].row.get("quality_floor_status") != "PASS"
+            for leaf_id in best["selected"]
+        ),
+    }
 
 
 def state_action_oracle(prompt_id: str, actions: dict, budget: int) -> list[dict]:
@@ -284,23 +328,33 @@ def state_action_oracle(prompt_id: str, actions: dict, budget: int) -> list[dict
     return output
 
 
-def stratified_bootstrap(prompt_rows: list[dict], reps: int = BOOTSTRAP_REPS) -> tuple[np.ndarray, np.ndarray]:
+def stratified_bootstrap(prompt_rows: list[dict], reps: int = BOOTSTRAP_REPS) -> dict[str, np.ndarray]:
     rng = np.random.default_rng(BOOTSTRAP_SEED)
     strata = sorted({row["stratum"] for row in prompt_rows})
     grouped = {stratum: [row for row in prompt_rows if row["stratum"] == stratum] for stratum in strata}
     headrooms = np.empty(reps, dtype=np.float64)
     savings = np.empty(reps, dtype=np.float64)
+    static_rates = np.empty(reps, dtype=np.float64)
+    oracle_rates = np.empty(reps, dtype=np.float64)
+    nonstatic_rates = np.empty(reps, dtype=np.float64)
     for index in range(reps):
         sample = []
         for rows in grouped.values():
             picks = rng.integers(0, len(rows), size=len(rows))
             sample.extend(rows[pick] for pick in picks)
         weights = [row["design_weight"] for row in sample]
-        static = weighted_mean((row["best_static_cqs"] for row in sample), weights)
-        oracle = weighted_mean((row["oracle_cqs"] for row in sample), weights)
-        headrooms[index] = oracle - static
+        static_rates[index] = weighted_mean((row["best_static_cqs"] for row in sample), weights)
+        oracle_rates[index] = weighted_mean((row["oracle_cqs"] for row in sample), weights)
+        headrooms[index] = oracle_rates[index] - static_rates[index]
         savings[index] = weighted_mean((row["compute_saving"] for row in sample), weights)
-    return headrooms, savings
+        nonstatic_rates[index] = weighted_mean((row["nonstatic_program"] for row in sample), weights)
+    return {
+        "best_static_cqs": static_rates,
+        "oracle_cqs": oracle_rates,
+        "oracle_headroom": headrooms,
+        "compute_saving": savings,
+        "nonstatic_prompt_share": nonstatic_rates,
+    }
 
 
 def write_csv(path: Path, rows: list[dict]) -> None:
@@ -364,10 +418,25 @@ def main() -> int:
         prompt_id = prompt["prompt_id"]
         action_rows.extend(state_action_oracle(prompt_id, actions, budget))
         oracle = full_tree_oracle(prompt_id, roots, actions, standard_nfe)
+        for root_index, root_oracle in oracle["per_root"].items():
+            action_rows.append(
+                {
+                    "prompt_id": prompt_id,
+                    "oracle_level": "per_root_feasible_subset",
+                    "root_index": root_index,
+                    "oracle_cqs": root_oracle["any_success"],
+                    "oracle_cost_nfe": root_oracle["cost"],
+                    "oracle_selected": ";".join(root_oracle["selected"]),
+                    "oracle_success_count": root_oracle["success_count"],
+                    "oracle_option_value": root_oracle["option"],
+                }
+            )
         static = by_prompt_programs[prompt_id][best_name]
         oracle_cqs = int(oracle["any_success"])
         static_cqs = int(static["cqs"])
-        saving = (static["cost"] - oracle["minimum_success_cost"]) / static["cost"] if oracle_cqs and static_cqs else 0.0
+        saving = matched_cqs_compute_saving(
+            static_cqs, int(static["cost"]), int(oracle["minimum_success_cost"])
+        )
         prompt_results.append(
             {
                 "prompt_id": prompt_id,
@@ -382,8 +451,15 @@ def main() -> int:
                 "oracle_selected": ";".join(oracle["selected"]),
                 "oracle_cheapest_successful": ";".join(oracle["cheapest_successful"]),
                 "oracle_option_value": float(oracle["option"]),
+                "oracle_quality_floor_failures": int(oracle["quality_floor_failures"]),
+                "oracle_completion": int(bool(oracle["selected"])),
                 "compute_saving": float(saving),
-                "nonstatic_required": int(oracle_cqs and not static_cqs),
+                "matched_oracle_nfe": (
+                    int(oracle["minimum_success_cost"]) if static_cqs else int(static["cost"])
+                ),
+                "nonstatic_program": int(
+                    oracle_program_differs(static["leaf_ids"], oracle["selected"])
+                ),
             }
         )
 
@@ -391,13 +467,17 @@ def main() -> int:
     static_cqs = weighted_mean((row["best_static_cqs"] for row in prompt_results), weights)
     oracle_cqs = weighted_mean((row["oracle_cqs"] for row in prompt_results), weights)
     headroom = oracle_cqs - static_cqs
-    nonstatic = weighted_mean((row["nonstatic_required"] for row in prompt_results), weights)
+    nonstatic = weighted_mean((row["nonstatic_program"] for row in prompt_results), weights)
     compute_saving = weighted_mean((row["compute_saving"] for row in prompt_results), weights)
-    headroom_boot, saving_boot = stratified_bootstrap(prompt_results)
+    bootstraps = stratified_bootstrap(prompt_results)
+    headroom_boot = bootstraps["oracle_headroom"]
+    saving_boot = bootstraps["compute_saving"]
     headroom_lcb = float(np.quantile(headroom_boot, 0.05, method="linear"))
     saving_lcb = float(np.quantile(saving_boot, 0.05, method="linear"))
+    static_ci = np.quantile(bootstraps["best_static_cqs"], [0.025, 0.975], method="linear")
+    oracle_ci = np.quantile(bootstraps["oracle_cqs"], [0.025, 0.975], method="linear")
     bootstrap_rows = [
-        {"replicate": index, "oracle_headroom": headroom_boot[index], "compute_saving": saving_boot[index]}
+        {"replicate": index, **{name: values[index] for name, values in bootstraps.items()}}
         for index in range(BOOTSTRAP_REPS)
     ]
 
@@ -412,10 +492,43 @@ def main() -> int:
                 "stratum": stratum, "prompts": len(group),
                 "best_static_cqs60": static_rate, "oracle_cqs60": oracle_rate,
                 "oracle_headroom": oracle_rate - static_rate,
-                "nonstatic_prompt_share": weighted_mean((row["nonstatic_required"] for row in group), group_weights),
+                "nonstatic_prompt_share": weighted_mean((row["nonstatic_program"] for row in group), group_weights),
                 "oracle_mean_minimum_success_nfe": weighted_mean((row["oracle_minimum_success_nfe"] for row in group), group_weights),
             }
         )
+
+    equal_stratum_static = float(np.mean([row["best_static_cqs60"] for row in stratum_rows]))
+    equal_stratum_oracle = float(np.mean([row["oracle_cqs60"] for row in stratum_rows]))
+    oracle_mean_nfe = weighted_mean((row["oracle_tree_nfe"] for row in prompt_results), weights)
+    oracle_completion = weighted_mean((row["oracle_completion"] for row in prompt_results), weights)
+    oracle_quality_failures = sum(row["oracle_quality_floor_failures"] for row in prompt_results)
+
+    fixed_condition_unnecessary = []
+    fixed_condition_harmful = []
+    switch_beats_restart = []
+    branching_helps = []
+    for prompt in prompts:
+        prompt_id = prompt["prompt_id"]
+        programs = by_prompt_programs[prompt_id]
+        if programs["two_base"]["cqs"]:
+            fixed_condition_unnecessary.append(prompt_id)
+            if not programs["two_direction_conditioned"]["cqs"]:
+                fixed_condition_harmful.append(prompt_id)
+        if not programs["two_base"]["cqs"] and any(
+            programs[name]["cqs"]
+            for name in programs
+            if "deterministic_fork" in name
+        ):
+            branching_helps.append(prompt_id)
+        for root_index in (0, 1):
+            for checkpoint in CHECKPOINT_STEPS:
+                switch = action_row(actions, prompt_id, root_index, checkpoint, "SWITCH_CONDITION")
+                restart_base = action_row(actions, prompt_id, root_index, checkpoint, "RESTART_BASE")
+                restart_conditioned = action_row(
+                    actions, prompt_id, root_index, checkpoint, "RESTART_CONDITIONED"
+                )
+                if int(switch["cqs"]) and not int(restart_base["cqs"]) and not int(restart_conditioned["cqs"]):
+                    switch_beats_restart.append(f"{prompt_id}:root{root_index}:step{checkpoint}")
 
     action_frequency = Counter()
     checkpoint_frequency = Counter()
@@ -459,20 +572,33 @@ def main() -> int:
         f"ORACLE_COMPUTE_SAVING = {compute_saving:.9f}\n"
         f"ORACLE_COMPUTE_SAVING_LCB95 = {saving_lcb:.9f}\n"
         f"ORACLE_NONSTATIC_PROMPT_SHARE = {nonstatic:.9f}\n\n"
+        f"Best-static prompt-bootstrap 95% interval: `[{static_ci[0]:.9f}, {static_ci[1]:.9f}]`; "
+        f"oracle interval: `[{oracle_ci[0]:.9f}, {oracle_ci[1]:.9f}]`. Equal-stratum "
+        f"diagnostic CQS@60 is `{equal_stratum_static:.9f}` static and "
+        f"`{equal_stratum_oracle:.9f}` oracle. Oracle completion probability is "
+        f"`{oracle_completion:.9f}`, mean selected-program NFE is `{oracle_mean_nfe:.6f}`, and "
+        f"selected oracle leaves contain `{oracle_quality_failures}` quality-floor failures.\n\n"
         "The empirical tree oracle is outcome-aware and is only an upper bound. Terminal CONTINUE "
         "leaves are deduplicated by physical root output. Tree costs share each root prefix once; "
         "switch/fork continuations pay their remaining measured NFE and restarts pay their complete "
         "measured generation NFE. The option-value approximation uses `sum[-log(1-p_i)]` and is "
         "reported separately from empirical any-success.\n\n"
-        "`ORACLE_NONSTATIC_PROMPT_SHARE` is conservatively defined as the weighted share where the "
-        "oracle finds CQS but the globally best static program does not. A cheaper alternative on a "
-        "prompt already solved by the global static program does not inflate this diagnostic.\n\n"
+        "`ORACLE_NONSTATIC_PROMPT_SHARE` is the frozen weighted share of prompts where the "
+        "oracle-optimal feasible leaf program differs from the globally best static program. "
+        "Comparison uses canonical physical leaf IDs after CONTINUE deduplication.\n\n"
         "## Static programs\n\n| program | weighted CQS@60 | completion | mean NFE | infeasible prompts |\n| --- | ---: | ---: | ---: | ---: |\n"
         + static_lines
         + "\n## Frozen strata\n\n| stratum | static | oracle | headroom | nonstatic share |\n| --- | ---: | ---: | ---: | ---: |\n"
         + stratum_lines
         + f"\n## Structural choices\n\nAction frequency: `{dict(action_frequency)}`. Checkpoint frequency: "
         f"`{dict(checkpoint_frequency)}`. Action entropy (natural log): `{entropy:.6f}`.\n\n"
+        f"Fixed conditioning is unnecessary on `{len(fixed_condition_unnecessary)}` sampled prompts "
+        f"(base already attains CQS) and harmful on `{len(fixed_condition_harmful)}` of them: "
+        f"`{', '.join(fixed_condition_harmful) or 'none'}`. Same-latent switching beats both "
+        f"matched restart actions at `{len(switch_beats_restart)}` states: "
+        f"`{', '.join(switch_beats_restart) or 'none'}`. A fixed deterministic-plus-fork program "
+        f"rescues `{len(branching_helps)}` prompts missed by two base generations: "
+        f"`{', '.join(branching_helps) or 'none'}`.\n\n"
         "The corrected-EVPD baselines use the frozen sigma-0.8 W2 probe without retuning. The W2 "
         "two-slot baseline leaves abort savings unused; the true-rollover baseline returns measured "
         "NFE and uses only an additional branch that fits the global budget.\n",

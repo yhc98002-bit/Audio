@@ -1,0 +1,62 @@
+{
+  "checkpoint_hash": "2058d6c10bd348da51669ff3886c6b4080405fe4c23bb3de183c293cb5f0bef9",
+  "completed_steps": 18,
+  "condition_hash": "38120299b98e0e8a0f94af0a59952e831e6d6767c7a90ca0b63425e84fbda5d8",
+  "cpu_rng_sha256": "0518035d1951c201fbb9c5fd79c2d385624c078e31ab5ab3e6dbb80c1255aa7d",
+  "cuda_rng_sha256": "ed7e0996a8075521aecf7c41887d9f056a787c48a2a9743238d12cdd13779a5e",
+  "extras": {
+    "condition_payload": {
+      "cache_tensor_sha256": {
+        "encoder_hidden_cond": "ebf31595e8af56d42aee7e9c55a3340b390ae85cb336bc5fff1703c5867bf7f4",
+        "encoder_hidden_null": "ba5ef2b9beca515d6fc22153b985ced55af182c2dfd1ddb688ea69c29222ddfa",
+        "encoder_mask_cond": "db8004e0ae5095e2d472118387c6b8ae4ad861d3e97e058604b3010650fcf27c",
+        "encoder_mask_null": "db8004e0ae5095e2d472118387c6b8ae4ad861d3e97e058604b3010650fcf27c"
+      },
+      "cfg_scale": 5.0,
+      "cfg_type": "cfg",
+      "guidance_interval": 0.5,
+      "guidance_scale_lyric": 0.0,
+      "guidance_scale_text": 0.0,
+      "lyrics": "we set the table for four\nbecause we always did\nbecause it felt like a small act of war",
+      "only_text_cache_tensor_sha256": {},
+      "prompt_id": "dev_0031",
+      "requested_vocal": 1,
+      "structure_hint": "",
+      "switched": false,
+      "text": "Something tender in the folk vein \u2014 around 130 bpm."
+    },
+    "guidance_interval": 0.5,
+    "inference_steps": 30,
+    "next_timestep_index": 18,
+    "omega_scale": 10.0
+  },
+  "generator_rng_sha256": "bbfce7920c6a439843d00e1fa20b25f2d957959dd57dd7909b25fda1c62a6f0d",
+  "latent_dtype": "torch.bfloat16",
+  "latent_sha256": "b27a9a707d98d11956246bafd966690ad2be9dbd0a6f3fd88644f01d32c2d73e",
+  "latent_shape": [
+    1,
+    8,
+    16,
+    394
+  ],
+  "model_hash": "203e623b252592794e667015ca51cab23d9bfdf74ad56c98efca5d4c2cf179ab",
+  "model_output_dtype": "torch.bfloat16",
+  "model_output_sha256": "7a32c76066c48045e83de28e5fa52b8d821ab9b4324faa98f784caae97ac6b22",
+  "model_output_shape": [
+    1,
+    8,
+    16,
+    394
+  ],
+  "next_sigma": 0.6143013834953308,
+  "nfe_count": 29,
+  "prompt_id": "dev_0031",
+  "root_seed": 2063910000,
+  "scheduler_hash": "d3d724dec32d4f2d3df62d4dc9de30c1b74c0d2602e19063ec00031e2f7ebe8d",
+  "scheduler_index": 18,
+  "scheduler_step_count": 18,
+  "sigma": 0.6488576531410217,
+  "state_file_sha256": "a974421346870b172ab1a5592f9b30ce30bde0890c9574ff7e90e0fc8bd641cf",
+  "state_id": "dev_0031__seed2063910000__step18",
+  "timestep": 648.857666015625
+}

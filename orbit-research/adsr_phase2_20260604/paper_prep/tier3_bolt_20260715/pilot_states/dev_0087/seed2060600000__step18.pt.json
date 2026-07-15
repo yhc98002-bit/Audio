@@ -1,0 +1,62 @@
+{
+  "checkpoint_hash": "2058d6c10bd348da51669ff3886c6b4080405fe4c23bb3de183c293cb5f0bef9",
+  "completed_steps": 18,
+  "condition_hash": "0b4c0ca37a89cab22867899894c9d37a495069be2986b8f8e73fd298aad65ef7",
+  "cpu_rng_sha256": "1482c73d74255b9648bd4530846c0279e6186b0113f77b1fe43b4bf1b597d6dd",
+  "cuda_rng_sha256": "b6871d41e2d8333ef2c29ca300e0d125b837ea48bdfdd367e76e0d8b0f5afa7b",
+  "extras": {
+    "condition_payload": {
+      "cache_tensor_sha256": {
+        "encoder_hidden_cond": "034c8d344d372c9c068e8ad1128debd9e26834fb8f5dfddd25be0d4a8e34d9ae",
+        "encoder_hidden_null": "d9086ac5008bcc5685c1e8f77cb3e03f4102d5a213ebbda725323b7f700994d9",
+        "encoder_mask_cond": "b9b881db99675d0bda4c62a59702f034af554db74894ae8bb251ee2f6fc09f60",
+        "encoder_mask_null": "b9b881db99675d0bda4c62a59702f034af554db74894ae8bb251ee2f6fc09f60"
+      },
+      "cfg_scale": 5.0,
+      "cfg_type": "cfg",
+      "guidance_interval": 0.5,
+      "guidance_scale_lyric": 0.0,
+      "guidance_scale_text": 0.0,
+      "lyrics": "",
+      "only_text_cache_tensor_sha256": {},
+      "prompt_id": "dev_0087",
+      "requested_vocal": 0,
+      "structure_hint": "AB",
+      "switched": false,
+      "text": "A lo-fi electronic number upbeat around 130 bpm, featuring broken-beat drums under a Rhodes-flavored synth lead. (no vocals; the lead is the instrument named below)."
+    },
+    "guidance_interval": 0.5,
+    "inference_steps": 30,
+    "next_timestep_index": 18,
+    "omega_scale": 10.0
+  },
+  "generator_rng_sha256": "f1237cd2239a3b95e57260a7c9b6038ceb0a9134b1aab4765880d74b29c0b37b",
+  "latent_dtype": "torch.bfloat16",
+  "latent_sha256": "b64f802355e5f06e51f5944d818fd315c736661fd102d55547492f7a8dc3d780",
+  "latent_shape": [
+    1,
+    8,
+    16,
+    327
+  ],
+  "model_hash": "203e623b252592794e667015ca51cab23d9bfdf74ad56c98efca5d4c2cf179ab",
+  "model_output_dtype": "torch.bfloat16",
+  "model_output_sha256": "da7c6aeb985a1a394bf44052da4175383f54ae71418e1078ecd62caa4b3861c8",
+  "model_output_shape": [
+    1,
+    8,
+    16,
+    327
+  ],
+  "next_sigma": 0.6143013834953308,
+  "nfe_count": 29,
+  "prompt_id": "dev_0087",
+  "root_seed": 2060600000,
+  "scheduler_hash": "d3d724dec32d4f2d3df62d4dc9de30c1b74c0d2602e19063ec00031e2f7ebe8d",
+  "scheduler_index": 18,
+  "scheduler_step_count": 18,
+  "sigma": 0.6488576531410217,
+  "state_file_sha256": "fa0cbd0b74a8894dba3213e355f4f39ba713e304d1dcfe97e0b652c55d240c66",
+  "state_id": "dev_0087__seed2060600000__step18",
+  "timestep": 648.857666015625
+}

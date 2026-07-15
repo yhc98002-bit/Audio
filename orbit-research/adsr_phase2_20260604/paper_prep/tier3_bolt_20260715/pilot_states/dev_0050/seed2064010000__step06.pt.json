@@ -1,0 +1,62 @@
+{
+  "checkpoint_hash": "2058d6c10bd348da51669ff3886c6b4080405fe4c23bb3de183c293cb5f0bef9",
+  "completed_steps": 6,
+  "condition_hash": "2019e4ca38653a6c2cc49e9d409326866a026eaa301e4e7f19b7076d634816c1",
+  "cpu_rng_sha256": "8a384ee3b18c5ef967b712310538a40fa874cc8a2e1f3bbcac72ac7d3628b6ca",
+  "cuda_rng_sha256": "8db9ffd4ff0874d0b5725816b0717c504b1725c40c8bba53bfd12161b2483d79",
+  "extras": {
+    "condition_payload": {
+      "cache_tensor_sha256": {
+        "encoder_hidden_cond": "c3f4d52c237337b5458ef3f5886103c264dd5f16f6a67ac95ddb05207a774af6",
+        "encoder_hidden_null": "7837f6113ab28bce437d1b77260c1e72f1437e1faebdcfbd6cbaddcadb3e65ee",
+        "encoder_mask_cond": "e249075c6c3a6508c01f86c349fc8f2c588ad50a6af652914ec1dd10b5174268",
+        "encoder_mask_null": "e249075c6c3a6508c01f86c349fc8f2c588ad50a6af652914ec1dd10b5174268"
+      },
+      "cfg_scale": 5.0,
+      "cfg_type": "cfg",
+      "guidance_interval": 0.5,
+      "guidance_scale_lyric": 0.0,
+      "guidance_scale_text": 0.0,
+      "lyrics": "I called your name twice\nthe second time was for me\nthe second time was for habit",
+      "only_text_cache_tensor_sha256": {},
+      "prompt_id": "dev_0050",
+      "requested_vocal": 1,
+      "structure_hint": "verse-chorus-verse",
+      "switched": false,
+      "text": "A boom-bap-flavored hip_hop track very fast, 175+ bpm, featuring boom-bap kick-snare, jazz-guitar loop, vinyl crackle, in verse-chorus form, with a 16-bar verse and an 8-bar hook, in English."
+    },
+    "guidance_interval": 0.5,
+    "inference_steps": 30,
+    "next_timestep_index": 6,
+    "omega_scale": 10.0
+  },
+  "generator_rng_sha256": "45a3bb7d2d10428196734d599ffd03fee3f6abe1fb3b290b8daf53481ef55138",
+  "latent_dtype": "torch.bfloat16",
+  "latent_sha256": "695091169db985ea1183a735d753ed47a6622dd0dfed9253ddb2c2f4fe50be23",
+  "latent_shape": [
+    1,
+    8,
+    16,
+    325
+  ],
+  "model_hash": "203e623b252592794e667015ca51cab23d9bfdf74ad56c98efca5d4c2cf179ab",
+  "model_output_dtype": "torch.bfloat16",
+  "model_output_sha256": "50d4566bca720c7fc30923a997e60b7a2b9e3b7e6f8559e4a7a632853b1bdb97",
+  "model_output_shape": [
+    1,
+    8,
+    16,
+    325
+  ],
+  "next_sigma": 0.9044515490531921,
+  "nfe_count": 6,
+  "prompt_id": "dev_0050",
+  "root_seed": 2064010000,
+  "scheduler_hash": "d3d724dec32d4f2d3df62d4dc9de30c1b74c0d2602e19063ec00031e2f7ebe8d",
+  "scheduler_index": 6,
+  "scheduler_step_count": 6,
+  "sigma": 0.9202777147293091,
+  "state_file_sha256": "52bdc5f1a05414099d65567baa49a930d67e7d204821526e3824e0caecc26f06",
+  "state_id": "dev_0050__seed2064010000__step06",
+  "timestep": 920.2777099609375
+}

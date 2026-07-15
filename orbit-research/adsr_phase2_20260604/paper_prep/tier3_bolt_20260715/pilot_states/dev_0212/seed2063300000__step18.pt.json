@@ -1,0 +1,62 @@
+{
+  "checkpoint_hash": "2058d6c10bd348da51669ff3886c6b4080405fe4c23bb3de183c293cb5f0bef9",
+  "completed_steps": 18,
+  "condition_hash": "00079b6c7b7267732056d016b40c81a8cbfdcbeb5b583cbc12dc8a73df034f23",
+  "cpu_rng_sha256": "165cedd8328cd3cb91504906515c5f1d15de16b8b5c3eac33c5d87eecba2052c",
+  "cuda_rng_sha256": "0765505774b8c6a198d7590320fb041d5f690ed4585458f3ab6c7a47bb75be9e",
+  "extras": {
+    "condition_payload": {
+      "cache_tensor_sha256": {
+        "encoder_hidden_cond": "731733371b97b52b75a1f1147c2bdee2a2f61d4bcd6364e15b6e9151cfc697d2",
+        "encoder_hidden_null": "1a95c7f8639b3493871a557a53d0396ad36c0cb420737347b3e0ed498db7c7bb",
+        "encoder_mask_cond": "39e591f379df7843cadc612fc780d9b52e5cafb625cec943f3920e40097df15f",
+        "encoder_mask_null": "39e591f379df7843cadc612fc780d9b52e5cafb625cec943f3920e40097df15f"
+      },
+      "cfg_scale": 5.0,
+      "cfg_type": "cfg",
+      "guidance_interval": 0.5,
+      "guidance_scale_lyric": 0.0,
+      "guidance_scale_text": 0.0,
+      "lyrics": "",
+      "only_text_cache_tensor_sha256": {},
+      "prompt_id": "dev_0212",
+      "requested_vocal": 0,
+      "structure_hint": "verse-chorus-verse",
+      "switched": false,
+      "text": "A sparse and chamber-like classical \u00d7 electronic fusion (dub-flavored touches) song double-time at 168 bpm, featuring string quartet, with a melodic viola counter-line. (fully instrumental, no vocals)."
+    },
+    "guidance_interval": 0.5,
+    "inference_steps": 30,
+    "next_timestep_index": 18,
+    "omega_scale": 10.0
+  },
+  "generator_rng_sha256": "c1b0f755b0992a3b3ea22f57ecd9eec9f0483ed3c1bb5f2ecb7eb32e60389460",
+  "latent_dtype": "torch.bfloat16",
+  "latent_sha256": "696ae1075aa47e09b8e0b67239aac7836bfbd9b87dc58cd16eecc3a96f649c81",
+  "latent_shape": [
+    1,
+    8,
+    16,
+    715
+  ],
+  "model_hash": "203e623b252592794e667015ca51cab23d9bfdf74ad56c98efca5d4c2cf179ab",
+  "model_output_dtype": "torch.bfloat16",
+  "model_output_sha256": "e847199bab86db4c5344001e34be184e14a231d7726562ee7b6ed5a4078008e2",
+  "model_output_shape": [
+    1,
+    8,
+    16,
+    715
+  ],
+  "next_sigma": 0.6143013834953308,
+  "nfe_count": 29,
+  "prompt_id": "dev_0212",
+  "root_seed": 2063300000,
+  "scheduler_hash": "d3d724dec32d4f2d3df62d4dc9de30c1b74c0d2602e19063ec00031e2f7ebe8d",
+  "scheduler_index": 18,
+  "scheduler_step_count": 18,
+  "sigma": 0.6488576531410217,
+  "state_file_sha256": "871708008eea4471b40fccf7f1a7a931b13bcfe02737645f5161fda64f93c1c4",
+  "state_id": "dev_0212__seed2063300000__step18",
+  "timestep": 648.857666015625
+}

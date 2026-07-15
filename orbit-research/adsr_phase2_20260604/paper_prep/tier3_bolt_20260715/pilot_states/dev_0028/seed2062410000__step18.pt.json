@@ -1,0 +1,62 @@
+{
+  "checkpoint_hash": "2058d6c10bd348da51669ff3886c6b4080405fe4c23bb3de183c293cb5f0bef9",
+  "completed_steps": 18,
+  "condition_hash": "5b3cde6c9915f05a7e5f1756b9b6ff9bebf983cee7246efef4c3d6488afb86f9",
+  "cpu_rng_sha256": "78c019f6e9d51e0a4919a12a53618357578b999627fadd59723062791eea3420",
+  "cuda_rng_sha256": "ceaad1419441aeaa96b4c53c3bdf61c2819d4bf3f3486834a5803164d05c7df4",
+  "extras": {
+    "condition_payload": {
+      "cache_tensor_sha256": {
+        "encoder_hidden_cond": "785f38b6ad3059f81aa8654c572cb39386b2bfe815fd494d4e628a8107af09d3",
+        "encoder_hidden_null": "57ff05018eedb70a26433a1e10b9f98e5e926eb88ad03cfb01198cd116e628e0",
+        "encoder_mask_cond": "ecddaa81cca3c1d2d9a0d6b1a098893648d136f95294732a0d6e42671d6f388a",
+        "encoder_mask_null": "ecddaa81cca3c1d2d9a0d6b1a098893648d136f95294732a0d6e42671d6f388a"
+      },
+      "cfg_scale": 5.0,
+      "cfg_type": "cfg",
+      "guidance_interval": 0.5,
+      "guidance_scale_lyric": 0.0,
+      "guidance_scale_text": 0.0,
+      "lyrics": "",
+      "only_text_cache_tensor_sha256": {},
+      "prompt_id": "dev_0028",
+      "requested_vocal": 0,
+      "structure_hint": "AABA",
+      "switched": false,
+      "text": "A raw rock cut energetic around 135 bpm, featuring single-coil guitar tone, brushed snare, a soft Hammond pad, in 32-bar AABA form, with a quiet-loud-quiet arc, (purely instrumental; treat lyrics field as empty)."
+    },
+    "guidance_interval": 0.5,
+    "inference_steps": 30,
+    "next_timestep_index": 18,
+    "omega_scale": 10.0
+  },
+  "generator_rng_sha256": "f42553b01571d9b80ab066d26b78ad500c4cdd833b7b89e0a8146207529708de",
+  "latent_dtype": "torch.bfloat16",
+  "latent_sha256": "b21e84786405ffcfbd9b0bee119d5e0317cdcd1e6f03ead24968f55aa1a0719e",
+  "latent_shape": [
+    1,
+    8,
+    16,
+    743
+  ],
+  "model_hash": "203e623b252592794e667015ca51cab23d9bfdf74ad56c98efca5d4c2cf179ab",
+  "model_output_dtype": "torch.bfloat16",
+  "model_output_sha256": "6c980ef2fc11db4b9cda7f7db89090e7fc4c4d31cb7c472c62fe96a03039edc7",
+  "model_output_shape": [
+    1,
+    8,
+    16,
+    743
+  ],
+  "next_sigma": 0.6143013834953308,
+  "nfe_count": 29,
+  "prompt_id": "dev_0028",
+  "root_seed": 2062410000,
+  "scheduler_hash": "d3d724dec32d4f2d3df62d4dc9de30c1b74c0d2602e19063ec00031e2f7ebe8d",
+  "scheduler_index": 18,
+  "scheduler_step_count": 18,
+  "sigma": 0.6488576531410217,
+  "state_file_sha256": "3cf2f829a5ed892fd580646d103e21fd0dd0d01808a27df72351f91bedc078e7",
+  "state_id": "dev_0028__seed2062410000__step18",
+  "timestep": 648.857666015625
+}

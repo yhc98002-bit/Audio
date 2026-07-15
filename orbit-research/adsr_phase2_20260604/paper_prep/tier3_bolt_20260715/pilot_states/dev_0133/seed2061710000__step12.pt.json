@@ -1,0 +1,62 @@
+{
+  "checkpoint_hash": "2058d6c10bd348da51669ff3886c6b4080405fe4c23bb3de183c293cb5f0bef9",
+  "completed_steps": 12,
+  "condition_hash": "245d407e90af7c04be3157e3b7193a177f57eae7db17c5434379dfcc1dd5b25e",
+  "cpu_rng_sha256": "37f61a03cea83cb458ca8bf9dbd201041ec4e33c3ed031310f3e0dabbc3e79c0",
+  "cuda_rng_sha256": "80d85e2a935c0cab45a222a2fd45f6f3e5436d84d683c2857eb51b8864324f03",
+  "extras": {
+    "condition_payload": {
+      "cache_tensor_sha256": {
+        "encoder_hidden_cond": "5cd1284ecec5d00278dd7d90d8e6155b107ee5b1b88865b504e17ea728990f8c",
+        "encoder_hidden_null": "76ed1533462b86f68a982a12dacddf71f531b1e2a27f67e0df045daf00062aff",
+        "encoder_mask_cond": "28fc8475087b9fa73db141324549ab174f4871b3e511421a3297ef687ab067f8",
+        "encoder_mask_null": "28fc8475087b9fa73db141324549ab174f4871b3e511421a3297ef687ab067f8"
+      },
+      "cfg_scale": 5.0,
+      "cfg_type": "cfg",
+      "guidance_interval": 0.5,
+      "guidance_scale_lyric": 0.0,
+      "guidance_scale_text": 0.0,
+      "lyrics": "",
+      "only_text_cache_tensor_sha256": {},
+      "prompt_id": "dev_0133",
+      "requested_vocal": 0,
+      "structure_hint": "verse-chorus-verse",
+      "switched": false,
+      "text": "A free-leaning jazz number a slow, featuring tenor sax leading a quartet through a modal vamp. (purely instrumental; treat lyrics field as empty)."
+    },
+    "guidance_interval": 0.5,
+    "inference_steps": 30,
+    "next_timestep_index": 12,
+    "omega_scale": 10.0
+  },
+  "generator_rng_sha256": "a93bb3631b1734d496d4d0e45832408ea7ee85406a6cd4c544328c73f5b0d1e0",
+  "latent_dtype": "torch.bfloat16",
+  "latent_sha256": "ed2bd31a1b3a5a4cb62635188dba1b89bf6f095456a6ed696872d54b42037e0f",
+  "latent_shape": [
+    1,
+    8,
+    16,
+    366
+  ],
+  "model_hash": "203e623b252592794e667015ca51cab23d9bfdf74ad56c98efca5d4c2cf179ab",
+  "model_output_dtype": "torch.bfloat16",
+  "model_output_sha256": "f01ed6de1cc508ffcaee0960ba25f88e0ca5b34ea14da476a440a82187f55ae0",
+  "model_output_shape": [
+    1,
+    8,
+    16,
+    366
+  ],
+  "next_sigma": 0.7877941131591797,
+  "nfe_count": 17,
+  "prompt_id": "dev_0133",
+  "root_seed": 2061710000,
+  "scheduler_hash": "d3d724dec32d4f2d3df62d4dc9de30c1b74c0d2602e19063ec00031e2f7ebe8d",
+  "scheduler_index": 12,
+  "scheduler_step_count": 12,
+  "sigma": 0.810310423374176,
+  "state_file_sha256": "16e6b78165395f905a51cc920730b80c085f5477d4ccefdcd9736e055791eb94",
+  "state_id": "dev_0133__seed2061710000__step12",
+  "timestep": 810.3104248046875
+}

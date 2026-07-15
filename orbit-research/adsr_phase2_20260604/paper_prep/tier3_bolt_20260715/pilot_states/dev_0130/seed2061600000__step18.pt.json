@@ -1,0 +1,62 @@
+{
+  "checkpoint_hash": "2058d6c10bd348da51669ff3886c6b4080405fe4c23bb3de183c293cb5f0bef9",
+  "completed_steps": 18,
+  "condition_hash": "2d21ce42a47bec62aa2fb47b5d90dd4f89d9b2af22e288b25323745036c89d46",
+  "cpu_rng_sha256": "1a9fa0e0b0d1bd0ec58a7babbe884b49957c413127fcafd289afb88b63c606a6",
+  "cuda_rng_sha256": "82d280aa893990b4b443d8c610768091ca229c32cb69007556617acf5c9c6b16",
+  "extras": {
+    "condition_payload": {
+      "cache_tensor_sha256": {
+        "encoder_hidden_cond": "a29f13232c135a8be7ee3db9ffca968eba4e3fcf9ea561805a82e8b26b87f7c3",
+        "encoder_hidden_null": "d154952e829a1e70925e86124711adeaf75b454d2f867c75652f1f6155ab350f",
+        "encoder_mask_cond": "362905c44ad15cc4a4e572a1c825bf3d38c0433d6904fd1e36f974072e891dc2",
+        "encoder_mask_null": "362905c44ad15cc4a4e572a1c825bf3d38c0433d6904fd1e36f974072e891dc2"
+      },
+      "cfg_scale": 5.0,
+      "cfg_type": "cfg",
+      "guidance_interval": 0.5,
+      "guidance_scale_lyric": 0.0,
+      "guidance_scale_text": 0.0,
+      "lyrics": "",
+      "only_text_cache_tensor_sha256": {},
+      "prompt_id": "dev_0130",
+      "requested_vocal": 0,
+      "structure_hint": "intro-A-B-A'-bridge-A''",
+      "switched": false,
+      "text": "A dub-flavored electronic piece a slow, featuring broken-beat drums under a Rhodes-flavored synth lead, with a multi-section arc, with a 16-bar build into a release, (purely instrumental; treat lyrics field as empty)."
+    },
+    "guidance_interval": 0.5,
+    "inference_steps": 30,
+    "next_timestep_index": 18,
+    "omega_scale": 10.0
+  },
+  "generator_rng_sha256": "cab1e1e8cc95532f44f7cdffb27ab7d7170d15a22f766cfccddcc33aa55976da",
+  "latent_dtype": "torch.bfloat16",
+  "latent_sha256": "6a7ddef800a9d680023297e6a543ebc99f8a8d2ccacf92ec9f52b78d660e3ff2",
+  "latent_shape": [
+    1,
+    8,
+    16,
+    383
+  ],
+  "model_hash": "203e623b252592794e667015ca51cab23d9bfdf74ad56c98efca5d4c2cf179ab",
+  "model_output_dtype": "torch.bfloat16",
+  "model_output_sha256": "2f935e5aaa9c12876af67ee7ac0218cb1304d18842047439794a19df3d347a8c",
+  "model_output_shape": [
+    1,
+    8,
+    16,
+    383
+  ],
+  "next_sigma": 0.6143013834953308,
+  "nfe_count": 29,
+  "prompt_id": "dev_0130",
+  "root_seed": 2061600000,
+  "scheduler_hash": "d3d724dec32d4f2d3df62d4dc9de30c1b74c0d2602e19063ec00031e2f7ebe8d",
+  "scheduler_index": 18,
+  "scheduler_step_count": 18,
+  "sigma": 0.6488576531410217,
+  "state_file_sha256": "4953ff8833f60f1c9b8b145afc4ab69a561407bf5d05c6e1b5aeb75140050cb0",
+  "state_id": "dev_0130__seed2061600000__step18",
+  "timestep": 648.857666015625
+}

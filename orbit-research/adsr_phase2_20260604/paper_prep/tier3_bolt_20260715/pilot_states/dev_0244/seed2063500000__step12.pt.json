@@ -1,0 +1,62 @@
+{
+  "checkpoint_hash": "2058d6c10bd348da51669ff3886c6b4080405fe4c23bb3de183c293cb5f0bef9",
+  "completed_steps": 12,
+  "condition_hash": "e6c431542a3129500647669daf90533459ae824d2a1a9d51acf050fe4d2cfcad",
+  "cpu_rng_sha256": "f08d7eb8f1733179c4616f10a2a06852a596885be87a62bb703d1489af0c4d41",
+  "cuda_rng_sha256": "f81791c4e4a1df77830a627c29064e976a7d698e4128f2c010673efca5f361f5",
+  "extras": {
+    "condition_payload": {
+      "cache_tensor_sha256": {
+        "encoder_hidden_cond": "cd904e0c04d517890e72cb8cadec503abd5673ccdd03ef4a70cbc2e85a7a56f9",
+        "encoder_hidden_null": "57ff05018eedb70a26433a1e10b9f98e5e926eb88ad03cfb01198cd116e628e0",
+        "encoder_mask_cond": "ecddaa81cca3c1d2d9a0d6b1a098893648d136f95294732a0d6e42671d6f388a",
+        "encoder_mask_null": "ecddaa81cca3c1d2d9a0d6b1a098893648d136f95294732a0d6e42671d6f388a"
+      },
+      "cfg_scale": 5.0,
+      "cfg_type": "cfg",
+      "guidance_interval": 0.5,
+      "guidance_scale_lyric": 0.0,
+      "guidance_scale_text": 0.0,
+      "lyrics": "",
+      "only_text_cache_tensor_sha256": {},
+      "prompt_id": "dev_0244",
+      "requested_vocal": 0,
+      "structure_hint": "intro-A-B-A'-bridge-A''",
+      "switched": false,
+      "text": "A melancholic classical track with a steady beat near 100 bpm, featuring string orchestra plus solo violin, with a multi-section arc, with an ABA' formal arc, (purely instrumental; treat lyrics field as empty)."
+    },
+    "guidance_interval": 0.5,
+    "inference_steps": 30,
+    "next_timestep_index": 12,
+    "omega_scale": 10.0
+  },
+  "generator_rng_sha256": "90623c1efc929b7e8bc97293fbe4353e1c0ce283f20cf1924e72e5d4cc9b7394",
+  "latent_dtype": "torch.bfloat16",
+  "latent_sha256": "5bd1d300f05210829dc3c21025d6e543766518e141a7fef2eb9569366063d8df",
+  "latent_shape": [
+    1,
+    8,
+    16,
+    343
+  ],
+  "model_hash": "203e623b252592794e667015ca51cab23d9bfdf74ad56c98efca5d4c2cf179ab",
+  "model_output_dtype": "torch.bfloat16",
+  "model_output_sha256": "2e8fbbdf9adbbc0d60400d8435d66b7dcff25ac4f912e18d9518952421595292",
+  "model_output_shape": [
+    1,
+    8,
+    16,
+    343
+  ],
+  "next_sigma": 0.7877941131591797,
+  "nfe_count": 17,
+  "prompt_id": "dev_0244",
+  "root_seed": 2063500000,
+  "scheduler_hash": "d3d724dec32d4f2d3df62d4dc9de30c1b74c0d2602e19063ec00031e2f7ebe8d",
+  "scheduler_index": 12,
+  "scheduler_step_count": 12,
+  "sigma": 0.810310423374176,
+  "state_file_sha256": "51c2c3eaeb48a0ad4241687e3db8f7d6ef9ee9151bcf67acae14371a6d8b25bf",
+  "state_id": "dev_0244__seed2063500000__step12",
+  "timestep": 810.3104248046875
+}

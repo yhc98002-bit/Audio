@@ -1,0 +1,62 @@
+{
+  "checkpoint_hash": "2058d6c10bd348da51669ff3886c6b4080405fe4c23bb3de183c293cb5f0bef9",
+  "completed_steps": 12,
+  "condition_hash": "435254de293a32b0d84c326f7c4a8012e585acd45bf65e7e13398ae3a02f3234",
+  "cpu_rng_sha256": "c8bf0e7b79a8c1681bd7d2522ea97a91d5c530618fa0face6a228fff26571083",
+  "cuda_rng_sha256": "71069778748de0c3de7ed4820a7a047037d27eea1db2b0d60a7391286c81bc38",
+  "extras": {
+    "condition_payload": {
+      "cache_tensor_sha256": {
+        "encoder_hidden_cond": "187381e0dfe76d46e4240cf30b47d5226dfd55292ac9d78ed54d6162f7ecc6a1",
+        "encoder_hidden_null": "7a0e8f45a45a88c5cf65ccf12dfc7a4de73573d3959d13f429ae48fec670ee04",
+        "encoder_mask_cond": "3ffe1aa1c3badcda00f2a202bb641ddbe495fed93e06e3f8746bf494c0001dab",
+        "encoder_mask_null": "3ffe1aa1c3badcda00f2a202bb641ddbe495fed93e06e3f8746bf494c0001dab"
+      },
+      "cfg_scale": 5.0,
+      "cfg_type": "cfg",
+      "guidance_interval": 0.5,
+      "guidance_scale_lyric": 0.0,
+      "guidance_scale_text": 0.0,
+      "lyrics": "",
+      "only_text_cache_tensor_sha256": {},
+      "prompt_id": "dev_0073",
+      "requested_vocal": 0,
+      "structure_hint": "",
+      "switched": false,
+      "text": "Make me a short electronic piece \u2014 warm analog feel, around 100 bpm. Instrumental \u2014 no vocals."
+    },
+    "guidance_interval": 0.5,
+    "inference_steps": 30,
+    "next_timestep_index": 12,
+    "omega_scale": 10.0
+  },
+  "generator_rng_sha256": "fa3699684fe07e5632b26a9e4335c42cff24b69b5c0aaf4d5870e2e92ac3e4c3",
+  "latent_dtype": "torch.bfloat16",
+  "latent_sha256": "39f08a3d1cfd069de718bddefd73fa243cd19cdeb35c8f8feb281b7804059e9a",
+  "latent_shape": [
+    1,
+    8,
+    16,
+    364
+  ],
+  "model_hash": "203e623b252592794e667015ca51cab23d9bfdf74ad56c98efca5d4c2cf179ab",
+  "model_output_dtype": "torch.bfloat16",
+  "model_output_sha256": "08ddc58254ee1c1e5c56aef6851920a62c04c01182e149253969a671727abfd5",
+  "model_output_shape": [
+    1,
+    8,
+    16,
+    364
+  ],
+  "next_sigma": 0.7877941131591797,
+  "nfe_count": 17,
+  "prompt_id": "dev_0073",
+  "root_seed": 2060300000,
+  "scheduler_hash": "d3d724dec32d4f2d3df62d4dc9de30c1b74c0d2602e19063ec00031e2f7ebe8d",
+  "scheduler_index": 12,
+  "scheduler_step_count": 12,
+  "sigma": 0.810310423374176,
+  "state_file_sha256": "44fab1615e748630468381f2166edb44653fa4342dcda2f4f22a950f6cd02b24",
+  "state_id": "dev_0073__seed2060300000__step12",
+  "timestep": 810.3104248046875
+}

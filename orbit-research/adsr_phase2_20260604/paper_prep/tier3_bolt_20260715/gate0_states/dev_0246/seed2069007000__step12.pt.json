@@ -1,0 +1,62 @@
+{
+  "checkpoint_hash": "2058d6c10bd348da51669ff3886c6b4080405fe4c23bb3de183c293cb5f0bef9",
+  "completed_steps": 12,
+  "condition_hash": "eaa593d7fdba7ebfbcb7fb94f5fbc70d3fb5fc600d9e5cc7751ff132ace9bfa2",
+  "cpu_rng_sha256": "128257c62933654744315056587399b8cc228d8dbd579d7e1382f40ee528205a",
+  "cuda_rng_sha256": "b81ca1b448303713b6b5c5b6aa9fe4dd6c6c856003f6dd421774c0970604bfb0",
+  "extras": {
+    "condition_payload": {
+      "cache_tensor_sha256": {
+        "encoder_hidden_cond": "16478d2cebde9baa2f51b1e451f21a0f384277a6ad2fd84a23b75e9108ca124e",
+        "encoder_hidden_null": "2e44da5d5d2af8a834eb8b07c43168b0a8a3e23bd0ca9f6aecf25195d74f20f2",
+        "encoder_mask_cond": "fc9fd1641e64e2d8354b55afeddd71053ceadf1874a9e0ac60015ee3400a2d62",
+        "encoder_mask_null": "fc9fd1641e64e2d8354b55afeddd71053ceadf1874a9e0ac60015ee3400a2d62"
+      },
+      "cfg_scale": 5.0,
+      "cfg_type": "cfg",
+      "guidance_interval": 0.5,
+      "guidance_scale_lyric": 0.0,
+      "guidance_scale_text": 0.0,
+      "lyrics": "",
+      "only_text_cache_tensor_sha256": {},
+      "prompt_id": "dev_0246",
+      "requested_vocal": 0,
+      "structure_hint": "",
+      "switched": false,
+      "text": "Something smoky: a jazz piece around 75 bpm. Instrumental \u2014 no vocals."
+    },
+    "guidance_interval": 0.5,
+    "inference_steps": 30,
+    "next_timestep_index": 12,
+    "omega_scale": 10.0
+  },
+  "generator_rng_sha256": "c63db3f546eba474fbc45ef67a1f12554de49c06afa3d874724243a0dc759795",
+  "latent_dtype": "torch.bfloat16",
+  "latent_sha256": "537046af2ee2f766dc4096753553b7ff931f7acc79968e54ea1e8c4420af6e04",
+  "latent_shape": [
+    1,
+    8,
+    16,
+    785
+  ],
+  "model_hash": "203e623b252592794e667015ca51cab23d9bfdf74ad56c98efca5d4c2cf179ab",
+  "model_output_dtype": "torch.bfloat16",
+  "model_output_sha256": "b222f9784d282c3e35682d765a18febbced18672469d1380ea6c7c7b436c9826",
+  "model_output_shape": [
+    1,
+    8,
+    16,
+    785
+  ],
+  "next_sigma": 0.7877941131591797,
+  "nfe_count": 17,
+  "prompt_id": "dev_0246",
+  "root_seed": 2069007000,
+  "scheduler_hash": "d3d724dec32d4f2d3df62d4dc9de30c1b74c0d2602e19063ec00031e2f7ebe8d",
+  "scheduler_index": 12,
+  "scheduler_step_count": 12,
+  "sigma": 0.810310423374176,
+  "state_file_sha256": "e6d56dfba5dc7a5c4e37ae5040a73e1f68f6b8e5cef1efbdb30a251a43ec0240",
+  "state_id": "dev_0246__seed2069007000__step12",
+  "timestep": 810.3104248046875
+}

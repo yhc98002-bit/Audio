@@ -1,0 +1,62 @@
+{
+  "checkpoint_hash": "2058d6c10bd348da51669ff3886c6b4080405fe4c23bb3de183c293cb5f0bef9",
+  "completed_steps": 12,
+  "condition_hash": "e2ffd170ef56e5223ace2006969afc3c894b73f65e9cdda3cdd77c617ec2556b",
+  "cpu_rng_sha256": "fdaebcdbeea41a3002c06eb992253cf8499df4346900021e7b87bae93069f1d7",
+  "cuda_rng_sha256": "d02669e9796da44ae4140d586f8a8ef1ca1776a2d27c8843be77293660b19f1c",
+  "extras": {
+    "condition_payload": {
+      "cache_tensor_sha256": {
+        "encoder_hidden_cond": "45e940b8f0f9111a210222adc40cedc069936917edc6dbe8e27b0f66710d0d00",
+        "encoder_hidden_null": "6e1f23d818d88341d9f26e71f46b9c1493dc6475270453abe07e32d054a2cee1",
+        "encoder_mask_cond": "ffc601778831b99ca5cf7ae56a473cda8663798588f955739ee18f458cd1fa53",
+        "encoder_mask_null": "ffc601778831b99ca5cf7ae56a473cda8663798588f955739ee18f458cd1fa53"
+      },
+      "cfg_scale": 5.0,
+      "cfg_type": "cfg",
+      "guidance_interval": 0.5,
+      "guidance_scale_lyric": 0.0,
+      "guidance_scale_text": 0.0,
+      "lyrics": "",
+      "only_text_cache_tensor_sha256": {},
+      "prompt_id": "dev_0142",
+      "requested_vocal": 0,
+      "structure_hint": "verse-chorus-verse",
+      "switched": false,
+      "text": "An introspective jazz cut lingering, featuring tenor sax leading a quartet through a modal vamp, in alternating-section form, with a rubato intro into in-time at bar 9, (purely instrumental; treat lyrics field as empty)."
+    },
+    "guidance_interval": 0.5,
+    "inference_steps": 30,
+    "next_timestep_index": 12,
+    "omega_scale": 10.0
+  },
+  "generator_rng_sha256": "f717dd0e1c12e1fd4e99bd35ab3d79304091eb9b188bf38519a98fc49e1c1fb5",
+  "latent_dtype": "torch.bfloat16",
+  "latent_sha256": "5c649636d057ae236c8ff60283ae850aaaa1499aa0f3b6e4cdababbdccfa3389",
+  "latent_shape": [
+    1,
+    8,
+    16,
+    466
+  ],
+  "model_hash": "203e623b252592794e667015ca51cab23d9bfdf74ad56c98efca5d4c2cf179ab",
+  "model_output_dtype": "torch.bfloat16",
+  "model_output_sha256": "0f732884997574fca74067b7fb1e1e5a7f9143949c4ea4be093b94728bd7b57d",
+  "model_output_shape": [
+    1,
+    8,
+    16,
+    466
+  ],
+  "next_sigma": 0.7877941131591797,
+  "nfe_count": 17,
+  "prompt_id": "dev_0142",
+  "root_seed": 2062900000,
+  "scheduler_hash": "d3d724dec32d4f2d3df62d4dc9de30c1b74c0d2602e19063ec00031e2f7ebe8d",
+  "scheduler_index": 12,
+  "scheduler_step_count": 12,
+  "sigma": 0.810310423374176,
+  "state_file_sha256": "c93f33bb4962326ae3563e54fc36dc73e2d11db4f0a5ae6f3770c4a474b92427",
+  "state_id": "dev_0142__seed2062900000__step12",
+  "timestep": 810.3104248046875
+}
