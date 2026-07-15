@@ -53,7 +53,11 @@ def manifest(root: Path, paths: list[Path]) -> tuple[str, list[dict]]:
             raise FileNotFoundError(path)
         rows.append(
             {
-                "path": str(path.relative_to(root)) if path.is_relative_to(root) else str(path),
+                "path": (
+                    str(path.resolve())
+                    if root.resolve() == Path("/")
+                    else str(path.relative_to(root)) if path.is_relative_to(root) else str(path)
+                ),
                 "size": path.stat().st_size,
                 "sha256": sha256_file(path),
             }

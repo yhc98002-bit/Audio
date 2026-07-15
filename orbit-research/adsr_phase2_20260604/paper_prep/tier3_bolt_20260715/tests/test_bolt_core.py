@@ -122,3 +122,5 @@ def test_trusted_load_recovery_is_hash_scoped():
     assert "expected = allowed.get(str(path))" in source
     assert "sha256_file(path) != expected" in source
     assert 'kwargs["weights_only"] = False' in source
+    environment_source = (ROOT / "bolt_environment.py").read_text(encoding="utf-8")
+    assert 'if root.resolve() == Path("/")' in environment_source
