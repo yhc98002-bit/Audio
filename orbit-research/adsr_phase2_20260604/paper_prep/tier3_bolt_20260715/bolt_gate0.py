@@ -48,7 +48,7 @@ from bolt_core import (  # noqa: E402
     sha256_file,
     shared_prefix_program_cost,
 )
-from bolt_scoring import BoltScorer, save_audio_once  # noqa: E402
+from bolt_scoring import SCORING_PROTOCOL_VERSION, BoltScorer, save_audio_once  # noqa: E402
 from bolt_state import load_checkpoint_state, save_checkpoint_state, tensor_sha256  # noqa: E402
 
 
@@ -337,7 +337,12 @@ def command_score(args: argparse.Namespace) -> int:
         raise RuntimeError(f"no generation rows for phase {phase}")
     generated = sorted(generated, key=lambda row: row["unit_id"])[args.worker_index :: args.num_workers]
     ledger = SCORE_DIR / f"{phase}_score_w{args.worker_index}.jsonl"
-    done = prior_passes(ledger)
+    done = {
+        str(row["unit_id"])
+        for row in read_jsonl(ledger)
+        if row.get("status") == "PASS"
+        and row.get("scoring_protocol_version") == SCORING_PROTOCOL_VERSION
+    }
     scorer = BoltScorer()
     tasks = _task_index()
     root_by_key = {(row["prompt_id"], int(row["root_seed"])): row for row in load_phase_rows("root")}

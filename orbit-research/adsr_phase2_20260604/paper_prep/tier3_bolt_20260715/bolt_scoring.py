@@ -8,6 +8,7 @@ import importlib.util
 import json
 import math
 import os
+import random
 import sys
 from pathlib import Path
 from typing import Any
@@ -40,6 +41,8 @@ EVPD_MODEL = ROOT / (
     "corrected_evpd_sigma08.joblib"
 )
 RUNTIME = HERE / "BOLT_RUNTIME_FREEZE.json"
+SCORING_PROTOCOL_VERSION = "bolt_scoring_v2_hash_scoped_deterministic_clap"
+CLAP_AUDIO_AUDIO_RNG_SEED = 2_060_000_000
 
 
 def enable_hash_frozen_local_transformers_load() -> str:
@@ -239,6 +242,7 @@ class BoltScorer:
             "gate_policy_hash": self.gate_policy_hash,
             "common_scores": common,
             "trusted_local_load_policy_hash": self.trusted_load_policy_hash,
+            "scoring_protocol_version": SCORING_PROTOCOL_VERSION,
         }
 
     def audio_embedding(self, waveform: torch.Tensor, sample_rate: int) -> np.ndarray:
@@ -254,7 +258,23 @@ class BoltScorer:
             value = torchaudio.functional.resample(value, sample_rate, 48_000)
         if value.dim() == 2:
             value = value.mean(dim=0, keepdim=True)
-        embedding = clap._model.get_audio_embedding_from_data(x=value.numpy(), use_tensor=False)
+        python_state = random.getstate()
+        numpy_state = np.random.get_state()
+        torch_state = torch.get_rng_state()
+        cuda_states = torch.cuda.get_rng_state_all() if torch.cuda.is_available() else None
+        try:
+            random.seed(CLAP_AUDIO_AUDIO_RNG_SEED)
+            np.random.seed(CLAP_AUDIO_AUDIO_RNG_SEED % (2**32))
+            torch.manual_seed(CLAP_AUDIO_AUDIO_RNG_SEED)
+            if torch.cuda.is_available():
+                torch.cuda.manual_seed_all(CLAP_AUDIO_AUDIO_RNG_SEED)
+            embedding = clap._model.get_audio_embedding_from_data(x=value.numpy(), use_tensor=False)
+        finally:
+            random.setstate(python_state)
+            np.random.set_state(numpy_state)
+            torch.set_rng_state(torch_state)
+            if cuda_states is not None:
+                torch.cuda.set_rng_state_all(cuda_states)
         vector = np.asarray(embedding, dtype=np.float64).reshape(-1)
         norm = np.linalg.norm(vector)
         if not math.isfinite(float(norm)) or norm <= 0:

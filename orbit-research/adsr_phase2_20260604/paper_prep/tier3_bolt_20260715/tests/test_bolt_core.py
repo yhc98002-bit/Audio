@@ -124,3 +124,12 @@ def test_trusted_load_recovery_is_hash_scoped():
     assert 'kwargs["weights_only"] = False' in source
     environment_source = (ROOT / "bolt_environment.py").read_text(encoding="utf-8")
     assert 'if root.resolve() == Path("/")' in environment_source
+
+
+def test_audio_audio_clap_scoring_has_frozen_rng_and_versioned_rows():
+    scoring = (ROOT / "bolt_scoring.py").read_text(encoding="utf-8")
+    gate0 = (ROOT / "bolt_gate0.py").read_text(encoding="utf-8")
+    assert "CLAP_AUDIO_AUDIO_RNG_SEED = 2_060_000_000" in scoring
+    assert "random.setstate(python_state)" in scoring
+    assert "np.random.set_state(numpy_state)" in scoring
+    assert 'row.get("scoring_protocol_version") == SCORING_PROTOCOL_VERSION' in gate0
