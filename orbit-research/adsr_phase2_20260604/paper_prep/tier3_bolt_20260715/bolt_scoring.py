@@ -97,8 +97,25 @@ def save_audio_once(path: Path, waveform: torch.Tensor, sample_rate: int) -> dic
         validity = waveform_validity(existing, int(existing_sr))
         if not validity["valid"]:
             raise RuntimeError(f"existing output is invalid: {path}: {validity}")
-        if int(existing_sr) != int(sample_rate) or waveform_nrmse(value, existing) > 1e-6:
-            raise RuntimeError(f"existing output conflicts with deterministic recovery: {path}")
+        candidate_path = path.with_suffix(path.suffix + f".recovery.{os.getpid()}")
+        try:
+            sf.write(
+                str(candidate_path), value.T.numpy(), int(sample_rate), format="FLAC", subtype="PCM_24"
+            )
+            candidate_samples, candidate_sr = sf.read(
+                str(candidate_path), always_2d=True, dtype="float32"
+            )
+            candidate = torch.from_numpy(candidate_samples.T.copy())
+            if (
+                int(existing_sr) != int(sample_rate)
+                or int(candidate_sr) != int(sample_rate)
+                or waveform_nrmse(candidate, existing) > 1e-12
+                or sha256_file(candidate_path) != sha256_file(path)
+            ):
+                raise RuntimeError(f"existing output conflicts with deterministic recovery: {path}")
+        finally:
+            if candidate_path.exists():
+                candidate_path.unlink()
         return {
             **validity,
             "output_path": str(path),

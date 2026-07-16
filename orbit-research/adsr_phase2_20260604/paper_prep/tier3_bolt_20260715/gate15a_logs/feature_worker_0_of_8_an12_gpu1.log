@@ -1,0 +1,21 @@
+2026-07-17 00:18:47.731 | INFO     | acestep.pipeline_ace_step:get_checkpoint_path:170 - Load models from: /HOME/paratera_xy/pxy1289/.cache/modelscope/hub/models/ACE-Step/ACE-Step-v1-3___5B
+/HOME/paratera_xy/pxy1289/.conda/envs/audio-prm/lib/python3.10/site-packages/torch/nn/utils/weight_norm.py:143: FutureWarning: `torch.nn.utils.weight_norm` is deprecated in favor of `torch.nn.utils.parametrizations.weight_norm`.
+  WeightNorm.apply(module, name, dim)
+Loading weights:   0%|          | 0/122 [00:00<?, ?it/s]Loading weights:   1%|          | 1/122 [00:00<01:42,  1.18it/s]Loading weights:   2%|▏         | 3/122 [00:01<00:34,  3.42it/s]Loading weights:   6%|▌         | 7/122 [00:01<00:18,  6.31it/s]Loading weights:  12%|█▏        | 15/122 [00:01<00:07, 14.29it/s]Loading weights:  15%|█▍        | 18/122 [00:01<00:06, 16.14it/s]Loading weights:  17%|█▋        | 21/122 [00:02<00:07, 13.70it/s]Loading weights:  19%|█▉        | 23/122 [00:02<00:06, 14.54it/s]Loading weights:  23%|██▎       | 28/122 [00:02<00:04, 19.76it/s]Loading weights:  27%|██▋       | 33/122 [00:02<00:04, 18.00it/s]Loading weights:  35%|███▌      | 43/122 [00:02<00:02, 29.57it/s]Loading weights:  39%|███▊      | 47/122 [00:02<00:03, 24.94it/s]Loading weights:  42%|████▏     | 51/122 [00:03<00:02, 26.94it/s]Loading weights:  47%|████▋     | 57/122 [00:03<00:02, 27.46it/s]Loading weights:  53%|█████▎    | 65/122 [00:03<00:01, 29.99it/s]Loading weights:  57%|█████▋    | 69/122 [00:03<00:01, 30.91it/s]Loading weights:  61%|██████▏   | 75/122 [00:03<00:01, 30.52it/s]Loading weights:  68%|██████▊   | 83/122 [00:04<00:01, 33.12it/s]Loading weights:  71%|███████▏  | 87/122 [00:04<00:01, 20.93it/s]Loading weights:  76%|███████▌  | 93/122 [00:04<00:01, 25.20it/s]Loading weights:  80%|███████▉  | 97/122 [00:04<00:01, 23.76it/s]Loading weights:  82%|████████▏ | 100/122 [00:04<00:00, 23.77it/s]Loading weights:  84%|████████▍ | 103/122 [00:05<00:00, 23.28it/s]Loading weights:  87%|████████▋ | 106/122 [00:05<00:00, 23.63it/s]Loading weights:  91%|█████████ | 111/122 [00:05<00:00, 25.92it/s]Loading weights:  96%|█████████▌| 117/122 [00:05<00:00, 22.35it/s]Loading weights: 100%|██████████| 122/122 [00:11<00:00,  2.39it/s]Loading weights: 100%|██████████| 122/122 [00:11<00:00, 10.26it/s]
+Traceback (most recent call last):
+  File "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion/orbit-research/adsr_phase2_20260604/paper_prep/tier3_bolt_20260715/bolt_gate15a_features.py", line 493, in <module>
+    raise SystemExit(main())
+  File "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion/orbit-research/adsr_phase2_20260604/paper_prep/tier3_bolt_20260715/bolt_gate15a_features.py", line 489, in main
+    return int(args.func(args))
+  File "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion/orbit-research/adsr_phase2_20260604/paper_prep/tier3_bolt_20260715/bolt_gate15a_features.py", line 380, in command_extract
+    score = scorer.score(
+  File "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion/orbit-research/adsr_phase2_20260604/paper_prep/tier3_bolt_20260715/bolt_scoring.py", line 196, in score
+    saved = save_audio_once(audio_path, waveform, sample_rate)
+  File "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion/orbit-research/adsr_phase2_20260604/paper_prep/tier3_bolt_20260715/bolt_scoring.py", line 101, in save_audio_once
+    raise RuntimeError(f"existing output conflicts with deterministic recovery: {path}")
+RuntimeError: existing output conflicts with deterministic recovery: /XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion/orbit-research/adsr_phase2_20260604/paper_prep/tier3_bolt_20260715/gate15a_previews/dev_0026/seed2060000000__step06.flac
+
+ERROR conda.cli.main_run:execute(49): `conda run python orbit-research/adsr_phase2_20260604/paper_prep/tier3_bolt_20260715/bolt_gate15a_features.py extract --worker-index 0 --num-workers 8` failed. (See above for error)
+Checkpoint path: /HOME/paratera_xy/pxy1289/panns_data/Cnn14_mAP=0.431.pth
+GPU number: 1
+
