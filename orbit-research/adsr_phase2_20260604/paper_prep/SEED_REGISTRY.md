@@ -17,6 +17,7 @@ authorized by the governing recovery brief.
 | W2 spine reconstruction | source-seed replay: `2026052700` through `2026563707` | ACTIVE_REPLAY | Intentional replay of each exact frozen candidate seed in a new output root; replay rows are linked to their historical identity and never treated as independent samples. | 4,095 missing candidates plus one surviving-original audit replay; exact ACE-Step v1 configuration. |
 | W2 instrumental factorial | `2034000000` through `2034031015` | RESERVED_CRN | `base + prompt_rank*1000 + seed_idx`; all six conditions intentionally share the same prompt/seed and the range is disjoint from all completed and registered work. | 32 prompts x 6 conditions x 16 seeds; 3,072 clips. |
 | W2 bounded live confirm | `2035000000` through `2035006301` | RESERVED_CRN_BLOCKED | `base + prompt_rank*100 + rep`; all four policies intentionally share each prompt/repetition seed. No launch until dual signatures, promoted-instrument PASS, and frozen policies are machine-verified. | 64 prompts x 4 policies x 2 repetitions; preparation only. |
+| Exit-1 unconditional base rate | `2036000000` through `2036000255` | RESERVED | `base + manifest_index`; seed-disjoint from completed and registered work. | 16 frozen empty/neutral prompt rows x 16 seeds; 256 retained clips; PRIOR EVIDENCE only. |
 
 ## Collision Guard
 

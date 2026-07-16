@@ -1,0 +1,16 @@
+{
+  "config_hash": "a6338c4450acfb30af37a37ff7c87510b3d1d45a363f44a10fd9e0d71d2328ac",
+  "generation_started": false,
+  "git_hash_before_generation": "8262a892294195d046492fc6081f1ad5a2d5b5f3",
+  "preregistration_sha256": "36a706f5b8c54ab8aa3205b49d79bd4d3c5ed6e86b83b8c1d1bf5fa4033fd5f1",
+  "prompt_rows": 16,
+  "prompt_sha256": "f8cba6b03a1dcf3c295f648f886a78011b10f46ae07550a910d23cc86f1ddfd9",
+  "seed_max": 2036000255,
+  "seed_min": 2036000000,
+  "status": "FROZEN_INPUTS_READY",
+  "stratum_counts": {
+    "empty": 128,
+    "neutral_text": 128
+  },
+  "tasks": 256
+}

@@ -1,0 +1,37 @@
+{
+  "status": "FROZEN_BEFORE_GENERATION",
+  "evidence_role": "PRIOR EVIDENCE",
+  "model": "ACE-Step/ACE-Step-v1-3.5B",
+  "model_source_preference": "existing local cache; ModelScope preferred for any missing artifact",
+  "prompt_file": "analysis_exit1/neutral_prompts.csv",
+  "prompt_strata": {
+    "empty": 128,
+    "neutral_text": 128
+  },
+  "clips": 256,
+  "seed_base": 2036000000,
+  "seed_max": 2036000255,
+  "seed_rule": "seed_base + manifest_index",
+  "duration_seconds": 15.0,
+  "inference_steps": 30,
+  "cfg_scale": 5.0,
+  "cfg_type": "apg",
+  "guidance_interval": 0.5,
+  "use_erg_tag": false,
+  "use_erg_lyric": false,
+  "use_erg_diffusion": false,
+  "instrument": {
+    "name": "Demucs AND PANNs",
+    "decision_rule": "and",
+    "demucs_threshold": 0.038639528676867485,
+    "panns_threshold": 0.03181814216077328
+  },
+  "placement": {
+    "node": "an12",
+    "gpu_ids": [0, 1, 2, 3, 4, 5, 6, 7],
+    "tp_width": 1,
+    "replica_count": 8,
+    "justification": "ACE-Step 3.5B fits on one A800; eight independent TP1 replicas maximize throughput on one node."
+  },
+  "interpretation": "Estimate the model's vocal-presence base rate under frozen empty and neutral prompts. This is PRIOR EVIDENCE, not causal proof of vocal bias."
+}

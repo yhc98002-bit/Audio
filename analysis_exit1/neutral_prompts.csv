@@ -1,0 +1,17 @@
+prompt_id,stratum,prompt_text,replicates
+empty_00,empty,,16
+empty_01,empty,,16
+empty_02,empty,,16
+empty_03,empty,,16
+empty_04,empty,,16
+empty_05,empty,,16
+empty_06,empty,,16
+empty_07,empty,,16
+neutral_00,neutral_text,music,16
+neutral_01,neutral_text,an audio recording,16
+neutral_02,neutral_text,a musical composition,16
+neutral_03,neutral_text,a short music track,16
+neutral_04,neutral_text,an original recording,16
+neutral_05,neutral_text,a soundtrack,16
+neutral_06,neutral_text,a melodic piece,16
+neutral_07,neutral_text,a studio track,16
