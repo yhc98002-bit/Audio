@@ -1,0 +1,40 @@
+{
+  "best_operating_point": {
+    "attempts_N": 8,
+    "cqs_ci95_high": 1.0,
+    "cqs_ci95_low": 0.8125,
+    "cqs_delta_ci95_high": 0.34375,
+    "cqs_delta_ci95_low": 0.0625,
+    "cqs_delta_vs_equal_compute_baseline": 0.1875,
+    "cqs_style_success": 0.90625,
+    "prompt_clusters": 32,
+    "quality_floor": 2.1232179954605157,
+    "recipe": "positive_text+selection",
+    "source": "factorial",
+    "units": 32,
+    "violation_ci95_high": 0.21875,
+    "violation_ci95_low": 0.0,
+    "violation_delta_ci95_high": 0.0,
+    "violation_delta_ci95_low": -0.21875,
+    "violation_delta_vs_equal_compute_baseline": -0.09375,
+    "violation_rate": 0.09375
+  },
+  "bootstrap_replicates": 10000,
+  "bootstrap_seed": 2026071603,
+  "factorial_rows": 3072,
+  "factorial_secondary_rows": 3072,
+  "live_deduplicated_rows": 1536,
+  "live_raw_rows": 1536,
+  "quality_proxy": {
+    "audiobox_pq_coefficient": 0.25299900192665126,
+    "clap_coefficient": 0.39543892317264356,
+    "floor": 2.1232179954605157,
+    "floor_rule": "25th percentile of constraint-satisfying no_probe_reseed live slots",
+    "intercept": 0.22823740415612678,
+    "r_squared": 0.6409046842486477
+  },
+  "source_sha256": {
+    "orbit-research/adsr_phase2_20260604/paper_prep/autochain_20260712/factorial/FACTORIAL_CORRECTED_SCORE_ROWS.csv": "cd7d0f08089bf339b45bbd6dad0902d3335c9dfec9fd331b203c7a6962864038"
+  },
+  "status": "COMPLETE"
+}

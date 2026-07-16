@@ -1,0 +1,61 @@
+{
+  "artifact_path": "analysis_exit1/unconditional_run_20260716",
+  "audio_count": 256,
+  "command": "CUDA_VISIBLE_DEVICES=<0..7> python analysis_exit1/exit1_analysis.py run-unconditional --worker-index <0..7> --num-workers 8",
+  "config_hash": "a6338c4450acfb30af37a37ff7c87510b3d1d45a363f44a10fd9e0d71d2328ac",
+  "deviations": [],
+  "evidence_role": "PRIOR EVIDENCE",
+  "git_hash_before_generation": "3e391303464d10e0f7eaafbd840d615e49da6a4c",
+  "gpu_ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "instrument": {
+    "decision_rule": "and",
+    "demucs_threshold": 0.038639528676867485,
+    "panns_threshold": 0.03181814216077328
+  },
+  "node": "an12",
+  "overall": {
+    "ci95_high": 0.7228006719352853,
+    "ci95_low": 0.6081703762966486,
+    "group": "overall",
+    "n": 256,
+    "rate": 0.66796875,
+    "value": "all",
+    "vocal_present": 171
+  },
+  "placement_justification": "ACE-Step 3.5B fits on one A800; eight independent TP1 replicas maximize throughput.",
+  "raw_ledger_rows": 256,
+  "replica_count": 8,
+  "seed_base": 2036000000,
+  "seed_max": 2036000255,
+  "status": "COMPLETE",
+  "strata": [
+    {
+      "ci95_high": 0.7824160023219742,
+      "ci95_low": 0.6271668442501395,
+      "group": "stratum",
+      "n": 128,
+      "rate": 0.7109375,
+      "value": "empty",
+      "vocal_present": 91
+    },
+    {
+      "ci95_high": 0.7040757090235344,
+      "ci95_low": 0.5386400519080884,
+      "group": "stratum",
+      "n": 128,
+      "rate": 0.625,
+      "value": "neutral_text",
+      "vocal_present": 80
+    }
+  ],
+  "tp_width": 1
+}

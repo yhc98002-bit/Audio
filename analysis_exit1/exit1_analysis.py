@@ -36,6 +36,7 @@ GOLD_690 = PAPER / (
     "t7_judge_gold_20260713/judge_completion/A_PRIME_INSTRUMENT_MERGED_690.csv"
 )
 APRIME_MANIFEST = PAPER / "validation_A_prime/A_PRIME_MANIFEST.csv"
+APRIME_CARDINALITY = PAPER / "validation_A_prime/A_PRIME_CARDINALITY_RECONCILIATION.csv"
 HUMAN_ADMIN = PAPER / "validation_A_prime/human_package/A_PRIME_HUMAN_ADMIN_MANIFEST.csv"
 MERGE_AUDIT = PAPER / (
     "t7_judge_gold_20260713/judge_completion/A_PRIME_INSTRUMENT_MERGE_REPORT.json"
@@ -275,7 +276,7 @@ def prepare_evaluator() -> dict:
     admin = read_csv(ADMIN_690)
     gold = read_csv(GOLD_690)
     aprime = read_csv(APRIME_MANIFEST)
-    human_admin = read_csv(HUMAN_ADMIN)
+    cardinality = read_csv(APRIME_CARDINALITY)
     merge = json.loads(MERGE_AUDIT.read_text(encoding="utf-8"))
     if len(admin) != 690 or len(gold) != 690 or merge.get("admin_rows") != 690:
         raise ValueError("A-prime 690-row cardinality contract changed")
@@ -284,25 +285,88 @@ def prepare_evaluator() -> dict:
     gold_index = {row["rating_id"]: row for row in gold}
     if len(gold_index) != 690 or set(gold_index) != {row["rating_id"] for row in admin}:
         raise ValueError("A-prime gold/admin rating IDs differ")
-    aprime_index = {row["clip_id"]: row for row in aprime}
-    human_index = {row["rating_id"]: row for row in human_admin}
+    frozen_scores: dict[str, dict] = {}
+    score_conflicts: list[dict] = []
+
+    def register_score(
+        media_sha256: str, demucs_score: str | float, panns_score: str | float,
+        source: str, priority: int,
+    ) -> None:
+        if not media_sha256 or demucs_score in {"", None} or panns_score in {"", None}:
+            return
+        candidate = {
+            "demucs_score": float(demucs_score),
+            "panns_score": float(panns_score),
+            "score_source": source,
+            "priority": priority,
+        }
+        prior = frozen_scores.get(media_sha256)
+        if prior is not None:
+            demucs_delta = abs(prior["demucs_score"] - candidate["demucs_score"])
+            panns_delta = abs(prior["panns_score"] - candidate["panns_score"])
+            if demucs_delta > 5e-4 or panns_delta > 5e-4:
+                if prior["priority"] == priority:
+                    raise ValueError(
+                        f"same-priority frozen detector scores conflict for {media_sha256}"
+                    )
+                score_conflicts.append(
+                    {
+                        "media_sha256": media_sha256,
+                        "demucs_absolute_delta": demucs_delta,
+                        "panns_absolute_delta": panns_delta,
+                        "lower_priority_source": (
+                            prior["score_source"]
+                            if prior["priority"] < priority
+                            else candidate["score_source"]
+                        ),
+                        "selected_source": (
+                            candidate["score_source"]
+                            if priority > prior["priority"]
+                            else prior["score_source"]
+                        ),
+                    }
+                )
+            if prior["priority"] > priority:
+                return
+        frozen_scores[media_sha256] = candidate
+
+    for row in aprime:
+        metadata = json.loads(row["metadata_json"])
+        register_score(
+            str(metadata.get("sha256", "")), row["vocal_energy_ratio"],
+            row["panns_vocal"], str(APRIME_MANIFEST.relative_to(ROOT)), 1,
+        )
+    for row in cardinality:
+        register_score(
+            row["sha256"], row["demucs_ratio"], row["panns_score"],
+            str(APRIME_CARDINALITY.relative_to(ROOT)), 2,
+        )
+    canonical_score_dir = CANONICAL_ROOT / (
+        "orbit-research/adsr_phase2_20260604/paper_prep/w2_contingency_20260711/"
+        "activated_20260711/calibration"
+    )
+    pi_score_paths = sorted(canonical_score_dir.glob("PI_GOLD_SCORES_W*.jsonl"))
+    if len(pi_score_paths) != 8:
+        raise ValueError(f"expected eight frozen PI-gold score ledgers, found {len(pi_score_paths)}")
+    for path in pi_score_paths:
+        for row in read_jsonl(path):
+            if row.get("status") == "PASS":
+                register_score(
+                    row["audio_sha256"], row["demucs_vocal_energy_ratio"],
+                    row["panns_score"], str(path), 3,
+                )
     hash_cache: dict[Path, str] = {}
     output = []
+    missing_historical_detector_media: set[str] = set()
     for row in admin:
-        source_clip = row["source_clip_id"]
-        score_row = aprime_index.get(source_clip)
+        score_row = frozen_scores.get(row["package_sha256"])
         if score_row is None:
-            human_id = Path(row["source_path"]).stem
-            mapped = human_index.get(human_id)
-            if mapped is None:
-                raise ValueError(f"cannot map primary media row {row['rating_id']}")
-            score_row = aprime_index.get(mapped["source_clip_id"])
-        if score_row is None:
-            raise ValueError(f"missing frozen detector scores for {row['rating_id']}")
-        metadata = json.loads(score_row["metadata_json"])
-        score_sha = str(metadata.get("sha256", ""))
-        if score_sha != row["package_sha256"]:
-            raise ValueError(f"detector/media hash mismatch for {row['rating_id']}")
+            missing_historical_detector_media.add(row["package_sha256"])
+            score_row = {
+                "demucs_score": "",
+                "panns_score": "",
+                "score_source": "exit1_frozen_backend_fill",
+            }
         media = resolve_media_path(row["package_media_path"])
         observed_sha = hash_cache.setdefault(media, sha256_file(media))
         if observed_sha != row["package_sha256"]:
@@ -328,8 +392,12 @@ def prepare_evaluator() -> dict:
                 "rating_source": rating_source,
                 "label_a": label_text,
                 "label_binary": "" if label_text == "unsure" else int(label_text == "yes"),
-                "demucs_score": float(score_row["vocal_energy_ratio"]),
-                "panns_score": float(score_row["panns_vocal"]),
+                "demucs_score": score_row["demucs_score"],
+                "panns_score": score_row["panns_score"],
+                "existing_score_source": score_row["score_source"],
+                "needs_detector_fill": int(
+                    row["package_sha256"] in missing_historical_detector_media
+                ),
             }
         )
     _assign_component_split(output, EVALUATOR_TRAIN_FRACTION)
@@ -345,10 +413,18 @@ def prepare_evaluator() -> dict:
             "media_sha256": row["media_sha256"],
             "clip_path": row["clip_path"],
             "split": row["split"],
+            "needs_detector_fill": row["needs_detector_fill"],
         }
-        if prior and prior != candidate:
-            raise ValueError("one media hash maps to conflicting path or split")
-        media_rows[row["media_sha256"]] = candidate
+        if prior:
+            if (
+                prior["split"] != candidate["split"]
+                or prior["needs_detector_fill"] != candidate["needs_detector_fill"]
+            ):
+                raise ValueError("one media hash maps to conflicting split or fill policy")
+            if candidate["clip_path"] < prior["clip_path"]:
+                media_rows[row["media_sha256"]] = candidate
+        else:
+            media_rows[row["media_sha256"]] = candidate
     write_csv_once(EVAL_ROWS, output)
     write_csv_once(EVAL_MEDIA, sorted(media_rows.values(), key=lambda row: row["media_sha256"]))
     result = {
@@ -374,8 +450,32 @@ def prepare_evaluator() -> dict:
         ),
         "source_sha256": {
             str(path.relative_to(ROOT)): sha256_file(path)
-            for path in (ADMIN_690, GOLD_690, APRIME_MANIFEST, HUMAN_ADMIN, MERGE_AUDIT)
+            for path in (
+                ADMIN_690, GOLD_690, APRIME_MANIFEST, APRIME_CARDINALITY,
+                HUMAN_ADMIN, MERGE_AUDIT,
+            )
         },
+        "pi_gold_score_ledger_sha256": {
+            str(path): sha256_file(path) for path in pi_score_paths
+        },
+        "existing_score_precedence": (
+            "PI-gold W2 calibration ledger, then A-prime cardinality, then A-prime manifest"
+        ),
+        "resolved_existing_score_conflicts": {
+            "count": len(score_conflicts),
+            "max_demucs_absolute_delta": max(
+                (row["demucs_absolute_delta"] for row in score_conflicts), default=0.0
+            ),
+            "max_panns_absolute_delta": max(
+                (row["panns_absolute_delta"] for row in score_conflicts), default=0.0
+            ),
+            "examples": score_conflicts[:10],
+        },
+        "missing_historical_detector_media": len(missing_historical_detector_media),
+        "detector_fill_policy": (
+            "Score only historically uncovered unique media with the unchanged frozen "
+            "W2 Demucs/PANNs backend; preserve every available historical score."
+        ),
         "new_human_labels": 0,
     }
     write_json_once(EVAL_PREP_AUDIT, result)
@@ -392,8 +492,11 @@ def _done_score_ids(pattern: str) -> set[str]:
 
 
 def _whisper_score(model, path: Path) -> dict:
+    import librosa
+
+    audio, _ = librosa.load(str(path), sr=16_000, mono=True)
     result = model.transcribe(
-        str(path),
+        audio,
         task="transcribe",
         fp16=True,
         temperature=0.0,
@@ -505,7 +608,10 @@ def score_evaluator(backend: str, worker_index: int, num_workers: int, model_pat
     visible = [value for value in os.environ.get("CUDA_VISIBLE_DEVICES", "").split(",") if value]
     if len(visible) != 1:
         raise RuntimeError("each evaluator worker requires exactly one visible GPU")
-    rows = read_csv(EVAL_MEDIA)[worker_index::num_workers]
+    all_rows = read_csv(EVAL_MEDIA)
+    if backend == "detector_fill":
+        all_rows = [row for row in all_rows if int(row["needs_detector_fill"])]
+    rows = all_rows[worker_index::num_workers]
     ledger = EVAL_LEDGER_DIR / f"evaluator_{backend}_w{worker_index}.jsonl"
     done = _done_score_ids(f"evaluator_{backend}_w*.jsonl")
     if backend == "whisper":
@@ -543,8 +649,30 @@ def score_evaluator(backend: str, worker_index: int, num_workers: int, model_pat
                         "AudioSet labels containing speech/singing/singer/choir/vocal/"
                         "rapping/humming/chant/a capella/human voice; speech synthesizer excluded"
                     ),
+                    "acquisition": (
+                        "ModelScope was attempted first but did not host the MIT checkpoint; "
+                        "downloaded from the explicit Hugging Face mirror/proxy fallback."
+                    ),
                 },
             )
+    elif backend == "detector_fill":
+        module = _load_w2_instrument_module()
+        instrument = module.LiveDemucsPannsEnsembleInstrument(
+            "cuda", AND_DEMUCS_THRESHOLD, AND_PANNS_THRESHOLD, "and"
+        )
+
+        def scorer(path: Path) -> dict:
+            scored = instrument.score(path)
+            return {
+                "demucs_score": scored["vocal_energy_ratio"],
+                "panns_score": scored["panns_score"],
+                "demucs_present": scored["demucs_present"],
+                "panns_present": scored["panns_present"],
+                "present": scored["present"],
+                "near_silent": scored["near_silent"],
+            }
+
+        backend_id = "frozen-w2-demucs-panns-and"
     else:
         raise ValueError(f"unsupported evaluator backend: {backend}")
     written = failures = 0
@@ -631,12 +759,26 @@ def finalize_evaluator() -> dict:
     rows = read_csv(EVAL_ROWS)
     whisper = _load_backend_scores("whisper")
     audioset = _load_backend_scores("audioset")
+    detector_fill = _load_backend_scores("detector_fill")
     media_count = len({row["media_sha256"] for row in rows})
     if len(whisper) != media_count or len(audioset) != media_count:
         raise ValueError(
             f"evaluator scoring incomplete: media={media_count}, whisper={len(whisper)}, "
             f"audioset={len(audioset)}"
         )
+    missing_detector_hashes = {
+        row["media_sha256"] for row in rows if int(row["needs_detector_fill"])
+    }
+    if set(detector_fill) != missing_detector_hashes:
+        raise ValueError(
+            "detector fill incomplete: "
+            f"expected={len(missing_detector_hashes)}, observed={len(detector_fill)}"
+        )
+    for row in rows:
+        if int(row["needs_detector_fill"]):
+            score = detector_fill[row["media_sha256"]]
+            row["demucs_score"] = score["demucs_score"]
+            row["panns_score"] = score["panns_score"]
     whisper_rows = [
         {
             "media_sha256": key,
@@ -659,8 +801,27 @@ def finalize_evaluator() -> dict:
         }
         for key, value in sorted(audioset.items())
     ]
-    write_csv_once(EVAL_WHISPER_CSV, whisper_rows)
-    write_csv_once(EVAL_AUDIOSET_CSV, audioset_rows)
+    if not EVAL_WHISPER_CSV.exists():
+        write_csv_once(EVAL_WHISPER_CSV, whisper_rows)
+    if not EVAL_AUDIOSET_CSV.exists():
+        write_csv_once(EVAL_AUDIOSET_CSV, audioset_rows)
+    detector_fill_path = EVAL_TABLE.parent / "EVALUATOR_DETECTOR_FILL_SCORES.csv"
+    write_csv_once(
+        detector_fill_path,
+        [
+            {
+                "media_sha256": key,
+                "demucs_score": value["demucs_score"],
+                "panns_score": value["panns_score"],
+                "demucs_present": value["demucs_present"],
+                "panns_present": value["panns_present"],
+                "present": value["present"],
+                "near_silent": value["near_silent"],
+                "backend_id": value["backend_id"],
+            }
+            for key, value in sorted(detector_fill.items())
+        ],
+    )
     decided = [row for row in rows if row["label_binary"] != ""]
     train = [row for row in decided if row["split"] == "train"]
     heldout = [row for row in decided if row["split"] == "heldout"]
@@ -748,6 +909,9 @@ def finalize_evaluator() -> dict:
         "Prompt clusters and duplicate media are disjoint across the deterministic split. "
         "Only PANNs-only, Whisper, and AudioSet thresholds were selected on train; the two "
         "existing Demucs operationalizations were applied unchanged.",
+        f"Historical detector scores were preserved; {len(missing_detector_hashes)} unique "
+        "media item(s) without a historical score were evaluated by the unchanged frozen W2 "
+        "Demucs/PANNs backend. This supplemental scoring introduced no human labels.",
         "",
         "| Instrument | Frozen operationalization | Sensitivity (95% CI) | Specificity (95% CI) | Balanced accuracy (95% CI) | MCC (95% CI) |",
         "|---|---|---:|---:|---:|---:|",
@@ -808,6 +972,8 @@ def finalize_evaluator() -> dict:
         "bootstrap_seed": EVALUATOR_BOOTSTRAP_SEED,
         "bootstrap_replicates": BOOTSTRAP_REPLICATES,
         "new_human_labels": 0,
+        "historical_detector_media_filled": len(missing_detector_hashes),
+        "detector_fill_artifact": str(detector_fill_path.relative_to(ROOT)),
         "historical_restatement": {
             "legacy_demucs": legacy_hist,
             "demucs_and_panns": and_hist,
@@ -1392,6 +1558,10 @@ def finalize_unconditional() -> dict:
         raise ValueError(
             f"unconditional run incomplete: expected={len(expected)} passed={len(passed)}"
         )
+    generation_hashes = {row["git_hash"] for row in passed.values()}
+    if len(generation_hashes) != 1:
+        raise ValueError(f"unconditional generation used multiple git hashes: {generation_hashes}")
+    generation_git_hash = next(iter(generation_hashes))
     scores = []
     checksum_lines = []
     for task in manifest:
@@ -1496,7 +1666,7 @@ def finalize_unconditional() -> dict:
             "CUDA_VISIBLE_DEVICES=<0..7> python analysis_exit1/exit1_analysis.py "
             "run-unconditional --worker-index <0..7> --num-workers 8"
         ),
-        "git_hash_before_generation": prep["git_hash_before_generation"],
+        "git_hash_before_generation": generation_git_hash,
         "config_hash": prep["config_hash"],
         "seed_base": UNCONDITIONAL_SEED_BASE,
         "seed_max": UNCONDITIONAL_SEED_BASE + 255,
@@ -1545,12 +1715,19 @@ def write_bundle_report(prereg_commit: str, analysis_commit: str) -> dict:
         "EVALUATOR_TABLE_STATUS": [
             EVAL_TABLE,
             EVAL_AUDIT,
+            EVAL_PREP_AUDIT,
+            EVAL_MEDIA,
             EVAL_WHISPER_CSV,
             EVAL_AUDIOSET_CSV,
+            EVAL_AUDIOSET_META,
+            EVAL_TABLE.parent / "EVALUATOR_DETECTOR_FILL_SCORES.csv",
         ],
         "RECIPE_CURVES_STATUS": [RECIPE_REPORT, RECIPE_CSV, RECIPE_AUDIT],
         "UNCONDITIONAL_BASE_RATE_STATUS": [
             UNCONDITIONAL_REPORT,
+            ROOT / "analysis_exit1/neutral_prompts.csv",
+            ROOT / "analysis_exit1/UNCONDITIONAL_PREREGISTRATION.json",
+            UNCONDITIONAL_MANIFEST,
             UNCONDITIONAL_SCORES,
             UNCONDITIONAL_SHA,
             UNCONDITIONAL_RUN_MANIFEST,
@@ -1615,7 +1792,9 @@ def main() -> int:
     sub = parser.add_subparsers(dest="command", required=True)
     sub.add_parser("prepare-evaluator")
     score = sub.add_parser("score-evaluator")
-    score.add_argument("--backend", choices=("whisper", "audioset"), required=True)
+    score.add_argument(
+        "--backend", choices=("whisper", "audioset", "detector_fill"), required=True
+    )
     score.add_argument("--worker-index", type=int, required=True)
     score.add_argument("--num-workers", type=int, required=True)
     score.add_argument("--model-path", default="")

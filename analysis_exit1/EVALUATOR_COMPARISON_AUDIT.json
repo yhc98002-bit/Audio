@@ -1,0 +1,272 @@
+{
+  "bootstrap_replicates": 10000,
+  "bootstrap_seed": 2026071602,
+  "decided_rows": 689,
+  "detector_fill_artifact": "analysis_exit1/EVALUATOR_DETECTOR_FILL_SCORES.csv",
+  "heldout_metrics": {
+    "audioset_tagger": {
+      "balanced_accuracy": 0.8640796703296704,
+      "fn": 18,
+      "fp": 8,
+      "mcc": 0.6500366428840547,
+      "n": 451,
+      "negatives": 35,
+      "positives": 416,
+      "sensitivity": 0.9567307692307693,
+      "specificity": 0.7714285714285715,
+      "tn": 27,
+      "tp": 398
+    },
+    "demucs_and_panns": {
+      "balanced_accuracy": 0.8551167582417583,
+      "fn": 73,
+      "fp": 4,
+      "mcc": 0.45112868606030904,
+      "n": 451,
+      "negatives": 35,
+      "positives": 416,
+      "sensitivity": 0.8245192307692307,
+      "specificity": 0.8857142857142857,
+      "tn": 31,
+      "tp": 343
+    },
+    "legacy_demucs": {
+      "balanced_accuracy": 0.5152472527472528,
+      "fn": 332,
+      "fp": 6,
+      "mcc": 0.020413967873005777,
+      "n": 451,
+      "negatives": 35,
+      "positives": 416,
+      "sensitivity": 0.20192307692307693,
+      "specificity": 0.8285714285714286,
+      "tn": 29,
+      "tp": 84
+    },
+    "panns_only": {
+      "balanced_accuracy": 0.9129464285714286,
+      "fn": 13,
+      "fp": 5,
+      "mcc": 0.7523849300341411,
+      "n": 451,
+      "negatives": 35,
+      "positives": 416,
+      "sensitivity": 0.96875,
+      "specificity": 0.8571428571428571,
+      "tn": 30,
+      "tp": 403
+    },
+    "whisper_transcript": {
+      "balanced_accuracy": 0.6630837912087912,
+      "fn": 209,
+      "fp": 6,
+      "mcc": 0.17480071383991497,
+      "n": 451,
+      "negatives": 35,
+      "positives": 416,
+      "sensitivity": 0.49759615384615385,
+      "specificity": 0.8285714285714286,
+      "tn": 29,
+      "tp": 207
+    }
+  },
+  "heldout_prompt_cluster_bootstrap_ci95": {
+    "audioset_tagger": {
+      "balanced_accuracy": [
+        0.7611646573162729,
+        0.9572737760532598
+      ],
+      "mcc": [
+        0.47760913824228896,
+        0.8099103609391635
+      ],
+      "sensitivity": [
+        0.933485992440052,
+        0.9768641247009525
+      ],
+      "specificity": [
+        0.5652173913043478,
+        0.9583333333333334
+      ],
+      "valid_replicates": 10000
+    },
+    "demucs_and_panns": {
+      "balanced_accuracy": [
+        0.7917019525973229,
+        0.9174765265115968
+      ],
+      "mcc": [
+        0.3204902503418963,
+        0.613195454624659
+      ],
+      "sensitivity": [
+        0.767789818414186,
+        0.8917598992502342
+      ],
+      "specificity": [
+        0.7714136904761906,
+        0.972972972972973
+      ],
+      "valid_replicates": 10000
+    },
+    "legacy_demucs": {
+      "balanced_accuracy": [
+        0.4359354201733704,
+        0.5940443860949075
+      ],
+      "mcc": [
+        -0.08375527023786905,
+        0.12718606072717803
+      ],
+      "sensitivity": [
+        0.15302471929071051,
+        0.26400237388724035
+      ],
+      "specificity": [
+        0.6666666666666666,
+        0.9714285714285714
+      ],
+      "valid_replicates": 10000
+    },
+    "panns_only": {
+      "balanced_accuracy": [
+        0.8475058910030066,
+        0.9682662395722177
+      ],
+      "mcc": [
+        0.6250637557652894,
+        0.8750362510698221
+      ],
+      "sensitivity": [
+        0.9456190193277629,
+        0.9882075471698113
+      ],
+      "specificity": [
+        0.7272727272727273,
+        0.9629629629629629
+      ],
+      "valid_replicates": 10000
+    },
+    "whisper_transcript": {
+      "balanced_accuracy": [
+        0.595426440691219,
+        0.731989482036197
+      ],
+      "mcc": [
+        0.09814252079360726,
+        0.2570580654042367
+      ],
+      "sensitivity": [
+        0.4292340738857282,
+        0.57212775834855
+      ],
+      "specificity": [
+        0.7083333333333334,
+        0.9393939393939394
+      ],
+      "valid_replicates": 10000
+    }
+  },
+  "heldout_rows": 451,
+  "historical_detector_media_filled": 125,
+  "historical_restatement": {
+    "demucs_and_panns": {
+      "abstention_rate": 0.0,
+      "balanced_accuracy": 0.8061224489795918,
+      "fn": 10,
+      "fp": 2,
+      "mcc": 0.4364357804719847,
+      "n": 105,
+      "negatives": 7,
+      "positives": 98,
+      "sensitivity": 0.8979591836734694,
+      "specificity": 0.7142857142857143,
+      "tn": 5,
+      "tp": 88
+    },
+    "legacy_demucs": {
+      "abstention_rate": 0.0,
+      "balanced_accuracy": 0.4336734693877551,
+      "fn": 69,
+      "fp": 3,
+      "mcc": -0.07188576772061893,
+      "n": 105,
+      "negatives": 7,
+      "positives": 98,
+      "sensitivity": 0.29591836734693877,
+      "specificity": 0.5714285714285714,
+      "tn": 4,
+      "tp": 29
+    }
+  },
+  "new_human_labels": 0,
+  "nominal_rows": 690,
+  "status": "COMPLETE",
+  "thresholds": {
+    "audioset_tagger": 0.057332757860422134,
+    "demucs_and_panns": [
+      0.038639528676867485,
+      0.03181814216077328
+    ],
+    "legacy_demucs": 0.1791,
+    "panns_only": 0.04879267141222954,
+    "whisper_transcript": 0.28481824963420327
+  },
+  "train_rows": 238,
+  "train_selection": {
+    "audioset_tagger": {
+      "candidate_count": 234,
+      "selection_rule": "maximize balanced accuracy, then min(sensitivity,specificity), MCC, specificity, then lower threshold",
+      "threshold": 0.057332757860422134,
+      "train_metrics": {
+        "balanced_accuracy": 0.9587542087542087,
+        "fn": 8,
+        "fp": 1,
+        "mcc": 0.8124116288760261,
+        "n": 238,
+        "negatives": 22,
+        "positives": 216,
+        "sensitivity": 0.9629629629629629,
+        "specificity": 0.9545454545454546,
+        "tn": 21,
+        "tp": 208
+      }
+    },
+    "panns_only": {
+      "candidate_count": 234,
+      "selection_rule": "maximize balanced accuracy, then min(sensitivity,specificity), MCC, specificity, then lower threshold",
+      "threshold": 0.04879267141222954,
+      "train_metrics": {
+        "balanced_accuracy": 0.9522306397306397,
+        "fn": 1,
+        "fp": 2,
+        "mcc": 0.923610115831566,
+        "n": 238,
+        "negatives": 22,
+        "positives": 216,
+        "sensitivity": 0.9953703703703703,
+        "specificity": 0.9090909090909091,
+        "tn": 20,
+        "tp": 215
+      }
+    },
+    "whisper_transcript": {
+      "candidate_count": 223,
+      "selection_rule": "maximize balanced accuracy, then min(sensitivity,specificity), MCC, specificity, then lower threshold",
+      "threshold": 0.28481824963420327,
+      "train_metrics": {
+        "balanced_accuracy": 0.7300084175084175,
+        "fn": 97,
+        "fp": 2,
+        "mcc": 0.2665178649983321,
+        "n": 238,
+        "negatives": 22,
+        "positives": 216,
+        "sensitivity": 0.5509259259259259,
+        "specificity": 0.9090909090909091,
+        "tn": 20,
+        "tp": 119
+      }
+    }
+  }
+}

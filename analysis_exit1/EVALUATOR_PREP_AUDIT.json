@@ -1,0 +1,127 @@
+{
+  "decided_rows": 689,
+  "detector_fill_policy": "Score only historically uncovered unique media with the unchanged frozen W2 Demucs/PANNs backend; preserve every available historical score.",
+  "existing_score_precedence": "PI-gold W2 calibration ledger, then A-prime cardinality, then A-prime manifest",
+  "missing_historical_detector_media": 125,
+  "new_human_labels": 0,
+  "nominal_rows": 690,
+  "pi_gold_score_ledger_sha256": {
+    "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion/orbit-research/adsr_phase2_20260604/paper_prep/w2_contingency_20260711/activated_20260711/calibration/PI_GOLD_SCORES_W0.jsonl": "45aa42b9fa419d91ec51ccbef16f99be2b06822c065edb898946856e219b7eb2",
+    "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion/orbit-research/adsr_phase2_20260604/paper_prep/w2_contingency_20260711/activated_20260711/calibration/PI_GOLD_SCORES_W1.jsonl": "e3f882de6b8bd31bdc21a907af6543d225d968965d0db52d3d4b95d52db9b2fd",
+    "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion/orbit-research/adsr_phase2_20260604/paper_prep/w2_contingency_20260711/activated_20260711/calibration/PI_GOLD_SCORES_W2.jsonl": "40721a36b0a87c1b28cfa213c7ffaf96004fb7e6745be7df9e15029815d76ada",
+    "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion/orbit-research/adsr_phase2_20260604/paper_prep/w2_contingency_20260711/activated_20260711/calibration/PI_GOLD_SCORES_W3.jsonl": "80e59599564a6550f931bd3607452185d58fe082a295183247ac5c5c4e1b4c1e",
+    "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion/orbit-research/adsr_phase2_20260604/paper_prep/w2_contingency_20260711/activated_20260711/calibration/PI_GOLD_SCORES_W4.jsonl": "a4d860aafcb4eba3228878914536a928ff3e47b382e5013f0b10c11af17e0a2b",
+    "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion/orbit-research/adsr_phase2_20260604/paper_prep/w2_contingency_20260711/activated_20260711/calibration/PI_GOLD_SCORES_W5.jsonl": "3a428ea96692041f1073cd8b45f8f91199d61092bbaa25eebddd28d04d4ef5d4",
+    "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion/orbit-research/adsr_phase2_20260604/paper_prep/w2_contingency_20260711/activated_20260711/calibration/PI_GOLD_SCORES_W6.jsonl": "f9014460127ed5dd4d7e0e30529024fed635a57dd98ef357d8ae9ac12601da22",
+    "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion/orbit-research/adsr_phase2_20260604/paper_prep/w2_contingency_20260711/activated_20260711/calibration/PI_GOLD_SCORES_W7.jsonl": "cafd14ee5ede833faf6b09fa7e25ade5ec41d93bb7bc67e25dc04b7047418223"
+  },
+  "prompt_clusters": 208,
+  "resolved_existing_score_conflicts": {
+    "count": 107,
+    "examples": [
+      {
+        "demucs_absolute_delta": 0.004767516579627984,
+        "lower_priority_source": "orbit-research/adsr_phase2_20260604/paper_prep/validation_A_prime/A_PRIME_CARDINALITY_RECONCILIATION.csv",
+        "media_sha256": "0c83890a55f7b6af78e225aab5f9cd2f438fc506986cbc49f5a95fbb3b435f28",
+        "panns_absolute_delta": 3.770795822144457e-05,
+        "selected_source": "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion/orbit-research/adsr_phase2_20260604/paper_prep/w2_contingency_20260711/activated_20260711/calibration/PI_GOLD_SCORES_W0.jsonl"
+      },
+      {
+        "demucs_absolute_delta": 0.001489540510177606,
+        "lower_priority_source": "orbit-research/adsr_phase2_20260604/paper_prep/validation_A_prime/A_PRIME_CARDINALITY_RECONCILIATION.csv",
+        "media_sha256": "43b2503b128d68f66094ee91b830404094bec7abb182ee27a7b7234fdccd1776",
+        "panns_absolute_delta": 3.92560005185727e-06,
+        "selected_source": "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion/orbit-research/adsr_phase2_20260604/paper_prep/w2_contingency_20260711/activated_20260711/calibration/PI_GOLD_SCORES_W0.jsonl"
+      },
+      {
+        "demucs_absolute_delta": 6.6516971588270746e-06,
+        "lower_priority_source": "orbit-research/adsr_phase2_20260604/paper_prep/validation_A_prime/A_PRIME_CARDINALITY_RECONCILIATION.csv",
+        "media_sha256": "4c458237d63c6c918a20657006ede8c07fccdd72d75172306052ebfa7096dd64",
+        "panns_absolute_delta": 0.006282292442321757,
+        "selected_source": "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion/orbit-research/adsr_phase2_20260604/paper_prep/w2_contingency_20260711/activated_20260711/calibration/PI_GOLD_SCORES_W0.jsonl"
+      },
+      {
+        "demucs_absolute_delta": 0.004523037791252127,
+        "lower_priority_source": "orbit-research/adsr_phase2_20260604/paper_prep/validation_A_prime/A_PRIME_CARDINALITY_RECONCILIATION.csv",
+        "media_sha256": "65bce3cf6fe4645bddc634d8d25da3ff6efc1baa8b29f6e0b0a7525774aa44f4",
+        "panns_absolute_delta": 9.652738571175323e-06,
+        "selected_source": "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion/orbit-research/adsr_phase2_20260604/paper_prep/w2_contingency_20260711/activated_20260711/calibration/PI_GOLD_SCORES_W0.jsonl"
+      },
+      {
+        "demucs_absolute_delta": 0.0001457476449012729,
+        "lower_priority_source": "orbit-research/adsr_phase2_20260604/paper_prep/validation_A_prime/A_PRIME_MANIFEST.csv",
+        "media_sha256": "8fcfdcaf1eaadede8867d62535b35842b4c394f3a6e8ff2da115c816748751cf",
+        "panns_absolute_delta": 0.0008668490123748818,
+        "selected_source": "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion/orbit-research/adsr_phase2_20260604/paper_prep/w2_contingency_20260711/activated_20260711/calibration/PI_GOLD_SCORES_W0.jsonl"
+      },
+      {
+        "demucs_absolute_delta": 0.0014603086614608796,
+        "lower_priority_source": "orbit-research/adsr_phase2_20260604/paper_prep/validation_A_prime/A_PRIME_CARDINALITY_RECONCILIATION.csv",
+        "media_sha256": "9f45a501eca26a26e0bc46e2129a8a5217851aad67bdca73e7090c9528029a49",
+        "panns_absolute_delta": 6.944339752196216e-05,
+        "selected_source": "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion/orbit-research/adsr_phase2_20260604/paper_prep/w2_contingency_20260711/activated_20260711/calibration/PI_GOLD_SCORES_W0.jsonl"
+      },
+      {
+        "demucs_absolute_delta": 0.0009747674179077237,
+        "lower_priority_source": "orbit-research/adsr_phase2_20260604/paper_prep/validation_A_prime/A_PRIME_CARDINALITY_RECONCILIATION.csv",
+        "media_sha256": "a9564d61640a9dba5cb4aa5a1d6c307ba655c0c992a522e4682a576c2da42ee1",
+        "panns_absolute_delta": 0.00010740287780761082,
+        "selected_source": "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion/orbit-research/adsr_phase2_20260604/paper_prep/w2_contingency_20260711/activated_20260711/calibration/PI_GOLD_SCORES_W0.jsonl"
+      },
+      {
+        "demucs_absolute_delta": 0.0039541073417663775,
+        "lower_priority_source": "orbit-research/adsr_phase2_20260604/paper_prep/validation_A_prime/A_PRIME_CARDINALITY_RECONCILIATION.csv",
+        "media_sha256": "d2ee8eb6eba2d2bd896e871eca81b4ba9b5886820ab73afd5f858c234868ca15",
+        "panns_absolute_delta": 7.6489543914815e-06,
+        "selected_source": "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion/orbit-research/adsr_phase2_20260604/paper_prep/w2_contingency_20260711/activated_20260711/calibration/PI_GOLD_SCORES_W0.jsonl"
+      },
+      {
+        "demucs_absolute_delta": 0.0028110508537292356,
+        "lower_priority_source": "orbit-research/adsr_phase2_20260604/paper_prep/validation_A_prime/A_PRIME_CARDINALITY_RECONCILIATION.csv",
+        "media_sha256": "ec3a8685a566c81797e0585ee882d87b6ce47f94d9509ceba28ad710c81e123c",
+        "panns_absolute_delta": 1.745688319206018e-05,
+        "selected_source": "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion/orbit-research/adsr_phase2_20260604/paper_prep/w2_contingency_20260711/activated_20260711/calibration/PI_GOLD_SCORES_W0.jsonl"
+      },
+      {
+        "demucs_absolute_delta": 0.00201532475948335,
+        "lower_priority_source": "orbit-research/adsr_phase2_20260604/paper_prep/validation_A_prime/A_PRIME_CARDINALITY_RECONCILIATION.csv",
+        "media_sha256": "f7531bb3f57f47fd0c9d00e52a803be1c5fd15254ae341f45d1b5eed9b6992ec",
+        "panns_absolute_delta": 0.0001206669282913242,
+        "selected_source": "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion/orbit-research/adsr_phase2_20260604/paper_prep/w2_contingency_20260711/activated_20260711/calibration/PI_GOLD_SCORES_W0.jsonl"
+      }
+    ],
+    "max_demucs_absolute_delta": 0.06345636359453202,
+    "max_panns_absolute_delta": 0.006282292442321757
+  },
+  "role_counts": {
+    "global_bound": 500,
+    "primary": 190
+  },
+  "source_sha256": {
+    "orbit-research/adsr_phase2_20260604/paper_prep/rater_admin_keys_20260711/t2_aprime/A_PRIME_PRIMARY_ADMIN.csv": "e6370749e4a2f22e741693f00b1c4260a7ba13d410dbd62f0b123d57022d938c",
+    "orbit-research/adsr_phase2_20260604/paper_prep/t7_judge_gold_20260713/judge_completion/A_PRIME_INSTRUMENT_MERGED_690.csv": "59505fc8658d50c1614a5b1c41eb8ba7e150cf8e9850cb5ecf1b7d88448d0e42",
+    "orbit-research/adsr_phase2_20260604/paper_prep/t7_judge_gold_20260713/judge_completion/A_PRIME_INSTRUMENT_MERGE_REPORT.json": "452310a5d6f841b2f240fec6d51e708e0a681e6f5d2944331932450ca22b26e6",
+    "orbit-research/adsr_phase2_20260604/paper_prep/validation_A_prime/A_PRIME_CARDINALITY_RECONCILIATION.csv": "d35a28ff860d5eecb189487f34ec50d9ca7cbc2eb047a66055d74ce2ac7bdcda",
+    "orbit-research/adsr_phase2_20260604/paper_prep/validation_A_prime/A_PRIME_MANIFEST.csv": "1a2e018a7e4bc2fd914aad3e52aff4cdf0a696a56ee977d1ee5ec9b278915f62",
+    "orbit-research/adsr_phase2_20260604/paper_prep/validation_A_prime/human_package/A_PRIME_HUMAN_ADMIN_MANIFEST.csv": "648c43ae82412f88b41e8ef121dc902c04799cbd83bb9f4a4e840b52a54692f7"
+  },
+  "split_class_counts": {
+    "heldout": {
+      "no": 35,
+      "yes": 416
+    },
+    "train": {
+      "no": 22,
+      "yes": 216
+    }
+  },
+  "split_counts": {
+    "heldout": 451,
+    "train": 238
+  },
+  "split_method": "SHA-256 deterministic 40/60 split over prompt/media connected components",
+  "split_seed": 2026071601,
+  "status": "PASS",
+  "unique_media": 679,
+  "unsure_rows": 1
+}
