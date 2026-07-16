@@ -1,0 +1,11 @@
+{
+  "command": "pytest -q",
+  "errors": 0,
+  "exit_code": 0,
+  "failed": 0,
+  "git_hash": "5eaf24f2ffbe4efe2153114a69ceee4e271424da",
+  "node": "ln207",
+  "output_sha256": "d9a717aa94305e73e76a3dc582b685461d649906b4e4019e0bc715a5b9f17abd",
+  "passed": 362,
+  "status": "PASS"
+}
