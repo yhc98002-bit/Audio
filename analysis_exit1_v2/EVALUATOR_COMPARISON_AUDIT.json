@@ -1,0 +1,434 @@
+{
+  "bootstrap_replicates": 10000,
+  "bootstrap_seed": 2026071602,
+  "canonical_instrument": {
+    "demucs_threshold": 0.03161777090281248,
+    "family": "or",
+    "panns_threshold": 0.04403413645923138,
+    "report_exact_line": "- Selected family: `or`.",
+    "report_sha256": "9ab909fc301a89c5de04f53dcb3b613e4984c184f2a5bf39987ac1f97de23a9d",
+    "result_sha256": "2ec9f12fd9008dae0e32675fcdaaf9e7a22fe0ed7006dd310b665b1e82be2ff2"
+  },
+  "canonical_report_path": "orbit-research/adsr_phase2_20260604/paper_prep/autochain_20260712/T6_PROMOTION_REPORT.md",
+  "canonical_result_path": "orbit-research/adsr_phase2_20260604/paper_prep/autochain_20260712/T6_PROMOTION_RESULT.json",
+  "generator_source_sha256": "2c9a1d4b5ecd9455f6f8482b829eb19992bef5dd8ce08ebed47bdd34b02b0782",
+  "new_human_labels": 0,
+  "new_model_inference": 0,
+  "panel_a_pi_only": {
+    "decided_negatives": 9,
+    "decided_positives": 117,
+    "metrics": {
+      "audioset_tagger": {
+        "balanced_accuracy": 0.688034188034188,
+        "fn": 8,
+        "fp": 5,
+        "mcc": 0.32994226515495484,
+        "n": 126,
+        "negatives": 9,
+        "positives": 117,
+        "sensitivity": 0.9316239316239316,
+        "specificity": 0.4444444444444444,
+        "tn": 4,
+        "tp": 109
+      },
+      "canonical_promoted": {
+        "balanced_accuracy": 0.5,
+        "fn": 0,
+        "fp": 9,
+        "mcc": 0.0,
+        "n": 126,
+        "negatives": 9,
+        "positives": 117,
+        "sensitivity": 1.0,
+        "specificity": 0.0,
+        "tn": 0,
+        "tp": 117
+      },
+      "legacy_demucs": {
+        "balanced_accuracy": 0.3504273504273504,
+        "fn": 87,
+        "fp": 5,
+        "mcc": -0.17200522903844537,
+        "n": 126,
+        "negatives": 9,
+        "positives": 117,
+        "sensitivity": 0.2564102564102564,
+        "specificity": 0.4444444444444444,
+        "tn": 4,
+        "tp": 30
+      },
+      "panns_only": {
+        "balanced_accuracy": 0.858974358974359,
+        "fn": 7,
+        "fp": 2,
+        "mcc": 0.588348405414552,
+        "n": 126,
+        "negatives": 9,
+        "positives": 117,
+        "sensitivity": 0.9401709401709402,
+        "specificity": 0.7777777777777778,
+        "tn": 7,
+        "tp": 110
+      },
+      "whisper_transcript": {
+        "balanced_accuracy": 0.7606837606837606,
+        "fn": 30,
+        "fp": 2,
+        "mcc": 0.2948236329764356,
+        "n": 126,
+        "negatives": 9,
+        "positives": 117,
+        "sensitivity": 0.7435897435897436,
+        "specificity": 0.7777777777777778,
+        "tn": 7,
+        "tp": 87
+      }
+    },
+    "power_floor_decided_negatives": 30,
+    "power_limited": true,
+    "prompt_cluster_bootstrap_ci95": {
+      "audioset_tagger": {
+        "balanced_accuracy": [
+          0.5152367424242424,
+          0.9732142857142857
+        ],
+        "mcc": [
+          0.02844159825180304,
+          0.6907474067925488
+        ],
+        "sensitivity": [
+          0.8785046728971962,
+          0.976
+        ],
+        "specificity": [
+          0.1,
+          1.0
+        ],
+        "valid_replicates": 9988
+      },
+      "canonical_promoted": {
+        "balanced_accuracy": [
+          0.5,
+          0.5
+        ],
+        "mcc": [
+          0.0,
+          0.0
+        ],
+        "sensitivity": [
+          1.0,
+          1.0
+        ],
+        "specificity": [
+          0.0,
+          0.0
+        ],
+        "valid_replicates": 9988
+      },
+      "legacy_demucs": {
+        "balanced_accuracy": [
+          0.204528435274403,
+          0.6094233630952379
+        ],
+        "mcc": [
+          -0.31977241499513076,
+          0.08505935265667768
+        ],
+        "sensitivity": [
+          0.15966386554621848,
+          0.34234234234234234
+        ],
+        "specificity": [
+          0.16666666666666666,
+          1.0
+        ],
+        "valid_replicates": 9988
+      },
+      "panns_only": {
+        "balanced_accuracy": [
+          0.7295646537303446,
+          0.991304347826087
+        ],
+        "mcc": [
+          0.368725426803782,
+          0.8625994698262822
+        ],
+        "sensitivity": [
+          0.8765153351921445,
+          0.990909090909091
+        ],
+        "specificity": [
+          0.5,
+          1.0
+        ],
+        "valid_replicates": 9988
+      },
+      "whisper_transcript": {
+        "balanced_accuracy": [
+          0.6185715878679751,
+          0.9086956521739131
+        ],
+        "mcc": [
+          0.09889645314555014,
+          0.4538535117133426
+        ],
+        "sensitivity": [
+          0.6485800253378379,
+          0.8490566037735849
+        ],
+        "specificity": [
+          0.5,
+          1.0
+        ],
+        "valid_replicates": 9988
+      }
+    },
+    "prompt_clusters": 71,
+    "rows": 126
+  },
+  "panel_b_merged_gold_supplement": {
+    "decided_negatives": 35,
+    "decided_positives": 416,
+    "metrics": {
+      "audioset_tagger": {
+        "balanced_accuracy": 0.8640796703296704,
+        "fn": 18,
+        "fp": 8,
+        "mcc": 0.6500366428840547,
+        "n": 451,
+        "negatives": 35,
+        "positives": 416,
+        "sensitivity": 0.9567307692307693,
+        "specificity": 0.7714285714285715,
+        "tn": 27,
+        "tp": 398
+      },
+      "canonical_promoted": {
+        "balanced_accuracy": 0.8,
+        "fn": 0,
+        "fp": 14,
+        "mcc": 0.7618826131885867,
+        "n": 451,
+        "negatives": 35,
+        "positives": 416,
+        "sensitivity": 1.0,
+        "specificity": 0.6,
+        "tn": 21,
+        "tp": 416
+      },
+      "legacy_demucs": {
+        "balanced_accuracy": 0.5152472527472528,
+        "fn": 332,
+        "fp": 6,
+        "mcc": 0.020413967873005777,
+        "n": 451,
+        "negatives": 35,
+        "positives": 416,
+        "sensitivity": 0.20192307692307693,
+        "specificity": 0.8285714285714286,
+        "tn": 29,
+        "tp": 84
+      },
+      "panns_only": {
+        "balanced_accuracy": 0.9129464285714286,
+        "fn": 13,
+        "fp": 5,
+        "mcc": 0.7523849300341411,
+        "n": 451,
+        "negatives": 35,
+        "positives": 416,
+        "sensitivity": 0.96875,
+        "specificity": 0.8571428571428571,
+        "tn": 30,
+        "tp": 403
+      },
+      "whisper_transcript": {
+        "balanced_accuracy": 0.6630837912087912,
+        "fn": 209,
+        "fp": 6,
+        "mcc": 0.17480071383991497,
+        "n": 451,
+        "negatives": 35,
+        "positives": 416,
+        "sensitivity": 0.49759615384615385,
+        "specificity": 0.8285714285714286,
+        "tn": 29,
+        "tp": 207
+      }
+    },
+    "prompt_cluster_bootstrap_ci95": {
+      "audioset_tagger": {
+        "balanced_accuracy": [
+          0.7611646573162729,
+          0.9572737760532598
+        ],
+        "mcc": [
+          0.47760913824228896,
+          0.8099103609391635
+        ],
+        "sensitivity": [
+          0.933485992440052,
+          0.9768641247009525
+        ],
+        "specificity": [
+          0.5652173913043478,
+          0.9583333333333334
+        ],
+        "valid_replicates": 10000
+      },
+      "canonical_promoted": {
+        "balanced_accuracy": [
+          0.7,
+          0.9
+        ],
+        "mcc": [
+          0.6148184472009327,
+          0.886715177113381
+        ],
+        "sensitivity": [
+          1.0,
+          1.0
+        ],
+        "specificity": [
+          0.4,
+          0.8
+        ],
+        "valid_replicates": 10000
+      },
+      "legacy_demucs": {
+        "balanced_accuracy": [
+          0.4359354201733704,
+          0.5940443860949075
+        ],
+        "mcc": [
+          -0.08375527023786905,
+          0.12718606072717803
+        ],
+        "sensitivity": [
+          0.15302471929071051,
+          0.26400237388724035
+        ],
+        "specificity": [
+          0.6666666666666666,
+          0.9714285714285714
+        ],
+        "valid_replicates": 10000
+      },
+      "panns_only": {
+        "balanced_accuracy": [
+          0.8475058910030066,
+          0.9682662395722177
+        ],
+        "mcc": [
+          0.6250637557652894,
+          0.8750362510698221
+        ],
+        "sensitivity": [
+          0.9456190193277629,
+          0.9882075471698113
+        ],
+        "specificity": [
+          0.7272727272727273,
+          0.9629629629629629
+        ],
+        "valid_replicates": 10000
+      },
+      "whisper_transcript": {
+        "balanced_accuracy": [
+          0.595426440691219,
+          0.731989482036197
+        ],
+        "mcc": [
+          0.09814252079360726,
+          0.2570580654042367
+        ],
+        "sensitivity": [
+          0.4292340738857282,
+          0.57212775834855
+        ],
+        "specificity": [
+          0.7083333333333334,
+          0.9393939393939394
+        ],
+        "valid_replicates": 10000
+      }
+    },
+    "prompt_clusters": 133,
+    "rows": 451
+  },
+  "status": "COMPLETE",
+  "supersedes": "analysis_exit1/EVALUATOR_COMPARISON_TABLE.md",
+  "thresholds": {
+    "audioset_tagger": 0.057332757860422134,
+    "canonical_promoted": {
+      "demucs_threshold": 0.03161777090281248,
+      "family": "or",
+      "panns_threshold": 0.04403413645923138
+    },
+    "legacy_demucs": 0.1791,
+    "panns_only": 0.04879267141222954,
+    "whisper_transcript": 0.28481824963420327
+  },
+  "train_selection": {
+    "audioset_tagger": {
+      "threshold": 0.057332757860422134,
+      "train_metrics": {
+        "balanced_accuracy": 0.9587542087542087,
+        "fn": 8,
+        "fp": 1,
+        "mcc": 0.8124116288760261,
+        "n": 238,
+        "negatives": 22,
+        "positives": 216,
+        "sensitivity": 0.9629629629629629,
+        "specificity": 0.9545454545454546,
+        "tn": 21,
+        "tp": 208
+      }
+    },
+    "panns_only": {
+      "threshold": 0.04879267141222954,
+      "train_metrics": {
+        "balanced_accuracy": 0.9522306397306397,
+        "fn": 1,
+        "fp": 2,
+        "mcc": 0.923610115831566,
+        "n": 238,
+        "negatives": 22,
+        "positives": 216,
+        "sensitivity": 0.9953703703703703,
+        "specificity": 0.9090909090909091,
+        "tn": 20,
+        "tp": 215
+      }
+    },
+    "rows": 238,
+    "whisper_transcript": {
+      "threshold": 0.28481824963420327,
+      "train_metrics": {
+        "balanced_accuracy": 0.7300084175084175,
+        "fn": 97,
+        "fp": 2,
+        "mcc": 0.2665178649983321,
+        "n": 238,
+        "negatives": 22,
+        "positives": 216,
+        "sensitivity": 0.5509259259259259,
+        "specificity": 0.9090909090909091,
+        "tn": 20,
+        "tp": 119
+      }
+    }
+  },
+  "v1_evidence_preserved": true,
+  "v1_input_evidence_sha256": {
+    "analysis_exit1/EVALUATOR_AUDIOSET_MODEL_METADATA.json": "74699d07aae0e9f8b586f1579f277293f85b791b9af8cdbc42e929308f5609f8",
+    "analysis_exit1/EVALUATOR_AUDIOSET_SCORES.csv": "c524f36dc705385d941f9eab3e05c5b136f0aed212449e9fe12ea0dbef5f5bc7",
+    "analysis_exit1/EVALUATOR_COMPARISON_AUDIT.json": "4089d90745bf9e6f95e2dbc6e9adc859f83a8c1a500e9001bd052d00c81a380f",
+    "analysis_exit1/EVALUATOR_COMPARISON_TABLE.md": "4d59650d58f52cc714e597b360716bb3ef43dd5f33a8ca08ccb8844ad2097b86",
+    "analysis_exit1/EVALUATOR_DETECTOR_FILL_SCORES.csv": "ce11d02335d6cd2ac21bc24d35ff6cea9c737e5ee3b8fb42006291e92f46260f",
+    "analysis_exit1/EVALUATOR_INPUT_ROWS.csv": "682b7b52edb5480205505be34ee33842c93fd59c6fd2827e40ea42abf6539726",
+    "analysis_exit1/EVALUATOR_PREP_AUDIT.json": "f14ab8e8ddd3a1c4ed250a3c10829487ba3a49570c40b9884b418ddfe5b82651",
+    "analysis_exit1/EVALUATOR_WHISPER_SCORES.csv": "1dc56d42e0fd60cdc0bdc8775815f5edd1356bcf1213a3511c73281e17960ea3"
+  }
+}

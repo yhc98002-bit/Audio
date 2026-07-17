@@ -1,0 +1,14 @@
+Exit-1 v2 verification, 2026-07-16
+
+Focused command:
+pytest -q tests/test_exit1_evaluator_v2.py tests/test_exit1_analysis.py
+Result: 13 passed, 0 failed.
+
+Full-suite command:
+python -m pytest -q /XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion_exit1_20260716/tests
+Working directory: /XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion
+Environment: /HOME/paratera_xy/pxy1289/.conda/envs/audio-prm (Python 3.10.20, pytest 9.0.3, torch 2.7.1+cu126)
+Result: 368 passed, 0 failed.
+Runtime: 277.57 seconds.
+
+The canonical working directory supplies intentionally untracked research media, JSONL ledgers, archives, and compatibility paths required by legacy integration tests. No tracked artifact was changed by the test run.
