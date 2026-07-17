@@ -1,0 +1,25 @@
+{
+  "all_actual_conditioning_token_counts_match": true,
+  "all_append_token_deltas_match": true,
+  "all_full_prompt_token_counts_match": true,
+  "audio_files_before_freeze": 0,
+  "canonical_instrument_report_exact_line": "- Selected family: `or`.",
+  "canonical_instrument_result_sha256": "2ec9f12fd9008dae0e32675fcdaaf9e7a22fe0ed7006dd310b665b1e82be2ff2",
+  "generation_ledger_rows_before_freeze": 0,
+  "manifest_rows": 192,
+  "neutral_forbidden_lexeme_hits": [],
+  "prompts": 24,
+  "seed_max": 2071023007,
+  "seed_min": 2071000000,
+  "selection_assumption_recorded": true,
+  "source_hashes": {
+    "factorial_generation_manifest": "11018013cdc9eba4b40686d64900da4694353e49ac4c0813d190411e77b628d2",
+    "factorial_positive_manifest": "440a63bf1ea93353456b9a69d9c5d67e956449b8a1a37fbf90281c2e86f16972",
+    "factorial_prompts": "1c7e3cb40229e0be4cf25ef466ed872f0acc0f5772f043afe11882b5f115729c",
+    "factorial_score_rows": "cd7d0f08089bf339b45bbd6dad0902d3335c9dfec9fd331b203c7a6962864038"
+  },
+  "status": "PASS",
+  "tokenizer_json_sha256": "20a46ac256746594ed7e1e3ef733b83fbc5a6f0922aa7480eda961743de080ef",
+  "unique_prompt_ids": 24,
+  "unique_seeds": 192
+}
