@@ -1,0 +1,14 @@
+{
+  "command": "/HOME/paratera_xy/pxy1289/.conda/envs/audio-prm/bin/python -m pytest --force-short-summary",
+  "errors": 0,
+  "exit_code": 0,
+  "failed": 0,
+  "git_hash": "fd9cba693dd9f7cadd0fc9d80e38e4a19392c23d",
+  "log_path": "analysis_exit1_v2/neutral_control/FULL_TEST_RESULTS.txt",
+  "log_sha256": "1e3cbe8ed7aa30664cf7fb04ce0fc3dfe71d9e4992e43a735ba651ead03d180a",
+  "node": "ln207",
+  "passed": 376,
+  "python": "3.10.20",
+  "recorded_at": "2026-07-17T00:50:04-07:00",
+  "status": "PASS"
+}

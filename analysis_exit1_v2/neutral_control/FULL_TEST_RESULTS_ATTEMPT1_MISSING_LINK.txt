@@ -1,0 +1,182 @@
+
+==================================== ERRORS ====================================
+_______ ERROR collecting tests/test_a_prime_instrument_merge_20260711.py _______
+tests/test_a_prime_instrument_merge_20260711.py:20: in <module>
+    SPEC.loader.exec_module(MODULE)
+<frozen importlib._bootstrap_external>:879: in exec_module
+    ???
+<frozen importlib._bootstrap_external>:1016: in get_code
+    ???
+<frozen importlib._bootstrap_external>:1073: in get_data
+    ???
+E   FileNotFoundError: [Errno 2] No such file or directory: '/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion-neutral-control-20260717/paper_prep/rater_admin_keys_20260711/t2_aprime/merge_a_prime_instruments.py'
+__________ ERROR collecting tests/test_bundle_response_io_20260711.py __________
+tests/test_bundle_response_io_20260711.py:12: in <module>
+    SPEC.loader.exec_module(MODULE)
+<frozen importlib._bootstrap_external>:879: in exec_module
+    ???
+<frozen importlib._bootstrap_external>:1016: in get_code
+    ???
+<frozen importlib._bootstrap_external>:1073: in get_data
+    ???
+E   FileNotFoundError: [Errno 2] No such file or directory: '/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion-neutral-control-20260717/paper_prep/scripts/bundle_response_io.py'
+___________ ERROR collecting tests/test_decisive_construct_packet.py ___________
+tests/test_decisive_construct_packet.py:11: in <module>
+    SPEC.loader.exec_module(MODULE)
+<frozen importlib._bootstrap_external>:879: in exec_module
+    ???
+<frozen importlib._bootstrap_external>:1016: in get_code
+    ???
+<frozen importlib._bootstrap_external>:1073: in get_data
+    ???
+E   FileNotFoundError: [Errno 2] No such file or directory: '/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion-neutral-control-20260717/paper_prep/rater_admin_keys_20260711/t1_decisive/score_decisive_packet.py'
+______ ERROR collecting tests/test_legacy_fallback_non_gating_20260711.py ______
+tests/test_legacy_fallback_non_gating_20260711.py:11: in <module>
+    SPEC.loader.exec_module(MODULE)
+<frozen importlib._bootstrap_external>:879: in exec_module
+    ???
+<frozen importlib._bootstrap_external>:1016: in get_code
+    ???
+<frozen importlib._bootstrap_external>:1073: in get_data
+    ???
+E   FileNotFoundError: [Errno 2] No such file or directory: '/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion-neutral-control-20260717/paper_prep/scripts/score_validation_fallback.py'
+_________ ERROR collecting tests/test_pi_gold_judge_audit_20260711.py __________
+tests/test_pi_gold_judge_audit_20260711.py:14: in <module>
+    SPEC.loader.exec_module(MODULE)
+<frozen importlib._bootstrap_external>:879: in exec_module
+    ???
+<frozen importlib._bootstrap_external>:1016: in get_code
+    ???
+<frozen importlib._bootstrap_external>:1073: in get_data
+    ???
+E   FileNotFoundError: [Errno 2] No such file or directory: '/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion-neutral-control-20260717/paper_prep/scripts/audit_pi_gold_judge_20260711.py'
+___________ ERROR collecting tests/test_pi_rating_ingest_20260711.py ___________
+tests/test_pi_rating_ingest_20260711.py:17: in <module>
+    SPEC.loader.exec_module(MODULE)
+<frozen importlib._bootstrap_external>:879: in exec_module
+    ???
+<frozen importlib._bootstrap_external>:1016: in get_code
+    ???
+<frozen importlib._bootstrap_external>:1073: in get_data
+    ???
+E   FileNotFoundError: [Errno 2] No such file or directory: '/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion-neutral-control-20260717/paper_prep/scripts/ingest_pi_ratings_20260711.py'
+________ ERROR collecting tests/test_publication_analysis_package_v2.py ________
+tests/test_publication_analysis_package_v2.py:12: in <module>
+    SPEC.loader.exec_module(MODULE)
+<frozen importlib._bootstrap_external>:879: in exec_module
+    ???
+<frozen importlib._bootstrap_external>:1016: in get_code
+    ???
+<frozen importlib._bootstrap_external>:1073: in get_data
+    ???
+E   FileNotFoundError: [Errno 2] No such file or directory: '/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion-neutral-control-20260717/paper_prep/scripts/build_publication_analysis_package_v2.py'
+____________ ERROR collecting tests/test_rater_bundles_20260711.py _____________
+tests/test_rater_bundles_20260711.py:15: in <module>
+    SPEC.loader.exec_module(MODULE)
+<frozen importlib._bootstrap_external>:879: in exec_module
+    ???
+<frozen importlib._bootstrap_external>:1016: in get_code
+    ???
+<frozen importlib._bootstrap_external>:1073: in get_data
+    ???
+E   FileNotFoundError: [Errno 2] No such file or directory: '/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion-neutral-control-20260717/paper_prep/scripts/build_rater_bundles_20260711.py'
+__________ ERROR collecting tests/test_rating_provenance_20260711.py ___________
+tests/test_rating_provenance_20260711.py:17: in <module>
+    SPEC.loader.exec_module(MODULE)
+<frozen importlib._bootstrap_external>:879: in exec_module
+    ???
+<frozen importlib._bootstrap_external>:1016: in get_code
+    ???
+<frozen importlib._bootstrap_external>:1073: in get_data
+    ???
+E   FileNotFoundError: [Errno 2] No such file or directory: '/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion-neutral-control-20260717/paper_prep/scripts/rating_provenance.py'
+___________ ERROR collecting tests/test_sa3_intermediate_analysis.py ___________
+tests/test_sa3_intermediate_analysis.py:11: in <module>
+    SPEC.loader.exec_module(MODULE)
+<frozen importlib._bootstrap_external>:879: in exec_module
+    ???
+<frozen importlib._bootstrap_external>:1016: in get_code
+    ???
+<frozen importlib._bootstrap_external>:1073: in get_data
+    ???
+E   FileNotFoundError: [Errno 2] No such file or directory: '/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion-neutral-control-20260717/paper_prep/sao/stable_audio_3_medium/analyze_sa3_true_intermediate.py'
+___________ ERROR collecting tests/test_sa3_intervention_fidelity.py ___________
+tests/test_sa3_intervention_fidelity.py:11: in <module>
+    SPEC.loader.exec_module(MODULE)
+<frozen importlib._bootstrap_external>:879: in exec_module
+    ???
+<frozen importlib._bootstrap_external>:1016: in get_code
+    ???
+<frozen importlib._bootstrap_external>:1073: in get_data
+    ???
+E   FileNotFoundError: [Errno 2] No such file or directory: '/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion-neutral-control-20260717/paper_prep/sao/stable_audio_3_medium/audit_sa3_intervention_fidelity.py'
+_____________ ERROR collecting tests/test_sa3_label_calibration.py _____________
+tests/test_sa3_label_calibration.py:11: in <module>
+    SPEC.loader.exec_module(MODULE)
+<frozen importlib._bootstrap_external>:879: in exec_module
+    ???
+<frozen importlib._bootstrap_external>:1016: in get_code
+    ???
+<frozen importlib._bootstrap_external>:1073: in get_data
+    ???
+E   FileNotFoundError: [Errno 2] No such file or directory: '/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion-neutral-control-20260717/paper_prep/sao/stable_audio_3_medium/build_sa3_label_calibration.py'
+_____________ ERROR collecting tests/test_sa3_true_intermediate.py _____________
+tests/test_sa3_true_intermediate.py:9: in <module>
+    SPEC.loader.exec_module(MODULE)
+<frozen importlib._bootstrap_external>:879: in exec_module
+    ???
+<frozen importlib._bootstrap_external>:1016: in get_code
+    ???
+<frozen importlib._bootstrap_external>:1073: in get_data
+    ???
+E   FileNotFoundError: [Errno 2] No such file or directory: '/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion-neutral-control-20260717/paper_prep/sao/stable_audio_3_medium/run_sa3_true_intermediate.py'
+______________ ERROR collecting tests/test_validation_gate_v2.py _______________
+tests/test_validation_gate_v2.py:13: in <module>
+    SPEC.loader.exec_module(MODULE)
+<frozen importlib._bootstrap_external>:879: in exec_module
+    ???
+<frozen importlib._bootstrap_external>:1016: in get_code
+    ???
+<frozen importlib._bootstrap_external>:1073: in get_data
+    ???
+E   FileNotFoundError: [Errno 2] No such file or directory: '/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion-neutral-control-20260717/paper_prep/scripts/validation_gate_v2.py'
+______ ERROR collecting tests/test_validation_package_builder_20260709.py ______
+tests/test_validation_package_builder_20260709.py:11: in <module>
+    SPEC.loader.exec_module(MODULE)
+<frozen importlib._bootstrap_external>:879: in exec_module
+    ???
+<frozen importlib._bootstrap_external>:1016: in get_code
+    ???
+<frozen importlib._bootstrap_external>:1073: in get_data
+    ???
+E   FileNotFoundError: [Errno 2] No such file or directory: '/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion-neutral-control-20260717/paper_prep/scripts/build_validation_packages_20260709.py'
+____________ ERROR collecting tests/test_w2_contingency_20260711.py ____________
+tests/test_w2_contingency_20260711.py:24: in <module>
+    MANIFEST = load("build_w2_relabel_manifest")
+tests/test_w2_contingency_20260711.py:20: in load
+    spec.loader.exec_module(module)
+<frozen importlib._bootstrap_external>:879: in exec_module
+    ???
+<frozen importlib._bootstrap_external>:1016: in get_code
+    ???
+<frozen importlib._bootstrap_external>:1073: in get_data
+    ???
+E   FileNotFoundError: [Errno 2] No such file or directory: '/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion-neutral-control-20260717/paper_prep/w2_contingency_20260711/build_w2_relabel_manifest.py'
+=========================== short test summary info ============================
+ERROR tests/test_a_prime_instrument_merge_20260711.py - FileNotFoundError: [E...
+ERROR tests/test_bundle_response_io_20260711.py - FileNotFoundError: [Errno 2...
+ERROR tests/test_decisive_construct_packet.py - FileNotFoundError: [Errno 2] ...
+ERROR tests/test_legacy_fallback_non_gating_20260711.py - FileNotFoundError: ...
+ERROR tests/test_pi_gold_judge_audit_20260711.py - FileNotFoundError: [Errno ...
+ERROR tests/test_pi_rating_ingest_20260711.py - FileNotFoundError: [Errno 2] ...
+ERROR tests/test_publication_analysis_package_v2.py - FileNotFoundError: [Err...
+ERROR tests/test_rater_bundles_20260711.py - FileNotFoundError: [Errno 2] No ...
+ERROR tests/test_rating_provenance_20260711.py - FileNotFoundError: [Errno 2]...
+ERROR tests/test_sa3_intermediate_analysis.py - FileNotFoundError: [Errno 2] ...
+ERROR tests/test_sa3_intervention_fidelity.py - FileNotFoundError: [Errno 2] ...
+ERROR tests/test_sa3_label_calibration.py - FileNotFoundError: [Errno 2] No s...
+ERROR tests/test_sa3_true_intermediate.py - FileNotFoundError: [Errno 2] No s...
+ERROR tests/test_validation_gate_v2.py - FileNotFoundError: [Errno 2] No such...
+ERROR tests/test_validation_package_builder_20260709.py - FileNotFoundError: ...
+ERROR tests/test_w2_contingency_20260711.py - FileNotFoundError: [Errno 2] No...
+!!!!!!!!!!!!!!!!!!! Interrupted: 16 errors during collection !!!!!!!!!!!!!!!!!!!
