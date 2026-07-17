@@ -55,6 +55,9 @@ TEXT_ENCODER_ID = "Qwen/Qwen3-Embedding-0.6B"
 TEXT_ENCODER_WEIGHT_REVISION = "5092237580d1545d466a2d454c09f18181c341ec"
 SOURCE_COMMIT = "6d467e4b5081ccb0abf1ec1bf4fdf9051a2d34b0"
 SOURCE_ARCHIVE_SHA256 = "fc563d80a60a8c2485161b658bb30d621ef4eff10ca2e7ac9ac411d4cae1ea91"
+RUNTIME_MODEL_CODE_SHA256 = "e0a61a9da2c5e4d38a995417526c595d1bf6ae3820ff376ac7c419331fe63cec"
+RUNTIME_APG_CODE_SHA256 = "33985a589f3af4f3daff071b71cae68da1bf971070da7c27223acbea9f5f2ae7"
+RUNTIME_CONFIG_CODE_SHA256 = "5f15aa79fe793bba3c00b6992dd193a269954950603d5031ecd7703b0fa69da1"
 SEED_BASE = 2_072_000_000
 INFER_STEPS = 50
 CHECKPOINT_STEPS = (10, 20, 30, 40)
@@ -386,6 +389,18 @@ def initialize_handler() -> Tuple[Any, Dict[str, Any]]:
     load_wall_sec = time.perf_counter() - started
     if not success:
         raise Gate0Error(f"XL-SFT initialization failed: {status}")
+    runtime_hashes = {
+        "modeling_acestep_v15_xl_base.py": sha256_file(MODEL_DIR / "modeling_acestep_v15_xl_base.py"),
+        "apg_guidance.py": sha256_file(MODEL_DIR / "apg_guidance.py"),
+        "configuration_acestep_v15.py": sha256_file(MODEL_DIR / "configuration_acestep_v15.py"),
+    }
+    expected_runtime_hashes = {
+        "modeling_acestep_v15_xl_base.py": RUNTIME_MODEL_CODE_SHA256,
+        "apg_guidance.py": RUNTIME_APG_CODE_SHA256,
+        "configuration_acestep_v15.py": RUNTIME_CONFIG_CODE_SHA256,
+    }
+    if runtime_hashes != expected_runtime_hashes:
+        raise Gate0Error(f"runtime source-sync hash mismatch: {runtime_hashes}")
     config = handler.model.config
     if bool(getattr(config, "is_turbo", True)):
         raise Gate0Error("model identity guard rejected Turbo or missing is_turbo=false")
@@ -398,6 +413,7 @@ def initialize_handler() -> Tuple[Any, Dict[str, Any]]:
             "init_kwargs": init_kwargs,
             "init_status": status,
             "model_load_wall_sec": load_wall_sec,
+            "runtime_code_hashes": runtime_hashes,
         }
     )
     return handler, runtime
@@ -498,6 +514,18 @@ def extract_first_tensor(value: Any) -> Optional[Any]:
         if isinstance(child, torch.Tensor):
             return child
     return None
+
+
+def native_target_latents(value: Any) -> Any:
+    import torch
+
+    if isinstance(value, Mapping):
+        target = value.get("target_latents")
+        if isinstance(target, torch.Tensor):
+            return target
+    if isinstance(value, torch.Tensor):
+        return value
+    raise Gate0Error(f"native sampler did not return target_latents: {type(value)!r}")
 
 
 def condition_identity(kwargs: Mapping[str, Any]) -> Dict[str, Any]:
@@ -689,7 +717,7 @@ def save_checkpoint_state(
         "cache_sha256": tree_sha256(cache),
         "scheduler_state": {
             "implementation": "native inline Euler ODE update xt = xt - vt * (t_curr - t_prev)",
-            "implementation_sha256": EXPECTED_XL_SHA256["modeling_acestep_v15_xl_base.py"],
+            "implementation_sha256": RUNTIME_MODEL_CODE_SHA256,
             "full_timesteps": schedule,
             "next_timestep": schedule[step],
             "terminal_timestep": schedule[-1],
@@ -720,7 +748,8 @@ def save_checkpoint_state(
         },
         "hashes": {
             "model_config_sha256": EXPECTED_XL_SHA256["config.json"],
-            "model_code_sha256": EXPECTED_XL_SHA256["modeling_acestep_v15_xl_base.py"],
+            "model_code_sha256": RUNTIME_MODEL_CODE_SHA256,
+            "acquired_model_code_sha256": EXPECTED_XL_SHA256["modeling_acestep_v15_xl_base.py"],
             "initial_noise_sha256": tensor_sha256(probe.initial_noise),
             "preregistration_sha256": sha256_file(PREREG_PATH),
             "prompt_list_sha256": sha256_file(PROMPTS_PATH),
@@ -891,7 +920,7 @@ def reference_one(
 
     def generate_wrapper(*_args: Any, **kwargs: Any) -> Any:
         output = probe.run(original_generate, kwargs)
-        captured["latent"] = output
+        captured["latent"] = native_target_latents(output)
         return output
 
     def decode_wrapper(*args: Any, **kwargs: Any) -> Any:
@@ -1117,7 +1146,8 @@ def run_from_state(
         restored_cache=restored_cache,
         restored_momentum=restored_momentum,
     )
-    output = probe.run(handler.model.generate_audio, kwargs)
+    native_output = probe.run(handler.model.generate_audio, kwargs)
+    output = native_target_latents(native_output)
     waveform = None
     decoder_wall_sec = None
     decoder_gpu_ms = None
@@ -1128,7 +1158,7 @@ def run_from_state(
             end_event = torch.cuda.Event(enable_timing=True)
             start_event.record()
         started = time.perf_counter()
-        waveform = handler.tiled_decode(output)
+        waveform = handler.tiled_decode(output.transpose(1, 2).contiguous().to(handler.vae.dtype))
         decoder_wall_sec = time.perf_counter() - started
         if end_event is not None:
             end_event.record()
@@ -1322,8 +1352,8 @@ def run_fork_calibration() -> Dict[str, Any]:
     prompt = load_prompts()[0]
     root = {
         **prompt,
-        "seed": SEED_BASE + 16,
-        "root_id": f"cal_{prompt['prompt_id']}_seed{SEED_BASE + 16}",
+        "seed": SEED_BASE + 17,
+        "root_id": f"cal_{prompt['prompt_id']}_seed{SEED_BASE + 17}",
     }
     reference = reference_one(handler, runtime, root, checkpoint_steps=(20,), phase="calibration_reference")
     _, reference_latent, reference_wave = load_reference_arrays(root["root_id"], "calibration_reference")
@@ -1626,7 +1656,8 @@ def collect_provenance() -> Dict[str, Any]:
         "scheduler": {
             "implementation": "inline shifted linear schedule plus Euler ODE update",
             "scheduler_object": None,
-            "model_code_sha256": EXPECTED_XL_SHA256["modeling_acestep_v15_xl_base.py"],
+            "acquired_model_code_sha256": EXPECTED_XL_SHA256["modeling_acestep_v15_xl_base.py"],
+            "runtime_source_synced_model_code_sha256": RUNTIME_MODEL_CODE_SHA256,
         },
         "generation_defaults": {
             "infer_steps": 50,
@@ -1812,7 +1843,7 @@ MODEL_PROVENANCE_STATUS = {statuses['MODEL_PROVENANCE_STATUS']}
 - Transformer checkpoint: four safetensors shards listed in `V15_MODEL_CHECKSUMS.tsv`
 - VAE: `{MODEL_CACHE_ROOT / 'vae'}`; weight SHA-256 `{EXPECTED_DEPENDENCY_SHA256['vae/diffusion_pytorch_model.safetensors']}`
 - Tokenizer/text encoder: `{MODEL_CACHE_ROOT / 'Qwen3-Embedding-0.6B'}`; weight SHA-256 `{EXPECTED_DEPENDENCY_SHA256['Qwen3-Embedding-0.6B/model.safetensors']}`
-- Scheduler: no scheduler object is instantiated. The pinned model code constructs a shifted linear flow schedule and performs the inline Euler ODE update. Model/scheduler code SHA-256: `{EXPECTED_XL_SHA256['modeling_acestep_v15_xl_base.py']}`.
+- Scheduler: no scheduler object is instantiated. The pinned source-synced runtime code constructs a shifted linear flow schedule and performs the inline Euler ODE update. Runtime model/scheduler code SHA-256: `{RUNTIME_MODEL_CODE_SHA256}`; acquired ModelScope remote-code SHA-256: `{EXPECTED_XL_SHA256['modeling_acestep_v15_xl_base.py']}`.
 - Research defaults: 50 steps, CFG 7.0, shift 1.0, Euler ODE, ADG disabled, DCW disabled, no LM thinking, 15 s, 48 kHz.
 - Acquisition: login node through `http://127.0.0.1:7890`, ModelScope first. No compute-node download and no checkpoint substitution occurred.
 
