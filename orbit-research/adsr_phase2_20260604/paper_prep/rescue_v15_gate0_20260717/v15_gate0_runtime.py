@@ -350,11 +350,21 @@ def deterministic_runtime() -> None:
 
 def initialize_handler() -> Tuple[Any, Dict[str, Any]]:
     deterministic_runtime()
+    os.environ["ACESTEP_CHECKPOINTS_DIR"] = str(MODEL_CACHE_ROOT)
+    os.environ["HF_HUB_OFFLINE"] = "1"
+    os.environ["TRANSFORMERS_OFFLINE"] = "1"
+    os.environ["MODELSCOPE_OFFLINE"] = "1"
     if str(OVERLAY_ROOT) not in sys.path:
         sys.path.insert(0, str(OVERLAY_ROOT))
     if str(SOURCE_ROOT) not in sys.path:
         sys.path.insert(0, str(SOURCE_ROOT))
     from acestep.handler import AceStepHandler
+    from acestep.model_downloader import check_main_model_exists, check_model_exists
+
+    if not check_main_model_exists(MODEL_CACHE_ROOT):
+        raise Gate0Error(f"offline aggregate checkpoint preflight failed: {MODEL_CACHE_ROOT}")
+    if not check_model_exists(MODEL_CONFIG_ID, MODEL_CACHE_ROOT):
+        raise Gate0Error(f"offline exact-model preflight failed: {MODEL_DIR}")
 
     handler = AceStepHandler()
     candidates = {
@@ -1953,7 +1963,9 @@ Evidence: `V15_NFE_ACCOUNTING.csv`, `V15_APPEND_ONLY_LEDGER.jsonl`, immutable ro
             "python run_v15_gate0.py finalize",
         ],
         "statuses": statuses,
-        "deviations": [],
+        "deviations": [
+            "The first calibration invocation stopped before model load because the handler resolved an incorrect checkpoints subdirectory and attempted an offline auto-download. DNS failed, no bytes were acquired, no model loaded, and no generation occurred. The bounded repair added exact local-cache preflight plus compute-node offline guards."
+        ],
         "finalized_utc": now_utc(),
     }
     atomic_json(TASK_DIR / "V15_RUN_MANIFEST.json", manifest)
