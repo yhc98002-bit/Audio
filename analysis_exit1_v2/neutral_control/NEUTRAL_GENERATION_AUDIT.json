@@ -1,0 +1,37 @@
+{
+  "freeze_commits": [
+    "c7b9501255e5a7aef29fc83e5344286e9114d913"
+  ],
+  "generation_config_sha256": "f111b24871aa09474f505ac8e484a7d64b650661c944fb88dd6af783846e9348",
+  "generation_git_commits": [
+    "c7b9501255e5a7aef29fc83e5344286e9114d913"
+  ],
+  "hosts": [
+    "an12"
+  ],
+  "invalid_count": 0,
+  "invalid_examples": [],
+  "log_paths": [
+    "analysis_exit1_v2/neutral_control/logs/GENERATION_W0_20260717.log",
+    "analysis_exit1_v2/neutral_control/logs/GENERATION_W1_20260717.log"
+  ],
+  "logs_valid": true,
+  "manifest_rows": 192,
+  "missing_count": 0,
+  "missing_examples": [],
+  "observed_gpu_ids": [
+    "4",
+    "7"
+  ],
+  "observed_num_workers": [
+    2
+  ],
+  "observed_worker_indices": [
+    0,
+    1
+  ],
+  "retained_audio_files": 192,
+  "status": "PASS",
+  "successful_latest_rows": 192,
+  "total_audio_bytes": 286717426
+}

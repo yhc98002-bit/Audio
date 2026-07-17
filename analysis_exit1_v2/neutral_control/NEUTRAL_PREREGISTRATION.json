@@ -1,0 +1,139 @@
+{
+  "analysis": {
+    "bootstrap_replicates": 10000,
+    "bootstrap_seed": 20260717,
+    "cell_ci": "two-sided 95% percentile bootstrap resampling 24 prompt clusters",
+    "cell_order": [
+      "plain",
+      "neutral-matched",
+      "negative",
+      "positive"
+    ],
+    "confound_delta": "neutral-matched violation minus negative violation",
+    "confound_pairing": "mean within prompt, then paired prompt-cluster bootstrap",
+    "endpoint": "promoted OR hard vocal-presence violation",
+    "positive_cell_context": "corrected positive-v2 removes the source negative vocal/lyrics clause before adding positive instrumental descriptors; it is contextual, not a pure same-base insertion control",
+    "randomization_replicates": 100000,
+    "randomization_seed": 20260718,
+    "randomization_test": "two-sided prompt-level sign-flip Monte Carlo with deterministic seed",
+    "semantic_assumption": "The frozen studio/recording descriptor is vocally inert by design and passes a forbidden-vocal-lexeme screen. Token equality does not establish generic semantic-specificity equivalence for every possible neutral insertion."
+  },
+  "canonical_instrument": {
+    "demucs_threshold": 0.03161777090281248,
+    "family": "or",
+    "panns_threshold": 0.04403413645923138,
+    "report_exact_line": "- Selected family: `or`.",
+    "report_sha256": "9ab909fc301a89c5de04f53dcb3b613e4984c184f2a5bf39987ac1f97de23a9d",
+    "result_sha256": "2ec9f12fd9008dae0e32675fcdaaf9e7a22fe0ed7006dd310b665b1e82be2ff2"
+  },
+  "canonical_sources": {
+    "factorial_generation_manifest": "11018013cdc9eba4b40686d64900da4694353e49ac4c0813d190411e77b628d2",
+    "factorial_positive_manifest": "440a63bf1ea93353456b9a69d9c5d67e956449b8a1a37fbf90281c2e86f16972",
+    "factorial_prompts": "1c7e3cb40229e0be4cf25ef466ed872f0acc0f5772f043afe11882b5f115729c",
+    "factorial_score_rows": "cd7d0f08089bf339b45bbd6dad0902d3335c9dfec9fd331b203c7a6962864038"
+  },
+  "created_at": "2026-07-16T23:54:33-07:00",
+  "generation": {
+    "cfg_type": "apg",
+    "clips_per_process_call": 1,
+    "duration_seconds": 15.0,
+    "erg_diffusion": false,
+    "erg_lyric": false,
+    "erg_tag": false,
+    "guidance_interval": 0.5,
+    "guidance_rescale": 0.0,
+    "guidance_scale": 5.0,
+    "inference_steps": 30,
+    "model": "ACE-Step/ACE-Step-v1-3.5B",
+    "omega_scale": 1.0,
+    "precision": "bfloat16",
+    "sample_rate_hz": 48000,
+    "scheduler": "Euler",
+    "scheduler_shift": 3.0
+  },
+  "generation_config_sha256": "f111b24871aa09474f505ac8e484a7d64b650661c944fb88dd6af783846e9348",
+  "legacy_cell_sampling": {
+    "conditions": [
+      "plain_baseline",
+      "negative_text",
+      "positive_text"
+    ],
+    "positive_source": "corrected positive-v2 primary rows only",
+    "rows_per_cell": 192,
+    "seed_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ]
+  },
+  "negative_reference_insertion": "pure instrumental, no vocals, no singing, no voice",
+  "neutral_insertion": "studio recording, carefully produced, cleanly mixed, balanced acoustics",
+  "objective": "distinguish negative-wording semantics from insertion length/specificity using one preregistered, vocally inert by design, token-matched neutral condition",
+  "plan_or_claim_status_changed": false,
+  "prompt_selection": {
+    "assumption": "No separate 24-row canonical artifact exists. The task's cardinality is implemented as ranks 0-23 using the pre-existing historical-N2-risk rank without using factorial-condition outcomes in the 24-of-32 selection rule, and is frozen before neutral-control generation. The subset is historically N2-outcome-ranked and inference does not automatically generalize to all 32 factorial prompts.",
+    "canonical_count": 32,
+    "requested_count": 24,
+    "rule": "first 24 under the already preregistered ascending historical-N2-clean-rate risk rank",
+    "selected_factorial_ranks": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23
+    ]
+  },
+  "seed_contract": {
+    "base": 2071000000,
+    "formula": "2071000000 + prompt_rank*1000 + seed_idx",
+    "maximum": 2071023007,
+    "relationship_to_legacy_cells": "new independent seeds; paired inference is by prompt, not by random noise",
+    "seed_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ]
+  },
+  "source_commits": {
+    "factorial_freeze": "69a6d79e52bf44972c4f827c99b147a873dbf69a",
+    "positive_correction": "eeb0aa11c090aef294f1d9e94e67970872c2eb48",
+    "t6_promotion": "168d12f1e47f555c85b7b9085da947b5ef261835"
+  },
+  "status": "FROZEN_BEFORE_GENERATION",
+  "token_contract": {
+    "audit_backend": "tokenizers.Tokenizer.from_file on the exact tokenizer.json loaded by ACE-Step AutoTokenizer",
+    "match": "standalone insertion token count and composed full-prompt token count, including EOS, must equal the negative-reference condition for every prompt; equality is rechecked after AceStepModel appends structure_hint",
+    "max_length": 256,
+    "tokenizer_dir": "/HOME/paratera_xy/pxy1289/.cache/modelscope/hub/models/ACE-Step/ACE-Step-v1-3___5B/umt5-base",
+    "tokenizer_json_sha256": "20a46ac256746594ed7e1e3ef733b83fbc5a6f0922aa7480eda961743de080ef"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "artifact_path": "analysis_exit1_v2/neutral_control/audio/neutral_matched",
+  "command": "worker0: ssh an12 env CUDA_VISIBLE_DEVICES=4 HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 TOKENIZERS_PARALLELISM=false /HOME/paratera_xy/pxy1289/.conda/envs/audio-prm/bin/python /XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion-neutral-control-20260717/analysis_exit1_v2/neutral_control/neutral_control.py score --worker-index 0 --num-workers 2 --freeze-commit c7b9501255e5a7aef29fc83e5344286e9114d913; worker1: ssh an12 env CUDA_VISIBLE_DEVICES=7 HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 TOKENIZERS_PARALLELISM=false /HOME/paratera_xy/pxy1289/.conda/envs/audio-prm/bin/python /XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion-neutral-control-20260717/analysis_exit1_v2/neutral_control/neutral_control.py score --worker-index 1 --num-workers 2 --freeze-commit c7b9501255e5a7aef29fc83e5344286e9114d913",
+  "config_hash": "5ba9e3bc74f6c38ed9545896e78f07ee02a9a7247303e7d2b5cf760a256343e4",
+  "git_hash": "c7b9501255e5a7aef29fc83e5344286e9114d913",
+  "gpu_ids": [
+    "4",
+    "7"
+  ],
+  "instrument": {
+    "demucs_threshold": 0.03161777090281248,
+    "family": "or",
+    "panns_threshold": 0.04403413645923138,
+    "report_exact_line": "- Selected family: `or`.",
+    "report_sha256": "9ab909fc301a89c5de04f53dcb3b613e4984c184f2a5bf39987ac1f97de23a9d",
+    "result_sha256": "2ec9f12fd9008dae0e32675fcdaaf9e7a22fe0ed7006dd310b665b1e82be2ff2"
+  },
+  "ledger_hosts": [
+    "an12"
+  ],
+  "ledger_path": "analysis_exit1_v2/neutral_control/scoring_ledgers",
+  "log_paths": [
+    "analysis_exit1_v2/neutral_control/logs/SCORING_W0_20260717.log",
+    "analysis_exit1_v2/neutral_control/logs/SCORING_W1_20260717.log"
+  ],
+  "logs_valid": true,
+  "node": "an12",
+  "observed_num_workers": [
+    2
+  ],
+  "observed_worker_indices": [
+    0,
+    1
+  ],
+  "placement_justification": "Two independent TP1 scorer replicas on disjoint A800 GPUs; the immutable 192-task manifest was deterministically sharded, with no cross-node job.",
+  "replica_count": 2,
+  "scored_rows": 192,
+  "status": "PASS",
+  "task_identity_match": true,
+  "tensor_parallel_width": 1
+}

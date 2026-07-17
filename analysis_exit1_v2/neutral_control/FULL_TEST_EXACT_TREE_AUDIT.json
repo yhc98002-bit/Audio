@@ -1,0 +1,44 @@
+{
+  "status": "PASS",
+  "completed_at": "2026-07-17T01:16:12-07:00",
+  "node": "ln207",
+  "tested_git_hash": "fd9cba693dd9f7cadd0fc9d80e38e4a19392c23d",
+  "pytest_exit_code": 0,
+  "observed_test_progress_markers": 376,
+  "companion_numeric_test_count": 376,
+  "command_summary": "unshare --user --map-root-user --mount; bwrap target read-only at historical canonical path; python -m pytest -q -p no:cacheprovider",
+  "target_path": "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion-neutral-control-20260717",
+  "canonical_mount_path": "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion",
+  "target_mount_mode": "read-only",
+  "git_worktree_diff_exit_code_after_run": 0,
+  "git_index_diff_exit_code_after_run": 0,
+  "redirected_mutable_byte_check_exit_code": 0,
+  "redirected_mutable_paths": [
+    "orbit-research/adsr_phase2_20260604/paper_prep/validation_A_prime/A_PRIME_GATE_RESULT_20260713.json",
+    "orbit-research/adsr_phase2_20260604/paper_prep/validation_A_prime/A_PRIME_GATE_REPORT_20260713.md",
+    "orbit-research/adsr_phase2_20260604/paper_prep/validation_A_prime/A_PRIME_GATE_CALL_AUDIT_20260713.json",
+    "orbit-research/adsr_phase2_20260604/paper_prep/validation_A_prime/A_PRIME_STUDY_LOG.jsonl",
+    "orbit-research/adsr_phase2_20260604/paper_prep/t7_judge_gold_20260713/T7_EXECUTION_LEDGER.jsonl"
+  ],
+  "read_only_ignored_asset_binds": [
+    "tests/fixtures",
+    "configs/prompts",
+    "orbit-research/adsr_phase2_20260604/paper_prep/judge_raw",
+    "orbit-research/adsr_phase2_20260604/paper_prep/validation_A_prime/primary_package_20260709",
+    "orbit-research/adsr_phase2_20260604/paper_prep/pi_decisive_packet_20260709",
+    "orbit-research/adsr_phase2_20260604/paper_prep/rater_bundles_20260711",
+    "orbit-research/adsr_phase2_20260604/paper_prep/w2_execution_20260712/housekeeping/demo_site/assets",
+    "orbit-research/adsr_phase2_20260604/paper_prep/w2_execution_20260712/spine_reconstruction_torch251_recovery"
+  ],
+  "writable_runtime_paths": [
+    "TMPDIR",
+    "NUMBA_CACHE_DIR",
+    "XDG_CACHE_HOME",
+    "MPLCONFIGDIR"
+  ],
+  "log_path": "analysis_exit1_v2/neutral_control/FULL_TEST_RESULTS_EXACT_TREE.txt",
+  "log_sha256": "082c2848f88fd900be2b86636967ecd1a10c1848c493eb7052c42b3cfbad3fef",
+  "numeric_companion_log_path": "analysis_exit1_v2/neutral_control/FULL_TEST_RESULTS.txt",
+  "numeric_companion_log_sha256": "1e3cbe8ed7aa30664cf7fb04ce0fc3dfe71d9e4992e43a735ba651ead03d180a",
+  "note": "The exact-tree run uses the repository's normal ignored evidence assets as read-only inputs. Pyproject and CLI quiet flags suppress its numeric footer; 376 progress markers and exit code zero agree with the separately recorded 376-passed numeric run."
+}

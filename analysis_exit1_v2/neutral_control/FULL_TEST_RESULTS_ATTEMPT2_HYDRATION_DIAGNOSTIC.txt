@@ -1,0 +1,243 @@
+...F.................................................................... [ 19%]
+........................................................................ [ 38%]
+.........................F...........F...F...........FF................. [ 57%]
+........................................................................ [ 76%]
+............................................................FF.......... [ 95%]
+................                                                         [100%]
+=================================== FAILURES ===================================
+____________________ test_gate_call_recorder_is_idempotent _____________________
+
+    def test_gate_call_recorder_is_idempotent():
+        module = load_script("record_a_prime_gate_call_20260714")
+        before_study = module.STUDY_LOG.read_bytes()
+        before_gate = module.GATE_RESULT.read_bytes()
+>       audit = module.run()
+
+tests/test_a_prime_gate_call_20260714.py:65: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+paper_prep/scripts/record_a_prime_gate_call_20260714.py:274: in run
+    append_once(EXECUTION_LEDGER, execution_event)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion-neutral-control-20260717/paper_prep/t7_judge_gold_20260713/T7_EXECUTION_LEDGER.jsonl')
+row = {'command': 'python paper_prep/scripts/record_a_prime_gate_call_20260714.py', 'event_id': 'a-prime-gate-call-20260713-...cunYe/Research/AudioDiffusion-neutral-control-20260717/paper_prep/autochain_20260712/T6_RELIABILITY_RESULT.json'], ...}
+
+    def append_once(path: Path, row: dict) -> None:
+        prior = [item for item in read_jsonl(path) if item.get("event_id") == row["event_id"]]
+        if prior:
+            if len(prior) != 1 or prior[0] != row:
+>               raise ValueError(f"conflicting append-only event {row['event_id']} in {path}")
+E               ValueError: conflicting append-only event a-prime-gate-call-20260713-pi-richard in /XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion-neutral-control-20260717/paper_prep/t7_judge_gold_20260713/T7_EXECUTION_LEDGER.jsonl
+
+paper_prep/scripts/record_a_prime_gate_call_20260714.py:71: ValueError
+________________ test_run_h3a_stub_test_fixture_writes_verdict _________________
+
+tmp_path = PosixPath('/tmp/pytest-of-pxy1289/pytest-777/test_run_h3a_stub_test_fixture0')
+
+    def test_run_h3a_stub_test_fixture_writes_verdict(tmp_path):
+        fixture = REPO_ROOT / "tests" / "fixtures" / "h3a_stub_perprompt.jsonl"
+>       assert fixture.exists()
+E       AssertionError: assert False
+E        +  where False = exists()
+E        +    where exists = PosixPath('/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion-neutral-control-20260717/tests/fixtures/h3a_stub_perprompt.jsonl').exists
+
+tests/test_phase_b3_driver.py:547: AssertionError
+_______ test_real_pi_gold_judge_audit_is_complete_but_never_auto_passes ________
+
+    def test_real_pi_gold_judge_audit_is_complete_but_never_auto_passes():
+        processed = ROOT / "paper_prep/pi_ratings_20260711/processed"
+>       result = MODULE.audit(
+            ROOT,
+            processed / "PI_GOLD_SMOKE.csv",
+            ROOT / "paper_prep/judge_raw/selfhost_qwen3_omni_pi_gold_smoke_20260711.jsonl",
+            processed / "PI_GOLD_SMOKE_JUDGE_SUMMARY.json",
+            processed / "PI_GOLD_HELDOUT.csv",
+            ROOT / "paper_prep/judge_raw/selfhost_qwen3_omni_pi_gold_heldout_20260711.jsonl",
+            processed / "PI_GOLD_HELDOUT_JUDGE_SUMMARY.json",
+        )
+
+tests/test_pi_gold_judge_audit_20260711.py:19: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+paper_prep/scripts/audit_pi_gold_judge_20260711.py:63: in audit
+    smoke = generic.audit(smoke_manifest, smoke_raw, smoke_summary, 3)
+paper_prep/scripts/audit_legacy_cxy_t7_20260710.py:70: in audit
+    raw = read_jsonl(raw_path)
+paper_prep/scripts/audit_legacy_cxy_t7_20260710.py:21: in read_jsonl
+    return [json.loads(line) for line in path.read_text(encoding="utf-8").splitlines() if line.strip()]
+/HOME/paratera_xy/pxy1289/.conda/envs/audio-prm/lib/python3.10/pathlib.py:1134: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion-neutral-control-20260717/paper_prep/judge_raw/selfhost_qwen3_omni_pi_gold_smoke_20260711.jsonl')
+mode = 'r', buffering = -1, encoding = 'utf-8', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return self._accessor.open(self, mode, buffering, encoding, errors,
+                                   newline)
+E       FileNotFoundError: [Errno 2] No such file or directory: '/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion-neutral-control-20260717/paper_prep/judge_raw/selfhost_qwen3_omni_pi_gold_smoke_20260711.jsonl'
+
+/HOME/paratera_xy/pxy1289/.conda/envs/audio-prm/lib/python3.10/pathlib.py:1119: FileNotFoundError
+_________ test_pi_gold_split_is_media_disjoint_and_excludes_amended_t1 _________
+
+    def test_pi_gold_split_is_media_disjoint_and_excludes_amended_t1():
+        prep = ROOT / "paper_prep"
+        keys = prep / "rater_admin_keys_20260711"
+        _p1, raw1 = MODULE.read_export(prep / "pi_ratings_20260711/t1_decisive.json", "t1_decisive_v2")
+        _p2, raw2 = MODULE.read_export(prep / "pi_ratings_20260711/t2_aprime_core.json", "t2_aprime_core")
+        t1, key1 = MODULE.keyed_rows(raw1, keys / "t1_decisive/T1_BUNDLE_KEY_V2.csv", 42)
+        t2, _key2 = MODULE.keyed_rows(raw2, keys / "t2_aprime/T2_BUNDLE_KEY.csv", 190)
+        admin1 = MODULE.read_csv(keys / "t1_decisive/DECISIVE_PACKET_ADMIN.csv")
+        admin2 = MODULE.read_csv(keys / "t2_aprime/A_PRIME_PRIMARY_ADMIN.csv")
+        inconsistent = MODULE.validate_t1(t1, key1, admin1)
+>       gold, calibration, heldout, smoke, exclusions = MODULE.build_pi_gold(
+            t1, t2, admin1, admin2, {row["rating_id"] for row in inconsistent}
+        )
+
+tests/test_pi_rating_ingest_20260711.py:73: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+paper_prep/scripts/ingest_pi_ratings_20260711.py:237: in build_pi_gold
+    candidates.append(media_record(admin_row, rating, "t2_aprime_core"))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+admin_row = {'analysis_role': 'primary', 'declared_sha256': '52f3ee7cf0eaca816a40d7a810facac9243d1035eaeb344b6321a1034dee5ebc', 'expected_demucs_label': '0', 'media_class': 'original', ...}
+rating = {'bundle_rating_id': 'r_3043cade37bd89125a41', 'confidence_1_to_5': '5', 'label_a_voice_presence': 'yes', 'notes': '', ...}
+source_package = 't2_aprime_core'
+
+    def media_record(admin_row: dict[str, str], rating: dict, source_package: str) -> dict:
+        if source_package == "t2_aprime_core":
+            path = ROOT / admin_row["package_media_path"]
+            expected_hash = admin_row["package_sha256"]
+        else:
+            path = ROOT / admin_row["package_media_path"]
+            expected_hash = admin_row["sha256"]
+        if not path.is_file():
+>           raise FileNotFoundError(path)
+E           FileNotFoundError: /XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion-neutral-control-20260717/paper_prep/validation_A_prime/primary_package_20260709/media/aprime_0001_2856569ce627.wav
+
+paper_prep/scripts/ingest_pi_ratings_20260711.py:204: FileNotFoundError
+_______ test_v2_selects_only_affected_bundles_and_preserves_source_order _______
+
+    def test_v2_selects_only_affected_bundles_and_preserves_source_order():
+        nonce = "test-nonce-not-used-for-production"
+        v1 = {spec["name"]: spec for spec in MODULE.build_rows(nonce)}
+>       v2 = {spec["name"]: spec for spec in MODULE.build_v2_rows(nonce)}
+
+tests/test_rater_bundles_20260711.py:32: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+paper_prep/scripts/build_rater_bundles_20260711.py:489: in build_v2_rows
+    prompt_rows = read_jsonl(PROMPT_REGISTRY)
+paper_prep/scripts/build_rater_bundles_20260711.py:96: in read_jsonl
+    with path.open(encoding="utf-8") as handle:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion-neutral-control-20260717/configs/prompts/held_out.jsonl')
+mode = 'r', buffering = -1, encoding = 'utf-8', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return self._accessor.open(self, mode, buffering, encoding, errors,
+                                   newline)
+E       FileNotFoundError: [Errno 2] No such file or directory: '/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion-neutral-control-20260717/configs/prompts/held_out.jsonl'
+
+/HOME/paratera_xy/pxy1289/.conda/envs/audio-prm/lib/python3.10/pathlib.py:1119: FileNotFoundError
+__________ test_v2_request_context_comes_from_authoritative_metadata ___________
+
+    def test_v2_request_context_comes_from_authoritative_metadata():
+>       specs = {spec["name"]: spec for spec in MODULE.build_v2_rows("test-nonce")}
+
+tests/test_rater_bundles_20260711.py:56: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+paper_prep/scripts/build_rater_bundles_20260711.py:489: in build_v2_rows
+    prompt_rows = read_jsonl(PROMPT_REGISTRY)
+paper_prep/scripts/build_rater_bundles_20260711.py:96: in read_jsonl
+    with path.open(encoding="utf-8") as handle:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion-neutral-control-20260717/configs/prompts/held_out.jsonl')
+mode = 'r', buffering = -1, encoding = 'utf-8', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return self._accessor.open(self, mode, buffering, encoding, errors,
+                                   newline)
+E       FileNotFoundError: [Errno 2] No such file or directory: '/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion-neutral-control-20260717/configs/prompts/held_out.jsonl'
+
+/HOME/paratera_xy/pxy1289/.conda/envs/audio-prm/lib/python3.10/pathlib.py:1119: FileNotFoundError
+___________________ test_t5_checksum_is_present_and_matches ____________________
+
+    def test_t5_checksum_is_present_and_matches():
+        import hashlib
+    
+        archive = PAPER / "rater_bundles_20260711/t5_sa3_calibration.zip"
+>       digest = hashlib.sha256(archive.read_bytes()).hexdigest()
+
+tests/test_w2_housekeeping_20260712.py:14: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/HOME/paratera_xy/pxy1289/.conda/envs/audio-prm/lib/python3.10/pathlib.py:1126: in read_bytes
+    with self.open(mode='rb') as f:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion-neutral-control-20260717/paper_prep/rater_bundles_20260711/t5_sa3_calibration.zip')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return self._accessor.open(self, mode, buffering, encoding, errors,
+                                   newline)
+E       FileNotFoundError: [Errno 2] No such file or directory: '/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion-neutral-control-20260717/paper_prep/rater_bundles_20260711/t5_sa3_calibration.zip'
+
+/HOME/paratera_xy/pxy1289/.conda/envs/audio-prm/lib/python3.10/pathlib.py:1119: FileNotFoundError
+______ test_static_demo_has_real_audio_figures_and_no_missing_references _______
+
+    def test_static_demo_has_real_audio_figures_and_no_missing_references():
+        demo = PAPER / "w2_execution_20260712/housekeeping/demo_site"
+        html = (demo / "index.html").read_text(encoding="utf-8")
+        for relative in [
+            "assets/example_A.flac",
+            "assets/example_B.flac",
+            "assets/fig2_regime_plot.png",
+            "assets/fig2_retry_regime_ecdf_forest.png",
+            "styles.css",
+            "app.js",
+        ]:
+            assert relative in html
+>           assert (demo / relative).is_file()
+E           AssertionError: assert False
+E            +  where False = is_file()
+E            +    where is_file = (PosixPath('/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion-neutral-control-20260717/paper_prep/w2_execution_20260712/housekeeping/demo_site') / 'assets/fig2_regime_plot.png').is_file
+
+tests/test_w2_housekeeping_20260712.py:31: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_a_prime_gate_call_20260714.py::test_gate_call_recorder_is_idempotent
+FAILED tests/test_phase_b3_driver.py::test_run_h3a_stub_test_fixture_writes_verdict
+FAILED tests/test_pi_gold_judge_audit_20260711.py::test_real_pi_gold_judge_audit_is_complete_but_never_auto_passes
+FAILED tests/test_pi_rating_ingest_20260711.py::test_pi_gold_split_is_media_disjoint_and_excludes_amended_t1
+FAILED tests/test_rater_bundles_20260711.py::test_v2_selects_only_affected_bundles_and_preserves_source_order
+FAILED tests/test_rater_bundles_20260711.py::test_v2_request_context_comes_from_authoritative_metadata
+FAILED tests/test_w2_housekeeping_20260712.py::test_t5_checksum_is_present_and_matches
+FAILED tests/test_w2_housekeeping_20260712.py::test_static_demo_has_real_audio_figures_and_no_missing_references
