@@ -1,0 +1,79 @@
+{
+  "amendments": {
+    "acquisition": "Login node only; approved local cache, then ModelScope through the explicit proxy, before any fallback.",
+    "effort_cap": "After one bounded implementation attempt and one targeted repair per failing component, stop with V15_GATE0_STATUS=FAIL_ESCALATED and a root-cause diagnosis.",
+    "pi_choices_on_fail_escalated": [
+      "authorize a targeted fix",
+      "revert the tempo axis to ACE-Step v1, whose primitives are already proven"
+    ]
+  },
+  "branch": "codex/bolt-v15-gate0-20260717",
+  "checkpoint_steps": [10, 20, 30, 40],
+  "completion_reserve": {
+    "invariant": "When no valid completed candidate exists, reserve one measured full-generation transformer-forward-call cost.",
+    "unit": "transformer_forward_calls"
+  },
+  "condition_switch": {
+    "charge_only_remaining_nfe": true,
+    "require_changed_condition_hash": true,
+    "require_identical_latent_prefix": true,
+    "require_no_silent_fallback": true
+  },
+  "duration_seconds": 15.0,
+  "fork_calibration": {
+    "calibration_seed_offsets": [16, 17, 18, 19],
+    "candidate_l2_scales": [1e-05, 3e-05, 0.0001, 0.0003, 0.001],
+    "freeze_rule": "Choose the smallest scale passing every calibration row before main controls.",
+    "maximum_waveform_rms_delta": 0.1,
+    "minimum_waveform_rms_delta": 1e-05,
+    "minimum_final_latent_cosine": 0.95
+  },
+  "generation": {
+    "batch_size": 1,
+    "cfg_scale": 7.0,
+    "infer_method": "ode",
+    "inference_steps": 50,
+    "shift": 1.0,
+    "thinking": false
+  },
+  "model": {
+    "config_path": "acestep-v15-xl-sft",
+    "exact_model_id": "ACE-Step/acestep-v15-xl-sft",
+    "forbidden_substitutions": ["Turbo", "Base", "ACE-Step v1", "any other checkpoint"],
+    "source_repository": "https://github.com/ace-step/ACE-Step-1.5"
+  },
+  "prompt_manifest": "V15_GATE0_PROMPTS.jsonl",
+  "research_scope": "Engineering validation only; no constraint axis, policy training, vocal/instrumental claim, tempo experiment, or scientific-axis run.",
+  "resume_equivalence": {
+    "controls": 64,
+    "duration_and_sample_rate_exact": true,
+    "final_latent_max_abs_tolerance": 0.0001,
+    "minimum_waveform_cosine": 0.999999,
+    "require_reloaded_latent_hash_exact": true,
+    "require_state_file_hash_exact": true,
+    "validity_rms_floor": 0.0001,
+    "waveform_max_abs_tolerance": 0.0001,
+    "waveform_rms_tolerance": 1e-06
+  },
+  "rollover": {
+    "budget": "exactly two measured full-generation transformer-forward-call costs",
+    "fixed_slot_assumption_forbidden": true,
+    "prefix_paid_once": true
+  },
+  "seed_base": 2072000000,
+  "seed_max": 2072000063,
+  "state_required_fields": [
+    "latent",
+    "scheduler_step",
+    "timestep",
+    "sigma_state",
+    "model_output_state",
+    "conditioning_identity",
+    "prompt_identity",
+    "root_seed",
+    "rng_state",
+    "dtype",
+    "shape",
+    "relevant_hashes"
+  ]
+}
