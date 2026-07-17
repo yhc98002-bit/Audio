@@ -1,0 +1,16 @@
+{
+  "focused": {
+    "command": "pytest -q test_v15_gate0.py",
+    "exit_code": 0,
+    "log": "logs/test_focused.log",
+    "summary": "exit=0; ....                                                                     [100%]"
+  },
+  "full_suite": {
+    "command": "pytest -q",
+    "exit_code": 2,
+    "log": "logs/test_full_suite.log",
+    "summary": "exit=2; !!!!!!!!!!!!!!!!!!! Interrupted: 16 errors during collection !!!!!!!!!!!!!!!!!!!"
+  },
+  "pass": false,
+  "recorded_utc": "2026-07-17T13:11:43.092120+00:00"
+}

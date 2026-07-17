@@ -1,0 +1,14 @@
+{
+  "diagnosis": "V15_TERMINAL_DIAGNOSIS.json",
+  "epsilon": null,
+  "grid": [
+    1e-05,
+    3e-05,
+    0.0001,
+    0.0003,
+    0.001
+  ],
+  "reason": "Continuation stopped before the first calibration fork forward call; no perturbation was frozen.",
+  "status": "FAIL_ESCALATED",
+  "thresholds_changed": false
+}

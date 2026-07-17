@@ -1,0 +1,38 @@
+{
+  "artifact_path": "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion_v15_gate0_20260717/orbit-research/adsr_phase2_20260604/paper_prep/rescue_v15_gate0_20260717/artifacts/run_20260717",
+  "command": "python run_v15_gate0.py provenance",
+  "config_hash": "3a7e2155ef6ae50da23e30aefc66c566755080495f46863106dc9c4c5c6d9238",
+  "cuda_available": false,
+  "cudnn": 90501,
+  "git_base_commit": "646575025484ddd04e33decdd0abf0cb9250ab22",
+  "model_dir": "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion_envs/model_cache/ACE-Step1.5/acestep-v15-xl-sft",
+  "node": "ln207",
+  "overlay_root": "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion_envs/ACE-Step-1.5/py310-overlay",
+  "packages": {
+    "accelerate": "1.6.0",
+    "diffusers": "0.38.0",
+    "numpy": "2.2.6",
+    "safetensors": "0.8.0",
+    "scipy": "1.15.3",
+    "sentencepiece": "NOT_INSTALLED",
+    "soundfile": "0.13.1",
+    "torch": "2.7.1",
+    "torchaudio": "2.7.1",
+    "transformers": "5.13.0",
+    "vector-quantize-pytorch": "1.27.20"
+  },
+  "pid": 441239,
+  "placement": {
+    "gpu_ids": [],
+    "justification": "Login-only provenance collection; no model generation.",
+    "node": "ln207",
+    "replica_count": 0,
+    "tp_width": 1
+  },
+  "platform": "Linux-5.15.0-179.189-th-ln-x86_64-with-glibc2.35",
+  "python": "3.10.20 (main, Mar 11 2026, 17:46:40) [GCC 14.3.0]",
+  "seed_namespace": "2072000000..2072000063",
+  "source_root": "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion_envs/ACE-Step-1.5",
+  "torch": "2.7.1+cu126",
+  "torch_cuda": "12.6"
+}

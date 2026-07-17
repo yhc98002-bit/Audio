@@ -19,6 +19,7 @@ authorized by the governing recovery brief.
 | W2 bounded live confirm | `2035000000` through `2035006301` | RESERVED_CRN_BLOCKED | `base + prompt_rank*100 + rep`; all four policies intentionally share each prompt/repetition seed. No launch until dual signatures, promoted-instrument PASS, and frozen policies are machine-verified. | 64 prompts x 4 policies x 2 repetitions; preparation only. |
 | Exit-1 unconditional base rate | `2036000000` through `2036000255` | COMPLETE | `base + manifest_index`; seed-disjoint from completed and registered work. | 16 frozen empty/neutral prompt rows x 16 seeds; 256 retained clips; PRIOR EVIDENCE only. |
 | Exit-1 matched neutral control | `2071000000` through `2071023007` | COMPLETE | `base + prompt_rank*1000 + seed_idx`; new seed-independent neutral cell, disjoint from completed and registered work. | 24 frozen factorial ranks x 8 seeds; 192 retained clips; neutral-vs-negative inference is prompt-paired, not same-noise paired. |
+| ACE-Step v1.5 XL-SFT Gate-0 engineering controls | `2072000000` through `2072000063` | RESERVED_GATE0 | Main controls use `base + prompt_rank*2 + seed_idx`; calibration/smoke may use offsets 16-63 only. Seed-disjoint from completed and registered work. | Engineering-only inference-primitive validation; no constraint axis, policy training, tempo experiment, or scientific content claim. |
 
 ## Collision Guard
 
