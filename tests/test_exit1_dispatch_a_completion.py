@@ -102,3 +102,26 @@ def test_recipe_v2_uses_equal_compute_paired_plain_baselines() -> None:
     assert "Best observed (exploratory only)" in report
     assert "No deployment recommendation is made" in report
     assert "PROXY_QUALIFIED_SUCCESS" in report
+
+
+def test_exit1_v2_final_report_contract() -> None:
+    report_path = ROOT / "analysis_exit1_v2/EXIT1_V2_FINAL_REPORT.md"
+    report = report_path.read_text(encoding="utf-8")
+    status_lines = [
+        "ITEM_1_EVALUATOR_COMPARISON_V2_STATUS = COMPLETE",
+        "ITEM_2_UNCONDITIONAL_BASE_RATE_V2_STATUS = COMPLETE",
+        "ITEM_3_EVALUATOR_PANEL_UNIVERSE_STATUS = COMPLETE",
+        "ITEM_4_AUDIOSET_HUMAN_VOICE_WHITELIST_STATUS = PASS",
+        "ITEM_5_RECIPE_CURVES_V2_STATUS = COMPLETE",
+        "ITEM_6_MATCHED_NEUTRAL_CONTROL_STATUS = COMPLETE",
+        "ITEM_7_EXIT1_V2_FINAL_REPORT_STATUS = COMPLETE",
+        "NEW_MUSIC_GENERATION = 0",
+        "TEST_SUITE_STATUS = PASS",
+    ]
+    lines = report.splitlines()
+    for status in status_lines:
+        index = lines.index(status)
+        assert lines[index + 1].startswith("evidence: ")
+    assert "exact n=126 (117 decided positive, 9 decided negative" in report
+    assert "exact n=451 (416 decided positive, 35 decided negative" in report
+    assert "Implementation/evidence commit: `0265723`" in report
