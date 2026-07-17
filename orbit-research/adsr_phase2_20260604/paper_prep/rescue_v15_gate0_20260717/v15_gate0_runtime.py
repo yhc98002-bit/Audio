@@ -51,6 +51,8 @@ MODEL_DIR = MODEL_CACHE_ROOT / "acestep-v15-xl-sft"
 MODEL_ID = "ACE-Step/acestep-v15-xl-sft"
 MODEL_CONFIG_ID = "acestep-v15-xl-sft"
 MODELSCOPE_REVISION = "d1ca0bc96e29cd46435219ceb4f8e3a13a8eaf50"
+TEXT_ENCODER_ID = "Qwen/Qwen3-Embedding-0.6B"
+TEXT_ENCODER_WEIGHT_REVISION = "5092237580d1545d466a2d454c09f18181c341ec"
 SOURCE_COMMIT = "6d467e4b5081ccb0abf1ec1bf4fdf9051a2d34b0"
 SOURCE_ARCHIVE_SHA256 = "fc563d80a60a8c2485161b658bb30d621ef4eff10ca2e7ac9ac411d4cae1ea91"
 SEED_BASE = 2_072_000_000
@@ -78,7 +80,7 @@ EXPECTED_XL_SHA256 = {
     "silence_latent.pt": "a778e9dd942f5e8b2c09c55370782d318834432b03dabbcdf70e6ed49ad6358b",
 }
 EXPECTED_DEPENDENCY_SHA256 = {
-    "Qwen3-Embedding-0.6B/model.safetensors": "0437e45c94563b09e13cb7a64478fc406947a93cb34a3794e843d23b60ec6e422d7",
+    "Qwen3-Embedding-0.6B/model.safetensors": "0437e45c94563b09e13cb7a64478fc406947a93cb34a7e05870fc8dcd48e23fd",
     "vae/diffusion_pytorch_model.safetensors": "da17edb604c40deaf09e9b24974e590d1ca83a374070e5d0884cfa4bed9a99b0",
 }
 REQUIRED_STATE_FIELDS = {
@@ -1605,6 +1607,11 @@ def collect_provenance() -> Dict[str, Any]:
             }
             for relative, actual in sorted(dependency_hashes.items())
         ],
+        "text_encoder_identity": {
+            "model_id": TEXT_ENCODER_ID,
+            "weight_file_revision": TEXT_ENCODER_WEIGHT_REVISION,
+            "local_snapshot": str(MODEL_CACHE_ROOT / "Qwen3-Embedding-0.6B"),
+        },
         "small_identity_files": small_identity_files,
         "scheduler": {
             "implementation": "inline shifted linear schedule plus Euler ODE update",
