@@ -11,12 +11,6 @@ Exact line parsed from `T6_PROMOTION_REPORT.md`:
 `T6_PROMOTION_RESULT.json` SHA-256: `2ec9f12fd9008dae0e32675fcdaaf9e7a22fe0ed7006dd310b665b1e82be2ff2`.
 The family and thresholds below were parsed from that JSON; they were not hard-coded in the Exit-1 evaluator.
 
-## AudioSet human-voice whitelist
-
-The AudioSet comparator uses 54 exact human-voice/human-vocalization labels. It does not use substring matching. Of 679 unique media rows, 671 retained their old score because the old superset maximum was already an exact whitelist member; 8 were rescored after the old maximum came from an excluded class.
-
-Frozen exclusions include `Speech synthesizer`, `Synthetic singing`, `Bird vocalization, bird call, bird song`, `Whale vocalization`, and `Singing bowl`. Regression tests name and enforce all five exclusions.
-
 ## Panel A - PI-only held-out gold (primary)
 
 **Panel A decided counts: 117 positive; 9 negative; 126 total.**
@@ -29,7 +23,7 @@ Frozen exclusions include `Speech synthesizer`, `Synthetic singing`, `Bird vocal
 | Canonical promoted Demucs OR PANNs | Demucs >= 0.0316177709 OR PANNs >= 0.0440341365 | 1.000 [1.000, 1.000] **POWER_LIMITED** | 0.000 [0.000, 0.000] **POWER_LIMITED** | 0.500 [0.500, 0.500] **POWER_LIMITED** | 0.000 [0.000, 0.000] **POWER_LIMITED** |
 | PANNs only | PANNs >= 0.04879267 (train-selected) | 0.940 [0.877, 0.991] **POWER_LIMITED** | 0.778 [0.500, 1.000] **POWER_LIMITED** | 0.859 [0.730, 0.991] **POWER_LIMITED** | 0.588 [0.369, 0.863] **POWER_LIMITED** |
 | Whisper transcript | non-empty AND confidence >= 0.28481825 (train-selected) | 0.744 [0.649, 0.849] **POWER_LIMITED** | 0.778 [0.500, 1.000] **POWER_LIMITED** | 0.761 [0.619, 0.909] **POWER_LIMITED** | 0.295 [0.099, 0.454] **POWER_LIMITED** |
-| AudioSet tagger | exact human-voice whitelist max >= 0.05733276 (train-selected) | 0.932 [0.879, 0.976] **POWER_LIMITED** | 0.444 [0.100, 1.000] **POWER_LIMITED** | 0.688 [0.515, 0.973] **POWER_LIMITED** | 0.330 [0.028, 0.691] **POWER_LIMITED** |
+| AudioSet tagger | speech/singing max >= 0.05733276 (train-selected) | 0.932 [0.879, 0.976] **POWER_LIMITED** | 0.444 [0.100, 1.000] **POWER_LIMITED** | 0.688 [0.515, 0.973] **POWER_LIMITED** | 0.330 [0.028, 0.691] **POWER_LIMITED** |
 
 ## Panel B - merged PI plus validated-judge held-out gold (supplemental)
 
@@ -43,10 +37,10 @@ Panel B is a precision supplement, not a replacement for Panel A. It includes va
 | Canonical promoted Demucs OR PANNs | Demucs >= 0.0316177709 OR PANNs >= 0.0440341365 | 1.000 [1.000, 1.000] | 0.600 [0.400, 0.800] | 0.800 [0.700, 0.900] | 0.762 [0.615, 0.887] |
 | PANNs only | PANNs >= 0.04879267 (train-selected) | 0.969 [0.946, 0.988] | 0.857 [0.727, 0.963] | 0.913 [0.848, 0.968] | 0.752 [0.625, 0.875] |
 | Whisper transcript | non-empty AND confidence >= 0.28481825 (train-selected) | 0.498 [0.429, 0.572] | 0.829 [0.708, 0.939] | 0.663 [0.595, 0.732] | 0.175 [0.098, 0.257] |
-| AudioSet tagger | exact human-voice whitelist max >= 0.05733276 (train-selected) | 0.954 [0.930, 0.976] | 0.771 [0.565, 0.958] | 0.863 [0.760, 0.956] | 0.642 [0.469, 0.805] |
+| AudioSet tagger | speech/singing max >= 0.05733276 (train-selected) | 0.957 [0.933, 0.977] | 0.771 [0.565, 0.958] | 0.864 [0.761, 0.957] | 0.650 [0.478, 0.810] |
 
 ## Threshold fitting and uncertainty
 
 The canonical promoted rule and legacy Demucs threshold are frozen. PANNs-only, Whisper, and AudioSet thresholds were selected on the pre-existing 238-row training split only. Panels A and B use held-out rows only. Intervals are percentile 95% prompt-cluster bootstraps with 10,000 replicates and seed `2026071602`.
 
-No BOLT output, new human label, or new music generation entered this v2 analysis. Eight pre-existing clips were re-evaluated by AudioSet solely to enforce the corrected exact-label human-voice whitelist.
+No BOLT output, new human label, or new model inference entered this v2 analysis.

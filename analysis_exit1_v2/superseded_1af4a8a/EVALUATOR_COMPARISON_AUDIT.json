@@ -1,21 +1,4 @@
 {
-  "audioset_human_voice": {
-    "audit_path": "analysis_exit1_v2/EVALUATOR_AUDIOSET_HUMAN_VOICE_AUDIT.json",
-    "audit_sha256": "854b861a4e8047b6314ce8c7cd490bbf4bd2823820c055678dc0ff99682b20c0",
-    "exclusion_regression_labels": [
-      "Bird vocalization, bird call, bird song",
-      "Singing bowl",
-      "Speech synthesizer",
-      "Synthetic singing",
-      "Whale vocalization"
-    ],
-    "human_voice_label_count": 54,
-    "human_voice_whitelist_sha256": "e5ca3352922fba58c82e023a4af66fbba5267f5238fd1fa5c02a8d4299f0643e",
-    "rescored_rows": 8,
-    "reused_rows": 671,
-    "scores_path": "analysis_exit1_v2/EVALUATOR_AUDIOSET_HUMAN_VOICE_SCORES.csv",
-    "scores_sha256": "30dc3e07443a7a9f441b5dfe49dfb61f98f371cf04e6ce21b71506f995e2c2be"
-  },
   "bootstrap_replicates": 10000,
   "bootstrap_seed": 2026071602,
   "canonical_instrument": {
@@ -28,10 +11,9 @@
   },
   "canonical_report_path": "orbit-research/adsr_phase2_20260604/paper_prep/autochain_20260712/T6_PROMOTION_REPORT.md",
   "canonical_result_path": "orbit-research/adsr_phase2_20260604/paper_prep/autochain_20260712/T6_PROMOTION_RESULT.json",
-  "generator_source_sha256": "3ae073d782e3fbed2eb81dafb20f78e0f9c35d2ceba13a9d9433fa67ebfdb15e",
+  "generator_source_sha256": "2c9a1d4b5ecd9455f6f8482b829eb19992bef5dd8ce08ebed47bdd34b02b0782",
   "new_human_labels": 0,
-  "new_model_inference_rows": 8,
-  "new_music_generation": 0,
+  "new_model_inference": 0,
   "panel_a_pi_only": {
     "decided_negatives": 9,
     "decided_positives": 117,
@@ -209,17 +191,17 @@
     "decided_positives": 416,
     "metrics": {
       "audioset_tagger": {
-        "balanced_accuracy": 0.8628777472527474,
-        "fn": 19,
+        "balanced_accuracy": 0.8640796703296704,
+        "fn": 18,
         "fp": 8,
-        "mcc": 0.6416003504405449,
+        "mcc": 0.6500366428840547,
         "n": 451,
         "negatives": 35,
         "positives": 416,
-        "sensitivity": 0.9543269230769231,
+        "sensitivity": 0.9567307692307693,
         "specificity": 0.7714285714285715,
         "tn": 27,
-        "tp": 397
+        "tp": 398
       },
       "canonical_promoted": {
         "balanced_accuracy": 0.8,
@@ -277,16 +259,16 @@
     "prompt_cluster_bootstrap_ci95": {
       "audioset_tagger": {
         "balanced_accuracy": [
-          0.7598230844792105,
-          0.9558036220418903
+          0.7611646573162729,
+          0.9572737760532598
         ],
         "mcc": [
-          0.4689900204460482,
-          0.8048917021257191
+          0.47760913824228896,
+          0.8099103609391635
         ],
         "sensitivity": [
-          0.9302949061662198,
-          0.9760011976047904
+          0.933485992440052,
+          0.9768641247009525
         ],
         "specificity": [
           0.5652173913043478,

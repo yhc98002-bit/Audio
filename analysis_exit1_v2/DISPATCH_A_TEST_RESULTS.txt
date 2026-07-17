@@ -1,0 +1,24 @@
+Dispatch A v2 completion test record
+Date: 2026-07-17 (Asia/Shanghai)
+Host: an12
+Base git SHA: 6d349743c7b91b4301c067375833f99015a5578b
+Environment: /HOME/paratera_xy/pxy1289/.conda/envs/audio-prm/bin/python
+Python: 3.10.20
+Node: 24.16.0 (/HOME/paratera_xy/pxy1289/.local/bin/node)
+
+Focused command:
+python -m pytest --force-short-summary tests/test_exit1_evaluator_v2.py tests/test_exit1_dispatch_a_completion.py
+Focused result: 18 passed in 0.19s; 0 failed; 0 errors.
+
+Full-suite command:
+PATH=/HOME/paratera_xy/pxy1289/.local/bin:$PATH python -m pytest --force-short-summary tests
+Full-suite result: 388 passed in 37.77s; 0 failed; 0 errors.
+
+Recovered environment deviation:
+The first full-suite attempt omitted the user-local Node directory from PATH.
+It reached 384 passes and four rater-UI setup failures caused only by
+FileNotFoundError('node'). No assertion failed. The complete suite was rerun
+from a clean process with the existing Node runtime explicitly on PATH and
+passed 388/388.
+
+Result: PASS

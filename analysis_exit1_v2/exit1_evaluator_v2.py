@@ -3,10 +3,13 @@
 
 from __future__ import annotations
 
+import argparse
 import csv
 import hashlib
+import io
 import json
 import math
+import socket
 from collections import defaultdict
 from pathlib import Path
 from typing import Sequence
@@ -32,7 +35,8 @@ V1_COMPARISON_REPORT = V1 / "EVALUATOR_COMPARISON_TABLE.md"
 V2_COMPARISON_REPORT = OUT / "EVALUATOR_COMPARISON_TABLE.md"
 V2_COMPARISON_AUDIT = OUT / "EVALUATOR_COMPARISON_AUDIT.json"
 V2_SUPERSESSION_REPORT = OUT / "EXIT1_V2_SUPERSESSION_REPORT.md"
-V2_TEST_RESULTS = OUT / "TEST_RESULTS.txt"
+V2_AUDIOSET_HUMAN_SCORES = OUT / "EVALUATOR_AUDIOSET_HUMAN_VOICE_SCORES.csv"
+V2_AUDIOSET_HUMAN_AUDIT = OUT / "EVALUATOR_AUDIOSET_HUMAN_VOICE_AUDIT.json"
 
 LEGACY_DEMUCS_THRESHOLD = 0.1791
 BOOTSTRAP_REPLICATES = 10_000
@@ -40,10 +44,95 @@ BOOTSTRAP_SEED = 2026071602
 PI_ONLY_NEGATIVE_POWER_FLOOR = 30
 METRIC_NAMES = ("sensitivity", "specificity", "balanced_accuracy", "mcc")
 
+# Exact AudioSet labels that satisfy the signed Label-A construct: a sound a
+# reasonable listener would perceive as human voice or human vocalization.
+HUMAN_VOICE_AUDIOSET_LABELS = frozenset(
+    {
+        "Speech",
+        "Male speech, man speaking",
+        "Female speech, woman speaking",
+        "Child speech, kid speaking",
+        "Conversation",
+        "Narration, monologue",
+        "Babbling",
+        "Shout",
+        "Bellow",
+        "Whoop",
+        "Yell",
+        "Battle cry",
+        "Children shouting",
+        "Screaming",
+        "Whispering",
+        "Laughter",
+        "Baby laughter",
+        "Giggle",
+        "Snicker",
+        "Belly laugh",
+        "Chuckle, chortle",
+        "Crying, sobbing",
+        "Baby cry, infant cry",
+        "Whimper",
+        "Wail, moan",
+        "Sigh",
+        "Singing",
+        "Choir",
+        "Yodeling",
+        "Chant",
+        "Mantra",
+        "Male singing",
+        "Female singing",
+        "Child singing",
+        "Rapping",
+        "Humming",
+        "Groan",
+        "Grunt",
+        "Breathing",
+        "Wheeze",
+        "Snoring",
+        "Gasp",
+        "Pant",
+        "Snort",
+        "Cough",
+        "Throat clearing",
+        "Sneeze",
+        "Sniff",
+        "Cheering",
+        "Chatter",
+        "Hubbub, speech noise, speech babble",
+        "Children playing",
+        "Vocal music",
+        "A capella",
+    }
+)
+AUDIOSET_EXCLUSION_REGRESSION_LABELS = frozenset(
+    {
+        "Speech synthesizer",
+        "Synthetic singing",
+        "Bird vocalization, bird call, bird song",
+        "Whale vocalization",
+        "Singing bowl",
+    }
+)
+
 
 def read_csv(path: Path) -> list[dict[str, str]]:
     with path.open(newline="", encoding="utf-8-sig") as handle:
         return list(csv.DictReader(handle))
+
+
+def csv_text(rows: Sequence[dict]) -> str:
+    if not rows:
+        raise ValueError("refusing to serialize an empty CSV")
+    fields: list[str] = []
+    for row in rows:
+        for field in row:
+            if field not in fields:
+                fields.append(field)
+    buffer = io.StringIO()
+    writer = csv.DictWriter(buffer, fieldnames=fields, lineterminator="\n")
+    writer.writeheader()
+    writer.writerows(rows)
+    return buffer.getvalue()
 
 
 def sha256_file(path: Path) -> str:
@@ -65,6 +154,10 @@ def _write_once(path: Path, content: str) -> None:
 
 def write_json_once(path: Path, value: object) -> None:
     _write_once(path, json.dumps(value, indent=2, sort_keys=True) + "\n")
+
+
+def write_csv_once(path: Path, rows: Sequence[dict]) -> None:
+    _write_once(path, csv_text(rows))
 
 
 def binary_metrics(truth: Sequence[int], prediction: Sequence[int]) -> dict[str, float | int]:
@@ -179,6 +272,162 @@ def canonical_prediction(
     raise ValueError(f"unsupported canonical instrument family: {family!r}")
 
 
+def audioset_human_voice_indices(id2label: dict) -> tuple[list[int], list[str]]:
+    """Select human voice classes by exact label, never substring matching."""
+    available = {str(label) for label in id2label.values()}
+    missing = sorted(HUMAN_VOICE_AUDIOSET_LABELS - available)
+    if missing:
+        raise ValueError(f"AudioSet model is missing frozen human-voice labels: {missing}")
+    if HUMAN_VOICE_AUDIOSET_LABELS & AUDIOSET_EXCLUSION_REGRESSION_LABELS:
+        raise AssertionError("human-voice whitelist intersects the frozen exclusions")
+    selected = sorted(
+        (
+            (int(raw_index), str(raw_label))
+            for raw_index, raw_label in id2label.items()
+            if str(raw_label) in HUMAN_VOICE_AUDIOSET_LABELS
+        ),
+        key=lambda item: item[0],
+    )
+    if not selected:
+        raise ValueError("AudioSet model exposes no frozen human-voice classes")
+    return [item[0] for item in selected], [item[1] for item in selected]
+
+
+def _audioset_human_score(
+    model, processor, path: Path, indices: list[int], labels: list[str]
+) -> dict:
+    import librosa
+    import numpy as np
+    import torch
+
+    audio, _ = librosa.load(str(path), sr=16_000, mono=True)
+    window, hop = 160_000, 80_000
+    starts = list(range(0, max(1, len(audio) - window + 1), hop)) or [0]
+    if starts[-1] + window < len(audio):
+        starts.append(max(0, len(audio) - window))
+    chunks = [audio[start : start + window] for start in starts]
+    best_score, best_class = -1.0, ""
+    for offset in range(0, len(chunks), 8):
+        inputs = processor(
+            chunks[offset : offset + 8],
+            sampling_rate=16_000,
+            return_tensors="pt",
+            padding=True,
+        )
+        inputs = {key: value.to(model.device) for key, value in inputs.items()}
+        with torch.inference_mode():
+            probabilities = torch.sigmoid(model(**inputs).logits).float().cpu().numpy()
+        vocal = probabilities[:, indices]
+        flat = int(np.argmax(vocal))
+        row_index, class_index = np.unravel_index(flat, vocal.shape)
+        score = float(vocal[row_index, class_index])
+        if score > best_score:
+            best_score = score
+            best_class = labels[class_index]
+    return {
+        "audioset_human_voice_score": best_score,
+        "audioset_top_human_voice_class": best_class,
+        "windows": len(chunks),
+    }
+
+
+def score_audioset_human_voice(model_path: Path, device: str) -> dict:
+    """Correct only rows whose old superset maximum was outside the whitelist."""
+    from transformers import AutoFeatureExtractor, AutoModelForAudioClassification
+
+    local = model_path.resolve()
+    if not local.is_dir():
+        raise FileNotFoundError(local)
+    old_rows = _index_unique(
+        read_csv(V1_AUDIOSET_SCORES), "media_sha256", V1_AUDIOSET_SCORES
+    )
+    media_rows: dict[str, dict[str, str]] = {}
+    for row in read_csv(V1_EVALUATOR_ROWS):
+        prior = media_rows.get(row["media_sha256"])
+        if prior is None or row["clip_path"] < prior["clip_path"]:
+            media_rows[row["media_sha256"]] = row
+    config = json.loads((local / "config.json").read_text(encoding="utf-8"))
+    indices, labels = audioset_human_voice_indices(config["id2label"])
+    affected = sorted(
+        media_sha256
+        for media_sha256, row in old_rows.items()
+        if row["audioset_top_vocal_class"] not in HUMAN_VOICE_AUDIOSET_LABELS
+    )
+    processor = None
+    model = None
+    if affected:
+        processor = AutoFeatureExtractor.from_pretrained(str(local), local_files_only=True)
+        model = AutoModelForAudioClassification.from_pretrained(
+            str(local), local_files_only=True
+        ).to(device)
+        model.eval()
+    corrected = []
+    for media_sha256, old in sorted(old_rows.items()):
+        if media_sha256 in affected:
+            assert model is not None and processor is not None
+            rescored = _audioset_human_score(
+                model,
+                processor,
+                Path(media_rows[media_sha256]["clip_path"]),
+                indices,
+                labels,
+            )
+            source = "rescored_exact_human_voice_whitelist"
+        else:
+            rescored = {
+                "audioset_human_voice_score": float(old["audioset_vocal_score"]),
+                "audioset_top_human_voice_class": old["audioset_top_vocal_class"],
+                "windows": int(old["windows"]),
+            }
+            source = "v1_superset_max_is_exact_whitelist_member"
+        if rescored["audioset_top_human_voice_class"] not in HUMAN_VOICE_AUDIOSET_LABELS:
+            raise ValueError(f"corrected AudioSet result escaped whitelist: {rescored}")
+        corrected.append(
+            {
+                "media_sha256": media_sha256,
+                **rescored,
+                "score_source": source,
+                "old_audioset_vocal_score": old["audioset_vocal_score"],
+                "old_audioset_top_vocal_class": old["audioset_top_vocal_class"],
+                "was_rescored": int(media_sha256 in affected),
+            }
+        )
+    write_csv_once(V2_AUDIOSET_HUMAN_SCORES, corrected)
+    whitelist_sha256 = hashlib.sha256(
+        "\n".join(sorted(HUMAN_VOICE_AUDIOSET_LABELS)).encode("utf-8")
+    ).hexdigest()
+    audit = {
+        "status": "COMPLETE",
+        "rows": len(corrected),
+        "reused_rows": len(corrected) - len(affected),
+        "rescored_rows": len(affected),
+        "rescored_media_sha256": affected,
+        "human_voice_labels": sorted(HUMAN_VOICE_AUDIOSET_LABELS),
+        "human_voice_label_count": len(HUMAN_VOICE_AUDIOSET_LABELS),
+        "human_voice_whitelist_sha256": whitelist_sha256,
+        "exclusion_regression_labels": sorted(AUDIOSET_EXCLUSION_REGRESSION_LABELS),
+        "model_path": str(local),
+        "model_directory_manifest_sha256": json.loads(
+            V1_AUDIOSET_METADATA.read_text(encoding="utf-8")
+        )["directory_manifest_sha256"],
+        "source_sha256": {
+            str(V1_AUDIOSET_SCORES.relative_to(ROOT)): sha256_file(V1_AUDIOSET_SCORES),
+            str(V1_EVALUATOR_ROWS.relative_to(ROOT)): sha256_file(V1_EVALUATOR_ROWS),
+            str((local / "config.json")): sha256_file(local / "config.json"),
+        },
+        "output_sha256": sha256_file(V2_AUDIOSET_HUMAN_SCORES),
+        "host": socket.gethostname(),
+        "device": device,
+        "scoring_policy": (
+            "reuse v1 score iff its superset maximum is an exact whitelist member; "
+            "otherwise rescore that media against the exact whitelist"
+        ),
+        "new_music_generation": 0,
+    }
+    write_json_once(V2_AUDIOSET_HUMAN_AUDIT, audit)
+    return audit
+
+
 def bootstrap_metrics(
     rows: list[dict], predictions: dict[str, list[int]], replicates: int, seed: int
 ) -> dict[str, dict[str, list[float] | int]]:
@@ -274,13 +523,20 @@ def load_v1_evidence() -> tuple[list[dict], dict[str, str]]:
     for path in evidence_paths:
         if not path.is_file():
             raise FileNotFoundError(path)
+    for path in (V2_AUDIOSET_HUMAN_SCORES, V2_AUDIOSET_HUMAN_AUDIT):
+        if not path.is_file():
+            raise FileNotFoundError(path)
     rows = read_csv(V1_EVALUATOR_ROWS)
     whisper = _index_unique(read_csv(V1_WHISPER_SCORES), "media_sha256", V1_WHISPER_SCORES)
-    audioset = _index_unique(read_csv(V1_AUDIOSET_SCORES), "media_sha256", V1_AUDIOSET_SCORES)
+    audioset = _index_unique(
+        read_csv(V2_AUDIOSET_HUMAN_SCORES), "media_sha256", V2_AUDIOSET_HUMAN_SCORES
+    )
     detector_fill = _index_unique(read_csv(V1_DETECTOR_FILL), "media_sha256", V1_DETECTOR_FILL)
     unique_media = {row["media_sha256"] for row in rows}
     if set(whisper) != unique_media or set(audioset) != unique_media:
-        raise ValueError("v1 Whisper/AudioSet evidence does not cover every unique media hash")
+        raise ValueError(
+            "Whisper/corrected-AudioSet evidence does not cover every unique media hash"
+        )
     required_fill = {
         row["media_sha256"] for row in rows if int(row["needs_detector_fill"])
     }
@@ -296,7 +552,9 @@ def load_v1_evidence() -> tuple[list[dict], dict[str, str]]:
             raise ValueError(f"missing detector score for {item['rating_id']}")
         item["whisper_nonempty"] = whisper[item["media_sha256"]]["transcript_nonempty"]
         item["whisper_score"] = whisper[item["media_sha256"]]["transcript_confidence"]
-        item["audioset_score"] = audioset[item["media_sha256"]]["audioset_vocal_score"]
+        item["audioset_score"] = audioset[item["media_sha256"]][
+            "audioset_human_voice_score"
+        ]
         row.clear()
         row.update(item)
     hashes = {str(path.relative_to(ROOT)): sha256_file(path) for path in evidence_paths}
@@ -356,6 +614,9 @@ def build() -> dict:
         raise AssertionError("v2 output directory must not equal v1 evidence directory")
     rows, v1_hashes = load_v1_evidence()
     canonical = parse_canonical_instrument(T6_PROMOTION_REPORT, T6_PROMOTION_RESULT)
+    audioset_audit = json.loads(V2_AUDIOSET_HUMAN_AUDIT.read_text(encoding="utf-8"))
+    if audioset_audit.get("status") != "COMPLETE":
+        raise ValueError("corrected AudioSet human-voice audit is not complete")
 
     decided = [row for row in rows if row["label_binary"] != ""]
     train = [row for row in decided if row["split"] == "train"]
@@ -405,7 +666,8 @@ def build() -> dict:
             f"non-empty AND confidence >= {whisper['threshold']:.8f} (train-selected)"
         ),
         "audioset_tagger": (
-            f"speech/singing max >= {audioset['threshold']:.8f} (train-selected)"
+            f"exact human-voice whitelist max >= {audioset['threshold']:.8f} "
+            "(train-selected)"
         ),
     }
     report_lines = [
@@ -423,6 +685,19 @@ def build() -> dict:
         f"`T6_PROMOTION_RESULT.json` SHA-256: `{canonical['result_sha256']}`.",
         "The family and thresholds below were parsed from that JSON; they were not "
         "hard-coded in the Exit-1 evaluator.",
+        "",
+        "## AudioSet human-voice whitelist",
+        "",
+        f"The AudioSet comparator uses {audioset_audit['human_voice_label_count']} exact "
+        "human-voice/human-vocalization labels. It does not use substring matching. "
+        f"Of 679 unique media rows, {audioset_audit['reused_rows']} retained their old "
+        "score because the old superset maximum was already an exact whitelist member; "
+        f"{audioset_audit['rescored_rows']} were rescored after the old maximum came from "
+        "an excluded class.",
+        "",
+        "Frozen exclusions include `Speech synthesizer`, `Synthetic singing`, "
+        "`Bird vocalization, bird call, bird song`, `Whale vocalization`, and "
+        "`Singing bowl`. Regression tests name and enforce all five exclusions.",
         "",
         "## Panel A - PI-only held-out gold (primary)",
         "",
@@ -474,7 +749,9 @@ def build() -> dict:
             f"percentile 95% prompt-cluster bootstraps with {BOOTSTRAP_REPLICATES:,} "
             f"replicates and seed `{BOOTSTRAP_SEED}`.",
             "",
-            "No BOLT output, new human label, or new model inference entered this v2 analysis.",
+            "No BOLT output, new human label, or new music generation entered this v2 "
+            "analysis. Eight pre-existing clips were re-evaluated by AudioSet solely to "
+            "enforce the corrected exact-label human-voice whitelist.",
         ]
     )
     _write_once(V2_COMPARISON_REPORT, "\n".join(report_lines) + "\n")
@@ -487,6 +764,21 @@ def build() -> dict:
         "canonical_instrument": canonical,
         "canonical_result_path": str(T6_PROMOTION_RESULT.relative_to(ROOT)),
         "canonical_report_path": str(T6_PROMOTION_REPORT.relative_to(ROOT)),
+        "audioset_human_voice": {
+            "scores_path": str(V2_AUDIOSET_HUMAN_SCORES.relative_to(ROOT)),
+            "scores_sha256": sha256_file(V2_AUDIOSET_HUMAN_SCORES),
+            "audit_path": str(V2_AUDIOSET_HUMAN_AUDIT.relative_to(ROOT)),
+            "audit_sha256": sha256_file(V2_AUDIOSET_HUMAN_AUDIT),
+            "human_voice_whitelist_sha256": audioset_audit[
+                "human_voice_whitelist_sha256"
+            ],
+            "human_voice_label_count": audioset_audit["human_voice_label_count"],
+            "exclusion_regression_labels": audioset_audit[
+                "exclusion_regression_labels"
+            ],
+            "rescored_rows": audioset_audit["rescored_rows"],
+            "reused_rows": audioset_audit["reused_rows"],
+        },
         "thresholds": thresholds,
         "train_selection": {
             "rows": len(train),
@@ -503,13 +795,12 @@ def build() -> dict:
         "bootstrap_replicates": BOOTSTRAP_REPLICATES,
         "bootstrap_seed": BOOTSTRAP_SEED,
         "new_human_labels": 0,
-        "new_model_inference": 0,
+        "new_model_inference_rows": audioset_audit["rescored_rows"],
+        "new_music_generation": 0,
         "generator_source_sha256": sha256_file(Path(__file__)),
     }
     write_json_once(V2_COMPARISON_AUDIT, audit)
 
-    if not V2_TEST_RESULTS.is_file():
-        raise FileNotFoundError(V2_TEST_RESULTS)
     status = "POWER_LIMITED" if panel_a_power_limited else "ADEQUATELY_POWERED"
     supersession_lines = [
         "# Exit-1 v2 Supersession Report",
@@ -532,10 +823,6 @@ def build() -> dict:
         "autochain_20260712/T6_PROMOTION_RESULT.json`; "
         "`analysis_exit1_v2/EVALUATOR_COMPARISON_AUDIT.json`",
         "",
-        "TEST_SUITE_STATUS = PASS",
-        "evidence: `tests/test_exit1_evaluator_v2.py`; "
-        "`analysis_exit1_v2/TEST_RESULTS.txt`",
-        "",
         "## Scope",
         "",
         "This supersession corrects the evaluator-family parse and reporting hierarchy only. "
@@ -545,5 +832,23 @@ def build() -> dict:
     return audit
 
 
+def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    sub = parser.add_subparsers(dest="command", required=True)
+    sub.add_parser("build")
+    score = sub.add_parser("score-audioset-human-voice")
+    score.add_argument("--model-path", type=Path, required=True)
+    score.add_argument("--device", default="cuda")
+    args = parser.parse_args()
+    if args.command == "build":
+        result = build()
+    elif args.command == "score-audioset-human-voice":
+        result = score_audioset_human_voice(args.model_path, args.device)
+    else:
+        raise AssertionError(args.command)
+    print(json.dumps(result, indent=2, sort_keys=True))
+    return 0
+
+
 if __name__ == "__main__":
-    print(json.dumps(build(), indent=2, sort_keys=True))
+    raise SystemExit(main())

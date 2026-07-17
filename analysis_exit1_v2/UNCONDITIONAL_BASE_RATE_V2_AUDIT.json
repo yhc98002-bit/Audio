@@ -1,0 +1,116 @@
+{
+  "checksum_index_rows": 256,
+  "evidence_role": "PRIOR EVIDENCE, NOT CAUSAL PROOF",
+  "generator_source_sha256": "2d1e033772eac3494fc798f5b67eb1ee0a32c78ccf00074f7ec92d31db77010c",
+  "historical_sensitivity_instrument": {
+    "demucs_threshold": 0.038639528676867485,
+    "family": "and",
+    "panns_threshold": 0.03181814216077328
+  },
+  "manifest_rows": 256,
+  "manifest_score_id_set_match": true,
+  "near_silent_clip_ids": [
+    "exit1_uncond_111"
+  ],
+  "near_silent_handling": "included_to_preserve_frozen_256_row_universe",
+  "near_silent_rows": 1,
+  "near_silent_scoring": "Demucs component forced absent per frozen instrument; PANNs component remains eligible under the primary OR rule",
+  "new_music_generation": 0,
+  "output_sha256": {
+    "analysis_exit1_v2/UNCONDITIONAL_BASE_RATE_V2.csv": "ce4f9ea9a55eaac28639d4d02c3b2ef8b3868b86fef4c0ee96a48afda414d862",
+    "analysis_exit1_v2/UNCONDITIONAL_BASE_RATE_V2.md": "3301e3b0510f764dd7160d026cb78a5e4d1681532c8a4220187c85593d611609"
+  },
+  "primary_instrument": {
+    "demucs_threshold": 0.03161777090281248,
+    "family": "or",
+    "panns_threshold": 0.04403413645923138,
+    "report_exact_line": "- Selected family: `or`.",
+    "report_sha256": "9ab909fc301a89c5de04f53dcb3b613e4984c184f2a5bf39987ac1f97de23a9d",
+    "result_sha256": "2ec9f12fd9008dae0e32675fcdaaf9e7a22fe0ed7006dd310b665b1e82be2ff2"
+  },
+  "rows": 256,
+  "score_checksum_index_match": true,
+  "source_sha256": {
+    "analysis_exit1/UNCONDITIONAL_AUDIO_SHA256SUMS": "155914f34622dbd89f903619c57bdc9ea8f5c1bdb02f354c32606c24f359bb90",
+    "analysis_exit1/UNCONDITIONAL_GENERATION_MANIFEST.csv": "e1afcb635444dc6d082501d8116bbaef4282c5038c7064c6ff56e748f2f1a14f",
+    "analysis_exit1/UNCONDITIONAL_SCORES.csv": "53a688053e7d92b1b93d539c0374eb6a0dc3729d36f13e402f62cb6c280bb3a9",
+    "orbit-research/adsr_phase2_20260604/paper_prep/autochain_20260712/T6_PROMOTION_REPORT.md": "9ab909fc301a89c5de04f53dcb3b613e4984c184f2a5bf39987ac1f97de23a9d",
+    "orbit-research/adsr_phase2_20260604/paper_prep/autochain_20260712/T6_PROMOTION_RESULT.json": "2ec9f12fd9008dae0e32675fcdaaf9e7a22fe0ed7006dd310b665b1e82be2ff2"
+  },
+  "status": "COMPLETE",
+  "summary_rows": [
+    {
+      "decision_rule": "promoted_or",
+      "group": "overall",
+      "instrument_role": "PRIMARY",
+      "n": 256,
+      "rate": 0.73046875,
+      "value": "all",
+      "voice_absent": 69,
+      "voice_present": 187,
+      "wilson_ci95_high": 0.7811199848907815,
+      "wilson_ci95_low": 0.6730030812879184
+    },
+    {
+      "decision_rule": "promoted_or",
+      "group": "stratum",
+      "instrument_role": "PRIMARY",
+      "n": 128,
+      "rate": 0.765625,
+      "value": "empty",
+      "voice_absent": 30,
+      "voice_present": 98,
+      "wilson_ci95_high": 0.8306064230879273,
+      "wilson_ci95_low": 0.6851645688917714
+    },
+    {
+      "decision_rule": "promoted_or",
+      "group": "stratum",
+      "instrument_role": "PRIMARY",
+      "n": 128,
+      "rate": 0.6953125,
+      "value": "neutral_text",
+      "voice_absent": 39,
+      "voice_present": 89,
+      "wilson_ci95_high": 0.7683943848476078,
+      "wilson_ci95_low": 0.6108489916080531
+    },
+    {
+      "decision_rule": "historical_and",
+      "group": "overall",
+      "instrument_role": "SENSITIVITY_ONLY",
+      "n": 256,
+      "rate": 0.66796875,
+      "value": "all",
+      "voice_absent": 85,
+      "voice_present": 171,
+      "wilson_ci95_high": 0.7228006719352853,
+      "wilson_ci95_low": 0.6081703762966486
+    },
+    {
+      "decision_rule": "historical_and",
+      "group": "stratum",
+      "instrument_role": "SENSITIVITY_ONLY",
+      "n": 128,
+      "rate": 0.7109375,
+      "value": "empty",
+      "voice_absent": 37,
+      "voice_present": 91,
+      "wilson_ci95_high": 0.7824160023219742,
+      "wilson_ci95_low": 0.6271668442501395
+    },
+    {
+      "decision_rule": "historical_and",
+      "group": "stratum",
+      "instrument_role": "SENSITIVITY_ONLY",
+      "n": 128,
+      "rate": 0.625,
+      "value": "neutral_text",
+      "voice_absent": 48,
+      "voice_present": 80,
+      "wilson_ci95_high": 0.7040757090235344,
+      "wilson_ci95_low": 0.5386400519080884
+    }
+  ],
+  "unique_clip_ids": 256
+}

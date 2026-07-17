@@ -56,6 +56,38 @@ def test_canonical_or_is_not_silently_evaluated_as_and() -> None:
     assert MODULE.canonical_prediction("and", 0.25, 0.1, 0.2, 0.3) == 0
 
 
+def test_audioset_human_voice_whitelist_uses_exact_labels() -> None:
+    labels = sorted(MODULE.HUMAN_VOICE_AUDIOSET_LABELS)
+    id2label = {index: label for index, label in enumerate(labels)}
+    start = len(id2label)
+    for offset, label in enumerate(sorted(MODULE.AUDIOSET_EXCLUSION_REGRESSION_LABELS)):
+        id2label[start + offset] = label
+
+    _indices, selected = MODULE.audioset_human_voice_indices(id2label)
+
+    assert set(selected) == MODULE.HUMAN_VOICE_AUDIOSET_LABELS
+
+
+@pytest.mark.parametrize(
+    "excluded",
+    [
+        "Speech synthesizer",
+        "Synthetic singing",
+        "Bird vocalization, bird call, bird song",
+        "Whale vocalization",
+        "Singing bowl",
+    ],
+)
+def test_audioset_nonhuman_or_synthetic_labels_are_excluded(excluded: str) -> None:
+    labels = sorted(MODULE.HUMAN_VOICE_AUDIOSET_LABELS)
+    id2label = {index: label for index, label in enumerate(labels)}
+    id2label[len(id2label)] = excluded
+
+    _indices, selected = MODULE.audioset_human_voice_indices(id2label)
+
+    assert excluded not in selected
+
+
 def test_power_limited_marker_is_adjacent_to_every_panel_metric() -> None:
     names = {"model": "Model"}
     thresholds = {"model": "rule"}
@@ -91,3 +123,27 @@ def test_v2_output_is_separate_from_preserved_v1_evidence() -> None:
     assert MODULE.OUT.name == "analysis_exit1_v2"
     assert MODULE.V1.name == "analysis_exit1"
     assert MODULE.OUT.resolve() != MODULE.V1.resolve()
+
+
+def test_frozen_v2_panels_state_exact_class_universes() -> None:
+    audit = json.loads(MODULE.V2_COMPARISON_AUDIT.read_text(encoding="utf-8"))
+    panel_a = audit["panel_a_pi_only"]
+    panel_b = audit["panel_b_merged_gold_supplement"]
+    report = MODULE.V2_COMPARISON_REPORT.read_text(encoding="utf-8")
+
+    assert (panel_a["rows"], panel_a["decided_positives"], panel_a["decided_negatives"]) == (
+        126,
+        117,
+        9,
+    )
+    assert panel_a["power_limited"] is True
+    assert (panel_b["rows"], panel_b["decided_positives"], panel_b["decided_negatives"]) == (
+        451,
+        416,
+        35,
+    )
+    assert "Panel A decided counts: 117 positive; 9 negative; 126 total" in report
+    assert "Panel B decided counts: 416 positive; 35 negative; 451 total" in report
+    assert audit["new_model_inference_rows"] == 8
+    assert audit["new_music_generation"] == 0
+    assert audit["generator_source_sha256"] == MODULE.sha256_file(SCRIPT)
