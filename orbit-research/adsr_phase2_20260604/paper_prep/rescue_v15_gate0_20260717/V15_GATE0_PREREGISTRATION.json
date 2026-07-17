@@ -32,6 +32,9 @@
     "batch_size": 1,
     "cfg_scale": 7.0,
     "infer_method": "ode",
+    "sampler_mode": "euler",
+    "dcw_enabled": false,
+    "use_adg": false,
     "inference_steps": 50,
     "shift": 1.0,
     "thinking": false
