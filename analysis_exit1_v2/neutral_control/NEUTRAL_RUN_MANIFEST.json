@@ -1,0 +1,55 @@
+{
+  "artifact_path": "analysis_exit1_v2/neutral_control/audio/neutral_matched",
+  "audio_checksums_path": "analysis_exit1_v2/neutral_control/NEUTRAL_AUDIO_SHA256SUMS",
+  "clip_count": 192,
+  "command": "worker0: ssh an12 env CUDA_VISIBLE_DEVICES=4 ACE_STEP_CHECKPOINT_DIR=/HOME/paratera_xy/pxy1289/.cache/modelscope/hub/models/ACE-Step/ACE-Step-v1-3___5B HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 TOKENIZERS_PARALLELISM=false /HOME/paratera_xy/pxy1289/.conda/envs/audio-prm/bin/python /XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion-neutral-control-20260717/analysis_exit1_v2/neutral_control/neutral_control.py generate --worker-index 0 --num-workers 2 --freeze-commit c7b9501255e5a7aef29fc83e5344286e9114d913; worker1: ssh an12 env CUDA_VISIBLE_DEVICES=7 ACE_STEP_CHECKPOINT_DIR=/HOME/paratera_xy/pxy1289/.cache/modelscope/hub/models/ACE-Step/ACE-Step-v1-3___5B HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 TOKENIZERS_PARALLELISM=false /HOME/paratera_xy/pxy1289/.conda/envs/audio-prm/bin/python /XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion-neutral-control-20260717/analysis_exit1_v2/neutral_control/neutral_control.py generate --worker-index 1 --num-workers 2 --freeze-commit c7b9501255e5a7aef29fc83e5344286e9114d913",
+  "completed_at": "2026-07-17T15:07:28+08:00",
+  "config_hash": "f111b24871aa09474f505ac8e484a7d64b650661c944fb88dd6af783846e9348",
+  "configuration": {
+    "cfg_type": "apg",
+    "clips_per_process_call": 1,
+    "duration_seconds": 15.0,
+    "erg_diffusion": false,
+    "erg_lyric": false,
+    "erg_tag": false,
+    "guidance_interval": 0.5,
+    "guidance_rescale": 0.0,
+    "guidance_scale": 5.0,
+    "inference_steps": 30,
+    "model": "ACE-Step/ACE-Step-v1-3.5B",
+    "omega_scale": 1.0,
+    "precision": "bfloat16",
+    "sample_rate_hz": 48000,
+    "scheduler": "Euler",
+    "scheduler_shift": 3.0
+  },
+  "deviations": [
+    "Canonical factorial contains 32 prompts; task-required 24 implemented as preregistered ranks 0-23.",
+    "Neutral uses a registered independent seed range; legacy-cell comparison is prompt-paired rather than same-noise paired."
+  ],
+  "git_hash": "c7b9501255e5a7aef29fc83e5344286e9114d913",
+  "gpu_ids": [
+    "4",
+    "7"
+  ],
+  "ledger_hosts": [
+    "an12"
+  ],
+  "ledger_path": "analysis_exit1_v2/neutral_control/generation_ledgers",
+  "log_paths": [
+    "analysis_exit1_v2/neutral_control/logs/GENERATION_W0_20260717.log",
+    "analysis_exit1_v2/neutral_control/logs/GENERATION_W1_20260717.log"
+  ],
+  "manifest_path": "analysis_exit1_v2/neutral_control/NEUTRAL_GENERATION_MANIFEST.csv",
+  "node": "an12",
+  "placement_justification": "Two independent TP1 ACE-Step 3.5B replicas on disjoint A800 GPUs; tasks deterministically sharded for throughput, with no cross-node job.",
+  "prompt_count": 24,
+  "replica_count": 2,
+  "seed_base": 2071000000,
+  "seed_formula": "2071000000 + prompt_rank*1000 + seed_idx",
+  "seed_max": 2071023007,
+  "seeds_per_prompt": 8,
+  "started_at": "2026-07-17T14:59:48+08:00",
+  "status": "COMPLETE",
+  "tensor_parallel_width": 1
+}

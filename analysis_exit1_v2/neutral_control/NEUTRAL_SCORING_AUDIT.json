@@ -1,0 +1,29 @@
+{
+  "all_score_rows_link_to_generation_and_retained_audio_sha256": true,
+  "canonical_instrument": {
+    "demucs_threshold": 0.03161777090281248,
+    "family": "or",
+    "panns_threshold": 0.04403413645923138,
+    "report_exact_line": "- Selected family: `or`.",
+    "report_sha256": "9ab909fc301a89c5de04f53dcb3b613e4984c184f2a5bf39987ac1f97de23a9d",
+    "result_sha256": "2ec9f12fd9008dae0e32675fcdaaf9e7a22fe0ed7006dd310b665b1e82be2ff2"
+  },
+  "canonical_rule": "demucs_score >= parsed threshold OR panns_score >= parsed threshold",
+  "condition_counts": {
+    "negative": 192,
+    "neutral-matched": 192,
+    "plain": 192,
+    "positive": 192
+  },
+  "four_cell_rows": 768,
+  "near_silent_not_used_to_suppress_demucs": true,
+  "neutral_score_rows": 192,
+  "source_hashes": {
+    "factorial_generation_manifest": "11018013cdc9eba4b40686d64900da4694353e49ac4c0813d190411e77b628d2",
+    "factorial_positive_manifest": "440a63bf1ea93353456b9a69d9c5d67e956449b8a1a37fbf90281c2e86f16972",
+    "factorial_prompts": "1c7e3cb40229e0be4cf25ef466ed872f0acc0f5772f043afe11882b5f115729c",
+    "factorial_score_rows": "cd7d0f08089bf339b45bbd6dad0902d3335c9dfec9fd331b203c7a6962864038"
+  },
+  "status": "PASS",
+  "unique_neutral_task_ids": 192
+}

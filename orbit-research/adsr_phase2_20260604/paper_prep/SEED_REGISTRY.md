@@ -18,7 +18,7 @@ authorized by the governing recovery brief.
 | W2 instrumental factorial | `2034000000` through `2034031015` | RESERVED_CRN | `base + prompt_rank*1000 + seed_idx`; all six conditions intentionally share the same prompt/seed and the range is disjoint from all completed and registered work. | 32 prompts x 6 conditions x 16 seeds; 3,072 clips. |
 | W2 bounded live confirm | `2035000000` through `2035006301` | RESERVED_CRN_BLOCKED | `base + prompt_rank*100 + rep`; all four policies intentionally share each prompt/repetition seed. No launch until dual signatures, promoted-instrument PASS, and frozen policies are machine-verified. | 64 prompts x 4 policies x 2 repetitions; preparation only. |
 | Exit-1 unconditional base rate | `2036000000` through `2036000255` | COMPLETE | `base + manifest_index`; seed-disjoint from completed and registered work. | 16 frozen empty/neutral prompt rows x 16 seeds; 256 retained clips; PRIOR EVIDENCE only. |
-| Exit-1 matched neutral control | `2071000000` through `2071023007` | RESERVED | `base + prompt_rank*1000 + seed_idx`; new seed-independent neutral cell, disjoint from completed and registered work. | 24 frozen factorial ranks x 8 seeds; 192 clips; neutral-vs-negative inference is prompt-paired, not same-noise paired. |
+| Exit-1 matched neutral control | `2071000000` through `2071023007` | COMPLETE | `base + prompt_rank*1000 + seed_idx`; new seed-independent neutral cell, disjoint from completed and registered work. | 24 frozen factorial ranks x 8 seeds; 192 retained clips; neutral-vs-negative inference is prompt-paired, not same-noise paired. |
 
 ## Collision Guard
 
