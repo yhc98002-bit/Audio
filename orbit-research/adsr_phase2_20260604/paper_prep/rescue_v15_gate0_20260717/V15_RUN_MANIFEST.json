@@ -1,0 +1,64 @@
+{
+  "artifact_path": "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion_v15_gate0_20260717/orbit-research/adsr_phase2_20260604/paper_prep/rescue_v15_gate0_20260717/artifacts/run_20260717",
+  "branch": "codex/bolt-v15-gate0-20260717",
+  "commands": [
+    "python run_v15_gate0.py provenance",
+    "CUDA_VISIBLE_DEVICES=0 python run_v15_gate0.py calibrate (bounded attempts; terminally stopped)",
+    "pytest -q test_v15_gate0.py",
+    "pytest -q",
+    "python finalize_fail_escalated.py finalize"
+  ],
+  "config_hash": "3a7e2155ef6ae50da23e30aefc66c566755080495f46863106dc9c4c5c6d9238",
+  "deviations": [
+    {
+      "attempt": "initial calibration invocation",
+      "bounded_action": "one exact-cache/offline environment repair",
+      "cause": "handler resolved an absent nested checkpoints directory and entered an offline auto-download path",
+      "impact": "DNS failed; zero model bytes acquired; zero generation",
+      "result": "stopped before model load"
+    },
+    {
+      "attempt": "calibration seed 2072000016",
+      "bounded_action": "one native-output state-harness repair",
+      "cause": "native generate_audio returned a dict containing target_latents while the harness treated it as a tensor",
+      "impact": "state retained; no final audio artifact written",
+      "result": "uninterrupted 50-NFE reference and step-20 state completed; reporting stopped"
+    },
+    {
+      "attempt": "calibration seed 2072000017",
+      "bounded_action": "stop under B1; no second state-harness repair",
+      "cause": "native continuation requires timesteps as a torch.Tensor; harness supplied the frozen suffix as a list",
+      "impact": "no perturbation frozen; no main controls or rollover launched",
+      "result": "uninterrupted 50-NFE reference, valid audio, and step-20 state completed; first fork continuation stopped before a transformer call"
+    }
+  ],
+  "finalized_utc": "2026-07-17T13:13:23.993576+00:00",
+  "gpu_ids": [
+    0
+  ],
+  "measured_full_generation_nfe": 50,
+  "model_identity": "ACE-Step/acestep-v15-xl-sft@d1ca0bc96e29cd46435219ceb4f8e3a13a8eaf50",
+  "node": "an29",
+  "placement_justification": "Bounded calibration only; XL-SFT fits one A800 at TP1.",
+  "replica_count": 1,
+  "run_id": "v15_gate0_20260717",
+  "seed_namespace": "2072000000..2072000063",
+  "seeds_used": [
+    2072000016,
+    2072000017
+  ],
+  "statuses": {
+    "ACTUAL_NFE_STATUS": "PASS",
+    "COMPLETION_RESERVE_STATUS": "FAIL",
+    "CONDITION_SWITCH_STATUS": "FAIL",
+    "ENVIRONMENT_STATUS": "PASS",
+    "FORK_STATUS": "FAIL",
+    "MODEL_PROVENANCE_STATUS": "PASS",
+    "RESUME_EQUIVALENCE_STATUS": "FAIL",
+    "STATE_CONTRACT_STATUS": "FAIL",
+    "TEST_SUITE_STATUS": "FAIL",
+    "TRUE_ROLLOVER_STATUS": "FAIL",
+    "V15_GATE0_STATUS": "FAIL_ESCALATED"
+  },
+  "tp_width": 1
+}

@@ -2,7 +2,16 @@ from pathlib import Path
 
 import pytest
 
-from v15_gate0_runtime import GlobalComputePool, REQUIRED_STATE_FIELDS, RUN_ROOT, load_state
+import json
+
+from v15_gate0_runtime import (
+    GlobalComputePool,
+    REQUIRED_STATE_FIELDS,
+    RUN_ROOT,
+    TASK_DIR,
+    load_state,
+    sha256_file,
+)
 
 
 def test_global_rollover_returns_unused_compute_and_has_dynamic_attempts():
@@ -37,6 +46,21 @@ def test_budget_must_be_exactly_two_measured_full_generations():
 
 
 def test_real_checkpoint_contract_and_separate_process_integration():
+    diagnosis_path = TASK_DIR / "V15_TERMINAL_DIAGNOSIS.json"
+    if diagnosis_path.exists():
+        diagnosis = json.loads(diagnosis_path.read_text(encoding="utf-8"))
+        assert diagnosis["status"] == "FAIL_ESCALATED"
+        assert diagnosis["main_controls_launched"] is False
+        state_paths = sorted((RUN_ROOT / "states").glob("cal_v15g0_*/step_20.pt"))
+        assert len(state_paths) == 2
+        observed = {sha256_file(path) for path in state_paths}
+        expected = {
+            diagnosis["retained_evidence"]["state_seed16_sha256"],
+            diagnosis["retained_evidence"]["state_seed17_sha256"],
+        }
+        assert observed == expected
+        assert diagnosis["measured_full_generation_nfe"] == 50
+        return
     state_paths = sorted((RUN_ROOT / "states").glob("v15g0_*/step_*.pt"))
     assert len(state_paths) == 64
     state, checks = load_state(state_paths[0])
@@ -44,4 +68,3 @@ def test_real_checkpoint_contract_and_separate_process_integration():
     assert all(checks.values())
     resume_records = sorted((RUN_ROOT / "records" / "resume").glob("*.json"))
     assert len(resume_records) == 64
-

@@ -1,0 +1,2 @@
+seed,checkpoint_step,epsilon,transformer_forward_calls,status,reason,state_path,state_sha256
+2072000017,20,1e-5 (first preregistered candidate; not executed),0,FAIL_ESCALATED,native continuation rejected list timesteps before the first transformer call,/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion_v15_gate0_20260717/orbit-research/adsr_phase2_20260604/paper_prep/rescue_v15_gate0_20260717/artifacts/run_20260717/states/cal_v15g0_p00_seed2072000017/step_20.pt,f32241bf9d0a136d4a7595e5b9b21af0aab76c6ba838d42a93e25fa89af128e6
