@@ -612,6 +612,17 @@
 | Evidence / source commit | `orbit-research/adsr_phase2_20260604/paper_prep/storage_triage/RELEASE_KEEP_MANIFEST.csv`; `orbit-research/adsr_phase2_20260604/paper_prep/RELEASE_SECRET_HYGIENE_20260707.md`; source commit `d84970bb611ac60976278e59308e31b2ca38e732`. |
 | Applicable banned phrasing | `all raw audio released`; `public package complete`; `final hosting complete`; release manifest as a scientific sample frame. |
 
+### 5.8 Exit-1 closeout verification
+
+| Required field | Inventory |
+|---|---|
+| Status | **PRIMARY** reproducibility/governance asset. |
+| Claim-ready sentence | The current-main Exit-1 closeout collected `389` repository tests and completed the full suite through `[100%]` with exit `0`. |
+| Exact numbers / unit | Collected test cases `389`; collection time `2.02 s`; full-suite exit `0`; unit = repository test case; CI = N/A. |
+| Instrument / label provenance | Repository pytest harness; automatic software verification; no experimental label. |
+| Evidence / source commit | `orbit-research/adsr_phase2_20260604/paper_prep/EXIT1_CLOSEOUT_TEST_MANIFEST_20260719.md`; `logs/EXIT1_EVIDENCE_CLOSEOUT_COLLECTION_20260719.log`; `logs/EXIT1_EVIDENCE_CLOSEOUT_FULL_TESTS_ATTEMPT4_20260719.log`; source commit `e62da107cf837bd0e537cf376d8245f60d8a841b`. |
+| Applicable banned phrasing | `tests validate scientific truth`; `test PASS erases the historical v1.5 Gate-0 suite failure`; omitting the ignored-input hydration and quota-recovery audit. |
+
 ## 6. Master limitations + banned-wording register
 
 | Scope | Required limitation / allowed boundary | Banned wording | Canonical evidence / commit |
