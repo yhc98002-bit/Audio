@@ -1,0 +1,62 @@
+{
+  "checkpoint_hash": "2058d6c10bd348da51669ff3886c6b4080405fe4c23bb3de183c293cb5f0bef9",
+  "completed_steps": 6,
+  "condition_hash": "b8c06c6b17a9b0a9f37550a09397e5ba60d1501cb54cd5af69b5cf39da6e9548",
+  "cpu_rng_sha256": "7d8b5358ef56004b0d1751119cb6060a7d1f6dde2776b95536a723d9ccf9f162",
+  "cuda_rng_sha256": "db23aa4ab0b0faeadfbdbe16f00b8cd4e6dffd6635945c5ee7484f8ba178ee31",
+  "extras": {
+    "condition_payload": {
+      "cache_tensor_sha256": {
+        "encoder_hidden_cond": "aa2cf96036a551d39a2483342277487a81f471b6c29d53d413207e2df9f4ad6e",
+        "encoder_hidden_null": "c4a4fbfcbd380b64c26c4f43e89c109627f69f4fb05120dbd7575ba83a47178e",
+        "encoder_mask_cond": "1257adace2dde879fd1dd7a0dd153ad8eedab8ecd29bb7f42c0dbe8cf523623b",
+        "encoder_mask_null": "1257adace2dde879fd1dd7a0dd153ad8eedab8ecd29bb7f42c0dbe8cf523623b"
+      },
+      "cfg_scale": 5.0,
+      "cfg_type": "cfg",
+      "guidance_interval": 0.5,
+      "guidance_scale_lyric": 0.0,
+      "guidance_scale_text": 0.0,
+      "lyrics": "the sea was loud that day\nthe sea was always loud\nwe just stopped listening for the difference",
+      "only_text_cache_tensor_sha256": {},
+      "prompt_id": "dev_0075",
+      "requested_vocal": 1,
+      "structure_hint": "intro-A-B-A'-bridge-A''",
+      "switched": false,
+      "text": "A driving rock number energetic around 135 bpm, featuring wall of fuzz, kick on every beat, sparse vocal. Lyrics in English."
+    },
+    "guidance_interval": 0.5,
+    "inference_steps": 30,
+    "next_timestep_index": 6,
+    "omega_scale": 10.0
+  },
+  "generator_rng_sha256": "90150a7793076fc711a996e1f38669a56299830964d0e0b8f1e6bb63c6e75ce5",
+  "latent_dtype": "torch.bfloat16",
+  "latent_sha256": "9918fc01cf1aec2191a87bbd31dfe2b3dd667ce602fda395cd3423f2b714f6c1",
+  "latent_shape": [
+    1,
+    8,
+    16,
+    427
+  ],
+  "model_hash": "203e623b252592794e667015ca51cab23d9bfdf74ad56c98efca5d4c2cf179ab",
+  "model_output_dtype": "torch.bfloat16",
+  "model_output_sha256": "19b6eabd5ac73c264f190b998af3081d85786402a4cdaf07e800cb7e51ff517f",
+  "model_output_shape": [
+    1,
+    8,
+    16,
+    427
+  ],
+  "next_sigma": 0.9044515490531921,
+  "nfe_count": 6,
+  "prompt_id": "dev_0075",
+  "root_seed": 2064100000,
+  "scheduler_hash": "d3d724dec32d4f2d3df62d4dc9de30c1b74c0d2602e19063ec00031e2f7ebe8d",
+  "scheduler_index": 6,
+  "scheduler_step_count": 6,
+  "sigma": 0.9202777147293091,
+  "state_file_sha256": "6fb1af2bca641965c47eb070702ab6fd3f5d0d3e323fdb3d7a2603032d8923f3",
+  "state_id": "dev_0075__seed2064100000__step06",
+  "timestep": 920.2777099609375
+}

@@ -1,0 +1,62 @@
+{
+  "checkpoint_hash": "2058d6c10bd348da51669ff3886c6b4080405fe4c23bb3de183c293cb5f0bef9",
+  "completed_steps": 6,
+  "condition_hash": "5fe4719f1deecc062ac92df35db952b745e05c610d8b971c5dd4677441d77693",
+  "cpu_rng_sha256": "873109284b4577d146b2d754523dc39b7bb89e1d0004db963a0a32a0b6397f4a",
+  "cuda_rng_sha256": "3914f119c79d790717a0870e1d8759c6fbf232415f544742d71519f6efaba710",
+  "extras": {
+    "condition_payload": {
+      "cache_tensor_sha256": {
+        "encoder_hidden_cond": "39190a6a406390e019818432ff677f1a242df8fc04733cae91b706c700317482",
+        "encoder_hidden_null": "fbd9ac01de1b9814a349bd6c05f6471f439f462ceb4820be09bb33ae3df29c3b",
+        "encoder_mask_cond": "b3dc2a9d95c7cb0e90207d3b395ef832dd0b5c111f859a117990b3da2dab7e9d",
+        "encoder_mask_null": "b3dc2a9d95c7cb0e90207d3b395ef832dd0b5c111f859a117990b3da2dab7e9d"
+      },
+      "cfg_scale": 5.0,
+      "cfg_type": "cfg",
+      "guidance_interval": 0.5,
+      "guidance_scale_lyric": 0.0,
+      "guidance_scale_text": 0.0,
+      "lyrics": "",
+      "only_text_cache_tensor_sha256": {},
+      "prompt_id": "dev_0194",
+      "requested_vocal": 0,
+      "structure_hint": "verse-chorus-verse",
+      "switched": false,
+      "text": "A contemplative classical song upbeat around 130 bpm, featuring woodwind ensemble: flute, clarinet, bassoon. (fully instrumental, no vocals)."
+    },
+    "guidance_interval": 0.5,
+    "inference_steps": 30,
+    "next_timestep_index": 6,
+    "omega_scale": 10.0
+  },
+  "generator_rng_sha256": "c4ba9b448af9d14eaa4aa257c6235b29edb23a0b707e8caa9a5bc710a6899000",
+  "latent_dtype": "torch.bfloat16",
+  "latent_sha256": "f52578e3c98e2a15966afc48cae16e1d5c3f9047bb7fe25ca7a75c958482899d",
+  "latent_shape": [
+    1,
+    8,
+    16,
+    424
+  ],
+  "model_hash": "203e623b252592794e667015ca51cab23d9bfdf74ad56c98efca5d4c2cf179ab",
+  "model_output_dtype": "torch.bfloat16",
+  "model_output_sha256": "29f6cb6bbc7f644139b65a8f61b3b668dd7168a4bc76d938a27f9c203ecfb74d",
+  "model_output_shape": [
+    1,
+    8,
+    16,
+    424
+  ],
+  "next_sigma": 0.9044515490531921,
+  "nfe_count": 6,
+  "prompt_id": "dev_0194",
+  "root_seed": 2063210000,
+  "scheduler_hash": "d3d724dec32d4f2d3df62d4dc9de30c1b74c0d2602e19063ec00031e2f7ebe8d",
+  "scheduler_index": 6,
+  "scheduler_step_count": 6,
+  "sigma": 0.9202777147293091,
+  "state_file_sha256": "9f7b4a62f41a0a29a2f3412b16d5f71e578e1175fb87abc5267991bf1ee0cde5",
+  "state_id": "dev_0194__seed2063210000__step06",
+  "timestep": 920.2777099609375
+}

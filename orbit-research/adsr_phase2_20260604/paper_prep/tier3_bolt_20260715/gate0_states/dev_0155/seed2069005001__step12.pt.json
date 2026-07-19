@@ -1,0 +1,62 @@
+{
+  "checkpoint_hash": "2058d6c10bd348da51669ff3886c6b4080405fe4c23bb3de183c293cb5f0bef9",
+  "completed_steps": 12,
+  "condition_hash": "78fcb9a064c14891da5cb3074c4f36947fdaf2a32c622f9eb591e1a7ddbdba9d",
+  "cpu_rng_sha256": "9547c85c35448b8656821f5fd4f2ec2fbe97e5e590c316ae5b2c5bbc55d05373",
+  "cuda_rng_sha256": "9e6531cf76909bdb21818c565afb0a627a91336c0b3206698267e34f6c2d3e95",
+  "extras": {
+    "condition_payload": {
+      "cache_tensor_sha256": {
+        "encoder_hidden_cond": "17b866b4d5106b3f5a1cccfeec227896a8a4b59872c23fb6ca71b154643eb2e4",
+        "encoder_hidden_null": "19e009e5407d659deeb881099363e023d0606252ab2b4c90a8f417a43b3a2da5",
+        "encoder_mask_cond": "c7972188d15c19ee3e8c70aa62f3061a9bfe8e9ca7cd12ea69146a4bb3388a4d",
+        "encoder_mask_null": "c7972188d15c19ee3e8c70aa62f3061a9bfe8e9ca7cd12ea69146a4bb3388a4d"
+      },
+      "cfg_scale": 5.0,
+      "cfg_type": "cfg",
+      "guidance_interval": 0.5,
+      "guidance_scale_lyric": 0.0,
+      "guidance_scale_text": 0.0,
+      "lyrics": "",
+      "only_text_cache_tensor_sha256": {},
+      "prompt_id": "dev_0155",
+      "requested_vocal": 0,
+      "structure_hint": "AABA",
+      "switched": false,
+      "text": "A lo-fi electronic track at a brisk 145 bpm, featuring syncopated drum machine, side-chained pad, glassy lead. (no vocals; the lead is the instrument named below)."
+    },
+    "guidance_interval": 0.5,
+    "inference_steps": 30,
+    "next_timestep_index": 12,
+    "omega_scale": 10.0
+  },
+  "generator_rng_sha256": "91b0124db3c9d7068cd7a2b1a24381818625a07230caeb8b2f50fa74915409d4",
+  "latent_dtype": "torch.bfloat16",
+  "latent_sha256": "e3efc3ca317bfcc2af9e6bccad197e93826beb27bbc591742f02bdc236d8ee16",
+  "latent_shape": [
+    1,
+    8,
+    16,
+    655
+  ],
+  "model_hash": "203e623b252592794e667015ca51cab23d9bfdf74ad56c98efca5d4c2cf179ab",
+  "model_output_dtype": "torch.bfloat16",
+  "model_output_sha256": "86fd5a299df10ce7e0a89647bdbfa7437a13c60e0f6b2aeade7d341049370156",
+  "model_output_shape": [
+    1,
+    8,
+    16,
+    655
+  ],
+  "next_sigma": 0.7877941131591797,
+  "nfe_count": 17,
+  "prompt_id": "dev_0155",
+  "root_seed": 2069005001,
+  "scheduler_hash": "d3d724dec32d4f2d3df62d4dc9de30c1b74c0d2602e19063ec00031e2f7ebe8d",
+  "scheduler_index": 12,
+  "scheduler_step_count": 12,
+  "sigma": 0.810310423374176,
+  "state_file_sha256": "995d936ee0166dee1e2b41ca96d482a0c1206cf91d6b0f64f8d6cde86a60d223",
+  "state_id": "dev_0155__seed2069005001__step12",
+  "timestep": 810.3104248046875
+}

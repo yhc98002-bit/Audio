@@ -1,0 +1,62 @@
+{
+  "checkpoint_hash": "2058d6c10bd348da51669ff3886c6b4080405fe4c23bb3de183c293cb5f0bef9",
+  "completed_steps": 12,
+  "condition_hash": "dee0238e1885e99554061f2f2b0e2deb9c6e452fec1fa9ca21b8f0860dd91c32",
+  "cpu_rng_sha256": "4328d452d2d197f1b309ec5035843346a933837937eb937667d8bcf688bdabc1",
+  "cuda_rng_sha256": "4aee4586c8c31ca163ff0bd1023829dfbd10580ad38ab88545d68f7591fc17a9",
+  "extras": {
+    "condition_payload": {
+      "cache_tensor_sha256": {
+        "encoder_hidden_cond": "7282b5b40d7e6054a3ce24b575c986f2b25a47dd542ec95f75d1076de1241218",
+        "encoder_hidden_null": "98abf9aefbcdadb342dca7070e83dfbcf9ddc00321a9f793c481abca90b2c365",
+        "encoder_mask_cond": "6e6701c9bf286cbcfa541b4aca77a273d9f95f0a6b7655f8a95bebb364a67d36",
+        "encoder_mask_null": "6e6701c9bf286cbcfa541b4aca77a273d9f95f0a6b7655f8a95bebb364a67d36"
+      },
+      "cfg_scale": 5.0,
+      "cfg_type": "cfg",
+      "guidance_interval": 0.5,
+      "guidance_scale_lyric": 0.0,
+      "guidance_scale_text": 0.0,
+      "lyrics": "",
+      "only_text_cache_tensor_sha256": {},
+      "prompt_id": "dev_0070",
+      "requested_vocal": 0,
+      "structure_hint": "intro-A-B-A'-bridge-A''",
+      "switched": false,
+      "text": "A garage-flavored electronic song at a brisk 145 bpm, featuring layered arpeggios with a quarter-note kick and reverb-washed snares, with a multi-section arc, with a 16-bar build into a release, (purely instrumental; treat lyrics field as empty)."
+    },
+    "guidance_interval": 0.5,
+    "inference_steps": 30,
+    "next_timestep_index": 12,
+    "omega_scale": 10.0
+  },
+  "generator_rng_sha256": "1fc106ccf7e7c12ab3efd751f0024c61b7c7c4c8a2511f66328d524b1d7d26a6",
+  "latent_dtype": "torch.bfloat16",
+  "latent_sha256": "a353515263f045753cd05def200880408b55878bbe2ad7a1918c49fd6ac67aa5",
+  "latent_shape": [
+    1,
+    8,
+    16,
+    415
+  ],
+  "model_hash": "203e623b252592794e667015ca51cab23d9bfdf74ad56c98efca5d4c2cf179ab",
+  "model_output_dtype": "torch.bfloat16",
+  "model_output_sha256": "7c205512266443ac32e67539c38fff73a3d24d14eebca6ff69c55e0ab0d461bf",
+  "model_output_shape": [
+    1,
+    8,
+    16,
+    415
+  ],
+  "next_sigma": 0.7877941131591797,
+  "nfe_count": 17,
+  "prompt_id": "dev_0070",
+  "root_seed": 2062700000,
+  "scheduler_hash": "d3d724dec32d4f2d3df62d4dc9de30c1b74c0d2602e19063ec00031e2f7ebe8d",
+  "scheduler_index": 12,
+  "scheduler_step_count": 12,
+  "sigma": 0.810310423374176,
+  "state_file_sha256": "3c6a39142db3c6e56ebc5dfdc1f5ced83c8269cdccc8cd0f9b3cd7b2ac0d470b",
+  "state_id": "dev_0070__seed2062700000__step12",
+  "timestep": 810.3104248046875
+}

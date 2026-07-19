@@ -1,0 +1,62 @@
+{
+  "checkpoint_hash": "2058d6c10bd348da51669ff3886c6b4080405fe4c23bb3de183c293cb5f0bef9",
+  "completed_steps": 12,
+  "condition_hash": "083f041f3cdec47acb778153d04f45feee08f88e0ed551e214e13e8f005e0bba",
+  "cpu_rng_sha256": "c0470a27af6ccaeb38c00721387ecb021ce27f080dcb3f5b3d24e53349fa1970",
+  "cuda_rng_sha256": "67c2150acb8c1006b7323f6e7272558c09d8467ce92020758c32603d5cf2ef96",
+  "extras": {
+    "condition_payload": {
+      "cache_tensor_sha256": {
+        "encoder_hidden_cond": "42ab30cd9b5627fc22c5f31786f3a582bd489ca248a20adf7109600a7969d3eb",
+        "encoder_hidden_null": "183d956cfea5f08ceffe9ddf66b9b5535abc6b3b0bb57f224e63dbbb637d4e7b",
+        "encoder_mask_cond": "4260e0e61147803abb019e963527c744b0be55ef3b3f01145ef447efae280050",
+        "encoder_mask_null": "4260e0e61147803abb019e963527c744b0be55ef3b3f01145ef447efae280050"
+      },
+      "cfg_scale": 5.0,
+      "cfg_type": "cfg",
+      "guidance_interval": 0.5,
+      "guidance_scale_lyric": 0.0,
+      "guidance_scale_text": 0.0,
+      "lyrics": "",
+      "only_text_cache_tensor_sha256": {},
+      "prompt_id": "dev_0140",
+      "requested_vocal": 0,
+      "structure_hint": "",
+      "switched": false,
+      "text": "Could we try a minimal electronic piece ballad-paced? Nothing fancy. Instrumental \u2014 no vocals."
+    },
+    "guidance_interval": 0.5,
+    "inference_steps": 30,
+    "next_timestep_index": 12,
+    "omega_scale": 10.0
+  },
+  "generator_rng_sha256": "06c03ceedf46499b5379e8e83ac8d61a5402de6ac61e5c7308d89216dc713f36",
+  "latent_dtype": "torch.bfloat16",
+  "latent_sha256": "e7701785161a36d532fd696d45175981fc11d04ccf9f0b9c53c70aea8a520c86",
+  "latent_shape": [
+    1,
+    8,
+    16,
+    767
+  ],
+  "model_hash": "203e623b252592794e667015ca51cab23d9bfdf74ad56c98efca5d4c2cf179ab",
+  "model_output_dtype": "torch.bfloat16",
+  "model_output_sha256": "2f36a33006eb96fa6f53c8e9ef62a05c822a8fd65aada9cd8b91a1f649cbe349",
+  "model_output_shape": [
+    1,
+    8,
+    16,
+    767
+  ],
+  "next_sigma": 0.7877941131591797,
+  "nfe_count": 17,
+  "prompt_id": "dev_0140",
+  "root_seed": 2061910000,
+  "scheduler_hash": "d3d724dec32d4f2d3df62d4dc9de30c1b74c0d2602e19063ec00031e2f7ebe8d",
+  "scheduler_index": 12,
+  "scheduler_step_count": 12,
+  "sigma": 0.810310423374176,
+  "state_file_sha256": "2021f968ce5a2751965b358058040cfd23fbdae367231924beb2520cfe429713",
+  "state_id": "dev_0140__seed2061910000__step12",
+  "timestep": 810.3104248046875
+}

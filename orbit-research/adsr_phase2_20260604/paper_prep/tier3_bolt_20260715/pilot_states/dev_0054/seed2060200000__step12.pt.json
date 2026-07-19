@@ -1,0 +1,62 @@
+{
+  "checkpoint_hash": "2058d6c10bd348da51669ff3886c6b4080405fe4c23bb3de183c293cb5f0bef9",
+  "completed_steps": 12,
+  "condition_hash": "b46aa38a35fb5b9990885ac31154727dc3c85616b7b97ae735d4c8aab880d060",
+  "cpu_rng_sha256": "905a3cdda37b2ee3cc61b2e3940d07f2fff3f76542d6052ee2fa99cad4dd179c",
+  "cuda_rng_sha256": "e1881339446dffcbee60e3359bc98dfe7c70a9507a4a7d5aa1d8b94b968b15c1",
+  "extras": {
+    "condition_payload": {
+      "cache_tensor_sha256": {
+        "encoder_hidden_cond": "324ffcdffdf6273f0bfd1beee5fac757afb9ba6534a05a371faade97ff72b074",
+        "encoder_hidden_null": "59674a636249c3e77691041c764f52673c97c39db2bb038750b78aa1b096b4a4",
+        "encoder_mask_cond": "45ea5552f9be6910a4a830fd8eab7556a3c678eaaef447d372c65721c143ff28",
+        "encoder_mask_null": "45ea5552f9be6910a4a830fd8eab7556a3c678eaaef447d372c65721c143ff28"
+      },
+      "cfg_scale": 5.0,
+      "cfg_type": "cfg",
+      "guidance_interval": 0.5,
+      "guidance_scale_lyric": 0.0,
+      "guidance_scale_text": 0.0,
+      "lyrics": "",
+      "only_text_cache_tensor_sha256": {},
+      "prompt_id": "dev_0054",
+      "requested_vocal": 0,
+      "structure_hint": "",
+      "switched": false,
+      "text": "Could we try a stately classical piece upbeat? Nothing fancy. Instrumental \u2014 no vocals."
+    },
+    "guidance_interval": 0.5,
+    "inference_steps": 30,
+    "next_timestep_index": 12,
+    "omega_scale": 10.0
+  },
+  "generator_rng_sha256": "0f147a52ea85a67c4d1a5085df17643927b9fc848d57634d01faf3b0b5e60f42",
+  "latent_dtype": "torch.bfloat16",
+  "latent_sha256": "625ec7d738c7b35a9c4bc18833e62070a9f9a8f6b52f369024b27728fcf5c9c0",
+  "latent_shape": [
+    1,
+    8,
+    16,
+    370
+  ],
+  "model_hash": "203e623b252592794e667015ca51cab23d9bfdf74ad56c98efca5d4c2cf179ab",
+  "model_output_dtype": "torch.bfloat16",
+  "model_output_sha256": "57359f67b4d30200a691c5abd2fdcc8329c682b0561bfc6b8efc3636637b2548",
+  "model_output_shape": [
+    1,
+    8,
+    16,
+    370
+  ],
+  "next_sigma": 0.7877941131591797,
+  "nfe_count": 17,
+  "prompt_id": "dev_0054",
+  "root_seed": 2060200000,
+  "scheduler_hash": "d3d724dec32d4f2d3df62d4dc9de30c1b74c0d2602e19063ec00031e2f7ebe8d",
+  "scheduler_index": 12,
+  "scheduler_step_count": 12,
+  "sigma": 0.810310423374176,
+  "state_file_sha256": "52ee2429efe8e0bf342e1c3381e690276a4561d46b10eb40f535fe80ad854c6b",
+  "state_id": "dev_0054__seed2060200000__step12",
+  "timestep": 810.3104248046875
+}

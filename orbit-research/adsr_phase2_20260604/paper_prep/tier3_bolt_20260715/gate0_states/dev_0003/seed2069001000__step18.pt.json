@@ -1,0 +1,62 @@
+{
+  "checkpoint_hash": "2058d6c10bd348da51669ff3886c6b4080405fe4c23bb3de183c293cb5f0bef9",
+  "completed_steps": 18,
+  "condition_hash": "782e504307a2c24bcddcc5587f40de3da67d950997cfdad9d133f00e8b32825e",
+  "cpu_rng_sha256": "1dea1519e8740a906d8f218306a5f2134423b8ea16562a15ae0b3d86cd7692f1",
+  "cuda_rng_sha256": "50b690b283e427ed93dc3d58f487fbc298695b62ce421634f5c63fe54ac721b4",
+  "extras": {
+    "condition_payload": {
+      "cache_tensor_sha256": {
+        "encoder_hidden_cond": "f01d28a5a710bf52f0af3bd08af73841753b2fe0225dda08e6d3af73fcc3df18",
+        "encoder_hidden_null": "d1882fa77ee3f971a1fd97009887547aac779862a580c03a7ccbf8070d95c4f5",
+        "encoder_mask_cond": "131fe83636a651f72a9b12dd87a48e9bb851ad7ec12949ed6ecfdf4e9b236732",
+        "encoder_mask_null": "131fe83636a651f72a9b12dd87a48e9bb851ad7ec12949ed6ecfdf4e9b236732"
+      },
+      "cfg_scale": 5.0,
+      "cfg_type": "cfg",
+      "guidance_interval": 0.5,
+      "guidance_scale_lyric": 0.0,
+      "guidance_scale_text": 0.0,
+      "lyrics": "I planted the same tomatoes\nin the same soil\nin a different year",
+      "only_text_cache_tensor_sha256": {},
+      "prompt_id": "dev_0003",
+      "requested_vocal": 1,
+      "structure_hint": "",
+      "switched": false,
+      "text": "Give me a tender folk number, around 130 bpm."
+    },
+    "guidance_interval": 0.5,
+    "inference_steps": 30,
+    "next_timestep_index": 18,
+    "omega_scale": 10.0
+  },
+  "generator_rng_sha256": "fc6ba2a83bb0b3e04ff20a23677cefa9843615a8200098b44b0cfd3e783e411c",
+  "latent_dtype": "torch.bfloat16",
+  "latent_sha256": "98edf76b8b70378a5479aeb8a75d96ba1374084be7389ec84365ece9ec248ec8",
+  "latent_shape": [
+    1,
+    8,
+    16,
+    396
+  ],
+  "model_hash": "203e623b252592794e667015ca51cab23d9bfdf74ad56c98efca5d4c2cf179ab",
+  "model_output_dtype": "torch.bfloat16",
+  "model_output_sha256": "23a959991bc15490cd97ce741c85227ee6d12828558b324efd0a8a33209ea6af",
+  "model_output_shape": [
+    1,
+    8,
+    16,
+    396
+  ],
+  "next_sigma": 0.6143013834953308,
+  "nfe_count": 29,
+  "prompt_id": "dev_0003",
+  "root_seed": 2069001000,
+  "scheduler_hash": "d3d724dec32d4f2d3df62d4dc9de30c1b74c0d2602e19063ec00031e2f7ebe8d",
+  "scheduler_index": 18,
+  "scheduler_step_count": 18,
+  "sigma": 0.6488576531410217,
+  "state_file_sha256": "7908ac27e712f6c4bdaf76de2e6cbe29d66e02f962c74da304d1b1cc17dbe81b",
+  "state_id": "dev_0003__seed2069001000__step18",
+  "timestep": 648.857666015625
+}

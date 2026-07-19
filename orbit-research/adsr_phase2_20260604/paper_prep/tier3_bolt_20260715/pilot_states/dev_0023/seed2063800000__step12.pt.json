@@ -1,0 +1,62 @@
+{
+  "checkpoint_hash": "2058d6c10bd348da51669ff3886c6b4080405fe4c23bb3de183c293cb5f0bef9",
+  "completed_steps": 12,
+  "condition_hash": "257a973a0f616835f42012dff5c534cba167c25129b2093b89baf20c1f54741b",
+  "cpu_rng_sha256": "6b779710fc15e66d45628c62f92c40eb250f0f8a75dcca469b933553d3108d68",
+  "cuda_rng_sha256": "061c49190e9b6b740344a062dd40e913bf0b4405e09ff4f52d025b7cc37684f0",
+  "extras": {
+    "condition_payload": {
+      "cache_tensor_sha256": {
+        "encoder_hidden_cond": "f1f1703c0a30e59ddf0746f9e6543bb5a7386c053062e8ae8416f6a3b454695e",
+        "encoder_hidden_null": "9af26faa294ca086cdf6441266283d07d1278f45c10d8d343dd67b39c92ed7da",
+        "encoder_mask_cond": "bfcc5de0a80b47c7aff36675c68a21ba204f6300514f97e7c091230c567e595c",
+        "encoder_mask_null": "bfcc5de0a80b47c7aff36675c68a21ba204f6300514f97e7c091230c567e595c"
+      },
+      "cfg_scale": 5.0,
+      "cfg_type": "cfg",
+      "guidance_interval": 0.5,
+      "guidance_scale_lyric": 0.0,
+      "guidance_scale_text": 0.0,
+      "lyrics": "if I write you a letter\nit will be short",
+      "only_text_cache_tensor_sha256": {},
+      "prompt_id": "dev_0023",
+      "requested_vocal": 1,
+      "structure_hint": "intro-A-B-A'-bridge-A''",
+      "switched": false,
+      "text": "A moody hip_hop composition at mid-tempo around 105 bpm, featuring rolling 808s, snappy hats, soulful Rhodes chops. Lyrics in English."
+    },
+    "guidance_interval": 0.5,
+    "inference_steps": 30,
+    "next_timestep_index": 12,
+    "omega_scale": 10.0
+  },
+  "generator_rng_sha256": "d23afe7d591fa96130c3a82277aa2c8c2ab5b370fe5208dc07384ad2d2e2dbe4",
+  "latent_dtype": "torch.bfloat16",
+  "latent_sha256": "0f19725453055353aed4a799ee1a2fb441863b4aa0b3ff8a1dc1f02b0ae93e4c",
+  "latent_shape": [
+    1,
+    8,
+    16,
+    416
+  ],
+  "model_hash": "203e623b252592794e667015ca51cab23d9bfdf74ad56c98efca5d4c2cf179ab",
+  "model_output_dtype": "torch.bfloat16",
+  "model_output_sha256": "8a70ddd1182707d674df6b1df79e19269581e7d5eafe41eb67f6ddd79dd9a9fd",
+  "model_output_shape": [
+    1,
+    8,
+    16,
+    416
+  ],
+  "next_sigma": 0.7877941131591797,
+  "nfe_count": 17,
+  "prompt_id": "dev_0023",
+  "root_seed": 2063800000,
+  "scheduler_hash": "d3d724dec32d4f2d3df62d4dc9de30c1b74c0d2602e19063ec00031e2f7ebe8d",
+  "scheduler_index": 12,
+  "scheduler_step_count": 12,
+  "sigma": 0.810310423374176,
+  "state_file_sha256": "c296a7eede345f8e1374f8b345cea75ebb2c537aa63b72326ba321e4adf15f33",
+  "state_id": "dev_0023__seed2063800000__step12",
+  "timestep": 810.3104248046875
+}

@@ -1,0 +1,62 @@
+{
+  "checkpoint_hash": "2058d6c10bd348da51669ff3886c6b4080405fe4c23bb3de183c293cb5f0bef9",
+  "completed_steps": 18,
+  "condition_hash": "6e3e10e6d5a35f5478d28052d4b69b8fc97e2a897fd839dbaa6ff5d363b251e3",
+  "cpu_rng_sha256": "0baa65945c62a4f89b98ef4830701caf67f146f9d678cd2bf376b5c31268de55",
+  "cuda_rng_sha256": "efebcf63de118c69ac3fd52e86bafea1fc496d095b00cd166da18c37ff9a844a",
+  "extras": {
+    "condition_payload": {
+      "cache_tensor_sha256": {
+        "encoder_hidden_cond": "2ed049183d20e3de96e6973abb1203e4813d9bd37da932d9fddc44da9a9ef31e",
+        "encoder_hidden_null": "a6088b0dfc9cb3553c996aeb8cb3e8fc91a1f9f6c51d385c2bd5fa6d74a4d307",
+        "encoder_mask_cond": "4bbc1061b024d32b2baff4e6b9a16ca3c90dddd8909f08c4d9e4dbea78bd7a72",
+        "encoder_mask_null": "4bbc1061b024d32b2baff4e6b9a16ca3c90dddd8909f08c4d9e4dbea78bd7a72"
+      },
+      "cfg_scale": 5.0,
+      "cfg_type": "cfg",
+      "guidance_interval": 0.5,
+      "guidance_scale_lyric": 0.0,
+      "guidance_scale_text": 0.0,
+      "lyrics": "we used to count the planes\nfrom your father's roof",
+      "only_text_cache_tensor_sha256": {},
+      "prompt_id": "dev_0143",
+      "requested_vocal": 1,
+      "structure_hint": "AABA",
+      "switched": false,
+      "text": "A trap-inflected hip_hop song driving at 140 bpm, featuring wide trap snares with detuned synth bass. Lyrics in English."
+    },
+    "guidance_interval": 0.5,
+    "inference_steps": 30,
+    "next_timestep_index": 18,
+    "omega_scale": 10.0
+  },
+  "generator_rng_sha256": "151b66fce15f5447397524a0679d18c59f82c266edf14a815ce3fd7e47e4f793",
+  "latent_dtype": "torch.bfloat16",
+  "latent_sha256": "d3d10f73149c155a09af7db5ac4aa7d18f06f2932e13a3192b7f35a2b5590996",
+  "latent_shape": [
+    1,
+    8,
+    16,
+    377
+  ],
+  "model_hash": "203e623b252592794e667015ca51cab23d9bfdf74ad56c98efca5d4c2cf179ab",
+  "model_output_dtype": "torch.bfloat16",
+  "model_output_sha256": "cae7ab4f82aba2400e15b70522f3b1f0bd2bfa9f0debf5d69d69abf39e116914",
+  "model_output_shape": [
+    1,
+    8,
+    16,
+    377
+  ],
+  "next_sigma": 0.6143013834953308,
+  "nfe_count": 29,
+  "prompt_id": "dev_0143",
+  "root_seed": 2069004001,
+  "scheduler_hash": "d3d724dec32d4f2d3df62d4dc9de30c1b74c0d2602e19063ec00031e2f7ebe8d",
+  "scheduler_index": 18,
+  "scheduler_step_count": 18,
+  "sigma": 0.6488576531410217,
+  "state_file_sha256": "35df818157f8fa2ddcb03eee666f503658b9bd698652a9b77922b3faa01d8b44",
+  "state_id": "dev_0143__seed2069004001__step18",
+  "timestep": 648.857666015625
+}

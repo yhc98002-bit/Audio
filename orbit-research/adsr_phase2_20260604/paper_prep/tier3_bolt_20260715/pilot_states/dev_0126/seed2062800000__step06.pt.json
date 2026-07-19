@@ -1,0 +1,62 @@
+{
+  "checkpoint_hash": "2058d6c10bd348da51669ff3886c6b4080405fe4c23bb3de183c293cb5f0bef9",
+  "completed_steps": 6,
+  "condition_hash": "745c80bfda7ab446ad3477cea17e63279d7cf6c78380fabfbe2683eb1667bcfd",
+  "cpu_rng_sha256": "67d72f5c21c1e411e306fe3d5e3f5b3fc30429b1c5e3bd25b990caecd43324d7",
+  "cuda_rng_sha256": "3924346b5f25dbda8470b4b60896aee51c6f8304e420969af161e95a487f58fe",
+  "extras": {
+    "condition_payload": {
+      "cache_tensor_sha256": {
+        "encoder_hidden_cond": "e9c677a5ab8f92d27dcd32bb86d1b8447f6e85ec1803c28983e82fcbe5e16245",
+        "encoder_hidden_null": "89a62b0063736f37da82dea82ac5d5733a2af91fda8565b79ca160f075c433c7",
+        "encoder_mask_cond": "a387e2468704161770754883c4a70dec27b9e3561da5fadd3ed9546402cba107",
+        "encoder_mask_null": "a387e2468704161770754883c4a70dec27b9e3561da5fadd3ed9546402cba107"
+      },
+      "cfg_scale": 5.0,
+      "cfg_type": "cfg",
+      "guidance_interval": 0.5,
+      "guidance_scale_lyric": 0.0,
+      "guidance_scale_text": 0.0,
+      "lyrics": "",
+      "only_text_cache_tensor_sha256": {},
+      "prompt_id": "dev_0126",
+      "requested_vocal": 0,
+      "structure_hint": "verse-chorus-verse",
+      "switched": false,
+      "text": "A glitch-tinged electronic number energetic around 135 bpm, featuring syncopated drum machine, side-chained pad, glassy lead, in alternating-section form, with two intertwined synth lines panned wide, (fully instrumental, no vocals)."
+    },
+    "guidance_interval": 0.5,
+    "inference_steps": 30,
+    "next_timestep_index": 6,
+    "omega_scale": 10.0
+  },
+  "generator_rng_sha256": "55f311d6be2c3ad9a0660db677405229d7c4f02ed7df48a2c6ee2db46d3683aa",
+  "latent_dtype": "torch.bfloat16",
+  "latent_sha256": "c907ab2ed70d6e180df3b1314c7f2837eb295ca4cdcb32c6607df21e2eb6b60f",
+  "latent_shape": [
+    1,
+    8,
+    16,
+    697
+  ],
+  "model_hash": "203e623b252592794e667015ca51cab23d9bfdf74ad56c98efca5d4c2cf179ab",
+  "model_output_dtype": "torch.bfloat16",
+  "model_output_sha256": "5010bc19447f13644d57e82645c3e067a6433d17e03573a84cec36f1e93c03df",
+  "model_output_shape": [
+    1,
+    8,
+    16,
+    697
+  ],
+  "next_sigma": 0.9044515490531921,
+  "nfe_count": 6,
+  "prompt_id": "dev_0126",
+  "root_seed": 2062800000,
+  "scheduler_hash": "d3d724dec32d4f2d3df62d4dc9de30c1b74c0d2602e19063ec00031e2f7ebe8d",
+  "scheduler_index": 6,
+  "scheduler_step_count": 6,
+  "sigma": 0.9202777147293091,
+  "state_file_sha256": "ed841e550b49560f8e03380bee20077615af748064adedd22c05245c82721ebc",
+  "state_id": "dev_0126__seed2062800000__step06",
+  "timestep": 920.2777099609375
+}

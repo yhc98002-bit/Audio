@@ -1,0 +1,62 @@
+{
+  "checkpoint_hash": "2058d6c10bd348da51669ff3886c6b4080405fe4c23bb3de183c293cb5f0bef9",
+  "completed_steps": 6,
+  "condition_hash": "64e564d1d9f6e4333bb9f98db1f8a20086161b6b45ef6100c4601cb250a2a0f2",
+  "cpu_rng_sha256": "a8e1fdda8590e9fd32dc89c2d955d43d27bc11148c3bb11aa022e35f6981e722",
+  "cuda_rng_sha256": "3495385bd2709ce58e6d0febad595697a354ba5f3fcba7d072b092544f5937a2",
+  "extras": {
+    "condition_payload": {
+      "cache_tensor_sha256": {
+        "encoder_hidden_cond": "3b8ebd125b8479a80c899cdc22829fb36344bbe75cf199263101f286a4fc9fc8",
+        "encoder_hidden_null": "61a58396ca754dd9138ff53965452e49daaad4a00cf6d4a90ff8205f49c070dc",
+        "encoder_mask_cond": "0355538cde0d1535f268e841107b29d86f899c31bfced04c65c67f4c17352b0c",
+        "encoder_mask_null": "0355538cde0d1535f268e841107b29d86f899c31bfced04c65c67f4c17352b0c"
+      },
+      "cfg_scale": 5.0,
+      "cfg_type": "cfg",
+      "guidance_interval": 0.5,
+      "guidance_scale_lyric": 0.0,
+      "guidance_scale_text": 0.0,
+      "lyrics": "we forgot the umbrella\nwe forgot most things actually\nwe are good at most things actually",
+      "only_text_cache_tensor_sha256": {},
+      "prompt_id": "dev_0239",
+      "requested_vocal": 1,
+      "structure_hint": "AABA",
+      "switched": false,
+      "text": "A luminous classical piece upbeat around 130 bpm, featuring string orchestra plus solo violin. Lyrics in English."
+    },
+    "guidance_interval": 0.5,
+    "inference_steps": 30,
+    "next_timestep_index": 6,
+    "omega_scale": 10.0
+  },
+  "generator_rng_sha256": "ba4ae875218ff92f8f1d972aca18d46184e5b06fc4051e7d7849aa8b043115c2",
+  "latent_dtype": "torch.bfloat16",
+  "latent_sha256": "d8607084e9aaa15e3c6addcc00446eff474159e5196f5b8ad357dba8a9322b08",
+  "latent_shape": [
+    1,
+    8,
+    16,
+    395
+  ],
+  "model_hash": "203e623b252592794e667015ca51cab23d9bfdf74ad56c98efca5d4c2cf179ab",
+  "model_output_dtype": "torch.bfloat16",
+  "model_output_sha256": "f3d89f358d168dfe26c9a7f8ba350cc690b9eb8b14f12cea9c75466267d4c335",
+  "model_output_shape": [
+    1,
+    8,
+    16,
+    395
+  ],
+  "next_sigma": 0.9044515490531921,
+  "nfe_count": 6,
+  "prompt_id": "dev_0239",
+  "root_seed": 2064710000,
+  "scheduler_hash": "d3d724dec32d4f2d3df62d4dc9de30c1b74c0d2602e19063ec00031e2f7ebe8d",
+  "scheduler_index": 6,
+  "scheduler_step_count": 6,
+  "sigma": 0.9202777147293091,
+  "state_file_sha256": "7b593f855256de268f3c11f5fbfdfc64a1fd9d2a768a81f72aeb160ca7ba7432",
+  "state_id": "dev_0239__seed2064710000__step06",
+  "timestep": 920.2777099609375
+}

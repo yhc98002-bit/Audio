@@ -1,0 +1,62 @@
+{
+  "checkpoint_hash": "2058d6c10bd348da51669ff3886c6b4080405fe4c23bb3de183c293cb5f0bef9",
+  "completed_steps": 6,
+  "condition_hash": "db4f5efa2ea282d671fa3a02a67cef6375a7d1a78a2d4044bc6cf2d9bdea881e",
+  "cpu_rng_sha256": "51dd29b048314f3a0fda99de2aef27692d7f91412dfad32e26f397b71f22558b",
+  "cuda_rng_sha256": "d1e6b53db0aa1559e3499e092efc996b0ed1c0d00a9546132eb67b5ce9e3e4be",
+  "extras": {
+    "condition_payload": {
+      "cache_tensor_sha256": {
+        "encoder_hidden_cond": "9ac2d73650ab4fec0a354cf3100d3471d0a1dd9dc3e8cb26cea939df3e1c18a3",
+        "encoder_hidden_null": "302e5a1ba54e6c494ee6bf0e2ecbb50cc9d1097d2dc683444296ace787806b25",
+        "encoder_mask_cond": "72467580010084ca1e72c0b348af1babe42d7779f6ae1aca1186b4ded358bfd7",
+        "encoder_mask_null": "72467580010084ca1e72c0b348af1babe42d7779f6ae1aca1186b4ded358bfd7"
+      },
+      "cfg_scale": 5.0,
+      "cfg_type": "cfg",
+      "guidance_interval": 0.5,
+      "guidance_scale_lyric": 0.0,
+      "guidance_scale_text": 0.0,
+      "lyrics": "",
+      "only_text_cache_tensor_sha256": {},
+      "prompt_id": "dev_0162",
+      "requested_vocal": 0,
+      "structure_hint": "intro-A-B-A'-bridge-A''",
+      "switched": false,
+      "text": "A playful classical tune at a comfortable swing, featuring harp arpeggios under a single sustained cello note, with a multi-section arc, with an ABA' formal arc, (no vocals; the lead is the instrument named below)."
+    },
+    "guidance_interval": 0.5,
+    "inference_steps": 30,
+    "next_timestep_index": 6,
+    "omega_scale": 10.0
+  },
+  "generator_rng_sha256": "7f561d84dbcf54674f9effc952e14e2144eea04aeaeea7d8743831f151185313",
+  "latent_dtype": "torch.bfloat16",
+  "latent_sha256": "361bd8ec07b93316e14c7d3148159578930d514fea80d4838622cefc14e271e2",
+  "latent_shape": [
+    1,
+    8,
+    16,
+    349
+  ],
+  "model_hash": "203e623b252592794e667015ca51cab23d9bfdf74ad56c98efca5d4c2cf179ab",
+  "model_output_dtype": "torch.bfloat16",
+  "model_output_sha256": "97151813889ef247d10af86cea7d194773d9c155d36f298fe57f29618855db1e",
+  "model_output_shape": [
+    1,
+    8,
+    16,
+    349
+  ],
+  "next_sigma": 0.9044515490531921,
+  "nfe_count": 6,
+  "prompt_id": "dev_0162",
+  "root_seed": 2063110000,
+  "scheduler_hash": "d3d724dec32d4f2d3df62d4dc9de30c1b74c0d2602e19063ec00031e2f7ebe8d",
+  "scheduler_index": 6,
+  "scheduler_step_count": 6,
+  "sigma": 0.9202777147293091,
+  "state_file_sha256": "3be1c11d7cc3c65c2eb65d5fd75fc384541a6814b49f9072b4da2261275a152c",
+  "state_id": "dev_0162__seed2063110000__step06",
+  "timestep": 920.2777099609375
+}

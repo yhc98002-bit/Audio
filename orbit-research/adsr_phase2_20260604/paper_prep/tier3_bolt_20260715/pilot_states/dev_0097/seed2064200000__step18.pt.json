@@ -1,0 +1,62 @@
+{
+  "checkpoint_hash": "2058d6c10bd348da51669ff3886c6b4080405fe4c23bb3de183c293cb5f0bef9",
+  "completed_steps": 18,
+  "condition_hash": "d6df4f1aa9cb574a20a213c24199d0c30215ab5d0931842b60eea5eabee5ef0c",
+  "cpu_rng_sha256": "a5720c55c057ec8b835b74939e964dd03de81a3660946aa5b7251cb5742d5ac3",
+  "cuda_rng_sha256": "b22537a364302cc2dc73d9f38d8bf623dfb1df83cbcd96514e491a837b53637d",
+  "extras": {
+    "condition_payload": {
+      "cache_tensor_sha256": {
+        "encoder_hidden_cond": "9f24f8b01a63827aa5769d799b0765723ea54d085d7940d06d98001304f402af",
+        "encoder_hidden_null": "a1b013c7f0015a2e5e86e54a8f51293923b9c78da01903b4ad544cba4b7b29d7",
+        "encoder_mask_cond": "109e50de9c61eaaccc4522f684a8c649b333152d662313412b828653e6e0a4c0",
+        "encoder_mask_null": "109e50de9c61eaaccc4522f684a8c649b333152d662313412b828653e6e0a4c0"
+      },
+      "cfg_scale": 5.0,
+      "cfg_type": "cfg",
+      "guidance_interval": 0.5,
+      "guidance_scale_lyric": 0.0,
+      "guidance_scale_text": 0.0,
+      "lyrics": "we counted the streetlights\nbetween two apartments\nbetween two lives we did not name yet",
+      "only_text_cache_tensor_sha256": {},
+      "prompt_id": "dev_0097",
+      "requested_vocal": 1,
+      "structure_hint": "intro-A-B-A'-bridge-A''",
+      "switched": false,
+      "text": "A free-leaning jazz track very fast, 175+ bpm, featuring vibraphone, bass, and light cymbal washes, with a multi-section arc, with a rubato intro into in-time at bar 9, in English."
+    },
+    "guidance_interval": 0.5,
+    "inference_steps": 30,
+    "next_timestep_index": 18,
+    "omega_scale": 10.0
+  },
+  "generator_rng_sha256": "12455603c83ea2d2d89d05f203bb41e6485e777d8436a7cfa400812129f9080a",
+  "latent_dtype": "torch.bfloat16",
+  "latent_sha256": "c6f20c7fa850dfb0f573f080ad2c852cb9f9ebad66db6e5e0f7caf4d694d53a0",
+  "latent_shape": [
+    1,
+    8,
+    16,
+    670
+  ],
+  "model_hash": "203e623b252592794e667015ca51cab23d9bfdf74ad56c98efca5d4c2cf179ab",
+  "model_output_dtype": "torch.bfloat16",
+  "model_output_sha256": "a8778594ed92ae16ba31f6325885d743d7b19cf037e74c8a4d203e625c0f0b4b",
+  "model_output_shape": [
+    1,
+    8,
+    16,
+    670
+  ],
+  "next_sigma": 0.6143013834953308,
+  "nfe_count": 29,
+  "prompt_id": "dev_0097",
+  "root_seed": 2064200000,
+  "scheduler_hash": "d3d724dec32d4f2d3df62d4dc9de30c1b74c0d2602e19063ec00031e2f7ebe8d",
+  "scheduler_index": 18,
+  "scheduler_step_count": 18,
+  "sigma": 0.6488576531410217,
+  "state_file_sha256": "20664d5e385665f63db9ccfb761b13c0bcfd7c27eed3862f1e1280f40e2e24b1",
+  "state_id": "dev_0097__seed2064200000__step18",
+  "timestep": 648.857666015625
+}

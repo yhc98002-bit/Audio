@@ -1,0 +1,62 @@
+{
+  "checkpoint_hash": "2058d6c10bd348da51669ff3886c6b4080405fe4c23bb3de183c293cb5f0bef9",
+  "completed_steps": 12,
+  "condition_hash": "96fb4fbc5ebeef56f70402a4e541aa943475e6d046788276dc966d1c3c70a9ce",
+  "cpu_rng_sha256": "942fe2d9e675621efd595b4fb1e5baa37d9e4beaa8a8a92dbc7231072173058e",
+  "cuda_rng_sha256": "aadfb9121c25b39549fc720b79f474d933c139311f8ef3b3c331b2bc2142a6ea",
+  "extras": {
+    "condition_payload": {
+      "cache_tensor_sha256": {
+        "encoder_hidden_cond": "ab547d47089f170c2574597a594b33ab519ed9aa23bcc30a176796cf92663670",
+        "encoder_hidden_null": "2e44da5d5d2af8a834eb8b07c43168b0a8a3e23bd0ca9f6aecf25195d74f20f2",
+        "encoder_mask_cond": "fc9fd1641e64e2d8354b55afeddd71053ceadf1874a9e0ac60015ee3400a2d62",
+        "encoder_mask_null": "fc9fd1641e64e2d8354b55afeddd71053ceadf1874a9e0ac60015ee3400a2d62"
+      },
+      "cfg_scale": 5.0,
+      "cfg_type": "cfg",
+      "guidance_interval": 0.5,
+      "guidance_scale_lyric": 0.0,
+      "guidance_scale_text": 0.0,
+      "lyrics": "",
+      "only_text_cache_tensor_sha256": {},
+      "prompt_id": "dev_0026",
+      "requested_vocal": 0,
+      "structure_hint": "",
+      "switched": false,
+      "text": "Something lonesome in the folk vein \u2014 mid-tempo. Instrumental \u2014 no vocals."
+    },
+    "guidance_interval": 0.5,
+    "inference_steps": 30,
+    "next_timestep_index": 12,
+    "omega_scale": 10.0
+  },
+  "generator_rng_sha256": "ee8aee6f89ca75d6cc0abb933ef5af4601c8e0d9a5435ec7f19ee9e3d86b36d6",
+  "latent_dtype": "torch.bfloat16",
+  "latent_sha256": "9c0f91e28161417291828c5af35fa71d7e7a0f06d591ff81b417b14a6e188c48",
+  "latent_shape": [
+    1,
+    8,
+    16,
+    378
+  ],
+  "model_hash": "203e623b252592794e667015ca51cab23d9bfdf74ad56c98efca5d4c2cf179ab",
+  "model_output_dtype": "torch.bfloat16",
+  "model_output_sha256": "f9c53ea296731e330289815ca643a450f1c82157d5c9b6530ff64b0b28d41054",
+  "model_output_shape": [
+    1,
+    8,
+    16,
+    378
+  ],
+  "next_sigma": 0.7877941131591797,
+  "nfe_count": 17,
+  "prompt_id": "dev_0026",
+  "root_seed": 2060010000,
+  "scheduler_hash": "d3d724dec32d4f2d3df62d4dc9de30c1b74c0d2602e19063ec00031e2f7ebe8d",
+  "scheduler_index": 12,
+  "scheduler_step_count": 12,
+  "sigma": 0.810310423374176,
+  "state_file_sha256": "505bf638531cad9abc107463de2f1c4d41ddeb42e79565e5ff6f6d3ac567c46b",
+  "state_id": "dev_0026__seed2060010000__step12",
+  "timestep": 810.3104248046875
+}

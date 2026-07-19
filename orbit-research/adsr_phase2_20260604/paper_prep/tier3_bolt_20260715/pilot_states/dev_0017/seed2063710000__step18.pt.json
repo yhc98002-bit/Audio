@@ -1,0 +1,62 @@
+{
+  "checkpoint_hash": "2058d6c10bd348da51669ff3886c6b4080405fe4c23bb3de183c293cb5f0bef9",
+  "completed_steps": 18,
+  "condition_hash": "5a9163db57607b3ddbb3471873cfbd604336f26ba14e0c20c80b056aafc8dfc9",
+  "cpu_rng_sha256": "1ad41bcdf555faec3c0f0f5a9c61b78808bde28e27e44051322e9ec573b1c729",
+  "cuda_rng_sha256": "e02497ea25cd2fef43cf150699595116c4757459425c12e48966990e89ba67d1",
+  "extras": {
+    "condition_payload": {
+      "cache_tensor_sha256": {
+        "encoder_hidden_cond": "033153c73e553288db6c86557c6ad29a90ec54de1cfe14884bd146a043d2ff58",
+        "encoder_hidden_null": "cd29a4184d1b0a01e9a8d99447a626c9fb129a352c98645012fd0b45c6dfd63b",
+        "encoder_mask_cond": "493d3adffcef5c493bcaa87f852b1c618177a4afcd791a2384c9ac2a5723b97f",
+        "encoder_mask_null": "493d3adffcef5c493bcaa87f852b1c618177a4afcd791a2384c9ac2a5723b97f"
+      },
+      "cfg_scale": 5.0,
+      "cfg_type": "cfg",
+      "guidance_interval": 0.5,
+      "guidance_scale_lyric": 0.0,
+      "guidance_scale_text": 0.0,
+      "lyrics": "we will meet again\nin a small town we never named\nthat will know us anyway",
+      "only_text_cache_tensor_sha256": {},
+      "prompt_id": "dev_0017",
+      "requested_vocal": 1,
+      "structure_hint": "verse-chorus-verse",
+      "switched": false,
+      "text": "An earnest pop number a slow, featuring warm bass groove with strummed acoustic guitar, in verse-chorus form, with a sing-along chorus, in English."
+    },
+    "guidance_interval": 0.5,
+    "inference_steps": 30,
+    "next_timestep_index": 18,
+    "omega_scale": 10.0
+  },
+  "generator_rng_sha256": "527120169dad75de29fb22ffd3291914cbc9c07f5cb143dc65d80d643ec04b9d",
+  "latent_dtype": "torch.bfloat16",
+  "latent_sha256": "9d4b39ed000cd33db8a56611581a6ceb7c7a05f1a74266dd52e24df29967c91d",
+  "latent_shape": [
+    1,
+    8,
+    16,
+    333
+  ],
+  "model_hash": "203e623b252592794e667015ca51cab23d9bfdf74ad56c98efca5d4c2cf179ab",
+  "model_output_dtype": "torch.bfloat16",
+  "model_output_sha256": "a91d16fbf5d759cce8b395dc1ba955f4ff18ead2acbb2ab5150d35f4c79963af",
+  "model_output_shape": [
+    1,
+    8,
+    16,
+    333
+  ],
+  "next_sigma": 0.6143013834953308,
+  "nfe_count": 29,
+  "prompt_id": "dev_0017",
+  "root_seed": 2063710000,
+  "scheduler_hash": "d3d724dec32d4f2d3df62d4dc9de30c1b74c0d2602e19063ec00031e2f7ebe8d",
+  "scheduler_index": 18,
+  "scheduler_step_count": 18,
+  "sigma": 0.6488576531410217,
+  "state_file_sha256": "14fb4016e1b66327ca59f1a0c14af41e83c04eb94de1520e99618087803f452e",
+  "state_id": "dev_0017__seed2063710000__step18",
+  "timestep": 648.857666015625
+}

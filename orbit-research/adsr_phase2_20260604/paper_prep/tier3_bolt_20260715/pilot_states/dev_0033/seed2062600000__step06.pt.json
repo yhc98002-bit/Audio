@@ -1,0 +1,62 @@
+{
+  "checkpoint_hash": "2058d6c10bd348da51669ff3886c6b4080405fe4c23bb3de183c293cb5f0bef9",
+  "completed_steps": 6,
+  "condition_hash": "68308c55366c93bb98b8488ce43bcd27067af7c2b1a2fd1a9fa40206defb7eb4",
+  "cpu_rng_sha256": "9a097a354c1763a3cc5c3d0fa8ac7b1998be6b87979bdb358d0afc552296e9d8",
+  "cuda_rng_sha256": "25e4b2bd5bf8ba1770f821d360baf2c7e543f415a23d7341e6efda307572114d",
+  "extras": {
+    "condition_payload": {
+      "cache_tensor_sha256": {
+        "encoder_hidden_cond": "dea3167b2bce83c8335cdb9256f46a900660be50cfe1f622bbc93cd29076e0d7",
+        "encoder_hidden_null": "76ed1533462b86f68a982a12dacddf71f531b1e2a27f67e0df045daf00062aff",
+        "encoder_mask_cond": "28fc8475087b9fa73db141324549ab174f4871b3e511421a3297ef687ab067f8",
+        "encoder_mask_null": "28fc8475087b9fa73db141324549ab174f4871b3e511421a3297ef687ab067f8"
+      },
+      "cfg_scale": 5.0,
+      "cfg_type": "cfg",
+      "guidance_interval": 0.5,
+      "guidance_scale_lyric": 0.0,
+      "guidance_scale_text": 0.0,
+      "lyrics": "",
+      "only_text_cache_tensor_sha256": {},
+      "prompt_id": "dev_0033",
+      "requested_vocal": 0,
+      "structure_hint": "AABA",
+      "switched": false,
+      "text": "A contemplative classical piece around 80 bpm, featuring harp arpeggios under a single sustained cello note. (purely instrumental; treat lyrics field as empty)."
+    },
+    "guidance_interval": 0.5,
+    "inference_steps": 30,
+    "next_timestep_index": 6,
+    "omega_scale": 10.0
+  },
+  "generator_rng_sha256": "f684ae2a11d38922013c2cd400af09a778316a63bf14975c2bb3f7a095508d42",
+  "latent_dtype": "torch.bfloat16",
+  "latent_sha256": "374d1ee836ec4462eb47a7adca7bfd9a37197430fae54fe1b6b80b4d977e8f47",
+  "latent_shape": [
+    1,
+    8,
+    16,
+    402
+  ],
+  "model_hash": "203e623b252592794e667015ca51cab23d9bfdf74ad56c98efca5d4c2cf179ab",
+  "model_output_dtype": "torch.bfloat16",
+  "model_output_sha256": "257330ea984b172d06a011eac33bd1825719bc21303d7af61be58f9a0724a356",
+  "model_output_shape": [
+    1,
+    8,
+    16,
+    402
+  ],
+  "next_sigma": 0.9044515490531921,
+  "nfe_count": 6,
+  "prompt_id": "dev_0033",
+  "root_seed": 2062600000,
+  "scheduler_hash": "d3d724dec32d4f2d3df62d4dc9de30c1b74c0d2602e19063ec00031e2f7ebe8d",
+  "scheduler_index": 6,
+  "scheduler_step_count": 6,
+  "sigma": 0.9202777147293091,
+  "state_file_sha256": "45dae3a6ceceeaf9acd1ecf5ca99931de2b5ca71f667d81410801ad7588b2c80",
+  "state_id": "dev_0033__seed2062600000__step06",
+  "timestep": 920.2777099609375
+}

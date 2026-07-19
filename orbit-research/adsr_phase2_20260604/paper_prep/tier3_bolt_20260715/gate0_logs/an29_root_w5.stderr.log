@@ -1,0 +1,4 @@
+2026-07-16 02:05:16.307 | INFO     | acestep.pipeline_ace_step:get_checkpoint_path:170 - Load models from: /HOME/paratera_xy/pxy1289/.cache/modelscope/hub/models/ACE-Step/ACE-Step-v1-3___5B
+/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion_envs/w2-torch251/lib/python3.10/site-packages/torch/nn/utils/weight_norm.py:143: FutureWarning: `torch.nn.utils.weight_norm` is deprecated in favor of `torch.nn.utils.parametrizations.weight_norm`.
+  WeightNorm.apply(module, name, dim)
+Loading weights:   0%|          | 0/122 [00:00<?, ?it/s]Loading weights: 100%|██████████| 122/122 [00:00<00:00, 415.62it/s]Loading weights: 100%|██████████| 122/122 [00:00<00:00, 415.25it/s]

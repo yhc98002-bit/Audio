@@ -1,0 +1,62 @@
+{
+  "checkpoint_hash": "2058d6c10bd348da51669ff3886c6b4080405fe4c23bb3de183c293cb5f0bef9",
+  "completed_steps": 12,
+  "condition_hash": "69c486c972b18197f0466b0beb73a3e53f085ec818bf2ce2035fc787ef978d86",
+  "cpu_rng_sha256": "2b6dbeb85d420c208afb13fe3d960aed098d3749480d0f461e743fb33b4f0014",
+  "cuda_rng_sha256": "2915e4df15b5749f85bcf93ef06ee5191e3abda44ee5cc51882a1565728a15d3",
+  "extras": {
+    "condition_payload": {
+      "cache_tensor_sha256": {
+        "encoder_hidden_cond": "30985c55c3f06b72f201a2222fe9d2f024aa7866025e24544aceecd24071cc0b",
+        "encoder_hidden_null": "1a95c7f8639b3493871a557a53d0396ad36c0cb420737347b3e0ed498db7c7bb",
+        "encoder_mask_cond": "39e591f379df7843cadc612fc780d9b52e5cafb625cec943f3920e40097df15f",
+        "encoder_mask_null": "39e591f379df7843cadc612fc780d9b52e5cafb625cec943f3920e40097df15f"
+      },
+      "cfg_scale": 5.0,
+      "cfg_type": "cfg",
+      "guidance_interval": 0.5,
+      "guidance_scale_lyric": 0.0,
+      "guidance_scale_text": 0.0,
+      "lyrics": "",
+      "only_text_cache_tensor_sha256": {},
+      "prompt_id": "dev_0187",
+      "requested_vocal": 0,
+      "structure_hint": "intro-A-B-A'-bridge-A''",
+      "switched": false,
+      "text": "A windswept folk song very fast, 175+ bpm, featuring banjo and fiddle, sometimes a bowed bass, with a multi-section arc, (fully instrumental, no vocals)."
+    },
+    "guidance_interval": 0.5,
+    "inference_steps": 30,
+    "next_timestep_index": 12,
+    "omega_scale": 10.0
+  },
+  "generator_rng_sha256": "8a0b258b2b2c4484224f5dbf8ba27e18668300092badf1b89a06303bda0c905e",
+  "latent_dtype": "torch.bfloat16",
+  "latent_sha256": "ae361129dc21276b7cc68bc46456e9cbb11079c8b788c9a093fb7fdb875cf70f",
+  "latent_shape": [
+    1,
+    8,
+    16,
+    451
+  ],
+  "model_hash": "203e623b252592794e667015ca51cab23d9bfdf74ad56c98efca5d4c2cf179ab",
+  "model_output_dtype": "torch.bfloat16",
+  "model_output_sha256": "d6a00e752e639480a31c05457bf4a2771458747de8f3be075b0c9afe64026d9c",
+  "model_output_shape": [
+    1,
+    8,
+    16,
+    451
+  ],
+  "next_sigma": 0.7877941131591797,
+  "nfe_count": 17,
+  "prompt_id": "dev_0187",
+  "root_seed": 2060900000,
+  "scheduler_hash": "d3d724dec32d4f2d3df62d4dc9de30c1b74c0d2602e19063ec00031e2f7ebe8d",
+  "scheduler_index": 12,
+  "scheduler_step_count": 12,
+  "sigma": 0.810310423374176,
+  "state_file_sha256": "7cac827815545e8ed1afa63aa51187e26793c677156526749212590053c994b1",
+  "state_id": "dev_0187__seed2060900000__step12",
+  "timestep": 810.3104248046875
+}

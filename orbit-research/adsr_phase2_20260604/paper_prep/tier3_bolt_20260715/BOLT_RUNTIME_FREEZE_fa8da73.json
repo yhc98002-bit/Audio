@@ -1,0 +1,43 @@
+{
+  "ace_step_checkpoint_manifest_sha256": "2058d6c10bd348da51669ff3886c6b4080405fe4c23bb3de183c293cb5f0bef9",
+  "ace_step_declared_commit": "1bee4c9f5b43e30995f8d4d33b3919197ce1bd68",
+  "ace_step_source_manifest_sha256": "203e623b252592794e667015ca51cab23d9bfdf74ad56c98efca5d4c2cf179ab",
+  "bolt_code_manifest_sha256": "915ea683ac290c00608e7be269a3e4066e6676873640b2d31d24e210d61f74fb",
+  "bolt_git_sha": "fa8da736a3ba99d2e44b75479591e5c0d5a13dd9",
+  "cudnn_version": 90100,
+  "differences": {},
+  "gpu_inventory": [
+    "0, NVIDIA A800 80GB PCIe, 535.104.12, 81920",
+    "1, NVIDIA A800 80GB PCIe, 535.104.12, 81920",
+    "2, NVIDIA A800 80GB PCIe, 535.104.12, 81920",
+    "3, NVIDIA A800 80GB PCIe, 535.104.12, 81920",
+    "4, NVIDIA A800 80GB PCIe, 535.104.12, 81920",
+    "5, NVIDIA A800 80GB PCIe, 535.104.12, 81920",
+    "6, NVIDIA A800 80GB PCIe, 535.104.12, 81920",
+    "7, NVIDIA A800 80GB PCIe, 535.104.12, 81920"
+  ],
+  "instrument_sha256": "3aa68674b9ce919d407f25070a93ca73f14ed39af36f41090a4db000b5df1524",
+  "nodes": [
+    "an12",
+    "an29"
+  ],
+  "pip_freeze_sha256": "1c325703c21670896d9307b2cf7de3ca7a02451cba1c72946a833b860cb06d18",
+  "probe_artifacts": [
+    "orbit-research/adsr_phase2_20260604/paper_prep/tier3_bolt_20260715/BOLT_ENV_PROBE_an12.json",
+    "orbit-research/adsr_phase2_20260604/paper_prep/tier3_bolt_20260715/BOLT_ENV_PROBE_an29.json"
+  ],
+  "probe_sha256": {
+    "BOLT_ENV_PROBE_an12.json": "725ee3973c991c3ee91646573cb339218edf5c7727e1e0574bb14769ef1be6e7",
+    "BOLT_ENV_PROBE_an29.json": "288c62621fa20c26517db1327e770efeae960c3bde2b5c691db332a14c556741"
+  },
+  "promotion_sha256": "2ec9f12fd9008dae0e32675fcdaaf9e7a22fe0ed7006dd310b665b1e82be2ff2",
+  "python_version": "3.10.20",
+  "quality_artifact_manifest_sha256": "dd541ede824b48ca0fc65cc32d1d8c1a832e4cf1fe132517adfb5f0ac9aae205",
+  "quality_gate_policy_sha256": "34db933b67d06f3acc3780e70b2f492a20d685ef710777fc81eaffba1d2806e9",
+  "runtime_freeze_sha256": "70002343d1cd15c73a59f2ef43febf915307dc05e21999f6a29def2db42171f0",
+  "scheduler_sha256": "d3d724dec32d4f2d3df62d4dc9de30c1b74c0d2602e19063ec00031e2f7ebe8d",
+  "status": "FROZEN_PARITY_PASS",
+  "torch_cuda_version": "12.1",
+  "torch_version": "2.5.1+cu121",
+  "torchaudio_version": "2.5.1+cu121"
+}

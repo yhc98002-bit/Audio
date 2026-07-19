@@ -1,0 +1,62 @@
+{
+  "checkpoint_hash": "2058d6c10bd348da51669ff3886c6b4080405fe4c23bb3de183c293cb5f0bef9",
+  "completed_steps": 6,
+  "condition_hash": "a4d03aff45c94d1af85ef249468581745c1f257ba172538d1fa0979eb76739a8",
+  "cpu_rng_sha256": "433ccc8b45f6d1d118c3add1362dddfa6ffc3992a03436d89e7bf51b8ff98b7a",
+  "cuda_rng_sha256": "2984e67c538f9cd99b9ccac1270082afa9442592de7bf3755fd70a5f957fd8ad",
+  "extras": {
+    "condition_payload": {
+      "cache_tensor_sha256": {
+        "encoder_hidden_cond": "a19568a33cb550e3e76bb412c1e356ec32a85bf78f7a35a1a8b03908478bde7b",
+        "encoder_hidden_null": "84b297d884a5893e107edd6658a8ee04f6064bf53cb0062a0a680a6533b0005c",
+        "encoder_mask_cond": "5fc446c0a64df3354b2eb317616ff0128fdb4a26019aee8f2b0141d7b93b04bb",
+        "encoder_mask_null": "5fc446c0a64df3354b2eb317616ff0128fdb4a26019aee8f2b0141d7b93b04bb"
+      },
+      "cfg_scale": 5.0,
+      "cfg_type": "cfg",
+      "guidance_interval": 0.5,
+      "guidance_scale_lyric": 0.0,
+      "guidance_scale_text": 0.0,
+      "lyrics": "left my keys on the windowsill\nthe morning came in sideways\ncall me when the air feels different",
+      "only_text_cache_tensor_sha256": {},
+      "prompt_id": "dev_0202",
+      "requested_vocal": 1,
+      "structure_hint": "verse-chorus-verse",
+      "switched": false,
+      "text": "An anthemic rock song upbeat around 130 bpm, featuring single-coil guitar tone, brushed snare, a soft Hammond pad, in verse-chorus form, with an outro that drops to just bass and voice, in English."
+    },
+    "guidance_interval": 0.5,
+    "inference_steps": 30,
+    "next_timestep_index": 6,
+    "omega_scale": 10.0
+  },
+  "generator_rng_sha256": "26aed5569dcbbc5d21bcf7b49faaee93c07bf804c5e5ef1a4b79291420b19b5f",
+  "latent_dtype": "torch.bfloat16",
+  "latent_sha256": "cb9124efa41d8a9f84c848ae2caea5182763d3c076bebab577ced94f8bb657be",
+  "latent_shape": [
+    1,
+    8,
+    16,
+    364
+  ],
+  "model_hash": "203e623b252592794e667015ca51cab23d9bfdf74ad56c98efca5d4c2cf179ab",
+  "model_output_dtype": "torch.bfloat16",
+  "model_output_sha256": "fd52acda609f821617bac9672817df9fb25f17e40e43638e97ea8acc1b9b23f2",
+  "model_output_shape": [
+    1,
+    8,
+    16,
+    364
+  ],
+  "next_sigma": 0.9044515490531921,
+  "nfe_count": 6,
+  "prompt_id": "dev_0202",
+  "root_seed": 2069006000,
+  "scheduler_hash": "d3d724dec32d4f2d3df62d4dc9de30c1b74c0d2602e19063ec00031e2f7ebe8d",
+  "scheduler_index": 6,
+  "scheduler_step_count": 6,
+  "sigma": 0.9202777147293091,
+  "state_file_sha256": "8c05a1ce9ed9638fb8243f1d459499565106b35f2ed7f6b4563bcff47db016af",
+  "state_id": "dev_0202__seed2069006000__step06",
+  "timestep": 920.2777099609375
+}

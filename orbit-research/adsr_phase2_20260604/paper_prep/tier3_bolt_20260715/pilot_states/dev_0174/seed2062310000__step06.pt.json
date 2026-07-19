@@ -1,0 +1,62 @@
+{
+  "checkpoint_hash": "2058d6c10bd348da51669ff3886c6b4080405fe4c23bb3de183c293cb5f0bef9",
+  "completed_steps": 6,
+  "condition_hash": "16100d221436aa14c74ae3acc5b43bb6da35a7eb93073576387f262e9692613b",
+  "cpu_rng_sha256": "5517cb2a2ac35297b8dbde3dd92d42c95a8ff95fba3480a0fd5bb306907983a4",
+  "cuda_rng_sha256": "e53480d847fde9324acb6411336d7d5183f466eafe1ae3291f524a9d2499738d",
+  "extras": {
+    "condition_payload": {
+      "cache_tensor_sha256": {
+        "encoder_hidden_cond": "98143b735e3d2f67a5b440f78402d578049bef96a98985cd8ebafc3e48e37380",
+        "encoder_hidden_null": "685b897de25f8da4cd1c9a7e6f0f76dbd7ba3d8381849c526cbba4de44c3ae80",
+        "encoder_mask_cond": "9c9ef9099975b6fb6da9ab765625e327721e8a4fda1bc47a23c91a1769a9d289",
+        "encoder_mask_null": "9c9ef9099975b6fb6da9ab765625e327721e8a4fda1bc47a23c91a1769a9d289"
+      },
+      "cfg_scale": 5.0,
+      "cfg_type": "cfg",
+      "guidance_interval": 0.5,
+      "guidance_scale_lyric": 0.0,
+      "guidance_scale_text": 0.0,
+      "lyrics": "",
+      "only_text_cache_tensor_sha256": {},
+      "prompt_id": "dev_0174",
+      "requested_vocal": 0,
+      "structure_hint": "",
+      "switched": false,
+      "text": "Austere classical mood. Steady. Instrumental \u2014 no vocals."
+    },
+    "guidance_interval": 0.5,
+    "inference_steps": 30,
+    "next_timestep_index": 6,
+    "omega_scale": 10.0
+  },
+  "generator_rng_sha256": "74f3eb344c20ba6fc11b1d0306a9a8ab69f2f7f9cd26bcea5b75d78cc52bb0b5",
+  "latent_dtype": "torch.bfloat16",
+  "latent_sha256": "8312f831f87388e296c3c115961b4f849d113b39db3c28cf06bf08ebf977a065",
+  "latent_shape": [
+    1,
+    8,
+    16,
+    715
+  ],
+  "model_hash": "203e623b252592794e667015ca51cab23d9bfdf74ad56c98efca5d4c2cf179ab",
+  "model_output_dtype": "torch.bfloat16",
+  "model_output_sha256": "2a4d121b09d56d7c2d182e80ccff8a989746cf5b0272995b5e1d82a924ffc91d",
+  "model_output_shape": [
+    1,
+    8,
+    16,
+    715
+  ],
+  "next_sigma": 0.9044515490531921,
+  "nfe_count": 6,
+  "prompt_id": "dev_0174",
+  "root_seed": 2062310000,
+  "scheduler_hash": "d3d724dec32d4f2d3df62d4dc9de30c1b74c0d2602e19063ec00031e2f7ebe8d",
+  "scheduler_index": 6,
+  "scheduler_step_count": 6,
+  "sigma": 0.9202777147293091,
+  "state_file_sha256": "1c5220fb17c94664d9c541e3a42c3ebee12843a83db7407e91a50c74004a56ac",
+  "state_id": "dev_0174__seed2062310000__step06",
+  "timestep": 920.2777099609375
+}

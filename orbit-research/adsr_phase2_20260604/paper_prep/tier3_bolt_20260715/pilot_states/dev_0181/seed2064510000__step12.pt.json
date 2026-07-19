@@ -1,0 +1,62 @@
+{
+  "checkpoint_hash": "2058d6c10bd348da51669ff3886c6b4080405fe4c23bb3de183c293cb5f0bef9",
+  "completed_steps": 12,
+  "condition_hash": "b384eba66decaf1fb0dd8c6ef41bf9bc9ba517e1aed1ad912611ff9e998fcd2b",
+  "cpu_rng_sha256": "c19fc077a61195a1d87a3e1ef8fdfcd648e34471182b12f10d16893248cc9bfa",
+  "cuda_rng_sha256": "20d06d951f7c826f0b2d9519aee5c88ef59e686edd5a903be22e62cbed4babed",
+  "extras": {
+    "condition_payload": {
+      "cache_tensor_sha256": {
+        "encoder_hidden_cond": "79cb7aefc7cca4c717e499801668ec24c5f9cf6e34d8e5bd1b2fdb974ae66320",
+        "encoder_hidden_null": "5fdd8d4a7cc013600633ae8907d1c93f97cabd769ddaf76f27cd51104299aaaa",
+        "encoder_mask_cond": "60acc05b1508a33408ec1d538757c3fa312cb55f27b7caca13761bb6d98dfe69",
+        "encoder_mask_null": "60acc05b1508a33408ec1d538757c3fa312cb55f27b7caca13761bb6d98dfe69"
+      },
+      "cfg_scale": 5.0,
+      "cfg_type": "cfg",
+      "guidance_interval": 0.5,
+      "guidance_scale_lyric": 0.0,
+      "guidance_scale_text": 0.0,
+      "lyrics": "we used to count the planes\nfrom your father's roof\nfrom before they painted it green",
+      "only_text_cache_tensor_sha256": {},
+      "prompt_id": "dev_0181",
+      "requested_vocal": 1,
+      "structure_hint": "intro-A-B-A'-bridge-A''",
+      "switched": false,
+      "text": "A bludgeoning metal cut frantic, around 170 bpm, featuring down-tuned bass walking under a half-time groove. Lyrics in English."
+    },
+    "guidance_interval": 0.5,
+    "inference_steps": 30,
+    "next_timestep_index": 12,
+    "omega_scale": 10.0
+  },
+  "generator_rng_sha256": "520182bd5be4486b56a4b5d20d8b7233e333dea9073f00f83c12248b4134d05b",
+  "latent_dtype": "torch.bfloat16",
+  "latent_sha256": "63f16bf868c33195d2df02b725cff8a7717ca38d86f611c612309d0816a032f6",
+  "latent_shape": [
+    1,
+    8,
+    16,
+    362
+  ],
+  "model_hash": "203e623b252592794e667015ca51cab23d9bfdf74ad56c98efca5d4c2cf179ab",
+  "model_output_dtype": "torch.bfloat16",
+  "model_output_sha256": "6b7095d759a1ab2d7e65c9e6f6776f59518f871c2c9e7850f19f16d4c4949dad",
+  "model_output_shape": [
+    1,
+    8,
+    16,
+    362
+  ],
+  "next_sigma": 0.7877941131591797,
+  "nfe_count": 17,
+  "prompt_id": "dev_0181",
+  "root_seed": 2064510000,
+  "scheduler_hash": "d3d724dec32d4f2d3df62d4dc9de30c1b74c0d2602e19063ec00031e2f7ebe8d",
+  "scheduler_index": 12,
+  "scheduler_step_count": 12,
+  "sigma": 0.810310423374176,
+  "state_file_sha256": "d925ad51f88d4f0e58b01c1755097013c436fcfd39b4d6b301beba77679b0ef6",
+  "state_id": "dev_0181__seed2064510000__step12",
+  "timestep": 810.3104248046875
+}

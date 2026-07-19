@@ -1,0 +1,50 @@
+{
+  "best_static_cqs": 0.7760848694316437,
+  "bootstrap_reps": 10000,
+  "crossfit_nonstatic_share": 0.10391385048643112,
+  "folds": 6,
+  "gate15a": "STOP_THIS_AXIS",
+  "input_hashes": {
+    "action_ledger": "934d63566421b4bcf3e6b60f42155cdb5f3445cb03c9353a79065a76f129196b",
+    "preregistration": "0abe2b865e65eb9c0523f3713b6d1bd91ab6220baa3bea3201ddba71b119456e",
+    "prompt_manifest": "45e469914b50e16da564c2331798d8ed455f35c59b5dacfc721d32d5f530205c",
+    "root_ledger": "090b7aaa471e9ca02abe73d746cf0a3ff900579ba08f3080634cd2f67773404d",
+    "state_feature_ledger": "83a0572ffe7d10b5f364ece4627a8c0c13c2049ec3451c00a25be3fc171e5cad"
+  },
+  "outcome_aware_oracle_cqs60_upper_bound": 0.931451613,
+  "program_rows": 1440,
+  "promptonly_policy_cqs": 0.7837173579109064,
+  "promptstate_policy_cqs": 0.7837173579109064,
+  "root_symmetry": {
+    "promptonly": {
+      "root_a_to_b_cqs": 0.7483358934971839,
+      "root_b_to_a_cqs": 0.7969214029697901,
+      "symmetrized_cqs": 0.772628648233487
+    },
+    "promptstate": {
+      "root_a_to_b_cqs": 0.7621927803379416,
+      "root_b_to_a_cqs": 0.7969214029697901,
+      "symmetrized_cqs": 0.7795570916538659
+    }
+  },
+  "state_incremental_value": 0.0,
+  "state_incremental_value_lcb95": 0.0,
+  "states": 288,
+  "status": "COMPLETE",
+  "structural_reverification": {
+    "conditioning_harmful_bootstrap_ci95": [
+      0.3812115471033799,
+      0.6712614648655065
+    ],
+    "conditioning_harmful_count": 13,
+    "conditioning_harmful_unweighted_rate": 0.2708333333333333,
+    "conditioning_harmful_weighted_rate": 0.5411866359447005,
+    "switch_beats_restart_bootstrap_ci95": [
+      0.021582982860665928,
+      0.06751357050898774
+    ],
+    "switch_beats_restart_state_count": 19,
+    "switch_beats_restart_unweighted_state_rate": 0.06597222222222222,
+    "switch_beats_restart_weighted_state_rate": 0.04177547363031234
+  }
+}

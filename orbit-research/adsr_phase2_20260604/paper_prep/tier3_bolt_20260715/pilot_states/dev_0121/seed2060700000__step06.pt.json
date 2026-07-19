@@ -1,0 +1,62 @@
+{
+  "checkpoint_hash": "2058d6c10bd348da51669ff3886c6b4080405fe4c23bb3de183c293cb5f0bef9",
+  "completed_steps": 6,
+  "condition_hash": "ba1107836c019b31eac8cd1524fe718b912958ab4f20ac3c2993b9814556ab7c",
+  "cpu_rng_sha256": "a4abd54f3a88b1fb27b8b3237e0ac129f817342dccb83fab2baa4876c53ece85",
+  "cuda_rng_sha256": "0691b62e801d4ea97a2c75948a744152330b3ea005193f77b2504f38c7b56b0e",
+  "extras": {
+    "condition_payload": {
+      "cache_tensor_sha256": {
+        "encoder_hidden_cond": "005661f43c3c5d41801b94c27f6e8bb0a77975f863c457b9f4777bc4adc70b60",
+        "encoder_hidden_null": "1d18e9147bc571cc8510138ff543622eda978bb8b24c715397d209597520490e",
+        "encoder_mask_cond": "6fefaf78a06504d3161d5574fa32974515017f5174a24ebbbafdbb1c9b19a140",
+        "encoder_mask_null": "6fefaf78a06504d3161d5574fa32974515017f5174a24ebbbafdbb1c9b19a140"
+      },
+      "cfg_scale": 5.0,
+      "cfg_type": "cfg",
+      "guidance_interval": 0.5,
+      "guidance_scale_lyric": 0.0,
+      "guidance_scale_text": 0.0,
+      "lyrics": "",
+      "only_text_cache_tensor_sha256": {},
+      "prompt_id": "dev_0121",
+      "requested_vocal": 0,
+      "structure_hint": "intro-A-B-A'-bridge-A''",
+      "switched": false,
+      "text": "An after-dinner folk \u00d7 hip-hop fusion (vintage soul-flip touches) tune double-time at 168 bpm, featuring acoustic guitar, mandolin, upright bass, brushed snare. (no vocals; the lead is the instrument named below)."
+    },
+    "guidance_interval": 0.5,
+    "inference_steps": 30,
+    "next_timestep_index": 6,
+    "omega_scale": 10.0
+  },
+  "generator_rng_sha256": "61219955e27d95e1f4fb3571fe5400fb332956c3c20c34cb1f38d411a1eb7c68",
+  "latent_dtype": "torch.bfloat16",
+  "latent_sha256": "7354fb0ddd807191cc685d15ea14db408ae1969588b4912f064da7cc457698df",
+  "latent_shape": [
+    1,
+    8,
+    16,
+    666
+  ],
+  "model_hash": "203e623b252592794e667015ca51cab23d9bfdf74ad56c98efca5d4c2cf179ab",
+  "model_output_dtype": "torch.bfloat16",
+  "model_output_sha256": "3639ac51ff948eccf911dee242c9a9eab1b8f1115fe4a9cc5d5557f00f27703d",
+  "model_output_shape": [
+    1,
+    8,
+    16,
+    666
+  ],
+  "next_sigma": 0.9044515490531921,
+  "nfe_count": 6,
+  "prompt_id": "dev_0121",
+  "root_seed": 2060700000,
+  "scheduler_hash": "d3d724dec32d4f2d3df62d4dc9de30c1b74c0d2602e19063ec00031e2f7ebe8d",
+  "scheduler_index": 6,
+  "scheduler_step_count": 6,
+  "sigma": 0.9202777147293091,
+  "state_file_sha256": "bd354a4ba79226388247912f05667944740f34f88184b0b0bf76e00bae966ab2",
+  "state_id": "dev_0121__seed2060700000__step06",
+  "timestep": 920.2777099609375
+}
