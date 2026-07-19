@@ -115,3 +115,21 @@ Do not use `no quality loss`, `no degradation`, or `quality preserved`.
 - 2026-07-06 (YHC/PI-authorized): file created; Claim 1 and Claim 2 rows fully filled and
   verified against raw artifacts; Claims 3–5 filled for existing evidence with pending-task
   blanks; Claim 6 open. Verification notes V1–V4 recorded.
+
+## W2 adoption supersession — 2026-07-18
+
+`W2_ADOPTION = EXECUTED`
+
+`CLAIMS_SUPERSESSION_STATUS = APPLIED_APPEND_ONLY`
+
+This section supersedes earlier W2-adoption blockers without deleting them.
+Applied from
+`paper_prep/autochain_20260712/recompute/CLAIMS_UPDATE_DRAFT.md` under
+`paper_prep/DECISIONS.md` D-002.
+
+- Allowed: the pre-W2 detector undercounted violations relative to a
+  PI-calibrated Demucs/PANNs instrument on the audited design.
+- Required scope: corrected estimates are instrument-scoped and design-scoped;
+  historical legacy-detector and historical-AND values remain sensitivity-only.
+- Forbidden: generic population rate; proved no loss; causal vocal-generation
+  bias; retrospective hard difficulty bins.

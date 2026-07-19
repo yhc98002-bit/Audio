@@ -50,3 +50,25 @@ instrument falsification; it is not a validation PASS.
 Reduced-claims draft readiness: **READY_WITH_REDUCED_CLAIMS** if the draft uses
 only READY rows as full-strength positive claims and treats REDUCED rows with
 their wording constraints.
+
+## W2 adoption supersession — 2026-07-18
+
+`W2_ADOPTION = EXECUTED`
+
+`PLAN_SUPERSESSION_STATUS = APPLIED_APPEND_ONLY`
+
+This section supersedes only the earlier W2-adoption blockers and frozen legacy
+headline primacy; the earlier rows remain as provenance. Applied from
+`paper_prep/autochain_20260712/recompute/PLAN_UPDATE_DRAFT.md` under
+`paper_prep/DECISIONS.md` D-002.
+
+- Paper-primary corrected instrument: promoted `or`; held-out design-weighted
+  balanced accuracy `0.987308`.
+- Candidate-spine instrumental-request calibrated violation rate: `0.386485`
+  with joint 95% interval `[0.322633, 0.473812]`.
+- Candidate-spine vocal-request calibrated violation rate: `0.002311` with
+  joint 95% interval `[0.000352, 0.003905]`.
+- Required wording: instrument-scoped corrected estimates; never present them
+  as ground-truth population rates.
+- Historical numbers computed under the legacy detector or historical AND rule
+  remain preserved and sensitivity-only; they are not paper-primary estimates.
