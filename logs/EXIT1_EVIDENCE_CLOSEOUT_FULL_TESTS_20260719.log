@@ -1,0 +1,49 @@
+........................................................................ [ 18%]
+........................................................................ [ 37%]
+..................................................F..................... [ 55%]
+........................................................................ [ 74%]
+........................................................................ [ 92%]
+.............................                                            [100%]
+=================================== FAILURES ===================================
+_______ test_real_pi_gold_judge_audit_is_complete_but_never_auto_passes ________
+
+    def test_real_pi_gold_judge_audit_is_complete_but_never_auto_passes():
+        processed = ROOT / "paper_prep/pi_ratings_20260711/processed"
+>       result = MODULE.audit(
+            ROOT,
+            processed / "PI_GOLD_SMOKE.csv",
+            ROOT / "paper_prep/judge_raw/selfhost_qwen3_omni_pi_gold_smoke_20260711.jsonl",
+            processed / "PI_GOLD_SMOKE_JUDGE_SUMMARY.json",
+            processed / "PI_GOLD_HELDOUT.csv",
+            ROOT / "paper_prep/judge_raw/selfhost_qwen3_omni_pi_gold_heldout_20260711.jsonl",
+            processed / "PI_GOLD_HELDOUT_JUDGE_SUMMARY.json",
+        )
+
+tests/test_pi_gold_judge_audit_20260711.py:19: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+paper_prep/scripts/audit_pi_gold_judge_20260711.py:63: in audit
+    smoke = generic.audit(smoke_manifest, smoke_raw, smoke_summary, 3)
+paper_prep/scripts/audit_legacy_cxy_t7_20260710.py:89: in audit
+    hash_cache.setdefault(media, sha256_file(media))
+paper_prep/scripts/audit_legacy_cxy_t7_20260710.py:26: in sha256_file
+    with path.open("rb") as handle:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('orbit-research/adsr_phase2_20260604/paper_prep/validation_A_prime/primary_package_20260709/media/aprime_0503_7bde6b74b0bd.wav')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return self._accessor.open(self, mode, buffering, encoding, errors,
+                                   newline)
+E       FileNotFoundError: [Errno 2] No such file or directory: 'orbit-research/adsr_phase2_20260604/paper_prep/validation_A_prime/primary_package_20260709/media/aprime_0503_7bde6b74b0bd.wav'
+
+/HOME/paratera_xy/pxy1289/.conda/envs/audio-prm/lib/python3.10/pathlib.py:1119: FileNotFoundError
+=========================== short test summary info ============================
+FAILED tests/test_pi_gold_judge_audit_20260711.py::test_real_pi_gold_judge_audit_is_complete_but_never_auto_passes

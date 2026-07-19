@@ -1,0 +1,44 @@
+........................................................................ [ 18%]
+........................................................................ [ 37%]
+........................................................................ [ 55%]
+........................................................................ [ 74%]
+........................................................................ [ 92%]
+.FF..........................                                            [100%]
+=================================== FAILURES ===================================
+___________________ test_t5_checksum_is_present_and_matches ____________________
+
+>   ???
+
+/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion_exit1_20260716/tests/test_w2_housekeeping_20260712.py:14: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/HOME/paratera_xy/pxy1289/.conda/envs/audio-prm/lib/python3.10/pathlib.py:1126: in read_bytes
+    with self.open(mode='rb') as f:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/tmp/AudioDiffusion_exit1_closeout_20260719/paper_prep/rater_bundles_20260711/t5_sa3_calibration.zip')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return self._accessor.open(self, mode, buffering, encoding, errors,
+                                   newline)
+E       FileNotFoundError: [Errno 2] No such file or directory: '/tmp/AudioDiffusion_exit1_closeout_20260719/paper_prep/rater_bundles_20260711/t5_sa3_calibration.zip'
+
+/HOME/paratera_xy/pxy1289/.conda/envs/audio-prm/lib/python3.10/pathlib.py:1119: FileNotFoundError
+______ test_static_demo_has_real_audio_figures_and_no_missing_references _______
+
+>   ???
+E   AssertionError: assert False
+E    +  where False = is_file()
+E    +    where is_file = (PosixPath('/tmp/AudioDiffusion_exit1_closeout_20260719/paper_prep/w2_execution_20260712/housekeeping/demo_site') / 'assets/fig2_regime_plot.png').is_file
+
+/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion_exit1_20260716/tests/test_w2_housekeeping_20260712.py:31: AssertionError
+=========================== short test summary info ============================
+FAILED tests/test_w2_housekeeping_20260712.py::test_t5_checksum_is_present_and_matches
+FAILED tests/test_w2_housekeeping_20260712.py::test_static_demo_has_real_audio_figures_and_no_missing_references
