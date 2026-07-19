@@ -1,0 +1,2 @@
+required_controls,completed_controls,status,reason,evidence
+64,0,FAIL,bounded calibration continuation failed before a remaining-step forward call; main controls were not launched,V15_TERMINAL_DIAGNOSIS.json

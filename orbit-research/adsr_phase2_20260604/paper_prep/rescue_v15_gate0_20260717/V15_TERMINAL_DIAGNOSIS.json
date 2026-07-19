@@ -1,0 +1,71 @@
+{
+  "constraint_axis_launched": false,
+  "created_utc": "2026-07-17T12:49:38.592315+00:00",
+  "effort_cap_applied": true,
+  "failure_sequence": [
+    {
+      "attempt": "initial calibration invocation",
+      "bounded_action": "one exact-cache/offline environment repair",
+      "cause": "handler resolved an absent nested checkpoints directory and entered an offline auto-download path",
+      "impact": "DNS failed; zero model bytes acquired; zero generation",
+      "result": "stopped before model load"
+    },
+    {
+      "attempt": "calibration seed 2072000016",
+      "bounded_action": "one native-output state-harness repair",
+      "cause": "native generate_audio returned a dict containing target_latents while the harness treated it as a tensor",
+      "impact": "state retained; no final audio artifact written",
+      "result": "uninterrupted 50-NFE reference and step-20 state completed; reporting stopped"
+    },
+    {
+      "attempt": "calibration seed 2072000017",
+      "bounded_action": "stop under B1; no second state-harness repair",
+      "cause": "native continuation requires timesteps as a torch.Tensor; harness supplied the frozen suffix as a list",
+      "impact": "no perturbation frozen; no main controls or rollover launched",
+      "result": "uninterrupted 50-NFE reference, valid audio, and step-20 state completed; first fork continuation stopped before a transformer call"
+    }
+  ],
+  "genuine_pi_decisions": [
+    "Authorize the targeted tensor-timestep continuation fix and a fresh bounded v1.5 Gate-0 dispatch.",
+    "Revert the tempo axis to ACE-Step v1 primitives already proven."
+  ],
+  "main_controls_launched": false,
+  "measured_full_generation_nfe": 50,
+  "model_identity": "ACE-Step/acestep-v15-xl-sft@d1ca0bc96e29cd46435219ceb4f8e3a13a8eaf50",
+  "model_is_turbo": false,
+  "policy_training_launched": false,
+  "retained_evidence": {
+    "diagnostic_logs": {
+      "calibration_an29_gpu0.log": {
+        "path": "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion_v15_gate0_20260717/orbit-research/adsr_phase2_20260604/paper_prep/rescue_v15_gate0_20260717/logs/calibration_an29_gpu0.log",
+        "sha256": "1fd67c6b1c6ae694c6304ccaa7c0cb8b8505f305fb751385e3714cd10db72f6d"
+      },
+      "calibration_an29_gpu0_retry1.log": {
+        "path": "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion_v15_gate0_20260717/orbit-research/adsr_phase2_20260604/paper_prep/rescue_v15_gate0_20260717/logs/calibration_an29_gpu0_retry1.log",
+        "sha256": "344a34ef83a112d89ec5e0e9ffbe5a3d60b96ebfab6934ef5f43ded05e7d05bf"
+      },
+      "calibration_an29_gpu0_retry2.log": {
+        "path": "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion_v15_gate0_20260717/orbit-research/adsr_phase2_20260604/paper_prep/rescue_v15_gate0_20260717/logs/calibration_an29_gpu0_retry2.log",
+        "sha256": "cdaa9d940e5ecefe9ae484f16f1777f4d43a3a56cba2480410966984e33c4de2"
+      }
+    },
+    "reference_record": "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion_v15_gate0_20260717/orbit-research/adsr_phase2_20260604/paper_prep/rescue_v15_gate0_20260717/artifacts/run_20260717/records/calibration_reference/cal_v15g0_p00_seed2072000017.json",
+    "reference_record_sha256": "3c897af630b13bf4d36a61e001895dfc373e0ab33e74846e94dd7b24515ea840",
+    "state_seed16": "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion_v15_gate0_20260717/orbit-research/adsr_phase2_20260604/paper_prep/rescue_v15_gate0_20260717/artifacts/run_20260717/states/cal_v15g0_p00_seed2072000016/step_20.pt",
+    "state_seed16_sha256": "1906abaff141e839e54e77b90be08f28270827b5912994a65aa9607e3dfa9d12",
+    "state_seed17": "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion_v15_gate0_20260717/orbit-research/adsr_phase2_20260604/paper_prep/rescue_v15_gate0_20260717/artifacts/run_20260717/states/cal_v15g0_p00_seed2072000017/step_20.pt",
+    "state_seed17_sha256": "f32241bf9d0a136d4a7595e5b9b21af0aab76c6ba838d42a93e25fa89af128e6",
+    "valid_audio_seed17": "/XYFS02/HDD_POOL/paratera_xy/pxy1289/HaocunYe/Research/AudioDiffusion_v15_gate0_20260717/orbit-research/adsr_phase2_20260604/paper_prep/rescue_v15_gate0_20260717/artifacts/run_20260717/audio/calibration_reference/cal_v15g0_p00_seed2072000017.wav",
+    "valid_audio_seed17_sha256": "7e1e8181b572f5facf1370b02f28cf5fe1a2602c881984d7a057961b9f03a5a0"
+  },
+  "runtime_source_sync": {
+    "apg_code_sha256": "33985a589f3af4f3daff071b71cae68da1bf971070da7c27223acbea9f5f2ae7",
+    "config_code_sha256": "5f15aa79fe793bba3c00b6992dd193a269954950603d5031ecd7703b0fa69da1",
+    "model_code_sha256": "e0a61a9da2c5e4d38a995417526c595d1bf6ae3820ff376ac7c419331fe63cec",
+    "note": "The official handler synchronized three small runtime code files from the pinned source tree before load. Weight shards were not modified.",
+    "source_commit": "6d467e4b5081ccb0abf1ec1bf4fdf9051a2d34b0"
+  },
+  "status": "FAIL_ESCALATED",
+  "tempo_axis_launched": false,
+  "terminal_component": "restartable continuation / fork calibration"
+}

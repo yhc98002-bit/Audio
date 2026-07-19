@@ -1,0 +1,2 @@
+required_controls,completed_controls,status,reason,evidence
+64,0,FAIL,not launched after the bounded restart/fork prerequisite failed,V15_TERMINAL_DIAGNOSIS.json
